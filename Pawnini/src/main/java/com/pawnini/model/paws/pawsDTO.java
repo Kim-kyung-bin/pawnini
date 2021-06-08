@@ -3,7 +3,7 @@ package com.pawnini.model.paws;
 import java.sql.Date;
 
 // 입양할 동물 정보 데이터
-public class pawsDTO {
+public class PawsDTO {
 	private int paws_id;
 	private String paws_f_code;
 	private String paws_s_code;
