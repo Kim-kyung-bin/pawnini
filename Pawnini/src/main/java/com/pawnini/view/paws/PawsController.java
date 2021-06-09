@@ -16,15 +16,51 @@ public class PawsController {
 	@Autowired
 	private PawsService pawsService;
 	
+	//정보 등록
 	@RequestMapping("/insertPaws.do")
 	public String insertPaws(PawsDTO dto) {
 		pawsService.insertPaws(dto);
-		return "getPawsList.do";
+		return "redirect:getPawsList.do";
 	}
 	
+	//리스트 불러오기
 	@RequestMapping("/getPawsList.do")
 	public String getPawsList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getPawsList(dto));
 		return "paws/getPawsList";
 	}
+	
+	//정보 삭제
+	@RequestMapping("/deletePaws.do")
+	public String deletePaws(PawsDTO dto) {
+		pawsService.deletePaws(dto);
+		return "redirect:getPawsList.do";
+	}
+	
+	//상세 조회
+	@RequestMapping("/getPaws.do")
+	public String getPaws(PawsDTO dto, Model model) {
+		model.addAttribute("paws", pawsService.getPaws(dto));
+		return "paws/getPaws";
+	}
+	
+	//정보 수정
+	@RequestMapping("/updatePaws.do")
+	public String updatePaws(PawsDTO dto) {
+		pawsService.updatePaws(dto);
+		return "redirect:getPawsList.do";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@
 	
 	<!-- 동물 정보 입력 -->
 	<insert id="insertPaws" parameterType="paws">
-	<![CDATA[
+	
 		INSERT INTO PAWS
 		(
 		PAWS_ID,
@@ -31,25 +31,23 @@
 		PAWS_AGE,
 		PAWS_IMG,
 		PAWS_DESC,
-		PAWS_REGDATE,
 		PAWS_SEX,
 		PAWS_IS_NEUTERED,
 		PAWS_HEALTH
 		)
 		VALUES(
-		(SELECT NVL(MAX(PAWS_ID),0)+1 FROM PAWS),
+		(SELECT NVL(MAX(PAWS_ID),0)+1 FROM paws),
 		#{paws_f_code},
 		#{paws_s_code},
 		#{paws_name},
 		#{paws_age},
 		#{paws_img},
 		#{paws_desc},
-		#{paws_date},
 		#{paws_sex},
 		#{paws_is_neutered},
 		#{paws_health}
 		)
-	]]>
+
 	</insert>
 	
 	<!-- 동물 정보 수정 -->
@@ -72,9 +70,9 @@
 	<!-- 동물 정보 삭제 -->	
 	<delete id="deletePaws">
 		<![CDATA[
-		DELETE PAWS 
+		DELETE PAWS
 		WHERE
-		PAWS_ID= #{paws_id}
+		PAWS_ID=#{paws_id}
 		]]>
 	</delete>
 	
@@ -88,13 +86,6 @@
 		]]>
 	</select>
 	
-	<!-- 등록된 총 동물 수 불러오기 -->
-	<select id="getCountPaws" resultType="java.lang.Integer">
-		<![CDATA[
-			SELECT COUNT(*) FROM PAWS WHERE PAWS_ID=#{paws_id}
-		]]>
-	</select>
-
 	<!-- 등록 리스트 불러오기 -->
 	<select id="getPawsList" resultMap="pawsResult">
 		SELECT *

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-		<form action="insertPaws.do" method="post" enctype="multipart/form-data">
+		<form action="insertPaws.do" method="post">
 			<table>
 				<tr>
 					<td>1차분류
@@ -20,6 +20,8 @@
 					<td>2차분류<input type="text" name="paws_s_code">
 				<tr>
 					<td>이름<input type="text" name="paws_name">
+				<tr>
+					<td>나이<input type="text" name="paws_age">
 				<tr>
 					<td>사진(수정필요)<input type="text" name="paws_img">
 				<tr>
@@ -38,6 +40,7 @@
 					<td><input type="submit" value="등록">
 			</table>
 		</form>
+		<a href="getPawsList.do">목록</a>
 	</div>
 </body>
 </html>

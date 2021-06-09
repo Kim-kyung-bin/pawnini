@@ -17,9 +17,9 @@ public class PawsDAO {
 	// 등록
 	public void insertPaws(PawsDTO dto) {
 		System.out.println("등록처리");
-		dto.toString();
-		System.out.println(dto);
+		System.out.println(dto.toString());
 		mybatis.insert("PawsDAO.insertPaws",dto);
+		System.out.println("mybatis 실행완료");
 	}
 	// 수정
 	public void updatePaws(PawsDTO dto) {
