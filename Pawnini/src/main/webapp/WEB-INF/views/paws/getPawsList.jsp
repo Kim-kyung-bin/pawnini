@@ -41,7 +41,7 @@
 				<td><a href="deletePaws.do?paws_id=${paws.paws_id}">삭제</a>
 			</c:forEach>
 		</table>
-		<a href="insertPaws.jsp">신규 등록</a>
+		<a href="goInsertPaws.do">신규 등록</a>
 	</div>
 </body>
 </html>

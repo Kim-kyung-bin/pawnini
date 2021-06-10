@@ -2,6 +2,8 @@ package com.pawnini.model.paws;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 // 입양할 동물 정보 데이터
 public class PawsDTO {
 	private int paws_id;
@@ -16,7 +18,18 @@ public class PawsDTO {
 	private char paws_is_neutered;
 	private String paws_health;
 	
+	private MultipartFile uploadFile;
 	
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+
+
 	public int getPaws_id() {
 		return paws_id;
 	}

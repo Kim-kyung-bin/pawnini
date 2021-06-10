@@ -23,7 +23,7 @@
 				<tr>
 					<td>나이<input type="text" name="paws_age">
 				<tr>
-					<td>사진(수정필요)<input type="text" name="paws_img">
+					<td>사진<input type="file" name="paws_img">
 				<tr>
 					<td>설명<input type="text" name="paws_desc">
 				<tr>

@@ -16,6 +16,12 @@ public class PawsController {
 	@Autowired
 	private PawsService pawsService;
 	
+	//정보 등록 뷰 페이지 이동
+	@RequestMapping("/goInsertPaws.do")
+	public String goInsertPaws() {
+		return "paws/insertPaws";
+	}
+	
 	//정보 등록
 	@RequestMapping("/insertPaws.do")
 	public String insertPaws(PawsDTO dto) {

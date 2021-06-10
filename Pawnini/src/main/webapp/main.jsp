@@ -18,6 +18,7 @@
     <header class="Header_menu">
       <div class="Title">
         <h1><img src=images/Rogo.jpg></h1>
+        <img src="images/1.jpg">
       </div>
       <input class="Header_input" type="text" placeholder="Search..." />
       <ul class="Header_ul">

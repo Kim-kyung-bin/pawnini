@@ -3,6 +3,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style type="text/css">
+	.img {width: 300px; height: 300px;}
+	.imgbox {
+	border: 1px solid black;
+	width: 305px;
+	height: 305px;
+	margin: 20px 0;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -24,13 +33,14 @@
 				<tr>
 					<td>나이<input type="text" name="paws_age" value="${paws.paws_age}">
 				<tr>
-					<td>사진(수정필요)<input type="text" name="paws_img" value="${paws.paws_img}">
+					<td>사진<input type="file" name="paws_img" value="${paws.paws_img}">
 				<tr>
 					<td>설명<input type="text" name="paws_desc" value="${paws.paws_desc}">
 				<tr>
 					<td>성별<input type="text" name="paws_sex" value="${paws.paws_sex}">
 				<tr>
 					<td>중성화여부
+					
 					<select name="paws_is_neutered">
                   		<option value="Y">Y</option>
                     	<option value="N">N</option>
@@ -41,8 +51,13 @@
 					<td><input type="submit" value="수정">
 			</table>
 		</form>
+				수정 전 이미지 <br>
+			<div class="imgbox">
+				<img src="images/${paws.paws_img}" class="img"><br>
+			</div>
 		<a href="deletePaws.do?paws_id=${paws.paws_id}">삭제</a>
 		<a href="getPawsList.do">목록</a>
+		
 	</div>
 </body>
 </html>
