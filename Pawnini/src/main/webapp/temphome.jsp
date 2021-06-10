@@ -9,6 +9,7 @@
 <body>
 <div align="center">
 	<a href="getPawsList.do">동물관리</a>
+	<a href="getAdoptionList.do">분양글 게시판</a>
 </div>
 </body>
 </html>

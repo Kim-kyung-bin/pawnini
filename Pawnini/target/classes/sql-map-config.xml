@@ -6,10 +6,12 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="paws" type="com.pawnini.model.paws.PawsDTO"/>
+		<typeAlias alias="adoption" type="com.pawnini.model.adoption.AdoptionDTO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
 	<mappers>
-		<mapper resource="mappings/paws-mapping.xml"/>
+		<mapper resource="mappings/paws/paws-mapping.xml"/>
+		<mapper resource="mappings/adoption/adoption-mapping.xml"/>
 	</mappers>
 </configuration>
