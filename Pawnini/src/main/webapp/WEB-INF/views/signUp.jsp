@@ -48,5 +48,5 @@
       <button class="User_Button">Sign Up</button>
     </div>
   </body>
-    <%@ include file="include/Footer.jsp" %>x
+    <%@ include file="include/Footer.jsp" %>
 </html>

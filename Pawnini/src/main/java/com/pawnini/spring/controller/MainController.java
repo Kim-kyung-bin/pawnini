@@ -89,6 +89,10 @@ public class MainController {
 	public String notice() {
 		return "NOTIC/Notice";
 	}
+	@RequestMapping("/basket.do")
+	public String baskey() {
+		return "basket";
+	}
 }
 
 

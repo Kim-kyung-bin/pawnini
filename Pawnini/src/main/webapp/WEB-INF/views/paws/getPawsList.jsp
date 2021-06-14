@@ -6,6 +6,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+	table{
+		text-align: center;
+	}
+	.thu_img {
+		width: 50px;
+		height: 50px;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -13,9 +22,10 @@
 	<div align="center">
 		
 		<h1> 등록 동물 관리 </h1>
-		<table border="1" cellpadding="0" cellspacing="0" width="700">
+		<table border="1" width="1000">
 			<tr>
 				<td bgcolor="orange">등록번호
+				<td bgcolor="orange">사진
 				<td bgcolor="orange">1차분류
 				<td bgcolor="orange">2차분류
 				<td bgcolor="orange">이름
@@ -28,7 +38,8 @@
 				
 			<c:forEach items="${pawsList}" var="paws">
 			<tr>
-				<td>${paws.paws_id}	
+				<td>${paws.paws_id}
+				<td><img src="${paws.paws_thumb_img}" class="thu_img">	
 				<td>${paws.paws_f_code}	
 				<td>${paws.paws_s_code}
 				<td>${paws.paws_name}
@@ -41,7 +52,8 @@
 				<td><a href="deletePaws.do?paws_id=${paws.paws_id}">삭제</a>
 			</c:forEach>
 		</table>
-		<a href="goInsertPaws.do">신규 등록</a>
+		<a href="goInsertPaws.do">신규 등록</a><br>
+		<a href="getPawsList.do">분양페이지</a>
 	</div>
 </body>
 </html>

@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div>
-		<form action="insertPaws.do" method="post">
+		<form action="insertPaws.do" method="post" enctype="multipart/form-data">
 			<table border="1">
 				<tr>
 					<td>1차분류
@@ -27,12 +27,13 @@
 				<tr>
 					<td>나이<input type="text" name="paws_age">
 				<tr>
-					<div class="inputArea">
- 					<label for="paws_img">이미지</label>
- <input type="file" id="paws_img" name="file" />
- <div class="select_img"><img src="" /></div>
- 
-				</div>
+					<td><div class="inputArea">
+ 						<label for="paws_img">이미지</label>
+ 						<input type="file" id="paws_img" name="file" />
+ 				<tr>
+ 					<td>미리보기
+ 					<div class="select_img"><img src="" /></div>
+					</div>
 				<tr>
 					<td>설명<input type="text" name="paws_desc">
 				<tr>
@@ -49,9 +50,11 @@
 					<td><input type="submit" value="등록">
 			</table>
 		</form>
+		<br>
 		<a href="getPawsList.do">목록</a>
 	</div>
 </body>
+
  <script>
   $("#paws_img").change(function(){
    if(this.files && this.files[0]) {
@@ -63,4 +66,5 @@
    }
   });
  </script>
+
 </html>

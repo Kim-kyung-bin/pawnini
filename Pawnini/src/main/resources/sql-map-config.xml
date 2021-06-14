@@ -8,6 +8,7 @@
 	<typeAliases>
 		<typeAlias alias="paws" type="com.pawnini.model.paws.PawsDTO"/>
 		<typeAlias alias="cs" type="com.pawnini.model.cs.CsDTO"/>
+		<typeAlias alias="cs_reply" type="com.pawnini.model.cs.Cs_replyDTO"/>
 		<typeAlias alias="adoption" type="com.pawnini.model.adoption.AdoptionDTO"/>
 	</typeAliases>
 	
@@ -15,6 +16,7 @@
 	<mappers>
 		<mapper resource="mappings/adoption-mapping.xml"/>
 		<mapper resource="mappings/cs-mapping.xml"/>
+		<mapper resource="mappings/cs_reply-mapping.xml"/>
 		<mapper resource="mappings/paws-mapping.xml"/>		
 	</mappers>
 	

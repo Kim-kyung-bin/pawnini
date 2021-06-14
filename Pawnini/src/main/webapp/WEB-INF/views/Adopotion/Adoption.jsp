@@ -1,8 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <style type="text/css">
+  	.img{
+		width:300px;
+  		
+  		height: 300px;
+  		box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.5);
+  	}
+  	.text{
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	font-size: 20px;
+  	font-weight: 600;
+  	border-top: 1px solid rgba(0,0,0,0.3);
+  	padding-top: 30px;
+  	}
+  </style>
+  
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,13 +34,11 @@
     <section>
       <div class="sa sa-scaleDown">
         <ul class="bener_ul">
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
+          <c:forEach items="${pawsList}" var="paws">
+          <li><img src="${paws.paws_thumb_img}" class="img"><br><a href="getPaws.do?paws_id=${paws.paws_id}"><span class="text">${paws.paws_name}</span></a></li>
+          </c:forEach>
         </ul>
+        <a href="PawsList.do">관리</a>
       </div>
     </section>
    
