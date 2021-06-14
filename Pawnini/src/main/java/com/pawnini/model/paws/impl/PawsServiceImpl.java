@@ -33,6 +33,14 @@ public class PawsServiceImpl implements PawsService {
 	public List<PawsDTO> getPawsList(PawsDTO dto) {
 		return pawsDAO.getPawsList(dto);
 	}
+	@Override
+	public List<PawsDTO> getDogList(PawsDTO dto) {
+		return pawsDAO.getDogList(dto);
+	}
+	@Override
+	public List<PawsDTO> getCatList(PawsDTO dto) {
+		return pawsDAO.getCatList(dto);
+	}
 
 	@Override
 	public PawsDTO getPaws(PawsDTO dto) {

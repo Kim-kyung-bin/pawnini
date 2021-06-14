@@ -14,7 +14,7 @@
 
 
     <h1 class="event_Title">TODAY EVENT</h1>
-      <div>
+      
         <div class="event">
 
           <ul class="event_grid">
@@ -64,7 +64,7 @@
       window.addEventListener("load", saFunc);
       window.addEventListener("scroll", saFunc);
     </script>
-    <script src="./clock.js"></script>
-    <script src="./clock2.js"></script>
+    <script src="../js/clock.js"></script>
+    <script src="../js/clock2.js"></script>
   </body>
 </html>

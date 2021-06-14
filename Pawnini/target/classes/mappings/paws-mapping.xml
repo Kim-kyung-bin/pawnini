@@ -33,7 +33,8 @@
 		PAWS_DESC,
 		PAWS_SEX,
 		PAWS_IS_NEUTERED,
-		PAWS_HEALTH
+		PAWS_HEALTH,
+		PAWS_THUMB_IMG
 		)
 		VALUES(
 		(SELECT NVL(MAX(PAWS_ID),0)+1 FROM paws),
@@ -45,7 +46,8 @@
 		#{paws_desc},
 		#{paws_sex},
 		#{paws_is_neutered},
-		#{paws_health}
+		#{paws_health},
+		#{paws_thumb_img}
 		)
 
 	</insert>
@@ -58,7 +60,6 @@
 			PAWS_S_CODE=#{paws_s_code},
 			PAWS_NAME=#{paws_name},
 			PAWS_AGE=#{paws_age},
-			PAWS_IMG=#{paws_img},
 			PAWS_DESC=#{paws_desc},
 			PAWS_SEX=#{paws_sex},
 			PAWS_IS_NEUTERED=#{paws_is_neutered},
@@ -91,9 +92,28 @@
 		SELECT *
 		FROM PAWS
 		ORDER BY PAWS_ID DESC
+	<!--ORDER BY DBMS_RANDOM.VALUE-->
+	</select>
+	
+	<!-- 강아지 등록 리스트 불러오기 -->
+	<select id="getDogList" resultMap="pawsResult">
+		SELECT *
+		FROM PAWS
+		WHERE PAWS_F_CODE ='DOG'
+		ORDER BY PAWS_ID DESC
+	<!--ORDER BY DBMS_RANDOM.VALUE-->
+	</select>
+	
+	<!-- 고양이 등록 리스트 불러오기 -->
+	<select id="getCatList" resultMap="pawsResult">
+		SELECT *
+		FROM PAWS
+		WHERE PAWS_F_CODE ='CAT'
+		ORDER BY PAWS_ID DESC
+	<!--ORDER BY DBMS_RANDOM.VALUE-->
 	</select>
 
-
+	
 
 
 </mapper>

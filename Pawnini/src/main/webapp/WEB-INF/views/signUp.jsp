@@ -1,4 +1,4 @@
-<<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="style/main.css" />
   </head>
 
-  <<%@ include file="include/Header.jsp" %>
-  
+   	<%@ include file="include/Header.jsp" %>
   <body>
     
     <h1>공사중</h1>
@@ -48,7 +47,6 @@
       />
       <button class="User_Button">Sign Up</button>
     </div>
-
-    <%@ include file="../include/Footer.jsp" %>
   </body>
+    <%@ include file="include/Footer.jsp" %>
 </html>

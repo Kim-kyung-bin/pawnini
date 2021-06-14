@@ -12,13 +12,13 @@
 </head>
 <body>
 	<div>
-		<form action="insertPaws.do" method="post">
+		<form action="insertPaws.do" method="post" enctype="multipart/form-data">
 			<table border="1">
 				<tr>
 					<td>1차분류
 					<select name="paws_f_code">
-						<option value="강아지">강아지</option>
-						<option value="고양이">고양이</option>
+						<option value="DOG">강아지</option>
+						<option value="CAT">고양이</option>
 					</select>
 				<tr>
 					<td>2차분류<input type="text" name="paws_s_code">
@@ -27,23 +27,13 @@
 				<tr>
 					<td>나이<input type="text" name="paws_age">
 				<tr>
-					<div class="inputArea">
- <label for="paws_img">이미지</label>
- <input type="file" id="paws_img" name="file" />
- <div class="select_img"><img src="" /></div>
- 
- <script>
-  $("#paws_img").change(function(){
-   if(this.files && this.files[0]) {
-    var reader = new FileReader;
-    reader.onload = function(data) {
-     $(".select_img img").attr("src", data.target.result).width(300);        
-    }
-    reader.readAsDataURL(this.files[0]);
-   }
-  });
- </script>
-</div>
+					<td><div class="inputArea">
+ 						<label for="paws_img">이미지</label>
+ 						<input type="file" id="paws_img" name="file" />
+ 				<tr>
+ 					<td>미리보기
+ 					<div class="select_img"><img src="" /></div>
+					</div>
 				<tr>
 					<td>설명<input type="text" name="paws_desc">
 				<tr>
@@ -60,7 +50,21 @@
 					<td><input type="submit" value="등록">
 			</table>
 		</form>
+		<br>
 		<a href="getPawsList.do">목록</a>
 	</div>
 </body>
+
+ <script>
+  $("#paws_img").change(function(){
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $(".select_img img").attr("src", data.target.result).width(300);        
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });
+ </script>
+
 </html>

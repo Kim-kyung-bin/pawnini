@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberDAO">
+
+	<resultMap id="memberResult" type="member" >
+		<id property="member_id" column="MEMBER_ID"/>
+		<result property="member_pwd" column="MEMBER_PWD"/>
+		<result property="member_name" column="MEMBER_NAME"/>
+		<result property="member_regdate" column="MEMBER_REGDATE"/>
+	</resultMap>
+	
+	<!-- 로그인 -->
+	<select id="login" resultType="member">
+		SELECT MEMBER_ID, MEMBER_PWD
+    	FROM MEMBER
+    	WHERE MEMBER_ID = #{member_id}
+        	AND MEMBER_PWD = #{member_pwd}
+	</select>
+	
+</mapper>

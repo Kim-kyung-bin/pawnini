@@ -25,7 +25,7 @@ public class MainController {
 	}
 	
 	/********************************** 헤더 경로지정 컨트롤러 ************************************/
-	@RequestMapping("/login.do")
+	@RequestMapping("/gologin.do")
 	public String login() {
 		return "Login";
 	}
@@ -75,19 +75,23 @@ public class MainController {
 	}
 	@RequestMapping("/adoption.do")
 	public String adoption() {
-		return "Adoption/Adoption";
+		return "Adopotion/Adoption";
 	}
 	@RequestMapping("/adoptionDog.do")
 	public String adoptionDog() {
-		return "Adoption/dog";
+		return "Adopotion/dog";
 	}
 	@RequestMapping("/adoptionCat.do")
 	public String adoptionCat() {
-		return "Adoption/Cat";
+		return "Adopotion/Cat";
 	}
 	@RequestMapping("/notice.do")
 	public String notice() {
 		return "NOTIC/Notice";
+	}
+	@RequestMapping("/basket.do")
+	public String baskey() {
+		return "basket";
 	}
 }
 

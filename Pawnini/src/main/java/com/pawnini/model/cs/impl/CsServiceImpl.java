@@ -12,7 +12,7 @@ import com.pawnini.model.cs.CsService;
 public class CsServiceImpl implements CsService {
 	
 	@Autowired
-	private CsDAOImpl csDAO;
+	private CsDAO csDAO;
 	
 	public void insertCs(CsDTO dto) {
 		csDAO.insertCs(dto);
@@ -28,8 +28,13 @@ public class CsServiceImpl implements CsService {
 	public CsDTO getCs(CsDTO dto) {
 		return csDAO.getCs(dto);
 	}
-	public List <CsDTO> getCsList(CsDTO dto) {
-		return csDAO.getCsList(dto);
+	public List <CsDTO> getCsList(String searchCondition, String searchKeyword, int start, int end) throws Exception {
+		return csDAO.getCsList(searchCondition, searchKeyword, start, end);
+	}
+	
+	//pagination에서 필요함 (DAO - Service - ServiceImpl)
+	public int getCountCs(String searchCondition, String searchKeyword) throws Exception {
+		return csDAO.getCountCs(searchCondition, searchKeyword);
 	}
 	
 }

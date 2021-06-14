@@ -15,8 +15,31 @@ public class PawsDTO {
 	private String paws_sex;
 	private char paws_is_neutered;
 	private String paws_health;
+	private String paws_thumb_img;
+	private String searchKeyword;
 	
 	
+	
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
+
+	public String getPaws_thumb_img() {
+		return paws_thumb_img;
+	}
+
+
+	public void setPaws_thumb_img(String paws_thumb_img) {
+		this.paws_thumb_img = paws_thumb_img;
+	}
+
+
 	public int getPaws_id() {
 		return paws_id;
 	}

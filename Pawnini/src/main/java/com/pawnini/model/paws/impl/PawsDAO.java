@@ -41,6 +41,16 @@ public class PawsDAO {
 		System.out.println("목록 불러오기");
 		return mybatis.selectList("PawsDAO.getPawsList",dto);
 	}
+	//강아지 리스트 불러오기
+	public List<PawsDTO> getDogList(PawsDTO dto) {
+		System.out.println("목록 불러오기");
+		return mybatis.selectList("PawsDAO.getDogList",dto);
+	}
+	//고양이 리스트 불러오기
+	public List<PawsDTO> getCatList(PawsDTO dto) {
+		System.out.println("목록 불러오기");
+		return mybatis.selectList("PawsDAO.getCatList",dto);
+	}
 	//리스트 수 불러오기
 	public int getCountPaws(PawsDTO dto) {
 		System.out.println("리스트 등록수 불러오기");

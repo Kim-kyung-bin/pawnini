@@ -20,5 +20,6 @@
 	</div>
 	<a href="goUpdate.do?adoption_id=${adoption.adoption_id}">수정</a>
 	<a href="deleteAdoption.do?adoption_id=${adoption.adoption_id}">삭제</a>
+	<a href="getAdoptionList.do">목록</a>
 </body>
 </html>

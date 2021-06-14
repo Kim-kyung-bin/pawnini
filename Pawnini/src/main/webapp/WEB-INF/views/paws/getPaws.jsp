@@ -10,12 +10,12 @@
 	<div>
 		<form action="updatePaws.do" method="post">
 		<input name="paws_id" type="hidden" value="${paws.paws_id}">
-			<table>
+			<table border="1">
 				<tr>
 					<td>1차분류
 					<select name="paws_f_code" >
-						<option value="강아지">강아지</option>
-						<option value="고양이">고양이</option>
+						<option value="DOG">강아지</option>
+						<option value="CAT">고양이</option>
 					</select>
 				<tr>
 					<td>2차분류<input type="text" name="paws_s_code" value="${paws.paws_s_code}">
@@ -23,8 +23,6 @@
 					<td>이름<input type="text" name="paws_name" value="${paws.paws_name}">
 				<tr>
 					<td>나이<input type="text" name="paws_age" value="${paws.paws_age}">
-				<tr>
-					<td>사진(수정필요)<input type="text" name="paws_img" value="${paws.paws_img}">
 				<tr>
 					<td>설명<input type="text" name="paws_desc" value="${paws.paws_desc}">
 				<tr>
@@ -45,4 +43,5 @@
 		<a href="getPawsList.do">목록</a>
 	</div>
 </body>
+
 </html>

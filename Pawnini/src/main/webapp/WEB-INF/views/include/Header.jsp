@@ -13,7 +13,7 @@
   <body>
     <div class="Login">
       <ul class="Login_ul">
-        <li><a href="login.do">LOGIN</a></li>
+        <li><a href="gologin.do">LOGIN</a></li>
         <li><a href="signUp.do">SignUp</a></li>
         <li><a href="myPage.do">My Pages</a></li>
       </ul>
@@ -25,6 +25,7 @@
         </h1>
       </div>
       <input class="Header_input" type="text" placeholder="Search..." />
+      <h3 class="basket"><a href="basket.do">장바구니</a></h3>
       <ul class="Header_ul">
         <li class="Dog_dropmenu">
           강아지
@@ -46,10 +47,10 @@
         <li><a href="service.do">고객센터</a></li>
 
         <li class="Dog_dropmenu">
-          <a href="adoption.do"> 분양</a>
+          <a href="getPawsList.do"> 분양</a>
           <span class="dropmenu">
-            <span><a href="adoptionDog.do">Cat</a></span>
-            <span><a href="adoptionCat.do">Dog</a></span>
+            <span><a href="getCatList.do">Cat</a></span>
+            <span><a href="getDogList.do">Dog</a></span>
           </span>
         </li>
         <li><a href="notice.do">공지</a></li>

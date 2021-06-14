@@ -76,6 +76,14 @@
 	<select id="getAdoptionList" resultMap="adoptionResult">
 		SELECT *
 		FROM ADOPTION
+		<where>
+		<if test="searchCondition == 'ADOPTION_TITLE'">
+		AND ADOPTION_TITLE LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		<if test="searchCondition == 'ADOPTION_CONTENT'">
+		AND ADOPTION_CONTENT LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		</where>
 		ORDER BY ADOPTION_ID DESC
 	</select>
 </mapper>

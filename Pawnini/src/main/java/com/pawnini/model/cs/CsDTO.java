@@ -2,6 +2,10 @@ package com.pawnini.model.cs;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class CsDTO {
 	private int cs_id;
 	private String cs_title;
@@ -12,6 +16,33 @@ public class CsDTO {
 	private Date cs_regdate;
 	private String cs_file;
 	private String member_id;
+
+	@XmlTransient
+	private String searchCondition;
+	@XmlTransient
+	private String searchKeyword;
+	
+	@XmlTransient
+	private MultipartFile uploadedFile;
+
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+	public MultipartFile getUploadedFile() {
+		return uploadedFile;
+	}
+	public void setUploadedFile(MultipartFile uploadedFile) {
+		this.uploadedFile = uploadedFile;
+	}
 	public int getCs_id() {
 		return cs_id;
 	}

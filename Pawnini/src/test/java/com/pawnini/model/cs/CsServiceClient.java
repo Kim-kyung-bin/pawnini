@@ -34,11 +34,11 @@ public class CsServiceClient {
 		
 		
 //4. 글 목록 검색 기능 테스트
-		List<CsDTO> csList = csService.getCsList(dto);
+	/*	List<CsDTO> csList = csService.getCsList(dto);
 		
 		for (CsDTO cs : csList) {
 			System.out.println("===> "+cs.toString());
-		}
+		}*/
 		
 		//5. Spring container 종료
 		container.close();

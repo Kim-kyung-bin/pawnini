@@ -15,6 +15,8 @@ public interface PawsService {
 	
 	// 동물 정보 리스트
 	List<PawsDTO> getPawsList(PawsDTO dto);
+	List<PawsDTO> getDogList(PawsDTO dto);
+	List<PawsDTO> getCatList(PawsDTO dto);
 	
 	// 동물 상세 정보 조회
 	PawsDTO getPaws(PawsDTO dto);
