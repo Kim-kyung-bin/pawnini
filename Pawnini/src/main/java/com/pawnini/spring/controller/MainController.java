@@ -75,15 +75,15 @@ public class MainController {
 	}
 	@RequestMapping("/adoption.do")
 	public String adoption() {
-		return "Adoption/Adoption";
+		return "Adopotion/Adoption";
 	}
 	@RequestMapping("/adoptionDog.do")
 	public String adoptionDog() {
-		return "Adoption/dog";
+		return "Adopotion/dog";
 	}
 	@RequestMapping("/adoptionCat.do")
 	public String adoptionCat() {
-		return "Adoption/Cat";
+		return "Adopotion/Cat";
 	}
 	@RequestMapping("/notice.do")
 	public String notice() {

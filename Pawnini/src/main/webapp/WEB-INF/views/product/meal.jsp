@@ -63,7 +63,7 @@
         <li class="product_li">
           <a href="">
             <img class="product_img" src="../images//dog2.jpg" />
-            <ul class="product_list">
+             <ul class="product_list">
               <li class="product_title">원목 캣타워 소나무</li>
               <li class="product_cash">$50.000원</li>
               <li class="product_rank">❤❤❤❤🤍</li>

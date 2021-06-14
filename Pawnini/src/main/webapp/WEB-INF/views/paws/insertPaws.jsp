@@ -28,22 +28,11 @@
 					<td>나이<input type="text" name="paws_age">
 				<tr>
 					<div class="inputArea">
- <label for="paws_img">이미지</label>
+ 					<label for="paws_img">이미지</label>
  <input type="file" id="paws_img" name="file" />
  <div class="select_img"><img src="" /></div>
  
- <script>
-  $("#paws_img").change(function(){
-   if(this.files && this.files[0]) {
-    var reader = new FileReader;
-    reader.onload = function(data) {
-     $(".select_img img").attr("src", data.target.result).width(300);        
-    }
-    reader.readAsDataURL(this.files[0]);
-   }
-  });
- </script>
-</div>
+				</div>
 				<tr>
 					<td>설명<input type="text" name="paws_desc">
 				<tr>
@@ -63,4 +52,15 @@
 		<a href="getPawsList.do">목록</a>
 	</div>
 </body>
+ <script>
+  $("#paws_img").change(function(){
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $(".select_img img").attr("src", data.target.result).width(300);        
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });
+ </script>
 </html>

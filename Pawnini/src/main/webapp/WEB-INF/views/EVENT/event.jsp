@@ -14,7 +14,7 @@
 
 
     <h1 class="event_Title">TODAY EVENT</h1>
-      <div>
+      
         <div class="event">
 
           <ul class="event_grid">

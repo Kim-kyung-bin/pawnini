@@ -10,12 +10,12 @@
     <title>Pawnini</title>
   </head>
 
- 	<%@ include file="../include/Header.jsp" %>
+ 	<%@ include file="include/Header.jsp" %>
 
   <body>
 
     <h1>공사중</h1>
 
-    <%@ include file="../include/Footer.jsp" %>
+    <%@ include file="include/Footer.jsp" %>
   </body>
 </html>

@@ -12,6 +12,8 @@ public class AdoptionDTO {
 	private Date adoption_date;
 	private String member_id;
 	private int paws_id;
+	private String searchCondition;
+	private String searchKeyword;
 	
 	
 	@Override
@@ -20,6 +22,20 @@ public class AdoptionDTO {
 				+ adoption_title + ", adoption_content=" + adoption_content + ", adoption_f_img=" + adoption_f_image
 				+ ", adoption_date=" + adoption_date + ", member_id=" + member_id + ", paws_id=" + paws_id + "]";
 	}
+	
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
 	public int getAdoption_id() {
 		return adoption_id;
 	}

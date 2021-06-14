@@ -27,7 +27,7 @@
       <h3 class="Form_SignUP"><a href="signUp.html">Sign Up</a></h3>
     </div>
 
-  <%@ include file="include/Footer.jsp" %> 
 
   </body>
+  <%@ include file="include/Footer.jsp" %> 
 </html>
