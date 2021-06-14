@@ -16,7 +16,6 @@ public class PawsDTO {
 	private char paws_is_neutered;
 	private String paws_health;
 	private String paws_thumb_img;
-<<<<<<< HEAD
 	private String searchKeyword;
 	
 	
@@ -31,12 +30,6 @@ public class PawsDTO {
 	}
 
 
-=======
-	
-	
-	
-	
->>>>>>> 0f197764e97481fbafadfddfaddb90c78436b5cc
 	public String getPaws_thumb_img() {
 		return paws_thumb_img;
 	}

@@ -57,7 +57,6 @@ public class PawsController {
 	public String getPawsList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getPawsList(dto));
 		return "Adopotion/Adoption";
-<<<<<<< HEAD
 	}
 	//리스트 불러오기
 	@RequestMapping("/getDogList.do")
@@ -70,8 +69,6 @@ public class PawsController {
 	public String getCatList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getCatList(dto));
 		return "Adopotion/Adoption";
-=======
->>>>>>> 0f197764e97481fbafadfddfaddb90c78436b5cc
 	}
 	
 	//정보 삭제
@@ -99,13 +96,6 @@ public class PawsController {
 	public String updatePaws(PawsDTO dto) {
 		pawsService.updatePaws(dto);
 		return "redirect:goGetPawsList.do";
-	}
-	
-	// 관리 리스트
-	@RequestMapping("/PawsList.do")
-	public String goPawsList(PawsDTO dto, Model model) {
-		model.addAttribute("pawsList",pawsService.getPawsList(dto));
-		return "paws/getPawsList";
 	}
 	
 	// 관리 리스트
