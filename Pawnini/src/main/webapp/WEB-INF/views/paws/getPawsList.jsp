@@ -14,6 +14,10 @@
 		width: 50px;
 		height: 50px;
 	}
+	.list{
+		width: 500px;
+	}
+	
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>

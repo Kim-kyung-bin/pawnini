@@ -11,6 +11,8 @@
 	<a href="getPawsList.do">동물관리</a>
 	<a href="getCsList.do">고객서비스</a>
 	<a href="getAdoptionList.do">분양</a>
+	<a href="getReviewList.do">후기</a>
+	<a href="login.jsp">로그인</a>
 </div>
 </body>
 </html>

@@ -14,7 +14,7 @@
             <span class="Coment_span">REVERSIBLE HARNESSES</span>
             <span class="Coment_span">COLLARS</span>
             <span class="Coment_span">BANDANAS</span>
-            <span class="Coment_span">HAIR RIBBONS & BRACELETS FOR HUMANS</span>
+            <span class="Coment_span">HAIR RIBBONS &amp; BRACELETS FOR HUMANS</span>
           </li>
         </ul>
 
@@ -23,7 +23,7 @@
             <span class="Coment_span">REVERSIBLE HARNESSES</span>
             <span class="Coment_span">COLLARS</span>
             <span class="Coment_span">BANDANAS</span>
-            <span class="Coment_span">HAIR RIBBONS & BRACELETS FOR HUMANS</span>
+            <span class="Coment_span">HAIR RIBBONS &amp; BRACELETS FOR HUMANS</span>
           </li>
         </ul>
 
@@ -32,7 +32,7 @@
             <span class="Coment_span">REVERSIBLE HARNESSES</span>
             <span class="Coment_span">COLLARS</span>
             <span class="Coment_span">BANDANAS</span>
-            <span class="Coment_span">HAIR RIBBONS & BRACELETS FOR HUMANS</span>
+            <span class="Coment_span">HAIR RIBBONS &amp; BRACELETS FOR HUMANS</span>
           </li>
         </ul>
 
@@ -41,7 +41,7 @@
             <span class="Coment_span">REVERSIBLE HARNESSES</span>
             <span class="Coment_span">COLLARS</span>
             <span class="Coment_span">BANDANAS</span>
-            <span class="Coment_span">HAIR RIBBONS & BRACELETS FOR HUMANS</span>
+            <span class="Coment_span">HAIR RIBBONS &amp; BRACELETS FOR HUMANS</span>
           </li>
         </ul>
       </div>

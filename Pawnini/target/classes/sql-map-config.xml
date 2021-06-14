@@ -10,6 +10,10 @@
 		<typeAlias alias="cs" type="com.pawnini.model.cs.CsDTO"/>
 		<typeAlias alias="cs_reply" type="com.pawnini.model.cs.Cs_replyDTO"/>
 		<typeAlias alias="adoption" type="com.pawnini.model.adoption.AdoptionDTO"/>
+		<typeAlias alias="review" type="com.pawnini.model.review.ReviewDTO"/>
+		<typeAlias alias="reviewCriteria" type="com.pawnini.model.review.SearchCriteria"/>
+		<typeAlias alias="reviewReply" type="com.pawnini.model.review.ReviewReplyDTO"/>
+		<typeAlias alias="member" type="com.pawnini.model.member.MemberDTO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
@@ -17,7 +21,10 @@
 		<mapper resource="mappings/adoption-mapping.xml"/>
 		<mapper resource="mappings/cs-mapping.xml"/>
 		<mapper resource="mappings/cs_reply-mapping.xml"/>
-		<mapper resource="mappings/paws-mapping.xml"/>		
+		<mapper resource="mappings/paws-mapping.xml"/>
+		<mapper resource="mappings/review-mapping.xml"/>		
+		<mapper resource="mappings/review-reply-mapping.xml"/>		
+		<mapper resource="mappings/member-mapping.xml"/>			
 	</mappers>
 	
 </configuration>

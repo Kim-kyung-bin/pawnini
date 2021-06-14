@@ -36,7 +36,7 @@
 				#{cs_title}, 
 			    #{cs_writer}, 
 			    #{cs_show}, 
-			    #{cs_content},
+			   #{cs_content},
 			    #{cs_img}, 
 			    #{cs_file},
 			    #{member_id}
@@ -74,31 +74,26 @@
 	<sql id="search">
 		<choose>
 			<when test="searchCondition =='CS_ALL'">
-			 	(UPPER(CS_TITLE) LIKE '%'||UPPER(#{searchKeyword})||'%' 
-				OR UPPER(CS_CONTENT) LIKE '%'||UPPER(#{searchKeyword})||'%' 
-				OR UPPER(CS_WRITER) LIKE '%'||UPPER(#{searchKeyword})||'%') 
+			 	(CS_TITLE LIKE '%' || #{searchKeyword} || '%' 
+				OR CS_CONTENT LIKE '%' || #{searchKeyword} || '%' 
+				OR CS_WRITER LIKE '%'|| #{searchKeyword} || '%') 
 			</when>  <!--  alternatively, can use <when> & <if>s-->
 			<otherwise>
-				UPPER(${searchCondition}) LIKE  '%'||UPPER(#{searchKeyword})||'%'
+				${searchCondition} LIKE  '%' || #{searchKeyword} || '%'
 			</otherwise>
 		</choose>	
 	</sql>	
 	
 	<!--  list all  -->
-   <select id="getCsList" resultType="cs"> 
-         SELECT CS_ID, CS_TITLE, CS_WRITER, CS_SHOW, CS_REGDATE 
-         FROM 
-         <!-- 
-         (SELECT CS_ID, CS_TITLE, CS_WRITER, CS_SHOW, CS_REGDATE, 
-         ROW_NUMBER() OVER (ORDER BY CS_ID DESC) AS rn FROM CS
-         WHERE 1 = 1  
-      <include refid="search"/> 
-       ) 
-       --> 
-       CS 
- <!--    ) WHERE rn BETWEEN #{start} AND #{end}  
-      ORDER BY CS_ID DESC
-       -->
-   </select>   
+	<select id="getCsList" resultType="cs"> 
+		SELECT CS_ID, CS_TITLE, CS_WRITER, CS_SHOW, CS_REGDATE FROM (
+			SELECT CS_ID, CS_TITLE, CS_WRITER, CS_SHOW, CS_REGDATE, 
+			ROW_NUMBER() OVER (ORDER BY CS_ID DESC) AS rn FROM CS
+			WHERE 1 = 1 AND
+			<include refid="search"/> 
+ 		) CS 
+  		WHERE rn BETWEEN #{start} AND #{end} 
+		ORDER BY CS_ID DESC
+	</select>	
 	
 </mapper>

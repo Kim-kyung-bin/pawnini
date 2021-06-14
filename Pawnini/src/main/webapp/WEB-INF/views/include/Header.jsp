@@ -13,7 +13,7 @@
   <body>
     <div class="Login">
       <ul class="Login_ul">
-        <li><a href="login.do">LOGIN</a></li>
+        <li><a href="gologin.do">LOGIN</a></li>
         <li><a href="signUp.do">SignUp</a></li>
         <li><a href="myPage.do">My Pages</a></li>
       </ul>

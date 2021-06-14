@@ -25,7 +25,7 @@
 				<input name="searchKeyword" value="${map.searchKeyword }"/>
 				<input type="submit" value="조회"/>
 				<button><a href="getCsList.do">글 목록</a></button>
-				<button>	<a href="redirectInsertCs.do">새글 추가</a></button> <!--  로그인 해야함 -->
+				<button><a href="redirectInsertCs.do">새글 추가</a></button> <!--  로그인 해야함 -->
 		</tr>
 	</table>
 	</form>
