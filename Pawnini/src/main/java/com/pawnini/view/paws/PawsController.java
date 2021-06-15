@@ -49,7 +49,7 @@ public class PawsController {
 		dto.setPaws_thumb_img(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 		
 		pawsService.insertPaws(dto);
-		return "redirect:getPawsList.do";
+		return "redirect:goGetPawsList.do";
 	}
 	
 	//리스트 불러오기

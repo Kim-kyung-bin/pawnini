@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../style/Header.css" />
@@ -13,9 +15,17 @@
   <body>
     <div class="Login">
       <ul class="Login_ul">
+      
+ 	<c:if test="${member == null}">
         <li><a href="gologin.do">LOGIN</a></li>
-        <li><a href="signUp.do">SignUp</a></li>
+        <li><a href="signUp.do">SIGN UP</a></li>
+ 	</c:if>
+ 	
+    <c:if test="${member != null}">
+    	<li>${member.member_nickname}님 환영 합니다.</li>
         <li><a href="myPage.do">My Pages</a></li>
+        <li><a href="logout.do">Logout</a></li>
+    </c:if>
       </ul>
     </div>
     <header class="Header_menu">

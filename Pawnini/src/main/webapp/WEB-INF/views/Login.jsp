@@ -1,31 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="style/Login.css" />
     <link rel="stylesheet" href="style/main.css" />
+    
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$("#logoutBtn").on("click", function(){
+			location.href="/logout.do";
+		});
+	})
+	</script>
   </head>
    <%@ include file="include/Header.jsp" %>
   <body>
  
-
-    <h1>공사중</h1>
-    <div class="Form">
-      <h1 class="Form_title">Login</h1>
-      <input class="Form_Login" type="text" placeholder="User Name" />
-      <input
-        class="Form_Password"
-        type="password"
-        placeholder="User password"
-      />
-      <button class="button_Login">Login</button>
-      <h3 class="Form_SignUP"><a href="signUp.html">Sign Up</a></h3>
-    </div>
+<div align="center">
+	<form class="Form" name="loginForm" method="post" action="/login.do">
+		 <h1 class="Form_title">Login</h1>
+		<c:if test="${member == null}">
+			<div>
+				<input class="Form_Login" type="text" id="userId" name="member_id" placeholder="User Name">
+			</div>
+			<div>
+				<input class="Form_Password" type="password" id="member_pwd" name="member_pwd" placeholder="User password">
+			</div>
+			<div>
+				<button class="button_Login" type="submit">로그인</button>
+			</div>
+		</c:if>
+		<c:if test="${member != null }">
+			<div>
+				<p>${member.member_nickname}님 환영 합니다.</p>
+				<button id="logoutBtn" type="button">로그아웃</button>
+			</div>
+		</c:if>
+		<c:if test="${msg == false}">
+			<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+		</c:if>
+	</form>
+</div>
 
 
   </body>

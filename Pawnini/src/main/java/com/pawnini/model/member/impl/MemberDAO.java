@@ -26,18 +26,19 @@ public class MemberDAO {
 	public void insertMember(MemberDTO dto) {
 		mybatis.insert("MemberDAO.insertMember",dto);
 	}
-	
+	//회원 탈퇴
+	public void deleteMember(MemberDTO dto) {
+		mybatis.delete("MemberDAO.deleteMember",dto);
+	}
 	//회원 정보 수정
 	public void updateMember(MemberDTO dto) {
 		mybatis.update("MemberDAO.updateMember",dto);
 	}
-	
 	//회원 리스트
 	public List<MemberDTO> getMemberList(MemberDTO dto) {
 		System.out.println("목록 불러오기");
 		return mybatis.selectList("MemberDAO.getMemberList",dto);
 	}
-	
 	//로그인
 	public MemberDTO login(MemberDTO dto) throws Exception{
 		System.out.println("Mybatis/login() 기능처리");

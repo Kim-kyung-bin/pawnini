@@ -58,6 +58,12 @@ public class MemberServiceImpl implements MemberService {
 		securityPWD(dto);
 		memberDAO.insertMember(dto);
 	}
+	
+	@Override
+	public void deleteMember(MemberDTO dto) {
+		memberDAO.deleteMember(dto);
+	}
+	
 	// 정보 수정
 	@Override
 	public void updateMember(MemberDTO dto) {
@@ -75,5 +81,6 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberDTO> getMemberList(MemberDTO dto) {
 		return memberDAO.getMemberList(dto);
 	}
+	
 
 }

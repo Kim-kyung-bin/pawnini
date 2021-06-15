@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,8 +27,14 @@
     <link rel="stylesheet" href="../style/Adoption.css" />
     <title>Snack</title>
   </head>
+  
    <%@ include file="../include/Header.jsp" %> 
+    <div id="player"></div>
   <body>
+  	<c:set var="grade" value="${member.member_grade}"/>
+   	<c:if test="${grade eq 2}">
+   		<a href="PawsList.do">관리</a>
+    </c:if>
     <h1 class="bener_text">They are waiting for their owners.</h1>
     <section>
       <div class="sa sa-scaleDown">
@@ -38,7 +43,7 @@
           <li><img src="${paws.paws_thumb_img}" class="img"><br><a href="getPaws.do?paws_id=${paws.paws_id}"><span class="text">${paws.paws_name}</span></a></li>
           </c:forEach>
         </ul>
-        <a href="PawsList.do">관리</a>
+
       </div>
     </section>
    
@@ -66,5 +71,49 @@
       window.addEventListener("load", saFunc);
       window.addEventListener("scroll", saFunc);
     </script>
+    
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement("script");
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          height: "700",
+          width: "100%",
+          videoId: "LwfU0oy2ako",
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
+    
   </body>
 </html>

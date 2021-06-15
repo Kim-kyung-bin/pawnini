@@ -37,6 +37,10 @@ public class MainController {
 	public String myPage() {
 		return "Mypage";
 	}
+	@RequestMapping("/mypage1.do")
+	public String mypage1() {
+		return "Mypage2";
+	}
 	@RequestMapping("/main.do")
 	public String logoClick() {
 		return "main";

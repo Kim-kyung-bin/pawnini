@@ -51,8 +51,8 @@
 		UPDATE MEMBER
 		SET
 		MEMBER_PWD=#{member_pwd},
-		MEMBER_EMAIL=#{member_email},
-		MEMBER_PHONE=#{member_phone},
+		MEMBER_NAME=#{member_name},
+		MEMBER_NICKNAME=#{member_nickname},
 		MEMBER_POSTCODE=#{member_postcode},
 		MEMBER_F_ADDR=#{member_f_addr},
 		MEMBER_S_ADDR=#{member_s_addr}
@@ -70,10 +70,11 @@
 	
 	<!-- 회원 삭제 -->
 	<delete id="deleteMember">
-		DELETE
-		FROM MEMBER
+		<![CDATA[
+		DELETE MEMBER
 		WHERE
 		MEMBER_ID=#{member_id}
+		]]>
 	</delete>	
 	
 	<!-- ID 중복 체크 -->

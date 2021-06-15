@@ -16,6 +16,9 @@ public interface MemberService {
 	// 회원정보수정
 	void updateMember(MemberDTO dto);
 	
+	// 회원 탈퇴
+	void deleteMember(MemberDTO dto);
+	
 	// 로그인
 	MemberDTO login(MemberDTO dto) throws Exception;
 	

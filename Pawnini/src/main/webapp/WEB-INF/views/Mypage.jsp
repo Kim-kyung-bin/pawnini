@@ -17,8 +17,14 @@
     <div class="wrap">
       <div class="greenContainer">
         <div>
-          <div class="grade">GOLD</div>
-          <div class="name">Jaden</div>
+        <c:set var="grade" value="${member.member_grade}"/>
+   	<c:if test="${grade eq 1}">
+          <div class="grade">일반 회원</div>
+    </c:if>
+   	<c:if test="${grade eq 2}">
+          <div class="grade">관리자</div>
+    </c:if>
+          <div class="name">${member.member_nickname}</div>
         </div>
         <div class="modify">i</div>
       </div>
@@ -126,9 +132,9 @@
           <div>icon</div>
           <div>공지사항</div>
         </a>
-        <a href="#" class="item">
+        <a href="mypage1.do?member_id=${member.member_id}" class="item">
           <div>icos</div>
-          <div>이용안내</div>
+          <div>회원정보수정</div>
         </a>
         <a href="#" class="item">
           <div>icon</div>
