@@ -58,7 +58,7 @@ public class MemberServiceImpl implements MemberService {
 		securityPWD(dto);
 		memberDAO.insertMember(dto);
 	}
-	// 정부 수정
+	// 정보 수정
 	@Override
 	public void updateMember(MemberDTO dto) {
 		securityPWD(dto);
@@ -70,7 +70,7 @@ public class MemberServiceImpl implements MemberService {
 		securityPWD(dto);
 		return memberDAO.login(dto);
 	}
-
+	// 회원 리스트 불러오기
 	@Override
 	public List<MemberDTO> getMemberList(MemberDTO dto) {
 		return memberDAO.getMemberList(dto);

@@ -1,12 +1,11 @@
 package com.pawnini.view.member;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pawnini.model.member.MemberDTO;
 import com.pawnini.model.member.MemberService;
@@ -19,26 +18,68 @@ public class MemberController {
 	
 	//로그인
 	@RequestMapping(value="/login.do")
-	public String login(MemberDTO dto, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
+	public String login(MemberDTO dto, HttpSession session) throws Exception {
 		
-		HttpSession session = req.getSession();
-		MemberDTO login = service.login(dto);
+		MemberDTO member = service.login(dto);
 		
-		if(login == null) {
-			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);
+		if(member != null) {
+			session.setAttribute("member", member);
+			return "main";
 		} else {
-			session.setAttribute("member", login);
+			return "Login";
 		}
-		
-		return "redirect:temphome.jsp";
 	}
 	
+	//로그아웃
 	@RequestMapping(value="/logout.do")
 	public String logout(HttpSession session) throws Exception {
 		session.invalidate();
 		
 		return "redirect:temphome";
 	}
-
+	
+	//회원가입
+	@RequestMapping(value="/insertMember.do")
+	public String insertMember(MemberDTO dto) {
+		service.insertMember(dto);
+		
+		return "main";
+	}
+	
+	// 아이디 중복검사
+	@ResponseBody
+	@RequestMapping(value="/checkID.do")
+	public int checkID(MemberDTO dto) {
+		int checkID = service.checkID(dto);
+		return checkID;
+	}
+	@ResponseBody
+	@RequestMapping(value="/checkMember.do")
+	public int checkMember(MemberDTO dto) {
+		int checkMember = service.checkMember(dto);
+		return checkMember;
+	}
+	
+	// 회원정보 수정
+	@RequestMapping(value="/updateMember.do")
+	public String updateMember(MemberDTO dto) {
+		service.updateMember(dto);
+		return "main";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
