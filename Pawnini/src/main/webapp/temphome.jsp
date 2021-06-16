@@ -13,6 +13,7 @@
 	<a href="getAdoptionList.do">분양</a>
 	<a href="getReviewList.do">후기</a>
 	<a href="login.jsp">로그인</a>
+	<a href="goInsertProduct.do">상품등록</a>
 </div>
 </body>
 </html>

@@ -13,6 +13,7 @@
 		<typeAlias alias="reviewCriteria" type="com.pawnini.model.review.SearchCriteria"/>
 		<typeAlias alias="reviewReply" type="com.pawnini.model.review.ReviewReplyDTO"/>
 		<typeAlias alias="member" type="com.pawnini.model.member.MemberDTO"/>
+		<typeAlias alias="product" type="com.pawnini.model.product.ProductDTO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
@@ -23,6 +24,7 @@
 		<mapper resource="mappings/review-mapping.xml"/>		
 		<mapper resource="mappings/review-reply-mapping.xml"/>		
 		<mapper resource="mappings/member-mapping.xml"/>			
+		<mapper resource="mappings/product-mapping.xml"/>
 	</mappers>
 	
 </configuration>

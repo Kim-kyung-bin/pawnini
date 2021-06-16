@@ -37,7 +37,7 @@
 		PAWS_THUMB_IMG
 		)
 		VALUES(
-		(SELECT NVL(MAX(PAWS_ID),0)+1 FROM paws),
+		(SELECT NVL(MAX(PAWS_ID),0)+1 FROM PAWS),
 		#{paws_f_code},
 		#{paws_s_code},
 		#{paws_name},
