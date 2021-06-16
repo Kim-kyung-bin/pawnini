@@ -10,8 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+   <%@ include file="../../include/Header.jsp" %> 
 <body>
-	<div>
+	<div align="center">
 		<form action="insertPaws.do" method="post" enctype="multipart/form-data">
 			<table border="1">
 				<tr>
@@ -35,7 +36,7 @@
  					<div class="select_img"><img src="" /></div>
 					</div>
 				<tr>
-					<td>설명<input type="text" name="paws_desc">
+					<td>설명<textarea rows="10" cols="40" name="paws_desc"></textarea>
 				<tr>
 					<td>성별<input type="text" name="paws_sex">
 				<tr>
@@ -51,10 +52,10 @@
 			</table>
 		</form>
 		<br>
-		<a href="getPawsList.do">목록</a>
+		<a href="AdminGetPawsList.do">목록</a>
 	</div>
 </body>
-
+    <%@ include file="../../include/Footer.jsp" %>
  <script>
   $("#paws_img").change(function(){
    if(this.files && this.files[0]) {

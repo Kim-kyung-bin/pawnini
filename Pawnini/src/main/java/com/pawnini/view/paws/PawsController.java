@@ -28,7 +28,7 @@ public class PawsController {
 	//정보 등록 뷰 페이지 이동
 	@RequestMapping("/goInsertPaws.do")
 	public String goInsertPaws() {
-		return "paws/insertPaws";
+		return "admin/paws/insertPaws";
 	}
 	
 	//정보 등록
@@ -49,60 +49,60 @@ public class PawsController {
 		dto.setPaws_thumb_img(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 		
 		pawsService.insertPaws(dto);
-		return "redirect:goGetPawsList.do";
+		return "redirect:AdminGetPawsList.do";
 	}
 	
 	//리스트 불러오기
 	@RequestMapping("/getPawsList.do")
 	public String getPawsList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getPawsList(dto));
-		return "Adopotion/Adoption";
+		return "Adoption/Adoption";
 	}
-	//리스트 불러오기
+	//리스트 불러오기 (강아지)
 	@RequestMapping("/getDogList.do")
 	public String getDogList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getDogList(dto));
-		return "Adopotion/Adoption";
+		return "Adoption/Adoption";
 	}
-	//리스트 불러오기
+	//리스트 불러오기 (고양이)
 	@RequestMapping("/getCatList.do")
 	public String getCatList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getCatList(dto));
-		return "Adopotion/Adoption";
+		return "Adoption/Adoption";
 	}
 	
 	//정보 삭제
 	@RequestMapping("/deletePaws.do")
 	public String deletePaws(PawsDTO dto) {
 		pawsService.deletePaws(dto);
-		return "redirect:goGetPawsList.do";
+		return "redirect:AdminGetPawsList.do";
 	}
 	//관리자 페이지 리스트 불러오기
-	@RequestMapping("/goGetPawsList.do")
+	@RequestMapping("/AdminGetPawsList.do")
 	public String goGetPaws(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getPawsList(dto));
-		return "paws/getPawsList";
+		return "admin/paws/getPawsList";
 	}
 	
 	//상세 조회
 	@RequestMapping("/getPaws.do")
 	public String getPaws(PawsDTO dto, Model model) {
 		model.addAttribute("paws", pawsService.getPaws(dto));
-		return "paws/getPaws";
+		return "admin/paws/getPaws";
 	}
 	
 	//정보 수정
 	@RequestMapping("/updatePaws.do")
 	public String updatePaws(PawsDTO dto) {
 		pawsService.updatePaws(dto);
-		return "redirect:goGetPawsList.do";
+		return "redirect:AdminGetPawsList.do";
 	}
 	
 	// 관리 리스트
 	@RequestMapping("/PawsList.do")
 	public String goPawsList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getPawsList(dto));
-		return "paws/getPawsList";
+		return "admin/paws/getPawsList";
 	}
 	
 }

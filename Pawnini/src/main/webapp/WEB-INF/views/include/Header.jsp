@@ -25,6 +25,7 @@
     	<li>${member.member_nickname}님 환영 합니다.</li>
         <li><a href="myPage.do">My Pages</a></li>
         <li><a href="logout.do">Logout</a></li>
+        <li><a href="getMemberList.do">회원관리</a></li>
     </c:if>
       </ul>
     </div>

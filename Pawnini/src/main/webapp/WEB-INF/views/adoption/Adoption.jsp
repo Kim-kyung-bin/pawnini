@@ -40,7 +40,11 @@
       <div class="sa sa-scaleDown">
         <ul class="bener_ul">
           <c:forEach items="${pawsList}" var="paws">
-          <li><img src="${paws.paws_thumb_img}" class="img"><br><a href="getPaws.do?paws_id=${paws.paws_id}"><span class="text">${paws.paws_name}</span></a></li>
+          <li>
+          	<img src="${paws.paws_thumb_img}" class="img"><br>
+        	<a href="getPaws.do?paws_id=${paws.paws_id}">
+        	<span class="text">${paws.paws_name}</span></a>
+          </li>
           </c:forEach>
         </ul>
 

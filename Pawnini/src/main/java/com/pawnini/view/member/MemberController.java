@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -61,13 +62,6 @@ public class MemberController {
 		return checkMember;
 	}
 	
-	// 마이페이지 비밀번호 확인
-	@RequestMapping(value="mypage2.do")
-	private String mypage2(MemberDTO dto) throws Exception {
-		service.login(dto);
-		return "mypage3";
-	}
-	
 	// 회원정보 수정
 	@RequestMapping(value="/updateMember.do")
 	public String updateMember(MemberDTO dto) {
@@ -80,6 +74,13 @@ public class MemberController {
 	public String deleteMember(MemberDTO dto) {
 		service.deleteMember(dto);
 		return "main";
+	}
+	
+	// 멤버 리스트 관리자 페이지
+	@RequestMapping(value="/getMemberList.do")
+	public String getMemberList(MemberDTO dto, Model model) {
+		model.addAttribute("memberList", service.getMemberList(dto));
+		return "admin/member/memberList";
 	}
 }
 

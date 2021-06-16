@@ -79,15 +79,7 @@ public class MainController {
 	}
 	@RequestMapping("/adoption.do")
 	public String adoption() {
-		return "Adopotion/Adoption";
-	}
-	@RequestMapping("/adoptionDog.do")
-	public String adoptionDog() {
-		return "Adopotion/dog";
-	}
-	@RequestMapping("/adoptionCat.do")
-	public String adoptionCat() {
-		return "Adopotion/Cat";
+		return "Adoption/Adoption";
 	}
 	@RequestMapping("/notice.do")
 	public String notice() {
@@ -98,15 +90,6 @@ public class MainController {
 		return "basket";
 	}
 }
-
-
-
-
-
-
-
-
-
 
 
 

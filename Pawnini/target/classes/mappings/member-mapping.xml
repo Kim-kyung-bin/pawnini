@@ -77,6 +77,13 @@
 		]]>
 	</delete>	
 	
+	<!-- 등록 리스트 불러오기 -->
+	<select id="getMemberList" resultMap="memberResult">
+		SELECT *
+		FROM MEMBER
+		ORDER BY MEMBER_REGDATE DESC
+	</select>
+	
 	<!-- ID 중복 체크 -->
 	<select id="checkID" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM MEMBER

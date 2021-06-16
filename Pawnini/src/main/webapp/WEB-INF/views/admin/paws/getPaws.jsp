@@ -6,8 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+   <%@ include file="../../include/Header.jsp" %> 
 <body>
-	<div>
+	<div align="center">
 		<form action="updatePaws.do" method="post">
 		<input name="paws_id" type="hidden" value="${paws.paws_id}">
 			<table border="1">
@@ -24,7 +25,7 @@
 				<tr>
 					<td>나이<input type="text" name="paws_age" value="${paws.paws_age}">
 				<tr>
-					<td>설명<input type="text" name="paws_desc" value="${paws.paws_desc}">
+					<td>설명<textarea rows="10" cols="40" name="paws_desc">${paws.paws_desc}</textarea>
 				<tr>
 					<td>성별<input type="text" name="paws_sex" value="${paws.paws_sex}">
 				<tr>
@@ -40,8 +41,8 @@
 			</table>
 		</form>
 		<a href="deletePaws.do?paws_id=${paws.paws_id}">삭제</a>
-		<a href="getPawsList.do">목록</a>
+		<a href="AdminGetPawsList.do">목록</a>
 	</div>
 </body>
-
+    <%@ include file="../../include/Footer.jsp" %>
 </html>
