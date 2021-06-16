@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../style/Header.css" />
   </head>
   <body>
+  
     <div class="Login">
       <ul class="Login_ul">
       
@@ -21,11 +22,22 @@
         <li><a href="signUp.do">SIGN UP</a></li>
  	</c:if>
  	
+ 	<c:set var="grade" value="${member.member_grade}"/>
     <c:if test="${member != null}">
     	<li>${member.member_nickname}님 환영 합니다.</li>
         <li><a href="myPage.do">My Pages</a></li>
         <li><a href="logout.do">Logout</a></li>
-        <li><a href="getMemberList.do">회원관리</a></li>
+        <c:if test="${grade eq 2}">
+         <li class="Manager">
+          	관리 메뉴
+          <span class="dropmenu">
+            <!-- 관리자 카테고리 메뉴 연동 -->
+            <span><a href="PawsList.do">분양관리</a></span>
+            <span><a href="getMemberList.do">회원관리</a></span>
+            <span><a href="#">상품관리</a></span>
+          </span>
+        </li>
+        </c:if>
     </c:if>
       </ul>
     </div>

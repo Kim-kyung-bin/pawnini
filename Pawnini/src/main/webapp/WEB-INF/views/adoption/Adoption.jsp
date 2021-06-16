@@ -31,10 +31,7 @@
    <%@ include file="../include/Header.jsp" %> 
     <div id="player"></div>
   <body>
-  	<c:set var="grade" value="${member.member_grade}"/>
-   	<c:if test="${grade eq 2}">
-   		<a href="PawsList.do">관리</a>
-    </c:if>
+  	
     <h1 class="bener_text">They are waiting for their owners.</h1>
     <section>
       <div class="sa sa-scaleDown">

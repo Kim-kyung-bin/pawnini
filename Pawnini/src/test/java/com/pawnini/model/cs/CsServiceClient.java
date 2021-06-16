@@ -1,8 +1,5 @@
 package com.pawnini.model.cs;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
@@ -24,10 +21,12 @@ public class CsServiceClient {
 		CsDTO dto = new CsDTO();
 		dto.setCs_writer("blah");
 		dto.setCs_title("title here");
-		dto.setCs_show('N');
+		dto.setCs_show("N");
 		dto.setCs_content("oops");
 		dto.setCs_img("well");
 		dto.setCs_file("hm");
+		dto.setMember_id("123");
+		System.out.println(dto.toString());
 		
 	//	csDAO.insertCs(dto);
 		csService.insertCs(dto);

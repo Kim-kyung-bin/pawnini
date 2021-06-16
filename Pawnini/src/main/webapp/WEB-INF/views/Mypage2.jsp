@@ -136,6 +136,10 @@ function myinfoUp() {
 	}
 }
 
+function cancel() {
+	window.location.href="myPage.do";
+}
+
 // 회원 탈퇴
 function clickout(){
 	var member_id = '<c:out value = "${member.member_id}"/>';
@@ -233,7 +237,7 @@ function clickout(){
 					</form>
 						<input type="button" onclick="myinfoUp()" style="cursor: pointer" value="수정" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="button" onclick="clickout()" style="cursor: pointer" value="회원탈퇴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="button" onclick="" style="cursor: pointer" value="취소" />
+						<input type="button" onclick="cancel()" style="cursor: pointer" value="취소" />
 			</div>
 		</section>
 

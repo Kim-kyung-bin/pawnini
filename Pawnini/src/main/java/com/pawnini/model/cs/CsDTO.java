@@ -10,7 +10,7 @@ public class CsDTO {
 	private int cs_id;
 	private String cs_title;
 	private String cs_writer;
-	private char cs_show;
+	private String cs_show;
 	private String cs_content;
 	private String cs_img;
 	private Date cs_regdate;
@@ -61,10 +61,10 @@ public class CsDTO {
 	public void setCs_writer(String cs_writer) {
 		this.cs_writer = cs_writer;
 	}
-	public char getCs_show() {
+	public String getCs_show() {
 		return cs_show;
 	}
-	public void setCs_show(char cs_show) {
+	public void setCs_show(String cs_show) {
 		this.cs_show = cs_show;
 	}
 	public String getCs_content() {

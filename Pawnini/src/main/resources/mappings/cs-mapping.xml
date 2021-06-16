@@ -36,7 +36,7 @@
 				#{cs_title}, 
 			    #{cs_writer}, 
 			    #{cs_show}, 
-			   #{cs_content},
+			    #{cs_content},
 			    #{cs_img}, 
 			    #{cs_file},
 			    #{member_id}
