@@ -10,6 +10,7 @@ public class ProductDTO {
 	private String product_t_code2;
 	private String product_brand;
 	private String product_name;
+	private String product_option;
 	private String product_img;
 	private String product_thumb_img;
 	private String product_desc;
@@ -17,11 +18,30 @@ public class ProductDTO {
 	private int price;
 	private Date product_date;
 	private int product_hits;
+	private int product_price;
 	private int product_c_price;
 
 	// 검색용 (DB x)
 	private String searchCondition;
 	private String searchKeyword;
+
+	
+	
+	public String getProduct_option() {
+		return product_option;
+	}
+
+	public void setProduct_option(String product_option) {
+		this.product_option = product_option;
+	}
+
+	public int getProduct_price() {
+		return product_price;
+	}
+
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
+	}
 
 	public String getSearchCondition() {
 		return searchCondition;
@@ -163,11 +183,11 @@ public class ProductDTO {
 	public String toString() {
 		return "ProductDTO [product_id=" + product_id + ", product_f_code=" + product_f_code + ", product_s_code="
 				+ product_s_code + ", product_t_code=" + product_t_code + ", product_t_code2=" + product_t_code2
-				+ ", product_brand=" + product_brand + ", product_name=" + product_name + ", product_img=" + product_img
-				+ ", product_thumb_img=" + product_thumb_img + ", product_desc=" + product_desc + ", product_stock="
-				+ product_stock + ", price=" + price + ", product_date=" + product_date + ", product_hits="
-				+ product_hits + ", product_c_price=" + product_c_price + ", searchCondition=" + searchCondition
-				+ ", searchKeyword=" + searchKeyword + "]";
+				+ ", product_brand=" + product_brand + ", product_name=" + product_name + ", product_option="
+				+ product_option + ", product_img=" + product_img + ", product_thumb_img=" + product_thumb_img
+				+ ", product_desc=" + product_desc + ", product_stock=" + product_stock + ", price=" + price
+				+ ", product_date=" + product_date + ", product_hits=" + product_hits + ", product_price="
+				+ product_price + ", product_c_price=" + product_c_price + "]";
 	}
 
 }
