@@ -50,7 +50,7 @@ public class ProductDAO {
 	}
 	
 	// 조회수 처리
-	public void productHits(ProductDTO dto) throws Exception {
+	public void productHits(ProductDTO dto) {
 		mybtis.update("ProductDAO.productHits",dto);
 	}
 	

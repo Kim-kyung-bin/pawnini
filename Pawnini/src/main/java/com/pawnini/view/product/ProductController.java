@@ -62,6 +62,12 @@ public class ProductController {
 		model.addAttribute("productList", service.getProductList(dto));
 		return "admin/product/getProductList";
 	}
+	// 상품 페이지 이동
+	@RequestMapping(value="/goProductList.do")
+	public String goProductList(ProductDTO dto, Model model) {
+		model.addAttribute("productList", service.getProductList(dto));
+		return "product/meal";
+	}
 	
 	// 삭제
 	@RequestMapping(value="/deleteProduct.do")
@@ -81,6 +87,13 @@ public class ProductController {
 	public String updateProduct(ProductDTO dto) {
 		service.updateProduct(dto);
 		return "redirect:getProductList.do";
+	}
+	// 상세 페이지 이동
+	@RequestMapping(value="/detailProduct.do")
+	public String detailProduct(ProductDTO dto, Model model) throws Exception{
+		service.productHits(dto);
+		model.addAttribute("product", service.getProduct(dto));
+		return "product/detail";
 	}
 }
 

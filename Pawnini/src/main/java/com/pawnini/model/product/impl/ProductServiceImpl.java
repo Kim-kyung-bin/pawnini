@@ -36,14 +36,19 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public ProductDTO getProduct(ProductDTO dto) throws Exception {
-		// 조회수 처리
-		productDAO.productHits(dto);
+		/*// 조회수 처리
+		productDAO.productHits(dto);*/
 		return productDAO.getProduct(dto);
 	}
 
 	@Override
 	public int getCountProduct(ProductDTO dto) {
 		return productDAO.getCountProduct(dto);
+	}
+	
+	@Override
+	public void productHits(ProductDTO dto) {
+		productDAO.productHits(dto); 
 	}
 	
 }

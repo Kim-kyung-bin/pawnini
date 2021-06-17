@@ -1,30 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="../style/detail.css" />
 <link rel="stylesheet" href="../style/main.css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <%@ include file="../include/Header.jsp"%>
 <body>
 
 	<div class="grid">
-		<div class="product_image">1</div>
+		<div class="product_image"><img src="${product.product_img }"></div>
 		<div>
 			<ul class="product_dis">
-				<li>에티펫</li>
-				<li>손,발 얻엉이 도톰함 티슈 40매</li>
+				<li>${product.product_brand}</li>
+				<li>${product.product_name}</li>
 				<li>❤❤❤❤</li>
-				<li>정가<span>3000원</span></li>
-				<li>판매가<span>1000원</span></li>
-				<li>할인된 가격<span>500원</span></li>
+				<c:set var="c_price" value="${product.product_c_price}"/>
+				<c:set var="price" value="${product.product_price}"/>
+				<script type="text/javascript">
+				 	var c_price = '<c:out value = "${product.product_c_price}"/>'
+				 	var price = '<c:out value = "${product.product_price}"/>'
+				 	var sale = c_price - price;
+				 	$(document).ready(
+				 			function() {
+								$("#sale").text(sale+"원");
+							});
+				</script>
+				<li>정가<span>${product.product_c_price} 원</span></li>
+				<li>판매가<span>${product.product_price} 원</span></li>
+				
+				<li>할인된 가격<span id="sale"></span></li>
 				<li class="js-clock">남은시간 <span class="clock">00:00</span>
 				</li>
 			</ul>
 			<div class="product_stock">
 				<div class="stpck_one">
 					<ul>
-						<li>재고잇음</li>
-						<li>❤</li>
+						<li>재고:</li>
+						<li>${product.product_stock} 개</li>
 					</ul>
 
 				</div>
@@ -54,7 +69,7 @@
 		<h1>상품 상세 정보</h1>
 	</div>
 	<div>
-		<div>1</div>
+		<div>${product.product_desc}</div>
 	</div>
 
 

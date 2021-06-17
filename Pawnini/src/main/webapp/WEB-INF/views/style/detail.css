@@ -10,7 +10,6 @@
    
 }
 .product_image{
-    background-image: url("../images/dog12.jpg");
     background-position: center center;
     background-size: cover;
     width: 80%;

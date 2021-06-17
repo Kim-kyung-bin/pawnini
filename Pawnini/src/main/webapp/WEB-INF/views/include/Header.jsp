@@ -55,7 +55,7 @@
           <span class="dropmenu">
             <span><a href="dogSnack.do">간식</a></span>
             <span><a href="dogSupplies.do">용품</a></span>
-            <span><a href="dogMeal.do">사료</a></span>
+            <span><a href="goProductList.do">사료</a></span>
           </span>
         </li>
         <li class="Cat_dropmenu">
@@ -70,7 +70,7 @@
         <li><a href="service.do">고객센터</a></li>
 
         <li class="Dog_dropmenu">
-          <a href="getPawsList.do"> 분양</a>
+          <a href="getPawsList.do">분양</a>
           <span class="dropmenu">
             <span><a href="getCatList.do">Cat</a></span>
             <span><a href="getDogList.do">Dog</a></span>

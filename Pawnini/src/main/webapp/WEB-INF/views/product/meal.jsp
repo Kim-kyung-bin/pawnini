@@ -60,125 +60,18 @@
     </div>
     <div class="product">
       <ul class="product_ul">
+    <c:forEach items="${productList}" var="product">
         <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
+          <a href="detailProduct.do?product_id=${product.product_id}">
+            <img class="product_img" src="${product.product_thumb_img}" />
              <ul class="product_list">
-              <li class="product_title">원목 캣타워 소나무</li>
-              <li class="product_cash">$50.000원</li>
+              <li class="product_title">${product.product_name}</li>
+              <li class="product_cash">${product.product_price}</li>
               <li class="product_rank">❤❤❤❤🤍</li>
             </ul>
           </a>
         </li>
-        <li class="product_li">
-          <a href="detail.do">
-            <img class="product_img" src="../images//dog2.jpg" />
-            <ul class="product_list">
-              <li class="product_title">상세페이지 연결</li>
-              <li class="product_cash">$50.000원</li>
-              <li class="product_rank">❤❤❤❤🤍</li>
-            </ul>
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-            <ul class="product_list">
-              <li class="product_title">원목 캣타워 소나무</li>
-              <li class="product_cash">$50.000원</li>
-              <li class="product_rank">❤❤❤❤🤍</li>
-            </ul>
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-            <ul class="product_list">
-              <li class="product_title">원목 캣타워 소나무</li>
-              <li class="product_cash">$50.000원</li>
-              <li class="product_rank">❤❤❤❤🤍</li>
-            </ul>
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-            <ul class="product_list">
-              <li class="product_title">원목 캣타워 소나무</li>
-              <li class="product_cash">$50.000원</li>
-              <li class="product_rank">❤❤❤❤🤍</li>
-            </ul>
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-            <ul class="product_list">
-              <li class="product_title">원목 캣타워 소나무</li>
-              <li class="product_cash">$50.000원</li>
-              <li class="product_rank">❤❤❤❤🤍</li>
-            </ul>
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-            <ul class="product_list">
-              <li class="product_title">원목 캣타워 소나무</li>
-              <li class="product_cash">$50.000원</li>
-              <li class="product_rank">❤❤❤❤🤍</li>
-            </ul>
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-            <ul class="product_list">
-              <li class="product_title">원목 캣타워 소나무</li>
-              <li class="product_cash">$50.000원</li>
-              <li class="product_rank">❤❤❤❤🤍</li>
-            </ul>
-          </a>
-        </li>
-
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-          </a>
-        </li>
-        <li class="product_li">
-          <a href="">
-            <img class="product_img" src="../images//dog2.jpg" />
-          </a>
-        </li>
-
-        <li>4</li>
-        <li>5</li>
+    </c:forEach>
       </ul>
     </div>
 

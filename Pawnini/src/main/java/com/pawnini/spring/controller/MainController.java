@@ -79,7 +79,7 @@ public class MainController {
 	}
 	@RequestMapping("/adoption.do")
 	public String adoption() {
-		return "Adoption/Adoption";
+		return "adoption/Adoption";
 	}
 	@RequestMapping("/notice.do")
 	public String notice() {

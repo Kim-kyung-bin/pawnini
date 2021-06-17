@@ -22,4 +22,7 @@ public interface ProductService {
 	//상품 등록갯수 조회
 	int getCountProduct(ProductDTO dto);
 	
+	//조회수 처리
+	void productHits(ProductDTO dto);
+	
 }
