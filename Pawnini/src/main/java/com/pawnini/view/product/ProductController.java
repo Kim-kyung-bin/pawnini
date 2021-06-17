@@ -63,6 +63,12 @@ public class ProductController {
 		return "admin/product/getProductList";
 	}
 	
+	// 삭제
+	@RequestMapping(value="/deleteProduct.do")
+	public String deleteProduct(ProductDTO dto) {
+		service.deleteProduct(dto);
+		return "redirect:getProductList.do";
+	}
 	
 }
 
