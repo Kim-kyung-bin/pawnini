@@ -69,7 +69,9 @@
 		PRODUCT_T_CODE2=#{product_t_code2},
 		PRODUCT_BRAND=#{product_brand},
 		PRODUCT_NAME=#{product_name},
+		PRODUCT_OPTION=#{product_option},
 		PRODUCT_DESC=#{product_desc},
+		PRODUCT_STOCK=#{product_stock},
 		PRODUCT_PRICE=#{product_price},
 		PRODUCT_C_PRICE=#{product_c_price}
 		WHERE
@@ -104,6 +106,15 @@
 		SELECT COUNT(*) 
 		FROM PRODUCT
 	</select>
+	
+	<!-- 상품 조회수 -->
+	<update id="productHits" parameterType="int">
+		UPDATE PRODUCT
+		SET
+		PRODUCT_HITS = PRODUCT_HITS+1
+		WHERE
+		PRODUCT_ID=#{product_id}
+	</update>
 	
 </mapper>
 

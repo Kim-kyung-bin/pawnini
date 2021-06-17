@@ -86,9 +86,14 @@ public class MainController {
 		return "NOTIC/Notice";
 	}
 	@RequestMapping("/basket.do")
-	public String baskey() {
+	public String basket() {
 		return "basket";
 	}
+	@RequestMapping("/detail.do")
+	public String detail() {
+		return "product/detail";
+	}
+	
 }
 
 

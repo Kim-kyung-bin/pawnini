@@ -33,7 +33,7 @@ public class ProductDAO {
 		System.out.println("mybatis => deleteProduct 실행 완료");
 	}
 	//상세 보기
-	public ProductDTO getProduct(ProductDTO dto) {
+	public ProductDTO getProduct(ProductDTO dto) throws Exception{
 		System.out.println("mybatis => getProduct 실행");
 		return (ProductDTO) mybtis.selectOne("ProductDAO.getProduct",dto);
 	}
@@ -48,6 +48,12 @@ public class ProductDAO {
 		System.out.println("mybatis => 상품 카운트 불러오기");
 		return mybtis.selectOne("ProductDAO.getCountProduct",dto);
 	}
+	
+	// 조회수 처리
+	public void productHits(ProductDTO dto) throws Exception {
+		mybtis.update("ProductDAO.productHits",dto);
+	}
+	
 }
 
 

@@ -17,8 +17,9 @@ public interface ProductService {
 	List<ProductDTO> getProductList(ProductDTO dto);
 	
 	//상품 상세정보 조회
-	ProductDTO getProduct(ProductDTO dto);
+	ProductDTO getProduct(ProductDTO dto) throws Exception;
 	
 	//상품 등록갯수 조회
 	int getCountProduct(ProductDTO dto);
+	
 }

@@ -33,7 +33,7 @@
 					<tr>
 						<td>설명<textarea class="textarea" rows="10" cols="40"
 								name="paws_desc">
-  ${paws.paws_desc}</textarea>
+ 						 ${paws.paws_desc}</textarea>
 					<tr>
 						<td>성별<input type="text" name="paws_sex"
 							value="${paws.paws_sex}" />

@@ -70,6 +70,18 @@ public class ProductController {
 		return "redirect:getProductList.do";
 	}
 	
+	// 상품 업데이트 폼 이동
+	@RequestMapping(value="/getProduct.do")
+	public String getProduct(ProductDTO dto, Model model) throws Exception {
+		model.addAttribute("product",service.getProduct(dto));
+		return "admin/product/updateProduct";
+	}
+	// 상품 업데이트 기능시작
+	@RequestMapping(value="/updateProduct.do")
+	public String updateProduct(ProductDTO dto) {
+		service.updateProduct(dto);
+		return "redirect:getProductList.do";
+	}
 }
 
 

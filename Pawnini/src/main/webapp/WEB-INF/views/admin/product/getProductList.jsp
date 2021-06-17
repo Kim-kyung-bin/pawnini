@@ -29,6 +29,7 @@
              <td>상품옵션
              <td>재고
              <td>가격
+             <td>조회수
              <td>등록일시
              <td colspan="2">
           <c:forEach items="${productList}" var="product">
@@ -44,6 +45,8 @@
              <td>${product.product_option}
              <td>${product.product_stock}
              <td>${product.product_price}
+             <td>${product.product_hits}
+             <td>${product.product_date}
              <td><a href="getProduct.do?product_id=${product.product_id}">수정</a>
              <td><a href="deleteProduct.do?product_id=${product.product_id}">삭제</a>
           </c:forEach>

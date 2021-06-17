@@ -34,7 +34,7 @@
             <!-- 관리자 카테고리 메뉴 연동 -->
             <span><a href="PawsList.do">분양관리</a></span>
             <span><a href="getMemberList.do">회원관리</a></span>
-            <span><a href="#">상품관리</a></span>
+            <span><a href="getProductList.do">상품관리</a></span>
           </span>
         </li>
         </c:if>

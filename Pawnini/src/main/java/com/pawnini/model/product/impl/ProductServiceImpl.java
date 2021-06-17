@@ -35,7 +35,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductDTO getProduct(ProductDTO dto) {
+	public ProductDTO getProduct(ProductDTO dto) throws Exception {
+		// 조회수 처리
+		productDAO.productHits(dto);
 		return productDAO.getProduct(dto);
 	}
 
@@ -43,5 +45,5 @@ public class ProductServiceImpl implements ProductService {
 	public int getCountProduct(ProductDTO dto) {
 		return productDAO.getCountProduct(dto);
 	}
-
+	
 }
