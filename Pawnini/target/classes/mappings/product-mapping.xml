@@ -90,13 +90,44 @@
 	</delete>	
 	
 	<!-- 등록 리스트 불러오기 -->
-	<select id="getProductList" resultMap="productResult">
+	<select id="getProductList" resultMap="productResult" parameterType="productCriteria" >
 		SELECT *
+		FROM (
+				SELECT 
+				PRODUCT_ID,
+				PRODUCT_F_CODE,
+				PRODUCT_S_CODE,
+				PRODUCT_T_CODE,
+				PRODUCT_T_CODE2,
+				PRODUCT_BRAND,
+				PRODUCT_NAME,
+				PRODUCT_OPTION,
+				PRODUCT_IMG,
+				PRODUCT_THUMB_IMG,
+				PRODUCT_DESC,
+				PRODUCT_STOCK,
+				PRODUCT_PRICE,
+				PRODUCT_DATE,
+				PRODUCT_HITS,
+				PRODUCT_C_PRICE,
+				ROW_NUMBER() OVER(ORDER BY PRODUCT_ID DESC) AS RNUM
+				FROM PRODUCT
+				WHERE 1=1
+				<include refid="search"/>		
+				)
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY PRODUCT_ID DESC
+	</select>
+	
+	<!-- 상품 등록수  -->
+	<select id="getCountProduct" resultType="int" parameterType="productCriteria">
+		SELECT COUNT(PRODUCT_ID) 
 		FROM PRODUCT
 		WHERE 1=1
-		<include refid="search"/> 
-		ORDER BY PRODUCT_DATE DESC
+		<include refid="search"/>
+		AND PRODUCT_ID > 0
 	</select>
+	
 	
 	<!-- 상세 정보 불러오기 -->
 	<select id="getProduct" resultType="product">
@@ -104,11 +135,6 @@
 		FROM PRODUCT
 		WHERE
 		PRODUCT_ID = #{product_id}
-	</select>
-	<!-- 상품 등록수  -->
-	<select id="checkProduct" resultType="java.lang.Integer">
-		SELECT COUNT(*) 
-		FROM PRODUCT
 	</select>
 	
 	<!-- 상품 조회수 -->

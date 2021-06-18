@@ -43,7 +43,7 @@ body{
     text-decoration: none;
     list-style: none;
     width: 90vw;
-    margin-left: 30px;
+    margin-left: 200px;
 
 }
 
@@ -82,3 +82,16 @@ color:red;
 .product_li{
     box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.5);
 }
+.pagination{
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	text-decoration: none;
+    	list-style: none;
+}
+
+.pagination li {
+	padding: 10px;
+	font-size: 28px;
+}
+

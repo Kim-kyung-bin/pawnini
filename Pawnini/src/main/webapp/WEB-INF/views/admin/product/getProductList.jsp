@@ -9,7 +9,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../../style/getList.css" />
+<style type="text/css">
+.pagination{
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	text-decoration: none;
+    	list-style: none;
+}
 
+.pagination li {
+	padding: 10px;
+	font-size: 28px;
+}
+
+</style>
 </head>
    <%@ include file="../../include/Header.jsp" %> 
 <body>
@@ -56,6 +70,22 @@
        <a href="goProductList.do">상품페이지</a>
       </div>
     </div>
+      <div>
+			<ul class="pagination">
+				<c:if test="${pageMaker.prev}">
+					<li><a href="getProductList${pageMaker.makeSearch(pageMaker.startPage -1)}">이전</a></li>
+				</c:if>
+				
+				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+					<li <c:out value="${pageMaker.cri.page == idx ? 'class=info ' : '' }"/>>
+					<a href="getProductList.do${pageMaker.makeSearch(idx)}">${idx}</a></li>
+				</c:forEach>
+				
+				<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+					<li><a href="getProductList${pageMaker.makeSearch(pageMaker.endPage +1)}">다음</a></li>
+				</c:if>
+			</ul>
+		</div>
  </body>
 
     <%@ include file="../../include/Footer.jsp" %>

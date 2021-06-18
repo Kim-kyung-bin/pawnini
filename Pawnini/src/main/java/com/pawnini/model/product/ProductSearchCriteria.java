@@ -1,11 +1,11 @@
 package com.pawnini.model.product;
 
-public class ProductSearchCriteria {
+public class ProductSearchCriteria extends Criteria{
 
 		// 검색용 (DB x)
-		private String searchOption;
-		private String searchKeyword;
-		private String searchKeyword2;
+		private String searchOption="";
+		private String searchKeyword="";
+		private String searchKeyword2="";
 		
 		
 		public String getSearchKeyword2() {

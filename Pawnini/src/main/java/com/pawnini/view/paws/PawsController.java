@@ -56,19 +56,19 @@ public class PawsController {
 	@RequestMapping("/getPawsList.do")
 	public String getPawsList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getPawsList(dto));
-		return "adoption/Adoption";
+		return "adoption/adoption";
 	}
 	//리스트 불러오기 (강아지)
 	@RequestMapping("/getDogList.do")
 	public String getDogList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getDogList(dto));
-		return "adoption/Adoption";
+		return "adoption/adoption";
 	}
 	//리스트 불러오기 (고양이)
 	@RequestMapping("/getCatList.do")
 	public String getCatList(PawsDTO dto, Model model) {
 		model.addAttribute("pawsList",pawsService.getCatList(dto));
-		return "adoption/Adoption";
+		return "adoption/adoption";
 	}
 	
 	//정보 삭제

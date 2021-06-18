@@ -14,6 +14,7 @@
 		<typeAlias alias="reviewReply" type="com.pawnini.model.review.ReviewReplyDTO"/>
 		<typeAlias alias="member" type="com.pawnini.model.member.MemberDTO"/>
 		<typeAlias alias="product" type="com.pawnini.model.product.ProductDTO"/>
+		<typeAlias alias="productCriteria" type="com.pawnini.model.product.ProductSearchCriteria"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->

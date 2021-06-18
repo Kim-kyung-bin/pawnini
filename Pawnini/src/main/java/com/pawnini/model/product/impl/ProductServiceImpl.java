@@ -43,8 +43,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public int getCountProduct(ProductDTO dto) {
-		return productDAO.getCountProduct(dto);
+	public int getCountProduct(ProductSearchCriteria scri) throws Exception {
+		System.out.println("Pagination - 상품 갯수 세기");
+		return productDAO.getCountProduct(scri);
 	}
 	
 	@Override

@@ -59,7 +59,7 @@
       <h3 class="basket"><a href="basket.do">장바구니</a></h3>
       <ul class="Header_ul">
         <li class="Dog_dropmenu">
-          강아지
+          DOG
           <span class="dropmenu">
             <span><a href="goProductList.do?searchOption=dog&searchKeyword=snack">간식</a></span>
             <span><a href="goProductList.do?searchOption=dog&searchKeyword=supplies">용품</a></span>
@@ -67,7 +67,7 @@
           </span>
         </li>
         <li class="Cat_dropmenu">
-          고양이
+          CAT
           <span class="dropmenu">
             <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">간식</a></span>
             <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">용품</a></span>

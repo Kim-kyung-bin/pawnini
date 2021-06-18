@@ -12,8 +12,9 @@
 .product_image{
     background-position: center center;
     background-size: cover;
-    width: 80%;
-    margin-left: 15px;
+    border:box-size;
+    padding-left:150px;
+    padding-top:100px;
     border-radius: 5px;
     border-right: 3px solid rgba(0,0,0,0.1);
 }

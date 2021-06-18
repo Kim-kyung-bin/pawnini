@@ -41,10 +41,7 @@
 						<li>재고:</li>
 						<li>${product.product_stock} 개</li>
 					</ul>
-
 				</div>
-
-
 				<div>
 					<ul>
 						<li>무료배송</li>
