@@ -3,11 +3,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 	<div class="update_product">
-		<form action="updateProduct.do" method="post">
+		<form action="updateProduct.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="product_id" value="${product.product_id}">
 		<table border="1">
 			<tr>
@@ -53,6 +54,19 @@
 				</td>
 			</tr>
 			<tr>
+				<td>
+					<label for="product_img">상품 이미지: </label>
+					<input type="file" name="file" id="product_img">
+				</td>
+			</tr>
+			<tr>
+				<td>미리보기
+				<div class="select_img"><img src="" /></div>
+				<input type="hidden" name="product_img" value="${product.product_img}">
+				<input type="hidden" name="product_thumb_img" value="${product.product_thumb_img}">
+				</td>
+			</tr>
+			<tr>
 				<td>상품 설명 :
 					<textarea rows="10" cols="40" name="product_desc">${product.product_desc}</textarea>
 				</td>
@@ -85,7 +99,17 @@
 
 	</div>
 </body>
-
+ <script>
+  $("#product_img").change(function(){
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $(".select_img img").attr("src", data.target.result).width(300);        
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });
+ </script>
 
 </html>
 

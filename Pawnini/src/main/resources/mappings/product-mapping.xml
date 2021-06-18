@@ -70,6 +70,8 @@
 		PRODUCT_BRAND=#{product_brand},
 		PRODUCT_NAME=#{product_name},
 		PRODUCT_OPTION=#{product_option},
+		PRODUCT_IMG=#{product_img},
+		PRODUCT_THUMB_IMG=#{product_thumb_img},
 		PRODUCT_DESC=#{product_desc},
 		PRODUCT_STOCK=#{product_stock},
 		PRODUCT_PRICE=#{product_price},
@@ -102,7 +104,7 @@
 		PRODUCT_ID = #{product_id}
 	</select>
 	<!-- 상품 등록수  -->
-	<select id="checkID" resultType="java.lang.Integer">
+	<select id="checkProduct" resultType="java.lang.Integer">
 		SELECT COUNT(*) 
 		FROM PRODUCT
 	</select>

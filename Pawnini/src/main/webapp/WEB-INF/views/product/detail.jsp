@@ -25,13 +25,13 @@
 				 	var sale = c_price - price;
 				 	$(document).ready(
 				 			function() {
-								$("#sale").text(sale+"원");
+								$("#salePrice").text(sale+"원");
 							});
 				</script>
 				<li>정가<span>${product.product_c_price} 원</span></li>
 				<li>판매가<span>${product.product_price} 원</span></li>
 				
-				<li>할인된 가격<span id="sale"></span></li>
+				<li>할인된 가격<span id="salePrice"></span></li>
 				<li class="js-clock">남은시간 <span class="clock">00:00</span>
 				</li>
 			</ul>

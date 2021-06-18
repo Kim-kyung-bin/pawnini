@@ -25,12 +25,14 @@
 				<tr>
 					<td>나이<input type="text" name="paws_age">
 				<tr>
-					<td><div class="inputArea">
+					<td>
+					<div class="inputArea">
  						<label for="paws_img">이미지</label>
  						<input type="file" id="paws_img" name="file" />
+ 				</tr>
  				<tr>
  					<td>미리보기
- 					<div class="select_img"><img src="" /></div>
+ 						<div class="select_img"><img src="" /></div>
 					</div>
 				<tr>
 					<td>설명<textarea rows="10" cols="40" name="paws_desc"></textarea>

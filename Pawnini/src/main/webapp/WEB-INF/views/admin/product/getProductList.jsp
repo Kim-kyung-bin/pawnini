@@ -53,7 +53,7 @@
        </table>
        <div class="button">
        <a href="goInsertProduct.do">신규 등록</a><br>
-       <a href="getPawsList.do">상품페이지</a>
+       <a href="goProductList.do">상품페이지</a>
       </div>
     </div>
  </body>

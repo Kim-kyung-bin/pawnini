@@ -1,13 +1,16 @@
 package com.pawnini.view.product;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -82,15 +85,43 @@ public class ProductController {
 		model.addAttribute("product",service.getProduct(dto));
 		return "admin/product/updateProduct";
 	}
-	// 상품 업데이트 기능시작
-	@RequestMapping(value="/updateProduct.do")
+	// 상품 업데이트
+	@RequestMapping(value="/updateProduct.do", method=RequestMethod.POST)
+	public String updateProduct(ProductDTO dto, MultipartFile file, HttpServletRequest req) throws Exception {
+		
+		// 새로운 파일이 등록되었는지 확인
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+		// 기존 파일을 삭제
+		new File(uploadPath + req.getParameter("product_img")).delete();
+		new File(uploadPath + req.getParameter("product_thumb_img")).delete();
+		
+		// 새로 첨부한 파일을 등록
+		String imgUploadPath = uploadPath + File.separator + "imgUpload";
+		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
+				  
+		dto.setProduct_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+		dto.setProduct_thumb_img(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+				  
+		} else {  // 새로운 파일이 등록되지 않았다면
+		// 기존 이미지를 그대로 사용
+		dto.setProduct_img(req.getParameter("product_img"));
+		dto.setProduct_thumb_img(req.getParameter("product_thumb_img"));
+		}
+		
+		service.updateProduct(dto);
+		return "redirect:getProductList.do";
+	}
+	// 상품 업데이트
+	@RequestMapping(value="/updateProduct.do", method=RequestMethod.GET)
 	public String updateProduct(ProductDTO dto) {
 		service.updateProduct(dto);
 		return "redirect:getProductList.do";
 	}
-	// 상세 페이지 이동
+	// 상품 상세 페이지 이동
 	@RequestMapping(value="/detailProduct.do")
 	public String detailProduct(ProductDTO dto, Model model) throws Exception{
+		// 조회수 처리
 		service.productHits(dto);
 		model.addAttribute("product", service.getProduct(dto));
 		return "product/detail";
