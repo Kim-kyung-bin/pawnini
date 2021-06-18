@@ -29,7 +29,7 @@
                <td>${member.member_phone}
                <td>${member.member_regdate}
                <td class="manger"><c:if test="${member.member_grade == 1}">회원</c:if>
-               <c:if  test="${member.member_grade == 2}">관리자</c:if>
+               <c:if  test="${member.member_grade == 2}"><span style="color:red">관리자</span></c:if>
                <td><a href="deleteMember.do?member_id=${member.member_id}">회원삭제</a>
             </c:forEach>
          </table>

@@ -47,23 +47,31 @@
           <a href="main.do"><img src="./images/Rogo.jpg" /></a>
         </h1>
       </div>
-      <input class="Header_input" type="text" placeholder="Search..." />
+      
+      <form method="get" action="goProductList.do">
+      <select class="Header_input" name="searchOption">
+      	<option value="dog">강아지</option>
+      	<option value="cat">고양이</option>
+      </select>
+      <input class="Header_input" type="text" placeholder="Search..." name="searchKeyword2"/>
+      </form>
+      
       <h3 class="basket"><a href="basket.do">장바구니</a></h3>
       <ul class="Header_ul">
         <li class="Dog_dropmenu">
           강아지
           <span class="dropmenu">
-            <span><a href="dogSnack.do">간식</a></span>
-            <span><a href="dogSupplies.do">용품</a></span>
-            <span><a href="goProductList.do">사료</a></span>
+            <span><a href="goProductList.do?searchOption=dog&searchKeyword=snack">간식</a></span>
+            <span><a href="goProductList.do?searchOption=dog&searchKeyword=supplies">용품</a></span>
+            <span><a href="goProductList.do?searchOption=dog&searchKeyword=meal">사료</a></span>
           </span>
         </li>
         <li class="Cat_dropmenu">
           고양이
           <span class="dropmenu">
-            <span><a href="catSnack.do">간식</a></span>
-            <span><a href="catSupplies.do">용품</a></span>
-            <span><a href="catMeal.do">사료</a></span>
+            <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">간식</a></span>
+            <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">용품</a></span>
+            <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">사료</a></span>
           </span>
         </li>
         <li><a href="event.do">이벤트</a></li>

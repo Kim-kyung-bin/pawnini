@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pawnini.model.product.ProductDTO;
+import com.pawnini.model.product.ProductSearchCriteria;
 import com.pawnini.model.product.ProductService;
 
 @Service("productService")
@@ -30,8 +31,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductDTO> getProductList(ProductDTO dto) {
-		return productDAO.getProductList(dto);
+	public List<ProductDTO> getProductList(ProductSearchCriteria scri) throws Exception {
+		return productDAO.getProductList(scri);
 	}
 
 	@Override

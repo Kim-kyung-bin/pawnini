@@ -21,9 +21,7 @@ public class ProductDTO {
 	private int product_price;
 	private int product_c_price;
 
-	// 검색용 (DB x)
-	private String searchCondition;
-	private String searchKeyword;
+	
 
 	
 	
@@ -41,22 +39,6 @@ public class ProductDTO {
 
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
-	}
-
-	public String getSearchCondition() {
-		return searchCondition;
-	}
-
-	public void setSearchCondition(String searchCondition) {
-		this.searchCondition = searchCondition;
-	}
-
-	public String getSearchKeyword() {
-		return searchKeyword;
-	}
-
-	public void setSearchKeyword(String searchKeyword) {
-		this.searchKeyword = searchKeyword;
 	}
 
 	public int getProduct_id() {

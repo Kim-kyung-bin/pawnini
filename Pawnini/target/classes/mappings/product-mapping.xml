@@ -93,6 +93,8 @@
 	<select id="getProductList" resultMap="productResult">
 		SELECT *
 		FROM PRODUCT
+		WHERE 1=1
+		<include refid="search"/> 
 		ORDER BY PRODUCT_DATE DESC
 	</select>
 	
@@ -117,6 +119,42 @@
 		WHERE
 		PRODUCT_ID=#{product_id}
 	</update>
+	
+	<!-- 검색용 sql -->
+	<sql id="search">
+		<!-- 1차 카테고리가 null 값이 아닌경우 -->
+		<if test="searchOption != null">
+			<!-- 1차 카테고리가 dog 인경우 -->
+			<if test="searchOption == 'dog'.toString()">
+				AND UPPER(PRODUCT_F_CODE) LIKE '%' ||UPPER(#{searchOption})|| '%'
+				
+				<!-- 2차 카테고리가 null 값 인경우 1차 카테고리 까지만 검색 -->
+				<if test="searchKeyword !=null">
+					AND UPPER(PRODUCT_S_CODE) LIKE '%' ||UPPER(#{searchKeyword})|| '%'
+				</if>
+				
+				<!-- 상품 이름 검색 -->
+				<if test="searchKeyword2 !=null">
+					AND UPPER(PRODUCT_NAME) LIKE '%' ||UPPER(#{searchKeyword2})|| '%'
+				</if>
+			</if>	
+				
+			<!-- 1차 카테고리가 cat 인경우 -->
+			<if test="searchOption == 'cat'.toString()">
+				AND UPPER(PRODUCT_F_CODE) LIKE '%' ||UPPER(#{searchOption})|| '%'
+				
+				<!-- 2차 카테고리가 null 값 인경우 1차 카테고리 까지만 검색 -->
+				<if test="searchKeyword !=null">
+					AND UPPER(PRODUCT_S_CODE) LIKE '%' ||UPPER(#{searchKeyword})|| '%'
+				</if>
+				
+				<!-- 상품 이름 검색 -->
+				<if test="searchKeyword2 !=null">
+					AND UPPER(PRODUCT_NAME) LIKE '%' ||UPPER(#{searchKeyword2})|| '%'
+				</if>
+			</if>		
+		</if>
+	</sql>
 	
 </mapper>
 

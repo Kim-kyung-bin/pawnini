@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.pawnini.model.product.ProductDTO;
+import com.pawnini.model.product.ProductSearchCriteria;
 import com.pawnini.model.product.ProductService;
 import com.pawnini.utils.UploadFileUtils;
 
@@ -61,15 +63,15 @@ public class ProductController {
 	
 	// 상품관리 리스트
 	@RequestMapping(value="/getProductList.do")
-	public String getProductList(ProductDTO dto, Model model) {
-		model.addAttribute("productList", service.getProductList(dto));
+	public String getProductList(@ModelAttribute("scri") ProductSearchCriteria scri, Model model) throws Exception {
+		model.addAttribute("productList", service.getProductList(scri));
 		return "admin/product/getProductList";
 	}
 	// 상품 페이지 이동
 	@RequestMapping(value="/goProductList.do")
-	public String goProductList(ProductDTO dto, Model model) {
-		model.addAttribute("productList", service.getProductList(dto));
-		return "product/meal";
+	public String goProductList(@ModelAttribute("scri") ProductSearchCriteria scri, Model model) throws Exception {
+		model.addAttribute("productList", service.getProductList(scri));
+		return "product/product";
 	}
 	
 	// 삭제

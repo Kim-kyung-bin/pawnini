@@ -14,7 +14,7 @@ public interface ProductService {
 	void deleteProduct(ProductDTO dto);
 	
 	//상품 리스트
-	List<ProductDTO> getProductList(ProductDTO dto);
+	List<ProductDTO> getProductList(ProductSearchCriteria scri) throws Exception;
 	
 	//상품 상세정보 조회
 	ProductDTO getProduct(ProductDTO dto) throws Exception;

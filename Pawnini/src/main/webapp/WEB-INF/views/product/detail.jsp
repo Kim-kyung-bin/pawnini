@@ -69,7 +69,10 @@
 		<h1>상품 상세 정보</h1>
 	</div>
 	<div>
-		<div>${product.product_desc}</div>
+		<div align="center">
+			<img src="${product.product_img }"><br>
+			${product.product_desc}
+		</div>
 	</div>
 
 
