@@ -13,7 +13,10 @@
 		<result property="rev_date" column="REV_DATE"/>
 		<result property="rev_show" column="REV_SHOW"/>
 		<result property="rev_like_cnt" column="REV_LIKE_CNT"/>
+		<result property="rev_com_cnt" column="REV_COM_CNT"/>
 		<result property="rev_stars" column="REV_STARS"/>
+		<result property="rev_f_img" column="REV_F_IMG"/>
+		<result property="rev_thumb_img" column="REV_THUMB_IMG"/>
 		<result property="member_id" column="MEMBER_ID"/>
 		<result property="product_id" column="PRODUCT_ID"/>
 	</resultMap>
@@ -30,6 +33,8 @@
 		 REV_F_CATEGORY,
 		 REV_SHOW,
 		 REV_STARS,
+		 REV_F_IMG,
+		 REV_THUMB_IMG,
 		 MEMBER_ID,
 		 PRODUCT_ID
 		 ) 
@@ -41,6 +46,8 @@
 			 #{rev_f_category},
 			 #{rev_show},
 			 #{rev_stars},
+			 #{rev_f_img},
+			 #{rev_thumb_img},
 			 #{member_id},
 			 #{product_id}
 		 )
@@ -55,6 +62,7 @@
                 REV_TITLE,
                 REV_F_CATEGORY,
                 REV_STARS,
+                REV_COM_CNT,
                 REV_DATE
 		 FROM ( 
 		        SELECT REV_ID,
@@ -63,6 +71,7 @@
                        REV_TITLE,
                        REV_F_CATEGORY,
                        REV_STARS,
+                       REV_COM_CNT,
                        REV_DATE,
 		               ROW_NUMBER() OVER(ORDER BY REV_ID DESC) AS RNUM
 		         FROM REVIEW
@@ -73,7 +82,7 @@
 		ORDER BY REV_ID DESC
 	</select>
 	
-	<!-- 후기 목록 갯수 세기 -->
+	<!-- 후기 목록 개수 세기 -->
 	<select id="countReviewList" parameterType="reviewCriteria" resultType="int">
 		SELECT COUNT(REV_ID)
 		   FROM REVIEW
@@ -108,7 +117,9 @@
                 REV_F_CATEGORY = #{rev_f_category},
                 REV_CONTENT = #{rev_content},
                 REV_SHOW = #{rev_show},
-                REV_STARS = #{rev_stars}
+                REV_STARS = #{rev_stars},
+                REV_F_IMG = #{rev_f_img},
+                REV_THUMB_IMG = #{rev_thumb_img}
    			WHERE REV_ID = #{rev_id}
 	]]>
 	</update>
@@ -116,10 +127,67 @@
 	<!-- 후기 삭제 -->
 	<delete id="deleteReview">
 	<![CDATA[
-		DELETE REVIEW
+		DELETE FROM REVIEW
 		WHERE
 		REV_ID = #{rev_id}
 	]]>
 	</delete>
 	
+	<!-- 후기 댓글 개수 구하기 -->
+	<update id="updateReplyCount" parameterType="int">
+	<![CDATA[
+		UPDATE REVIEW
+        SET REV_COM_CNT = (
+        SELECT COUNT(REV_COM_ID) FROM REV_COM WHERE REV_ID = #{rev_id}
+        )
+        WHERE REV_ID = #{rev_id}
+	]]>
+	</update>
+	
+	
+	<!-- 후기 좋아요 생성 -->
+	<insert id="insertReviewLike">
+	<![CDATA[
+		INSERT INTO REV_LIKE (REV_LIKE_ID, REV_ID, MEMBER_ID)
+       	VALUES (
+               (SELECT NVL(MAX(REV_LIKE_ID),0)+1 FROM REV_LIKE),
+                #{rev_id}, 
+                #{member_id}
+                )
+	]]>
+	</insert>
+	
+	<!-- 후기 좋아요 삭제 -->
+	<delete id="deleteReviewLike">
+	<![CDATA[
+		DELETE FROM REV_LIKE
+         WHERE REV_ID = #{rev_id} AND MEMBER_ID = #{member_id}
+	]]>
+	</delete>
+	
+	<!-- 후기 좋아요 업데이트 -->
+	<update id="updateReviewLike">
+	<![CDATA[
+		UPDATE REVIEW
+	        SET REV_LIKE_CNT = (
+	        SELECT COUNT(*)
+	        FROM REV_LIKE
+	        WHERE REV_ID = #{rev_id})
+	        WHERE REV_ID = #{rev_id}
+	]]>
+	</update>
+	
+	<!-- 후기 좋아요 개수 구하기 // ID 중복 방지용  -->
+	<select id="getReviewLike" resultType="int" parameterType="reviewLike">
+		SELECT COUNT(REV_LIKE_ID)
+	    	FROM REV_LIKE
+			WHERE REV_ID = #{rev_id} AND MEMBER_ID = #{member_id}
+	</select>
+	
+	<!-- 후기 좋아요 총 개수 구하기 -->
+	<select id="getReviewLikeTotal" resultType="int" parameterType="reviewLike">
+		SELECT COUNT(REV_LIKE_ID)
+	    	FROM REV_LIKE
+			WHERE REV_ID = #{rev_id}
+	</select>
 </mapper>

@@ -68,8 +68,8 @@
           	고양이
           <span class="dropmenu">
             <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">간식</a></span>
-            <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">용품</a></span>
-            <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">사료</a></span>
+            <span><a href="goProductList.do?searchOption=cat&searchKeyword=supplies">용품</a></span>
+            <span><a href="goProductList.do?searchOption=cat&searchKeyword=meal">사료</a></span>
           </span>
         </li>
         <li><a href="event.do">이벤트</a></li>
@@ -82,7 +82,7 @@
             <span><a href="getDogList.do">Dog</a></span>
           </span>
         </li>
-        <li><a href="notice.do">공지</a></li>
+        <li><a href="getReviewList.do">후기</a></li>
       </ul>
     </header>
         <script

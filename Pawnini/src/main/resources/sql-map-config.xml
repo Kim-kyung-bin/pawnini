@@ -12,6 +12,9 @@
 		<typeAlias alias="review" type="com.pawnini.model.review.ReviewDTO"/>
 		<typeAlias alias="reviewCriteria" type="com.pawnini.model.review.SearchCriteria"/>
 		<typeAlias alias="reviewReply" type="com.pawnini.model.review.ReviewReplyDTO"/>
+		<typeAlias alias="reviewLike" type="com.pawnini.model.review.ReviewLikeDTO"/>
+		<typeAlias alias="cart" type="com.pawnini.model.cart.CartDTO"/>
+		<typeAlias alias="cartList" type="com.pawnini.model.cart.CartListDTO"/>
 		<typeAlias alias="member" type="com.pawnini.model.member.MemberDTO"/>
 		<typeAlias alias="product" type="com.pawnini.model.product.ProductDTO"/>
 		<typeAlias alias="productCriteria" type="com.pawnini.model.product.ProductSearchCriteria"/>
@@ -26,6 +29,7 @@
 		<mapper resource="mappings/review-reply-mapping.xml"/>		
 		<mapper resource="mappings/member-mapping.xml"/>			
 		<mapper resource="mappings/product-mapping.xml"/>
+		<mapper resource="mappings/cart-mapping.xml"/>
 	</mappers>
 	
 </configuration>

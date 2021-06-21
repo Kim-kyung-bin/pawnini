@@ -13,6 +13,7 @@
 		<result property="rev_com_show" column="REV_COM_SHOW"/>
 		<result property="rev_com_moddate" column="REV_COM_MODDATE"/>
 		<result property="rev_id" column="REV_ID"/>
+		<result property="member_id" column="MEMBER_ID"/>
 	</resultMap>
 	
 	<!-- 후기 댓글 목록 불러오기 -->
@@ -35,12 +36,14 @@
                     REV_COM_WRITER,
                     REV_COM_CONTENT,
                     REV_COM_SHOW,
+                    MEMBER_ID,
                     REV_ID)
         VALUES (
                     (SELECT NVL(MAX(REV_COM_ID),0)+1 FROM REV_COM),
                     #{rev_com_writer},
                     #{rev_com_content},
                     #{rev_com_show},
+                    #{member_id},
                     #{rev_id}
                     )
 	</insert>
