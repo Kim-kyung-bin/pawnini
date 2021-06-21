@@ -1,7 +1,6 @@
 package com.pawnini.view.product;
 
 import java.io.File;
-import java.io.IOException;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -110,7 +108,7 @@ public class ProductController {
 	}
 	
 	// 삭제
-	@RequestMapping(value="/deleteProduct.do", method=RequestMethod.POST)
+	@RequestMapping(value="/deleteProduct.do")
 	public String deleteProduct(ProductDTO dto, @ModelAttribute("scri") ProductSearchCriteria scri, RedirectAttributes rttr) {
 		service.deleteProduct(dto);
 		

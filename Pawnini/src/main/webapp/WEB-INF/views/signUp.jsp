@@ -1,4 +1,4 @@
-me<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -193,6 +193,9 @@ me<%@ page language="java" contentType="text/html; charset=UTF-8"
 </head>
 <%@ include file="include/Header.jsp"%>
 <body>
+   <div class="Guide">
+      <span>REGISTER</span>
+    </div>
 	<h2 class="text" align="center">회원가입</h2>
 	<section class="Form_section">
 		<form name="f1rm" id="f1rm">

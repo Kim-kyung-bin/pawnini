@@ -58,7 +58,13 @@
 			</div>
 			<div class="button">
 				<button class="button_one">장바구니 담기</button>
-				<button class="button_two">바로구매</button>
+				<c:set var="stock" value="${product.product_stock}"/>
+				<c:if test="${product.product_stock != 0 }">
+					<button class="button_two">바로구매</button>
+				</c:if>
+				<c:if test="${product.product_stock == 0 }">
+					<button class="button_two">품절</button>
+				</c:if>
 			</div>
 		</div>
 	</div>

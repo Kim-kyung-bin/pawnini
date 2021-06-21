@@ -1,13 +1,14 @@
 package com.pawnini.view.member;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pawnini.model.member.MemberDTO;
 import com.pawnini.model.member.MemberService;
@@ -18,7 +19,25 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	//로그인
+	
+	//로그인 Interceptor용
+	@RequestMapping(value="/login.do", method=RequestMethod.POST)
+	public String login(@ModelAttribute("member") MemberDTO dto, HttpServletRequest request, Model model) throws Exception {
+		
+		MemberDTO resultDTO = service.login(dto);
+		
+		if(resultDTO != null && !resultDTO.getMember_id().equals("") && !resultDTO.getMember_pwd().equals("")) {
+			System.out.println("login 성공");
+			request.getSession().setAttribute("member", resultDTO);
+			return "main";
+		} else {
+			System.out.println("login 실패");
+			model.addAttribute("msg", "아이디와 비밀번호가 불일치합니다.");
+			return "Login";
+		}
+	}
+	
+	/*//로그인
 	@RequestMapping(value="/login.do")
 	public String login(MemberDTO dto, HttpSession session,RedirectAttributes rttr) throws Exception {
 		
@@ -31,14 +50,24 @@ public class MemberController {
 			rttr.addFlashAttribute("msg", false);
 			return "Login";
 		}
-	}
+	}*/
 	
-	//로그아웃
+		//로그아웃 Intercepter용
+	@RequestMapping(value="/logout.do")
+	public String logout(@ModelAttribute("member") MemberDTO dto, 
+						HttpServletRequest request, Model model) throws Exception {
+		request.getSession().removeAttribute("member");
+		request.getSession().invalidate();
+		
+		return "main";
+	}	
+		
+	/*//로그아웃
 	@RequestMapping(value="/logout.do")
 	public String logout(HttpSession session) throws Exception {
 		session.invalidate();
 		return "main";
-	}
+	}*/
 	
 	//회원가입
 	@RequestMapping(value="/insertMember.do")

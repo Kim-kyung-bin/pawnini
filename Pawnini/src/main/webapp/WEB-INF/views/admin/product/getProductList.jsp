@@ -27,9 +27,13 @@
 </head>
    <%@ include file="../../include/Header.jsp" %> 
 <body>
+	<div class="Guide">
+      <span>ADMIN</span>
+    </div>
     <div align="center">
        
        <h1> 상품 관리 리스트 </h1>
+       <span>등록된 상품 수 : ${pageMaker.totalCount} 개</span>
        <table border="1">
           <tr class="head">
              <td>등록번호

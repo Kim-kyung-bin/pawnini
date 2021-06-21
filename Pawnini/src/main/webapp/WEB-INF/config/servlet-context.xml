@@ -21,6 +21,16 @@
 	<resources mapping="/style/**" location="/WEB-INF/views/style/"/>
 	<resources mapping="/js/**" location="/WEB-INF/views/js/"/>
 	
+	<!-- 회원 정보 유지용 로그인 인터셉터 설정 -->
+	<beans:bean id="LoginInterceptor" class="com.pawnini.interceptors.LoginInterceptor"></beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/pawnini/*.do" />
+			<beans:ref bean="LoginInterceptor" />
+		</interceptor>
+	</interceptors>
+	
 	<annotation-driven />
 	
 	<!-- 업로드 패스 설정 --> 

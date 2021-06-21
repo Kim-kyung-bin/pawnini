@@ -13,6 +13,9 @@
 </head>
    <%@ include file="../../include/Header.jsp" %> 
 <body>
+	<div class="Guide">
+      <span>ADMIN</span>
+    </div>
     <div align="center">
        
        <h1> 분양 관리 리스트 </h1>

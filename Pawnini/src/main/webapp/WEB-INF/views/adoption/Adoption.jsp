@@ -29,10 +29,13 @@
   </head>
   
    <%@ include file="../include/Header.jsp" %> 
-    <div id="player"></div>
+   
   <body>
-  	
+  	<div class="Guide">
+      <span>Adoption</span>
+    </div>
     <h1 class="bener_text">They are waiting for their owners.</h1>
+     <div id="player"></div>
     <section>
       <div class="sa sa-scaleDown">
         <ul class="bener_ul">

@@ -6,8 +6,14 @@ public class ProductSearchCriteria extends Criteria{
 		private String searchOption="";
 		private String searchKeyword="";
 		private String searchKeyword2="";
+		private String searchKeyword3="";
 		
-		
+		public String getSearchKeyword3() {
+			return searchKeyword3;
+		}
+		public void setSearchKeyword3(String searchKeyword3) {
+			this.searchKeyword3 = searchKeyword3;
+		}
 		public String getSearchKeyword2() {
 			return searchKeyword2;
 		}

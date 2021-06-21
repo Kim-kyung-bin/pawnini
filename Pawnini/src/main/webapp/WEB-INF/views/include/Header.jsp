@@ -43,23 +43,21 @@
     </div>
     <header class="Header_menu">
       <div class="Title">
-        <h1>
-          <a href="main.do"><img src="./images/Rogo.jpg" /></a>
-        </h1>
+        <a href="main.do">
+			<img src="images/Rogo.jpg">
+        </a>
+        <form method="GET" action="goProductList.do">
+	        <input class="Header_input" type="text" placeholder="Search..." name="searchKeyword2" />
+        </form>
       </div>
+
+      <a class="basket" href="basket.do">
+        <i class="fas fa-shopping-cart fa-lg"></i>
+      </a>
       
-      <form method="get" action="goProductList.do">
-      <select class="Header_input" name="searchOption">
-      	<option value="dog">강아지</option>
-      	<option value="cat">고양이</option>
-      </select>
-      <input class="Header_input" type="text" placeholder="Search..." name="searchKeyword2"/>
-      </form>
-      
-      <h3 class="basket"><a href="basket.do">장바구니</a></h3>
       <ul class="Header_ul">
         <li class="Dog_dropmenu">
-          DOG
+          	강아지
           <span class="dropmenu">
             <span><a href="goProductList.do?searchOption=dog&searchKeyword=snack">간식</a></span>
             <span><a href="goProductList.do?searchOption=dog&searchKeyword=supplies">용품</a></span>
@@ -67,7 +65,7 @@
           </span>
         </li>
         <li class="Cat_dropmenu">
-          CAT
+          	고양이
           <span class="dropmenu">
             <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">간식</a></span>
             <span><a href="goProductList.do?searchOption=cat&searchKeyword=snack">용품</a></span>
@@ -87,5 +85,9 @@
         <li><a href="notice.do">공지</a></li>
       </ul>
     </header>
+        <script
+      src="https://kit.fontawesome.com/583cb96774.js"
+      crossorigin="anonymous"></script>
   </body>
+  
 </html>

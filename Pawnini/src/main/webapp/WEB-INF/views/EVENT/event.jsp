@@ -11,7 +11,9 @@
   </head>
 
  <%@ include file="../include/Header.jsp" %> 
-
+	<div class="Guide">
+      <span>EVENT</span>
+    </div>
 
     <h1 class="event_Title">TODAY EVENT</h1>
       

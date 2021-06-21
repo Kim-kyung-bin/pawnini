@@ -26,6 +26,11 @@
   <body>
  
 <div align="center">
+	
+	<div class="Guide">
+      <span>LOGIN</span>
+    </div>
+	
 	<form class="Form" name="loginForm" method="post" action="/login.do">
 		 <h1 class="Form_title">Login</h1>
 		<c:if test="${member == null}">
@@ -39,18 +44,37 @@
 				<button class="button_Login" type="submit">로그인</button>
 			</div>
 		</c:if>
-		<c:if test="${member != null }">
-			<div>
-				<p>${member.member_nickname}님 환영 합니다.</p>
-				<button id="logoutBtn" type="button">로그아웃</button>
-			</div>
-		</c:if>
 		<c:if test="${msg == false}">
+			<div>
+				<input class="Form_Login" type="text" id="userId" name="member_id" placeholder="User Name">
+			</div>
+			<div>
+				<input class="Form_Password" type="password" id="member_pwd" name="member_pwd" placeholder="User password">
+			</div>
 			<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+			<div>
+				<button class="button_Login" type="submit">로그인</button>
+			</div>
 		</c:if>
 	</form>
 </div>
 
+<div class="Bouns">
+      <ul class="Bouns_ul">
+        <li>
+          <h3> <i class="fas fa-drumstick-bite lg"></i>신선한 사료</h3>
+        </li>
+        <li>
+          <h3><i class="far fa-clock"></i>유통기한 100% 책임제</h3>
+       
+        </li>
+        <li>
+          <h3><i class="fas fa-shipping-fast"></i>신속! 정확! 배송!</h3>
+        </li>
+        <li>
+          <h3><i class="fas fa-rss"></i>만원 이상 구매시 무료배송</h3>
+        </li>
+</div>
 
   </body>
   <%@ include file="include/Footer.jsp" %> 

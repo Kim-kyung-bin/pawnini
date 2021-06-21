@@ -8,6 +8,9 @@
 </head>
    <%@ include file="../../include/Header.jsp" %> 
   <body>
+  <div class="Guide">
+      <span>ADMIN</span>
+    </div>
       <div align="center">
          <h1>회원 리스트</h1>
          <table  border="1">
