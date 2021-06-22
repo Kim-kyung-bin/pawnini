@@ -31,6 +31,9 @@
 </head>
 <%@ include file="../include/Header.jsp"%>
 <body>
+	<div class="Guide">
+      <span>REVIEW</span>
+    </div>
 	<div class="container">
 		<div class="main_title">
 		<h1> 후기 목록 </h1>
