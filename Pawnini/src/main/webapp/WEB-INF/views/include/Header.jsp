@@ -49,6 +49,7 @@
         </a>
         <form class="form" method="GET" action="goProductList.do">
         	<select name="searchOption" class="select_type">
+        		<option></option>
         		<option value="dog">강아지</option>	
         		<option value="cat">고양이</option>	
         	</select>

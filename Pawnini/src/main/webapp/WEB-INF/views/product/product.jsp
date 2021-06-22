@@ -22,7 +22,7 @@
           		<h4>분류 ></h4>
           		<ul class="Kategorie_ul">
 	            	<a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식"><li>건식</li></a>
-            		<a href="#"><li>습식</li></a>
+            		<a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=습식"><li>습식</li></a>
 	            	<a href="#"><li></li></a>
           		</ul>
     		</div>

@@ -40,7 +40,7 @@
 					$(function(){
 						$("#searchBtn").click(function(){
 							self.location = "getProduct_inqList.do"+'${pageMaker.makeQuery(1)}' 
-							+ "&searchType=" + $("select option:selected").val() + "&keyword=" 
+							+ "&searchType=" + $("select[name=searchType]").val() + "&keyword=" 
 							+ encodeURIComponent($('#keywordInput').val()); 
 						});
 					});

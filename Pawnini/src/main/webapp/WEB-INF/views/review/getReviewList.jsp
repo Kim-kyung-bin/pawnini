@@ -33,6 +33,7 @@
 		
 		<form role="searchForm" method="get">
 		<div class="search_row">
+				<div class="input-group">
 			<div class="col-xs-2 col-sm-2">
 				<select name="searchType" class="form-control">
 					<option value="n"<c:out value="${scri.searchType == null ? 'selected' : '' }"/>>-----</option>
@@ -42,19 +43,16 @@
 				</select>
 			</div>
 			
-			<div class="input_container">
-				<div class="input-group">
 					<input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" class="form-control">
 					<span class="input-group-btn">
 						<button id="searchBtn" type="button" class="btn btn-default">검색</button>
 					</span>
 				</div>
-			</div>
 		
 				<script>
 					$(function(){
 						$("#searchBtn").click(function(){
-							self.location = "/getReviewList.do"+'${pageMaker.makeQuery(1)}' + "&searchType=" + $("select option:selected").val() + "&keyword=" + encodeURIComponent($('#keywordInput').val()); 
+							self.location = "/getReviewList.do"+'${pageMaker.makeQuery(1)}' + "&searchType=" + $("select[name=searchType]").val() + "&keyword=" + encodeURIComponent($('#keywordInput').val()); 
 						});
 					});
 				</script>
@@ -75,7 +73,7 @@
 				<td>${review.rev_id}	
 				<td>${review.product_id}	
 				<td>${review.rev_writer}
-				<td><a href="/getReview.do?rev_id=${review.rev_id}&
+				<td><a class="title" href="/getReview.do?rev_id=${review.rev_id}&
 														page=${scri.page}&
 														perPageNum=${scri.perPageNum}&
 														searchType=${scri.searchType}&
