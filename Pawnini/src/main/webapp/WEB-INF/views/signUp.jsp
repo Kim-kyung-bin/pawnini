@@ -10,7 +10,6 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <title>Sign</title>
 <link rel="stylesheet" href="style/signup.css" />
-<link rel="stylesheet" href="style/main.css" />
 
 <script type="text/javascript">
 	var checkID = false;

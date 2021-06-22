@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
@@ -107,6 +106,7 @@
 		
 </script>
 </head>
+<%@ include file="../include/Header.jsp"%>
 <body>
 	<div class="container">
 		<div>
@@ -229,4 +229,5 @@
 	<hr>
 </div>
 </body>
+<%@ include file="../include/Footer.jsp"%>
 </html>

@@ -9,24 +9,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>getReviewList</title>
+<link rel="stylesheet" href="../style/reviewList.css" />
+
 <style type="text/css">
 	li {
 		list-style: none;
 		float: left;
 		padding: 6px;
 	}
-	.main_title {
-		text-align: center;
-		padding: 20px auto;
-		color: rosyBrown;
-	}
 	a, a:hover, a:focus, a:active {
 		color: black;
 		text-decoration: none;
 	}
 </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <%@ include file="../include/Header.jsp"%>
@@ -35,9 +30,6 @@
       <span>REVIEW</span>
     </div>
 	<div class="container">
-		<div class="main_title">
-		<h1> 후기 목록 </h1>
-		</div>
 		
 		<form role="searchForm" method="get">
 		<div class="search_row">
@@ -50,7 +42,7 @@
 				</select>
 			</div>
 			
-			<div class="col-xs-10 col-sm-10">
+			<div class="input_container">
 				<div class="input-group">
 					<input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" class="form-control">
 					<span class="input-group-btn">
@@ -69,15 +61,14 @@
 	<section id="container">
 		
 		<table class="table table-hover">
-			<tr>
-				<td bgcolor="orange">번호
-				<td bgcolor="orange">상품번호
-				<td bgcolor="orange">글쓴이
-				<td bgcolor="orange">제목
-				<td bgcolor="orange">크기
-				<td bgcolor="orange">평점
-				<td bgcolor="orange">등록일
-				<td bgcolor="orange" colspan="2">
+			<tr class="product">
+				<td>번호
+				<td>상품번호
+				<td>글쓴이
+				<td>제목
+				<td>크기
+				<td>평점
+				<td>등록일
 				
 			<c:forEach items="${reviewList}" var="review">
 			<tr>
@@ -100,6 +91,9 @@
 			</c:forEach>
 		</table>
 		</section>
+		
+		
+		
 		<div class="col-md-offset-3">
 			<ul class="pagination">
 				<c:if test="${pageMaker.prev}">
@@ -116,7 +110,7 @@
 				</c:if>
 			</ul>
 		</div>
-		<a href="/insertReviewView.do">후기 작성</a>
+		<a class="review_create_button" href="/insertReviewView.do">후기 작성</a>
 	</div>
 	</form>
 	</div>

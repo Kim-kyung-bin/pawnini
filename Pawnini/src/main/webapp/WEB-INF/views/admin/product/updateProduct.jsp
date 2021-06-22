@@ -6,6 +6,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <title>Insert title here</title>
 </head>
+	<%@ include file="../../include/Header.jsp" %>
 <body>
 	<div class="update_product">
 		<form action="updateProduct.do" method="post" enctype="multipart/form-data">
@@ -99,6 +100,8 @@
 
 	</div>
 </body>
+	<%@ include file="../../include/Footer.jsp" %>
+
  <script>
   $("#product_img").change(function(){
    if(this.files && this.files[0]) {

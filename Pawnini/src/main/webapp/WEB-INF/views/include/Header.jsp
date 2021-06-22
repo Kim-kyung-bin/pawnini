@@ -46,7 +46,11 @@
         <a href="main.do">
 			<img src="images/Rogo.jpg">
         </a>
-        <form method="GET" action="goProductList.do">
+        <form class="form" method="GET" action="goProductList.do">
+        	<select name="searchOption" class="select_type">
+        		<option value="dog">강아지</option>	
+        		<option value="cat">고양이</option>	
+        	</select>
 	        <input class="Header_input" type="text" placeholder="Search..." name="searchKeyword2" />
         </form>
       </div>

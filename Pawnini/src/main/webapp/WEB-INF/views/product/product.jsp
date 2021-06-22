@@ -15,62 +15,85 @@
 	<div class="Guide">
       <span>PET</span>
     </div>
-    <h1>Meal Dog</h1>
-    <div class="Table">
-      <ul>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal">임시 </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-      </ul>
-      <ul>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-      </ul>
-      <ul>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-        <li class="Table_LI">
-          <span class="Table_Span"><a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식">임시</a> </span> 
-        </li>
-      </ul>
-     
-    </div>
-    <div class="product">
-      <ul class="product_ul">
+    <!-- 강아지 -->
+    <c:if test="${param.searchOption == 'dog' }">
+		<c:if test="${param.searchKeyword == 'meal'}">
+  	  		<div class="Kategorie">
+          		<h4>분류 ></h4>
+          		<ul class="Kategorie_ul">
+	            	<a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식"><li>건식</li></a>
+            		<a href="#"><li>습식</li></a>
+	            	<a href="#"><li></li></a>
+          		</ul>
+    		</div>
+		</c:if>
+		<c:if test="${param.searchKeyword == 'snack'}">
+    		<div class="Kategorie">
+	          	<h4>분류 ></h4>
+          		<ul class="Kategorie_ul">
+	            	<a href="#"><li>스</li></a>
+            		<a href="#"><li>넥</li></a>
+	            	<a href="#"><li></li></a>
+          		</ul>
+    		</div>
+		</c:if>
+		<c:if test="${param.searchKeyword == 'supplies'}">
+    		<div class="Kategorie">
+	          	<h4>분류 ></h4>
+          		<ul class="Kategorie_ul">
+	            	<a href="#"><li>용</li></a>
+        	    	<a href="#"><li>품</li></a>
+    	        	<a href="#"><li></li></a>
+   	     	  	</ul>
+	    	</div>
+		</c:if>
+    </c:if>
+    
+    <!-- 고양이 -->
+    <c:if test="${param.searchOption == 'cat' }">
+		<c:if test="${param.searchKeyword == 'meal'}">
+  	  		<div class="Kategorie">
+          		<h4>분류 ></h4>
+          		<ul class="Kategorie_ul">
+	            	<a href="#"><li>건식</li></a>
+            		<a href="#"><li>습식</li></a>
+	            	<a href="#"><li></li></a>
+          		</ul>
+    		</div>
+		</c:if>
+		<c:if test="${param.searchKeyword == 'snack'}">
+    		<div class="Kategorie">
+	          	<h4>분류 ></h4>
+          		<ul class="Kategorie_ul">
+	            	<a href="#"><li>스</li></a>
+            		<a href="#"><li>넥</li></a>
+	            	<a href="#"><li></li></a>
+          		</ul>
+    		</div>
+		</c:if>
+		<c:if test="${param.searchKeyword == 'supplies'}">
+    		<div class="Kategorie">
+	          	<h4>분류 ></h4>
+          		<ul class="Kategorie_ul">
+	            	<a href="#"><li>용</li></a>
+        	    	<a href="#"><li>품</li></a>
+    	        	<a href="#"><li></li></a>
+   	     	  	</ul>
+	    	</div>
+		</c:if>
+    </c:if>
+    
+    
+    <div class="grid">
+      <ul class="product">
     <c:forEach items="${productList}" var="product">
         <li class="product_li">
           <a href="detailProduct.do?product_id=${product.product_id}">
             <img class="product_img" src="${product.product_thumb_img}" />
              <ul class="product_list">
-              <li class="product_title">${product.product_name}</li>
-              <li class="product_cash">${product.product_price}</li>
-              <li class="product_rank">❤❤❤❤🤍</li>
+              <li class="product_title">상품명 : ${product.product_name}</li>
+              <li class="product_cash">가격 :${product.product_price} 원</li>
+              <li class="product_rank">재고 : ${product.product_stock }</li>
             </ul>
           </a>
         </li>
