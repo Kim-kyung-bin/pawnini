@@ -18,6 +18,9 @@
 		<typeAlias alias="member" type="com.pawnini.model.member.MemberDTO"/>
 		<typeAlias alias="product" type="com.pawnini.model.product.ProductDTO"/>
 		<typeAlias alias="productCriteria" type="com.pawnini.model.product.ProductSearchCriteria"/>
+		<typeAlias alias="product_inq" type="com.pawnini.model.product_inq.Product_inqDTO"/>
+		<typeAlias alias="inq_rep" type="com.pawnini.model.product_inq.Inq_repDTO"/>
+		<typeAlias alias="product_inqCriteria" type="com.pawnini.model.product_inq.SearchCriteria"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
@@ -30,6 +33,8 @@
 		<mapper resource="mappings/member-mapping.xml"/>			
 		<mapper resource="mappings/product-mapping.xml"/>
 		<mapper resource="mappings/cart-mapping.xml"/>
+		<mapper resource="mappings/product_inq-mapping.xml"/>
+		<mapper resource="mappings/inq_rep-mapping.xml"/> 
 	</mappers>
 	
 </configuration>

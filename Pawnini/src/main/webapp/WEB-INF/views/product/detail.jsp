@@ -9,6 +9,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <%@ include file="../include/Header.jsp"%>
 <body>
+				
 
 	<div class="grid">
 		<div class="product_image"><img src="${product.product_img }"></div>
@@ -65,7 +66,13 @@
 				<c:if test="${product.product_stock == 0 }">
 					<button class="button_two">품절</button>
 				</c:if>
+				<!-- 임시 -->
+				
+				<a href="go_insertProduct_inq.do?${product.product_id }">상품문의</a>
+				
+				<!-- 임시 -->
 			</div>
+				
 		</div>
 	</div>
 	<div class="product_Information">

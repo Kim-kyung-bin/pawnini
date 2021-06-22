@@ -35,6 +35,7 @@
             <span><a href="PawsList.do">분양관리</a></span>
             <span><a href="getMemberList.do">회원관리</a></span>
             <span><a href="getProductList.do">상품관리</a></span>
+            <span><a href="getProduct_inqList.do">상품문의</a></span>
           </span>
         </li>
         </c:if>
