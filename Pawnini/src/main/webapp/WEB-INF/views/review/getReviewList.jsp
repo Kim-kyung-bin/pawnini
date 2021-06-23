@@ -27,7 +27,7 @@
 <%@ include file="../include/Header.jsp"%>
 <body>
 	<div class="Guide">
-      <span>REVIEW</span>
+      <span>리뷰</span>
     </div>
 	<div class="container">
 		
@@ -60,19 +60,18 @@
 		
 		<table class="table table-hover">
 			<tr class="product">
-				<td>번호
-				<td>상품번호
-				<td>글쓴이
-				<td>제목
-				<td>크기
-				<td>평점
-				<td>등록일
+				<th>번호
+				<th>상품번호
+				<th>제목
+				<th>글쓴이
+				<th>크기
+				<th>평점
+				<th>등록일
 				
 			<c:forEach items="${reviewList}" var="review">
 			<tr>
 				<td>${review.rev_id}	
 				<td>${review.product_id}	
-				<td>${review.rev_writer}
 				<td><a class="title" href="/getReview.do?rev_id=${review.rev_id}&
 														page=${scri.page}&
 														perPageNum=${scri.perPageNum}&
@@ -81,6 +80,7 @@
 					<c:if test="${review.rev_com_cnt ne 0}">
 						<small><b>[&nbsp;<c:out value="${review.rev_com_cnt}"/>&nbsp;]</b></small>
 					</c:if></a>
+				<td>${review.rev_writer}
 				<td>${review.rev_f_category}
 				<td>${review.rev_stars}
 				<td><fmt:formatDate value="${review.rev_date}" pattern="yyyy-MM-dd" />

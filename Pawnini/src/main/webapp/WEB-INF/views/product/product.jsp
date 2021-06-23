@@ -13,7 +13,7 @@
   <%@ include file="../include/Header.jsp" %>
   <body>
 	<div class="Guide">
-      <span>PET</span>
+      <span>상품 목록</span>
     </div>
     <!-- 강아지 -->
     <c:if test="${param.searchOption == 'dog' }">
@@ -23,7 +23,6 @@
           		<ul class="Kategorie_ul">
 	            	<a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=건식"><li>건식</li></a>
             		<a href="goProductList.do?searchOption=dog&searchKeyword=meal&searchKeyword3=습식"><li>습식</li></a>
-	            	<a href="#"><li></li></a>
           		</ul>
     		</div>
 		</c:if>
@@ -31,9 +30,12 @@
     		<div class="Kategorie">
 	          	<h4>분류 ></h4>
           		<ul class="Kategorie_ul">
-	            	<a href="#"><li>스</li></a>
-            		<a href="#"><li>넥</li></a>
-	            	<a href="#"><li></li></a>
+	            	<a href="goProductList.do?searchOption=dog&searchKeyword=snack&searchKeyword3=껌"><li>껌</li></a>
+            		<a href="goProductList.do?searchOption=dog&searchKeyword=snack&searchKeyword3=사사미"><li>사사미</li></a>
+            		<a href="goProductList.do?searchOption=dog&searchKeyword=snack&searchKeyword3=저키/트릿"><li>저키/트릿</li></a>
+            		<a href="goProductList.do?searchOption=dog&searchKeyword=snack&searchKeyword3=비스켓"><li>비스켓</li></a>
+            		<a href="goProductList.do?searchOption=dog&searchKeyword=snack&searchKeyword3=소시지"><li>소시지</li></a>
+            		<a href="goProductList.do?searchOption=dog&searchKeyword=snack&searchKeyword3=캔/파우치"><li>캔/파우치</li></a>
           		</ul>
     		</div>
 		</c:if>
@@ -41,9 +43,12 @@
     		<div class="Kategorie">
 	          	<h4>분류 ></h4>
           		<ul class="Kategorie_ul">
-	            	<a href="#"><li>용</li></a>
-        	    	<a href="#"><li>품</li></a>
-    	        	<a href="#"><li></li></a>
+	            	<a href="goProductList.do?searchOption=dog&searchKeyword=supplies&searchKeyword3=의류/악세사리"><li>의류/악세사리</li></a>
+        	    	<a href="goProductList.do?searchOption=dog&searchKeyword=supplies&searchKeyword3=식기/이동장"><li>식기/이동장</li></a>
+    	        	<a href="goProductList.do?searchOption=dog&searchKeyword=supplies&searchKeyword3=집/방석"><li>집/방석</li></a>
+    	        	<a href="goProductList.do?searchOption=dog&searchKeyword=supplies&searchKeyword3=배변/위생"><li>배변/위생</li></a>
+    	        	<a href="goProductList.do?searchOption=dog&searchKeyword=supplies&searchKeyword3=장난감"><li>장난감</li></a>
+    	        	<a href="goProductList.do?searchOption=dog&searchKeyword=supplies&searchKeyword3=미용/목욕"><li>미용/목욕</li></a>
    	     	  	</ul>
 	    	</div>
 		</c:if>
@@ -55,9 +60,8 @@
   	  		<div class="Kategorie">
           		<h4>분류 ></h4>
           		<ul class="Kategorie_ul">
-	            	<a href="#"><li>건식</li></a>
-            		<a href="#"><li>습식</li></a>
-	            	<a href="#"><li></li></a>
+	            	<a href="goProductList.do?searchOption=cat&searchKeyword=meal&searchKeyword3=건식"><li>건식</li></a>
+	            	<a href="goProductList.do?searchOption=cat&searchKeyword=meal&searchKeyword3=습식"><li>습식</li></a>
           		</ul>
     		</div>
 		</c:if>
@@ -65,9 +69,11 @@
     		<div class="Kategorie">
 	          	<h4>분류 ></h4>
           		<ul class="Kategorie_ul">
-	            	<a href="#"><li>스</li></a>
-            		<a href="#"><li>넥</li></a>
-	            	<a href="#"><li></li></a>
+	            	<a href="goProductList.do?searchOption=cat&searchKeyword=snack&searchKeyword3=수제"><li>수제간식</li></a>
+	            	<a href="goProductList.do?searchOption=cat&searchKeyword=snack&searchKeyword3=츄르"><li>츄르</li></a>
+	            	<a href="goProductList.do?searchOption=cat&searchKeyword=snack&searchKeyword3=육포/사사미"><li>육포/사사미</li></a>
+	            	<a href="goProductList.do?searchOption=cat&searchKeyword=snack&searchKeyword3=껌/뼈"><li>껌/뼈</li></a>
+	            	<a href="goProductList.do?searchOption=cat&searchKeyword=snack&searchKeyword3=빵/비스켓"><li>빵/비스켓</li></a>
           		</ul>
     		</div>
 		</c:if>
@@ -75,9 +81,10 @@
     		<div class="Kategorie">
 	          	<h4>분류 ></h4>
           		<ul class="Kategorie_ul">
-	            	<a href="#"><li>용</li></a>
-        	    	<a href="#"><li>품</li></a>
-    	        	<a href="#"><li></li></a>
+	          		<a href="goProductList.do?searchOption=cat&searchKeyword=supplies&searchKeyword3=장난감"><li>장난감</li></a>
+	          		<a href="goProductList.do?searchOption=cat&searchKeyword=supplies&searchKeyword3=배변/위생"><li>배변/위생</li></a>
+	          		<a href="goProductList.do?searchOption=cat&searchKeyword=supplies&searchKeyword3=미용/목욕"><li>미용/목욕</li></a>
+	          		<a href="goProductList.do?searchOption=cat&searchKeyword=supplies&searchKeyword3=캣타워/집"><li>캣타워/집</li></a>
    	     	  	</ul>
 	    	</div>
 		</c:if>
@@ -133,7 +140,7 @@
         <li>
           <h3><i class="fas fa-rss"></i>만원 이상 구매시 무료배송</h3>
         </li>
-     
+     </ul>
     </div>
 
 

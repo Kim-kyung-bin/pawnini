@@ -9,7 +9,9 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <%@ include file="../include/Header.jsp"%>
 <body>
-				
+<div class="Guide">
+      <span>상품 정보</span>
+</div>
 
 	<div class="grid">
 		<div class="product_image"><img src="${product.product_img }"></div>
@@ -66,11 +68,16 @@
 				<c:if test="${product.product_stock == 0 }">
 					<button class="button_two">품절</button>
 				</c:if>
-				<!-- 임시 -->
-				
-				<a href="go_insertProduct_inq.do?${product.product_id }">상품문의</a>
 				
 				<!-- 임시 -->
+            <c:if test="${member.member_id eq null}">
+            <a href="gologin.do">상품문의 시 로그인</a>
+            </c:if>
+            <c:if test="${member.member_grade eq '1' || member.member_grade eq '2' }">
+            <a href="go_insertProduct_inq.do?${product.product_id }">상품문의</a>
+            </c:if>
+            <!-- 임시 -->
+				
 			</div>
 				
 		</div>
@@ -80,7 +87,9 @@
 	</div>
 	<div>
 		<div align="center">
+		
 			<img src="${product.product_img }"><br>
+			
 			${product.product_desc}
 		</div>
 	</div>

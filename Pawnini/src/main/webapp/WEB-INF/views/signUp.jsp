@@ -193,7 +193,7 @@
 <%@ include file="include/Header.jsp"%>
 <body>
    <div class="Guide">
-      <span>REGISTER</span>
+      <span>회원 가입</span>
     </div>
 	<h2 class="text" align="center">회원가입</h2>
 	<section class="Form_section">

@@ -9,16 +9,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 목록</title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../style/product_inqList.css" />
+
 </head>
   <%@ include file="../include/Header.jsp" %>
 
 <body>
 	<center>
-		<h1>상품 문의 게시판</h1>
+	<div class="Guide">
+    	  <span>상품 문의</span>
+   	 </div>
 		
 		
 		<form role="searchForm" method="get">
 		<div class="search_row">
+				<div class="input-group">
 			<div class="col-xs-2 col-sm-2">
 				<select name="searchType" class="form-control">
 					<option value="n"<c:out value="${scri.searchType == null ? 'selected' : '' }"/>>-----</option>
@@ -28,14 +33,11 @@
 				</select>
 			</div>
 			
-			<div class="col-xs-10 col-sm-10">
-				<div class="input-group">
 					<input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" class="form-control">
 					<span class="input-group-btn">
 						<button id="searchBtn" type="button" class="btn btn-default">검색</button>
 					</span>
 				</div>
-			</div>
 				<script>
 					$(function(){
 						$("#searchBtn").click(function(){
@@ -46,13 +48,13 @@
 					});
 				</script>
 		
-		<table border="1" cellpadding="0" cellspacing="0" width="700">
-			<tr>
-				<td bgcolor="orange" width="100">글번호</td>
-				<td bgcolor="orange" width="200">제목</td>
-				<td bgcolor="orange" width="150">작성자</td>
-				<td bgcolor="orange" width="150">등록일</td>
-				<td bgcolor="orange" width="100">답변 상태</td> 
+		<table class="table table-hover">
+			<tr class="product">
+				<th>글번호</td>
+				<th>제목</td>
+				<th>작성자</td>
+				<th>등록일</td>
+				<th>답변 상태</td> 
 				
 		<c:forEach items="${product_inqList}" var="product_inq">
 			<tr>
@@ -100,7 +102,7 @@
 				</c:if>
 			</ul>
 		</div>
-		<a href="go_insertProduct_inq.do">새로운 글 쓰기</a>
+		
 		</div>
 	</form>
 	</center>

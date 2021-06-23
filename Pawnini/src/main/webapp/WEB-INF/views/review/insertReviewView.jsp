@@ -40,11 +40,11 @@ $("#rev_f_img").change(function(){
 </script>
 
 </head>
-
+  <%@ include file="../include/HeaderBoot.jsp" %>
 <body>
-		<div>
-			<%@include file="reviewNav.jsp" %>
-		</div>
+	<div class="Guide">
+      <span>리뷰 등록</span>
+    </div>
 	<div>
 
 		<form action="/insertReview.do" method="post" enctype="multipart/form-data">
@@ -95,5 +95,5 @@ $("#rev_f_img").change(function(){
 		<a href="/review/getReviewList.do">목록</a>
 	</div>
 </body>
-
+	<%@ include file="../include/Footer.jsp" %>
 </html>

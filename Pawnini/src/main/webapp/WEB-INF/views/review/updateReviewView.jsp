@@ -46,9 +46,6 @@
 </head>
 <body>
 	<div>
-		<div>
-			<%@include file="reviewNav.jsp" %>
-		</div>
 	
 	<section id="container">
 		<form name="updateReviewForm" enctype="multipart/form-data">

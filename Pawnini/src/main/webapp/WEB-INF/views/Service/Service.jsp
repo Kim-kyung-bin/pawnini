@@ -8,7 +8,9 @@
 </head>
 	<%@ include file="../include/Header.jsp" %>
 <body>
-	
+	<div class="Guide">
+      <span>고객센터</span>
+    </div>
 </body>
 	<%@ include file="../include/Footer.jsp" %>
 </html>

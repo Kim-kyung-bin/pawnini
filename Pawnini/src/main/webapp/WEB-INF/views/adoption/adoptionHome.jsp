@@ -1,59 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-  <style type="text/css">
-  	.img{
-		width:300px;
-  		
-  		height: 300px;
-  		box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.5);
-  	}
-  	.text{
-  	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	font-size: 20px;
-  	font-weight: 600;
-  	border-top: 1px solid rgba(0,0,0,0.3);
-  	padding-top: 30px;
-  	}
-  </style>
-  
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style/Adoption.css" />
-    <title>Snack</title>
-  </head>
-  
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../style/adoptionHome.css" />
+
+</head>
    <%@ include file="../include/Header.jsp" %> 
-   
-  <body>
-  	<div class="Guide">
-      <span>분양</span>
+<body>
+
+<div class="Guide">
+      <span>ADOPTION</span>
     </div>
     <h1 class="bener_text">They are waiting for their owners.</h1>
-     <div id="player"></div>
+    <div id="player"></div>
+
     <section>
       <div class="sa sa-scaleDown">
         <ul class="bener_ul">
-          <c:forEach items="${pawsList}" var="paws">
-          <li>
-          	<img src="${paws.paws_thumb_img}" class="img"><br>
-        	<a href="getPaws.do?paws_id=${paws.paws_id}">
-        	<span class="text">${paws.paws_name}</span></a>
-          </li>
-          </c:forEach>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
-
       </div>
     </section>
-   
-   
-    <%@ include file="../include/Footer.jsp" %>
-   
+       <div class="Bouns">
+        <ul class="Bouns_ul">
+          <li>
+            <h3> <i class="fas fa-drumstick-bite lg"></i>신선한 사료</h3>
+          </li>
+          <li>
+            <h3><i class="far fa-clock"></i>유통기한 100% 책임제</h3>
+         
+          </li>
+          <li>
+            <h3><i class="fas fa-shipping-fast"></i>신속! 정확! 배송!</h3>
+          </li>
+          <li>
+            <h3><i class="fas fa-rss"></i>만원 이상 구매시 무료배송</h3>
+          </li>
+       
+      </div>
+
+    <!-- 스크롤 반응 소스 -->
     <script>
       // Scroll Animation (sa, 스크롤 애니메이션)
       const saTriggerMargin = 300;
@@ -75,7 +68,8 @@
       window.addEventListener("load", saFunc);
       window.addEventListener("scroll", saFunc);
     </script>
-    
+
+    <!-- 유투브 api -->
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement("script");
@@ -118,7 +112,11 @@
         player.stopVideo();
       }
     </script>
-    
-  </body>
-  
+    <script
+      src="https://kit.fontawesome.com/583cb96774.js"
+      crossorigin="anonymous"
+    ></script>
+
+</body>
+    <%@ include file="../include/Footer.jsp" %>
 </html>

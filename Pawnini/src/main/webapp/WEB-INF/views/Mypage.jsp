@@ -85,7 +85,7 @@
           <div class="text">상품후기</div>
           <div class="right">></div>
         </a>
-        <a href="#" class="item">
+        <a href="getProduct_inqList.do" class="item">
           <div class="icon">ii</div>
           <div class="text">상품문의</div>
           <div class="right">></div>

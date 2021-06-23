@@ -70,7 +70,7 @@
 .input-group{
     display: flex;
     align-items: center;
-    padding-left: 988px;
+    padding-left: 1143px;
 }
 .review_create_button{
     display: flex;
@@ -90,14 +90,14 @@
 
 .pagination li {
 	padding: 10px;
-	font-size: 28px;
+	font-size: 20px;
 	text-align:center;
 }
 
 td:nth-child(1) { 
     padding-left:10px;
     padding-right:10px;
-    width: 10px;
+    width: 50px;
     text-align:center;
     border-bottom: 1px solid rgb(156 126 126 / 50%);
 }
@@ -105,7 +105,7 @@ td:nth-child(1) {
 td:nth-child(2) { 
     padding-left:5px;
     padding-right:5px;
-    width: 70px;
+    width: 400px;
     text-align:left;
     border-bottom: 1px solid rgb(156 126 126 / 50%);
 }
@@ -113,8 +113,8 @@ td:nth-child(2) {
 td:nth-child(3) { 
     padding-left:5px;
     padding-right:5px;
-    width: 400px;
-    text-align:left; 
+    width: 100px;
+    text-align:center; 
     border-bottom: 1px solid rgb(156 126 126 / 50%);
 }
 
@@ -134,22 +134,6 @@ td:nth-child(5) {
     border-bottom: 1px solid rgb(156 126 126 / 50%);
 }
 
-td:nth-child(6) { 
-    padding-left:5px;
-    padding-right:5px;
-    width: 50px;
-    text-align:center; 
-    border-bottom: 1px solid rgb(156 126 126 / 50%);
-}
-
-td:nth-child(7) { 
-    padding-left:5px;
-    padding-right:5px;
-    width: 100px;
-    text-align:center; 
-    border-bottom: 1px solid rgb(156 126 126 / 50%);
-}
-
-.table{
-	width:1400px;	
+.table {
+    width:1200px;
 }

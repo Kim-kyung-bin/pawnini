@@ -19,11 +19,6 @@
 	</script>
 	<body>
 	
-		<div id="root">
-			<div>
-			<%@include file="reviewNav.jsp" %>
-			</div>
-			<hr />
 	
 			
 			<section id="reply">

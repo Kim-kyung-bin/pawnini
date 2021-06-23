@@ -8,6 +8,7 @@
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<link rel="stylesheet" href="style/updateMember.css" />
 		
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -186,11 +187,14 @@ function clickout(){
 
      <%@ include file="include/Header.jsp" %>
 <body>
+	<div class="Guide">
+      <span>회원 정보 수정</span>
+    </div>
 	<section>
 			<div align="center">
 				<form name="f1rm" id="f1rm">
 					<h2 align="center">회원 정보 수정</h2>
-					<table border="1">
+					<table class="table">
 						<tr>
 							<th>아이디</th>
 							<td>

@@ -40,7 +40,7 @@
 			<div>
 				<input class="Form_Password" type="password" id="member_pwd" name="member_pwd" placeholder="User password">
 			</div>
-			<div>
+			<div class="Login_box">
 				<button class="button_Login" type="submit">로그인</button>
 			</div>
 		</c:if>
@@ -52,7 +52,7 @@
 				<input class="Form_Password" type="password" id="member_pwd" name="member_pwd" placeholder="User password">
 			</div>
 			<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-			<div>
+			<div class="Login_box">
 				<button class="button_Login" type="submit">로그인</button>
 			</div>
 		</c:if>

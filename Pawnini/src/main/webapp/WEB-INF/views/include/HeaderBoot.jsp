@@ -10,7 +10,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../style/Header.css" />
+    <link rel="stylesheet" href="../style/HeaderBoot.css" />
     
     <script type="text/javascript">
     	var nickname = '<c:out value= "${member.member_nickname}"/>'
@@ -68,7 +68,7 @@
         </form>
       </div>
 
-     
+      
       
       <ul class="Header_ul">
         <li class="Dog_dropmenu">
