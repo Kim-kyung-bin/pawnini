@@ -65,8 +65,6 @@ public class Product_inqController {
 	@RequestMapping("/go_updateProduct_inq.do")
 	public String go_updateProduct_inq(Product_inqDTO dto, Model model) throws Exception{
 		System.out.println("게시물 수정페이지 진입");
-		model.addAttribute("update_inq", product_inqService.getProduct_inq(dto));
-		
 		return "product_inq/updateProduct_inq";
 	}
 	

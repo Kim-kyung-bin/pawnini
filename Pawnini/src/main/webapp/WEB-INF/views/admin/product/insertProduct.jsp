@@ -83,6 +83,7 @@
 						<option value="육포/사사미">육포/사사미</option>
 						<option value="껌/뼈">껌/뼈</option>
 						<option value="빵/비스켓">빵/비스켓</option>
+						<option value="캔디">캔디</option>
 					</select>
 				</div>
 				<div class="cat_supplies" hidden="hide">
