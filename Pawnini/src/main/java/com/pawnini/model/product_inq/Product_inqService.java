@@ -25,4 +25,7 @@ public interface Product_inqService {
 	int countProduct_inq(SearchCriteria scri) throws Exception;
 	// 답변 상태 변환
 	void updateInq_ans(Product_inqDTO dto) throws Exception;
+	
+	void cancleInq_ans(Product_inqDTO dto) throws Exception;
+	
 }

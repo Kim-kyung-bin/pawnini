@@ -49,4 +49,8 @@ public class Product_inqServiceImpl implements Product_inqService {
 	public void updateInq_ans(Product_inqDTO dto) throws Exception {
 		product_inqDAO.updateInq_ans(dto);
 	}
+	@Override
+	public void cancleInq_ans(Product_inqDTO dto) throws Exception {
+		product_inqDAO.cancleInq_ans(dto);
+	}
 }

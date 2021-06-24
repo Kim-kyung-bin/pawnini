@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -100,7 +102,7 @@
             <img class="product_img" src="${product.product_thumb_img}" />
              <ul class="product_list">
               <li class="product_title">${product.product_name}</li>
-              <li class="product_cash">가격 :${product.product_price} 원</li>
+              <li class="product_cash">가격 <fmt:formatNumber pattern="###,###,###" value="${product.product_price}" /> 원</li>
               <li class="product_rank">재고 : ${product.product_stock }</li>
             </ul>
           </a>

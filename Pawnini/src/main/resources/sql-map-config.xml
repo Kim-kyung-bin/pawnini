@@ -21,6 +21,7 @@
 		<typeAlias alias="product_inq" type="com.pawnini.model.product_inq.Product_inqDTO"/>
 		<typeAlias alias="inq_rep" type="com.pawnini.model.product_inq.Inq_repDTO"/>
 		<typeAlias alias="product_inqCriteria" type="com.pawnini.model.product_inq.SearchCriteria"/>
+		<typeAlias alias="notice" type="com.pawnini.model.notice.NoticeDTO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
@@ -33,7 +34,8 @@
 		<mapper resource="mappings/product-mapping.xml"/>
 		<mapper resource="mappings/cart-mapping.xml"/>
 		<mapper resource="mappings/product_inq-mapping.xml"/>
-		<mapper resource="mappings/inq_rep-mapping.xml"/> 
+		<mapper resource="mappings/inq_rep-mapping.xml"/>
+		<mapper resource="mappings/notice-mapping.xml"/> 
 	</mappers>
 	
 </configuration>

@@ -89,7 +89,7 @@
 									 <core:if test="${cs.cs_show eq 'N'}" >
 										 <i class="fas fa-lock"></i>
 							              <core:choose>
-									           <core:when test="${cs.member_id eq member.member_id || member.member_grade eq 2}"> 
+									           <core:when test="${cs.member_id eq member.member_id || member.member_grade eq 2 }"> 
 													<core:choose>
 														<core:when test="${cs.cs_re_order > 0 }">
 															<core:forEach begin="1" end="${cs.cs_re_order}"  step="1">
@@ -125,8 +125,8 @@
 	               					</core:if>		 -->	
             					</td>
             					<core:choose>
-	            					<core:when  test="${ member.member_grade eq 1 }">
-	            						<td width="15%"><span style="color:red; font-weight:bold;">관리자</span></td>
+	            					<core:when  test="${ member.member_grade eq 1 && (cs.member_id ne member.member_id)}">
+	            						<td width="15%"><span style="color:red; font-weight:bold;">제한됨</span></td>
 	            					</core:when>
 	            					<core:otherwise>
 		            					<td width="15%">${cs.cs_writer}</td>

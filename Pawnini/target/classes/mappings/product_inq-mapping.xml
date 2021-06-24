@@ -60,7 +60,8 @@
 		WHERE INQ_ID=#{inq_id}
 		]]>
 	</update>
-	<!-- 답변 상태 변경 -->
+	
+	<!-- 답변 상태 변경  -->
 	<update id="updateInq_ans" >
 	<![CDATA[
 	UPDATE PRODUCT_INQ
@@ -68,6 +69,16 @@
 	WHERE INQ_ID=#{inq_id}
 	]]>
 	</update>
+	
+	<update id="cancleInq_ans">
+	<![CDATA[
+	UPDATE PRODUCT_INQ
+	SET INQ_ANS = 'N'
+	WHERE INQ_ID=#{inq_id}
+	]]>
+	</update>
+	<!-- 답변 상태 변경  end -->
+	
 	
 	<!-- 상품 문의 게시판  삭제 -->	
 	<delete id="deleteProduct_inq" >

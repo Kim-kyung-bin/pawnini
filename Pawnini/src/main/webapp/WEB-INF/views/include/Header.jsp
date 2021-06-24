@@ -97,7 +97,7 @@
           </span>
         </li>
         <li><a href="getReviewList.do">후기</a></li>
-        <li><a href="notice.do">공지사항</a></li>
+        <li><a href="getNoticeList.do">공지사항</a></li>
         <li><a href="getCsList.do">고객센터</a></li>
       </ul>
     </header>

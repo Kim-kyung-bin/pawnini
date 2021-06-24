@@ -53,8 +53,12 @@ public class Product_inqDAO {
 	}
 	//답변상태 변환
 	public void updateInq_ans(Product_inqDTO dto) throws Exception{
-		System.out.println("답변상태를 변환중입니다...");
+		System.out.println("답변상태를 변환중입니다 Y...");
 		mybatis.update("Product_inqDAO.updateInq_ans", dto); 
+	}
+	public void cancleInq_ans(Product_inqDTO dto) throws Exception{
+		System.out.println("답변상태를 변환중입니다 N...");
+		mybatis.update("Product_inqDAO.cancleInq_ans" , dto);
 	}
 	
 }
