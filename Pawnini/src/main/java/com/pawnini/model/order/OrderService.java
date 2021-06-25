@@ -65,4 +65,7 @@ public interface OrderService {
 	
 	//장바구니 금액 합계 구하기
 	public int getSum(String member_id) throws Exception;
+	
+	//현재 적립금 구하기 
+	public int getCurrentMileage(String member_id) throws Exception;
 }

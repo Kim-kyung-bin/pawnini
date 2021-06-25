@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
@@ -39,11 +38,11 @@
 	  	 <div class="container" id="container">
 	           <div class="col-xs-2 col-sm-3">
 					<select class="form-control2" name="searchOption2">
-							<option value="nth" <core:out value="${scri.searchOption eq null ? 'selected' : '' }"/>>- - 😺 필터 🐶 - -</option>
-							<option value="t"<core:out value="${scri.searchOption eq 't' ? 'selected' : '' }"/>>제목</option>
-							<option value="w"<core:out value="${scri.searchOption eq 'w' ? 'selected' : '' }"/>>작성자</option>
-							<option value="c"<core:out value="${scri.searchOption eq 'c' ? 'selected' : '' }"/>>내용</option>
-							<option value="twc"<core:out value="${scri.searchOption eq 'twc' ? 'selected' : '' }"/>>제목+작성자+내용</option>	
+							<option value="nth" <c:out value="${scri.searchOption eq null ? 'selected' : '' }"/>>- - 😺 필터 🐶 - -</option>
+							<option value="t"<c:out value="${scri.searchOption eq 't' ? 'selected' : '' }"/>>제목</option>
+							<option value="w"<c:out value="${scri.searchOption eq 'w' ? 'selected' : '' }"/>>작성자</option>
+							<option value="c"<c:out value="${scri.searchOption eq 'c' ? 'selected' : '' }"/>>내용</option>
+							<option value="twc"<c:out value="${scri.searchOption eq 'twc' ? 'selected' : '' }"/>>제목+작성자+내용</option>	
 					</select>
 				</div>	
 				<div class="col-xs-8 col-sm-8">
@@ -52,18 +51,18 @@
 							<span class="input-group-btn"><button id="searchBtn" type="button" class="btn btn-primary"><i class="fas fa-search"></i></button></span>		
 					</div>
 				</div>	
-			 <c:if test="${member ne null }">
-            <div class="col-xs-2 col-sm-1">
-               <span class="input-group-btn"><button type="button" class="btn btn-outline-secondary" style="border-radius: 10px;"><a href="redirectInsertCs.do">새 글 추가</a></button></span> <!--  로그인 해야함 -->                                 
-               <!--<button type="button" class="btn btn-secondary"><a href="getCsList.do">새로고침</a></button>   -->   
-            </div>
-            </c:if>
+				<c:if test="${member ne null }">
+				<div class="col-xs-2 col-sm-1">
+					<span class="input-group-btn"><button type="button" class="btn btn-outline-secondary" style="border-radius: 10px;"><a href="redirectInsertCs.do">새 글 추가</a></button></span> <!--  로그인 해야함 -->											
+					<!--<button type="button" class="btn btn-secondary"><a href="getCsList.do">새로고침</a></button>   -->	
+				</div>
+				</c:if>
 			</div>
 
 		<!-- 상단 테이블 -->
    		<section class="container " >		
-			<core:choose>	
-				<core:when test="${csPagination.totalCount > 0 }">
+			<c:choose>	
+				<c:when test="${csPagination.totalCount > 0 }">
 					<span> 게시글 수  : ${csPagination.totalCount}</span>
 					<table  class="table table-hover">
 						<tr class="cs"> <!-- from cs.css, need to fix it -->
@@ -73,116 +72,105 @@
 					<!-- 	<th>공개 여부</th>  -->
 							<th>작성일</th>
 							<th>조회</th>
-					<!--  	
-							<core:if test="${member.member_grade eq 2 }">
-					-->		
-								<th  class="admin btn btn-default">관리자 버튼</th>
-					<!-- 	
-							</core:if>
-					-->		
+					
+							<c:if test="${member.member_grade eq 2 }">				
+								<th  class="admin">관리자 버튼</th>
+							</c:if>
 						</tr>
 						
-						<core:forEach var="cs" items="${ csList }">
+						<c:forEach var="cs" items="${ csList }">
 							<tr>	
 								<td width="5%">${cs.cs_id }</td>
 								<td width="*" align="left">
 									<span style="padding-right:15px"></span>
 									<!-- 비공개일때 조건 -->
-									 <core:if test="${cs.cs_show eq 'N'}" >
+									 <c:if test="${cs.cs_show eq 'N'}" >
 										 <i class="fas fa-lock"></i>
-							              <core:choose>
-									           <core:when test="${cs.member_id eq member.member_id || member.member_grade eq 2 }"> 
-													<core:choose>
-														<core:when test="${cs.cs_re_order > 0 }">
-															<core:forEach begin="1" end="${cs.cs_re_order}"  step="1">
+							              <c:choose>
+									           <c:when test="${cs.member_id eq member.member_id || member.member_grade eq 2 }"> 
+													<c:choose>
+														<c:when test="${cs.cs_re_order > 0 }">
+															<c:forEach begin="1" end="${cs.cs_re_order}"  step="1">
 																<span style="padding-left:20px; font-weight:bold; color:red;">Re : ↪   </span>
-															</core:forEach>
+															</c:forEach>
 															<a href="getCs.do?cs_id=${cs.cs_id }&curPage=${scri.curPage}&perPageNum=${scri.perPageNum }&searchOption=${scri.searchOption}&searchKeyword=${scri.searchKeyword}">${cs.cs_title}</a>
-														</core:when>
-														<core:otherwise>
+														</c:when>
+														<c:otherwise>
 																<a href="getCs.do?cs_id=${cs.cs_id }&curPage=${scri.curPage}&perPageNum=${scri.perPageNum }&searchOption=${scri.searchOption}&searchKeyword=${scri.searchKeyword}">${cs.cs_title}</a>
-														</core:otherwise>
-													</core:choose>	
-												</core:when>
-												<core:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</core:otherwise>
-											</core:choose>
-									</core:if>
+														</c:otherwise>
+													</c:choose>	
+												</c:when>
+												<c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
+											</c:choose>
+									</c:if>
 									<!-- 공개일때 조건 -->
-									<core:if test="${cs.cs_show eq 'Y'}" >
-	              						<core:choose>
-											<core:when test="${cs.cs_re_order > 0 }">
-												<core:forEach begin="1" end="${cs.cs_re_order}"  step="1">
-													<span style="padding-left:15px; font-weight:bold; color:red;">Re : ↪  </span>
-												</core:forEach>
+									<c:if test="${cs.cs_show eq 'Y'}" >
+	              						<c:choose>
+											<c:when test="${cs.cs_re_order > 0 }">
+												<c:forEach begin="1" end="${cs.cs_re_order}"  step="1">
+													<span style="padding-left:15px; font-weight:bold; color:red;"><i class="fab fa-replyd"></i> : ↪  </span>
+												</c:forEach>
 											<a href="getCs.do?cs_id=${cs.cs_id }&curPage=${scri.curPage}&perPageNum=${scri.perPageNum }&searchOption=${scri.searchOption}&searchKeyword=${scri.searchKeyword}">${cs.cs_title}</a>
-											</core:when>
-											<core:otherwise>
+											</c:when>
+											<c:otherwise>
 												<a href="getCs.do?cs_id=${cs.cs_id }&curPage=${scri.curPage}&perPageNum=${scri.perPageNum }&searchOption=${scri.searchOption}&searchKeyword=${scri.searchKeyword}">${cs.cs_title}</a>
-											</core:otherwise>
-										</core:choose>	
-	               					</core:if>
+											</c:otherwise>
+										</c:choose>	
+	               					</c:if>
 	               					<!-- TESSSSSSSSSSSSSSSST -->
-	               		<!-- 		<core:if test="${cs.cs_fileName ne null || cs.cs_fileName ne ''}">
+	        						<c:if test="${ cs.cs_fileName ne null }">
 	               						<span style="text-align:right; margin-left: 20px"><i class="far fa-file-alt"></i></span>
-	               					</core:if>		 -->	
+	               					</c:if>		
             					</td>
-            					<core:choose>
-	            					<core:when  test="${ member.member_grade eq 1 && (cs.member_id ne member.member_id)}">
-	            						<td width="15%"><span style="color:red; font-weight:bold;">제한됨</span></td>
-	            					</core:when>
-	            					<core:otherwise>
 		            					<td width="15%">${cs.cs_writer}</td>
-	            					</core:otherwise>
-            					</core:choose>
     					<!--  		<td width="5%">${cs.cs_show }</td>   -->
 								<td width="20%"><fmt:formatDate value="${cs.cs_regdate }" pattern="yyyy년 MM월 dd일 HH시"/></td>			
-								<td width="5%">${cs.cs_hit }</td>
-								<core:if test="${member.member_grade eq 2 }">
-									<td width="10%" class="admin">
+								<td width="7%">${cs.cs_hit }</td>
+								<c:if test="${member.member_grade eq 2 }">
+									<td width="15%" class="admin">
 										<button type="button" class="update_btn btn btn-outline-primary"><a href="updateCs.do?cs_id=${cs.cs_id}">수정</a></button> 
 										<button type="button" class="delete_btn btn btn-outline-primary"><a href="deleteCs.do?cs_id=${cs.cs_id}">삭제</a></button> 		
 									</td>		
-								</core:if>		
+								</c:if>		
 							</tr>								
-						</core:forEach>
+						</c:forEach>
 					</table>
-				</core:when>
-				<core:otherwise>
+				</c:when>
+				<c:otherwise>
 					<p class="empty"><b><span>준비중입니다.. 👻</span></b></p>	
-				</core:otherwise>
-			</core:choose>	
+				</c:otherwise>
+			</c:choose>	
 		</section>
 		
 	<!--  css : add curpage, pagination (no outline), nextpage, prevpage  -->
 		<section class="container">
-		<core:if test="${csPagination.totalCount > 0 }">
+		<c:if test="${csPagination.totalCount > 0 }">
 				<!-- 페이지 네비게이션 출력 -->
 					<table class="pagination">
 						<tr>
 							<td colspan="7" align="center">
-							 <core:if test="${csPagination.prev}">
+							 <c:if test="${csPagination.prev}">
 							  	<a class="prevpage" href="getCsList.do${csPagination.makeSearch(csPagination.startPage - 1)}">◀ 이전</a>
-							  </core:if> 
-							<core:forEach var="num"  begin="${csPagination.startPage}" end="${csPagination.endPage}">
-									<core:choose>
-										<core:when test="${csPagination.cri.curPage eq num }">
+							  </c:if> 
+							<c:forEach var="num"  begin="${csPagination.startPage}" end="${csPagination.endPage}">
+									<c:choose>
+										<c:when test="${csPagination.cri.curPage eq num }">
 											<a href="getCsList.do${csPagination.makeSearch(num)}" class="curpage">${num}</a>&nbsp;
-										</core:when>
-										<core:otherwise>
+										</c:when>
+										<c:otherwise>
 											<a href="getCsList.do${csPagination.makeSearch(num)}">${num}</a>&nbsp;
-										</core:otherwise>
-									</core:choose>
-							</core:forEach>
-							<core:if test="${csPagination.next && csPagination.endPage >0}">
+										</c:otherwise>
+									</c:choose>
+							</c:forEach>
+							<c:if test="${csPagination.next && csPagination.endPage >0}">
 							 <a class="nextpage" href="getCsList.do${csPagination.makeSearch(csPagination.endPage+1)}">다음 ▶</a>
-							</core:if>
+							</c:if>
 							</td>
 						</tr>			
 					</table>
-		</core:if>
+		</c:if>
 		</section>	
 	</form>
-	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
@@ -192,17 +180,18 @@
 	
 		//게시물 지우기
 		$(".delete_btn").on("click", function(){
-			var yn = confirm("게시글을 삭제하시겠습니까? \n게시물 삭제시 답변도 함게 삭제됩니다");
-			if (yn == true) {
+			var yn = confirm("게시글을 삭제하시겠습니까? \n* 게시물 삭제시 답변도 함게 삭제됩니다 *");
+			if (yn) {
 				formObj.attr("action", "deleteCs.do");
 				formObj.attr("method", "post");
 				formObj.submit();
 				alert("게시물이 삭제되었습니다");
 				location.reload();
+			 	return; 
 			} else {
 				alert("삭제를 실패했습니다.");
-				return;
-			}		
+				return false;				
+			}
 		})
 	})
 	

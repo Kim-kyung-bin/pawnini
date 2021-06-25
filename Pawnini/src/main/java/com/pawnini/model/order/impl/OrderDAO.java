@@ -151,4 +151,9 @@ public class OrderDAO {
 		return mybatis.selectOne("OrderDAO.getSum", member_id);
 	}
 
+	//현재 적립금 구하기 
+	   public int getCurrentMileage(String member_id) throws Exception{
+	      System.out.println("Mybatis/getCurrentMileage() 기능처리 시작");
+	      return mybatis.selectOne("OrderDAO.getCurrentMileage", member_id);
+	   }
 }

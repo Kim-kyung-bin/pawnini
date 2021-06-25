@@ -276,20 +276,20 @@
 			swal("", "카드 정보를 확인해 주시기 바랍니다.", "info");
 		}
 	}
-	
-	function chkDelInfo(){
-        var chk1 = $("input[name=recipient_name]").val();
-        var chk2 = $("input[name=ord_phone]").val();
-        var chk3 = $("input[name=ord_email]").val();
-        var chk4 = $("input[name=ord_postcode]").val();
-        var chk5 = $("input[name=ord_f_addr]").val();
-        var chk6 =    $("input[name=ord_s_addr]").val();
-         
-        if(chk1 == "" || chk2 == "" || chk3 == "" || chk4 == "" || chk5 == "" || chk6 == ""){
-           swal("","배송지 정보를 입력하시기 바랍니다.", "warning");
-        }
-}
-	
+
+	function chkDelInfo() {
+		var chk1 = $("input[name=recipient_name]").val();
+		var chk2 = $("input[name=ord_phone]").val();
+		var chk3 = $("input[name=ord_email]").val();
+		var chk4 = $("input[name=ord_postcode]").val();
+		var chk5 = $("input[name=ord_f_addr]").val();
+		var chk6 = $("input[name=ord_s_addr]").val();
+
+		if (chk1 == "" || chk2 == "" || chk3 == "" || chk4 == "" || chk5 == ""
+				|| chk6 == "") {
+			swal("", "배송지 정보를 입력하시기 바랍니다.", "warning");
+		}
+	}
 </script>
 </head>
 <%@ include file="../include/Header.jsp"%>
@@ -396,7 +396,8 @@
 				<div class="inputArea">
 					<label for="ord_req_msg">요청사항</label>
 					<textarea name="ord_req_msg" id="ord_req_msg"
-						placeholder="100자 이내로 작성해 주시기 바랍니다." cols="70" rows="4" onchange="chkDelInfo()" /></textarea>
+						placeholder="100자 이내로 작성해 주시기 바랍니다." cols="70" rows="4"
+						onchange="chkDelInfo()" /></textarea>
 				</div>
 			</div>
 			<hr>
@@ -414,87 +415,83 @@
 
 				</div>
 				<div class="inputArea" id="mileageArea">
-					<c:forEach var="row" items="${map.cartList}" varStatus="i">
-						<b>적립금 </b> : <input type="hidden" id="ord_used_mileage2" />
-						<input type="hidden" id="ord_total2" />
-						<input name="ord_used_mileage" id="ord_used_mileage" type="text"
-							value="0" size="10" min="1000" max="10000"
-							onchange="chkMileage(this, '${row.member_mileage}')" />원
-               &nbsp;(가용 적립금 : <span
-							style="color: crimson; font-weight: bold"> <fmt:formatNumber
-								pattern="###,###,###" value="${row.member_mileage}" /> 원
-						</span>
-						<input type="checkbox" name="chkAll" id="chkAll"
-							onclick="useAllMileage('${row.member_mileage}')">전부
-               사용하기) <input type="button" value="사용"
+					<div class="inputArea" id="mileageArea">
+
+						<b>적립금 </b> : <input type="hidden" id="ord_used_mileage2" /> <input
+							type="hidden" id="ord_total2" /> <input name="ord_used_mileage"
+							id="ord_used_mileage" type="text" value="0" size="10" min="1000"
+							max="10000" onchange="chkMileage(this, '${map.curMileage}')" />원
+						&nbsp;(가용 적립금 : <span style="color: crimson; font-weight: bold">
+							<fmt:formatNumber pattern="###,###,###" value="${map.curMileage}" />
+							원
+						</span> <input type="checkbox" name="chkAll" id="chkAll"
+							onclick="useAllMileage('${map.curMileage}')">전부 사용하기) <input
+							type="button" value="사용"
 							onclick="calcFinalSum(ord_used_mileage.value, '${map.finalSum}')" />
 						<input type="button" value="취소"
 							onclick="cancelMileage('${map.finalSum}')" />
-					</c:forEach>
-					<p>적립금은 1,000원 이상일 경우 결제에 사용가능하며 주문 1건당 최대 가용 적립금은 10,000원입니다.</p>
-					<p>특가상품은 적립금 사용이 불가합니다.</p>
-				</div>
-
-				<!-- 추가: 한 세션에서 한 아이디로 두 번째 주문을 할 경우 적립금 금액 업데이트되는 메소드 구현해야 함 -->
-			</div>
-			<br>
-			<div class="orderInfo">
-				<div class="inputArea">
-					<label for="ord_payment">결제수단</label> <input type="radio"
-						name="ord_payment" id="ord_payment" value="카드결제" checked />카드결제 <input
-						type="radio" name="ord_payment" id="ord_payment" value="카카오페이"
-						disabled />카카오페이 <input type="radio" name="ord_payment"
-						id="ord_payment" value="페이코" disabled />PAYCO <input type="radio"
-						name="ord_payment" id="ord_payment" value="계좌이체" disabled />계좌이체
-					<br> <br> <br>
-					<div id="cardInfo">
-						<span id="cardCompany"> <select name="ord_card_info1"
-							id="ord_card_info1">
-								<option value="미래카드">미래카드</option>
-								<option value="삼성카드">삼성카드</option>
-								<option value="현대카드">현대카드</option>
-								<option value="신한카드">신한카드</option>
-								<option value="국민카드">국민카드</option>
-						</select>
-						</span> &nbsp;&nbsp;&nbsp;&nbsp;카드번호&nbsp;&nbsp; <input type="text"
-							id="cardno1" maxlength="4" size="4" onkeypress="onlyNumber()" />
-						<input type="password" id="cardno2" maxlength="4" size="4"
-							onkeypress="onlyNumber()" /> <input type="password" id="cardno3"
-							maxlength="4" size="4" onkeypress="onlyNumber()" /> <input
-							type="text" id="cardno4" maxlength="4" size="4"
-							onkeypress="onlyNumber()" /> &nbsp;&nbsp;CVC (카드 뒷면 3자리
-						숫자)&nbsp;&nbsp; <input type="password" id="cardno5" maxlength="3"
-							size="3" onkeypress="onlyNumber()" />
-
+						<p>적립금은 1,000원 이상일 경우 결제에 사용가능하며 주문 1건당 최대 가용 적립금은 10,000원입니다.</p>
+						<p>특가상품은 적립금 사용이 불가합니다.</p>
 					</div>
 
+					<!-- 추가: 한 세션에서 한 아이디로 두 번째 주문을 할 경우 적립금 금액 업데이트되는 메소드 구현해야 함 -->
 				</div>
-			</div>
+				<br>
+				<div class="orderInfo">
+					<div class="inputArea">
+						<label for="ord_payment">결제수단</label> <input type="radio"
+							name="ord_payment" id="ord_payment" value="카드결제" checked />카드결제
+						<input type="radio" name="ord_payment" id="ord_payment"
+							value="카카오페이" disabled />카카오페이 <input type="radio"
+							name="ord_payment" id="ord_payment" value="페이코" disabled />PAYCO
+						<input type="radio" name="ord_payment" id="ord_payment"
+							value="계좌이체" disabled />계좌이체 <br> <br> <br>
+						<div id="cardInfo">
+							<span id="cardCompany"> <select name="ord_card_info1"
+								id="ord_card_info1">
+									<option value="미래카드">미래카드</option>
+									<option value="삼성카드">삼성카드</option>
+									<option value="현대카드">현대카드</option>
+									<option value="신한카드">신한카드</option>
+									<option value="국민카드">국민카드</option>
+							</select>
+							</span> &nbsp;&nbsp;&nbsp;&nbsp;카드번호&nbsp;&nbsp; <input type="text"
+								id="cardno1" maxlength="4" size="4" onkeypress="onlyNumber()" />
+							<input type="password" id="cardno2" maxlength="4" size="4"
+								onkeypress="onlyNumber()" /> <input type="password"
+								id="cardno3" maxlength="4" size="4" onkeypress="onlyNumber()" />
+							<input type="text" id="cardno4" maxlength="4" size="4"
+								onkeypress="onlyNumber()" /> &nbsp;&nbsp;CVC (카드 뒷면 3자리
+							숫자)&nbsp;&nbsp; <input type="password" id="cardno5" maxlength="3"
+								size="3" onkeypress="onlyNumber()" />
 
-			<!-- 이용약관 동의 -->
-			<div class="orderInfo">
-				<input type="checkbox" id="checkAllTerms" /> 하기 쇼핑몰 이용약관, 개인정보
-				처리방침에 모두 동의합니다.
-				<div class="inputArea">
-					<input type="checkbox" id="checkTerms1" name="checkTerms" /> 전자상거래
-					이용약관에 동의합니다. <br>
-					<textarea id="term1" rows="15" cols="150" readonly>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- 이용약관 동의 -->
+				<div class="orderInfo">
+					<input type="checkbox" id="checkAllTerms" /> 하기 쇼핑몰 이용약관, 개인정보
+					처리방침에 모두 동의합니다.
+					<div class="inputArea">
+						<input type="checkbox" id="checkTerms1" name="checkTerms" />
+						전자상거래 이용약관에 동의합니다. <br>
+						<textarea id="term1" rows="15" cols="150" readonly>
  			<%@ include file="../include/terms1.jsp"%>
  			</textarea>
-				</div>
-				<div class="inputArea">
-					<input type="checkbox" id="checkTerms2" name="checkTerms" /> 개인정보
-					처리방침에 동의합니다. <br>
-					<textarea id="term1" rows="15" cols="150" readonly>
+					</div>
+					<div class="inputArea">
+						<input type="checkbox" id="checkTerms2" name="checkTerms" /> 개인정보
+						처리방침에 동의합니다. <br>
+						<textarea id="term1" rows="15" cols="150" readonly>
  			<%@ include file="../include/terms2.jsp"%>
  			</textarea>
+					</div>
 				</div>
-			</div>
 
-			<button type="button" class="orderBtn" onclick="finalCheck()">결제하기</button>
-			<button type="button" class="orderCancelBtn" onclick="orderCancel()">취소</button>
-
-
+				<button type="button" class="orderBtn" onclick="finalCheck()">결제하기</button>
+				<button type="button" class="orderCancelBtn" onclick="orderCancel()">취소</button>
 		</form>
 
 	</section>

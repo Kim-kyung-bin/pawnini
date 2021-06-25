@@ -38,10 +38,10 @@
       <table  class="table" align="center">
       <!-- 일단은 member -->      
          <tr>
-            <td class="cs"><label for="cs_title">제목</label><input type="text" id="cs_title" name="cs_title" required autofocus></td>
+            <td class="cs"><label for="cs_writer">작성자</label><input type="text" id="cs_writer" name="cs_writer" required value="${member.member_nickname }" readonly></td>
          </tr>
          <tr>
-            <td class="cs"><label for="cs_writer">작성자</label><input type="text" id="cs_writer" name="cs_writer" required value="${member.member_nickname }" re></td>
+            <td class="cs"><label for="cs_title">제목</label><input type="text" id="cs_title" name="cs_title" required autofocus></td>
          </tr>
          <tr>
             <td class="cs"><label for="cs_show">공개 여부</label>

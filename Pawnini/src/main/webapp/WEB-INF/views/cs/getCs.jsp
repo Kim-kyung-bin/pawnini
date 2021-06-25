@@ -120,16 +120,18 @@
 		
 		//게시물 지우기
 		$(".delete_btn").on("click", function(){
-			var yn = confirm("게시글을 삭제하시겠습니까?  게시물 삭제시 답변도 함게 삭제됩니다");
+			var yn = confirm("게시글을 삭제하시겠습니까? \n* 게시물 삭제시 답변도 함게 삭제됩니다 *");
 			if (yn) {
 				formObj.attr("action", "deleteCs.do");
 				formObj.attr("method", "post");
 				formObj.submit();
 				alert("게시물이 삭제되었습니다");
+				location.reload();
+			 	return; 
 			} else {
 				alert("삭제를 실패했습니다.");
-				return;
-			}		
+				return false;				
+			}
 		})
 		
 		//reply button

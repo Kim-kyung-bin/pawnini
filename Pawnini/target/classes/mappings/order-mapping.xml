@@ -196,5 +196,12 @@
     	WHERE MEMBER_ID = #{member_id} AND PRODUCT_ID = #{product_id}
    	]]>
    	</update>
+   	
+   	<!-- 현재 마일리지 가져오기  -->
+   <select id="getCurrentMileage" resultType="int">
+      SELECT MEMBER_MILEAGE
+      FROM MEMBER
+      WHERE MEMBER_ID = #{member_id}
+   </select>
 	
 </mapper>

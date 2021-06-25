@@ -4,40 +4,35 @@
 <html>
 <head>
 <title>공지사항 등록</title>
-<link rel="stylesheet" href="../style/reviewRegistration.css"/>
+<link rel="stylesheet" href="../style/insertNotice.css"/>
 
 </head>
 	  <%@ include file="../include/Header.jsp" %>
 
 <body>
-<center>
 		<div class="Guide">
       		<span>공지사항</span>
     	</div>
 
+<div class="insertForm">
 	<form action="insertNotice.do" method="post">
-	<table class="table" align="center">
-	    <tr>
-	        <td width="70">제목</td><td align="left">
-	        <input type="text" name="notice_title"/></td>
-	    </tr>
-	    <tr>
-	        <td>작성자</td><td align="left">
-	        <input type="text" name="notice_name" size="10" value="${member.member_nickname}" readonly="readonly"></td>
-	    </tr>
-	    <tr>
-	        <td>내용</td><td align="left">
-	        <textarea name="notice_content" cols="70" rows="23"></textarea></td>
-	    </tr>
-	    
-	    <tr>
-	        <td colspan="2" align="center">
-	        <input class="button" type="submit" value=" 새글 등록 "/></td>
-	    </tr>
-	</table>
+	<input type="hidden" name="notice_name"  value="${member.member_nickname}">
+   		<div class="title">
+	        <label for="notice_title"><span>제목</span></label>
+	        <input type="text" id="notice_title" name="notice_title"/><br>
+   		</div>
+	    <div class="writer">
+	        <label for="notice_name"><span>작성자</span></label>
+	        ${member.member_nickname}<br>
+	    </div>
+		<div class="content">
+			<label for="notice_content"><span>내용</span></label>
+	        <textarea name="notice_content" id="notice_content" cols="70" rows="23"></textarea>
+		</div>
+	        <input class="button" type="submit" value=" 새글 등록 "/>
 	</form>
+</div>
 			<a id="btnList" class="button" href="getNoticeList.do">글 목록</a>
-</center>
 </body>
    <%@ include file="../include/Footer.jsp" %>
 

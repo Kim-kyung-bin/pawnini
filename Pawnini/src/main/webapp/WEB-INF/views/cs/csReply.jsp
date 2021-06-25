@@ -66,21 +66,19 @@
             </td>
           </tr>
           <tr>
-            <td>
-              <label for="cs_writer"><span>작성자</span></label
-              ><input type="text" id="cs_writer" name="cs_writer" value="${member.member_nickname }" readonly="readonly" required />
+        
             </td>
             <!--  로그인 하면 후 멤버아이디도 보여주기 -->
             <td>
               <label for="member_id"><span>멤버아이디</span></label>${member.member_id }
+             <input type="hidden" id="cs_writer" name="cs_writer" value="${member.member_nickname }"/>
             </td>
           </tr>
           <tr>
-            <td>
-              <label for="cs_show"><span>공개 여부</span></label>
-              <select name="cs_show" id="cs_show">
-                <option selected class="option" >${cs.cs_show }</option>
-              </select>
+            <td><label for="cs_show">공개 여부</label>
+                  <select name="cs_show" id="cs_show">
+                           <option selected>${cs.cs_show }</option>
+                       </select>
             </td>
           </tr>
           <tr>

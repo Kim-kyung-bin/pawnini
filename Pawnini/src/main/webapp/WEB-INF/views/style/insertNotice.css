@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.title {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 5px 0px 5px 0px;
+}
+.insertForm span {
+    font-weight: bold;
+}
+.insertForm {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+    width: 1500px;
+}

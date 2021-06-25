@@ -42,7 +42,7 @@
 				<td><label for="cs_title">제목</label><input type="text" name="cs_title" value="${csList.cs_title }"  autofocus  required></td>
 			</tr>
 			<tr>
-				<td><label for="cs_writer">작성자</label><input type="text" name="cs_writer" value="${csList.cs_writer }"></td>
+				<td><label for="cs_writer">작성자</label><input type="text" name="cs_writer" value="${member.member_nickname }"></td>
 			</tr>
 			<tr>
 				<td><label for="cs_regdate">최초 작성일</label><fmt:formatDate value="${csList.cs_regdate}" pattern="yyyy년 MM월 dd일 HH시mm분"/></td>
@@ -79,11 +79,13 @@ $(document).ready(function(){
 	//수정하기
 	$(".update_btn").on("click", function(){
 		var updateYN = confirm("수정하시겠습니까?");
-		if (updateYN) {
+		if (!updateYN) {
+			alert("수정이 취소되었습니다!")
+			return;
+		} 
 			formObj.attr("action", "updateCs.do");
 			formObj.attr("method", "post");
 			formObj.submit();			
-		}
 		alert("수정되었습니다!");
 	})
 	

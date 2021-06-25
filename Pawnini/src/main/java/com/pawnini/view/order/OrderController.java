@@ -46,6 +46,7 @@ public class OrderController {
 		// 장바구니 정보 불러오기
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<CartDTO> cartList = orderService.getCartList(member_id);
+		int curMileage = orderService.getCurrentMileage(member_id);
 		
 		// 상품금액 합계에 따라 배송비 지정
 		int sumTotal = orderService.getSum(member_id);
@@ -57,6 +58,7 @@ public class OrderController {
 		map.put("sumTotal",  sumTotal);
 		map.put("shippingFee",  shippingFee);
 		map.put("finalSum", sumTotal+shippingFee);
+		map.put("curMileage", curMileage);
 		mav.setViewName("order/orderForm");
 		mav.addObject("map", map);
 		
