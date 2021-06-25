@@ -112,23 +112,23 @@
 			</tr>
 			<tr>
 				<td>브랜드 :
-					<input type="text" name="product_brand">
+					<input type="text" name="product_brand" required>
 				</td>
 			</tr>
 			<tr>
 				<td>상품명 :
-					<input type="text" name="product_name">
+					<input type="text" name="product_name" required>
 				</td>
 			</tr>
 			<tr>
 				<td>상품 옵션 :
-					<input type="text" name="product_option">
+					<input type="text" name="product_option" >
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<label for="product_img">상품 이미지: </label>
-					<input type="file" name="file" id="product_img">
+					<input type="file" name="file" id="product_img" required>
 				</td>
 			</tr>
 			<tr>
@@ -138,22 +138,22 @@
 			</tr>
 			<tr>
 				<td>상품 설명 :
-					<textarea rows="10" cols="40" name="product_desc"></textarea>
+					<textarea rows="10" cols="40" name="product_desc" required></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>상품 재고 :
-					<input type="text" name="product_stock">
+					<input type="text" name="product_stock" required>
 				</td>
 			</tr>
 			<tr>
 				<td>상품 가격 :
-					<input type="text" name="product_price">
+					<input type="text" name="product_price" required>
 				</td>
 			</tr>
 			<tr>
 				<td>상품 원가 :
-					<input type="text" name="product_c_price">
+					<input type="text" name="product_c_price" required>
 				</td>
 			</tr>
 			<tr>

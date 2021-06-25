@@ -9,6 +9,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style/updateCs.css" />
+
 <title>수정 [ ${csList.cs_title } ]</title>
 
 	<style type="text/css">
@@ -17,7 +19,7 @@
 	      text-decoration: none;
 	   }
 	</style>
-	<link type="text/css" rel="stylesheet" href="../style/cs.css"/>
+<link rel="stylesheet" href="../style/updateCs.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
@@ -28,7 +30,7 @@
 
 
 <section class="container">
-	<h1>CS 수정</h1>
+	<h1 class="table_title">CS 수정</h1>
 	<form name="updateForm" action="updateCs.do" method="post" enctype="multipart/form-data">
  <!--  앞에 csList는 controller에서 sessionAttributes and model.addAttribute() -->
 		<table class="table table-hover">

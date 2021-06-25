@@ -66,6 +66,7 @@
 		width: 75px;
 		right: 1px;
 		padding-left: 5px;
+		z-index:1;
 	}
 	.Login_ul>li>.dropmenu>span {
 		width: 100%;

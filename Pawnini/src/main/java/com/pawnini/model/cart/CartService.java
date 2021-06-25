@@ -2,6 +2,9 @@ package com.pawnini.model.cart;
 
 import java.util.List;
 
+import com.pawnini.model.order.CartDTO;
+import com.pawnini.model.order.CartListDTO;
+
 public interface CartService {
 	
 	public void addToCart(CartDTO dto) throws Exception;

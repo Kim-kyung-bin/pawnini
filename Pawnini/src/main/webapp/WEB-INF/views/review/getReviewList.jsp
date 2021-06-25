@@ -27,7 +27,7 @@
 <%@ include file="../include/Header.jsp"%>
 <body>
 	<div class="Guide">
-      <span>리뷰</span>
+      <span>후기</span>
     </div>
 	<div class="container">
 		

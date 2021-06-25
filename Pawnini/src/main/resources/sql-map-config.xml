@@ -13,8 +13,6 @@
 		<typeAlias alias="reviewCriteria" type="com.pawnini.model.review.SearchCriteria"/>
 		<typeAlias alias="reviewReply" type="com.pawnini.model.review.ReviewReplyDTO"/>
 		<typeAlias alias="reviewLike" type="com.pawnini.model.review.ReviewLikeDTO"/>
-		<typeAlias alias="cart" type="com.pawnini.model.cart.CartDTO"/>
-		<typeAlias alias="cartList" type="com.pawnini.model.cart.CartListDTO"/>
 		<typeAlias alias="member" type="com.pawnini.model.member.MemberDTO"/>
 		<typeAlias alias="product" type="com.pawnini.model.product.ProductDTO"/>
 		<typeAlias alias="productCriteria" type="com.pawnini.model.product.ProductSearchCriteria"/>
@@ -22,6 +20,10 @@
 		<typeAlias alias="inq_rep" type="com.pawnini.model.product_inq.Inq_repDTO"/>
 		<typeAlias alias="product_inqCriteria" type="com.pawnini.model.product_inq.SearchCriteria"/>
 		<typeAlias alias="notice" type="com.pawnini.model.notice.NoticeDTO"/>
+		<typeAlias alias="cart" type="com.pawnini.model.order.CartDTO"/>
+		<typeAlias alias="order" type="com.pawnini.model.order.OrderDTO"/>
+		<typeAlias alias="orderDetails" type="com.pawnini.model.order.OrderDetailsDTO"/>
+		<typeAlias alias="orderList" type="com.pawnini.model.order.OrderListDTO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
@@ -32,10 +34,10 @@
 		<mapper resource="mappings/review-reply-mapping.xml"/>		
 		<mapper resource="mappings/member-mapping.xml"/>			
 		<mapper resource="mappings/product-mapping.xml"/>
-		<mapper resource="mappings/cart-mapping.xml"/>
 		<mapper resource="mappings/product_inq-mapping.xml"/>
 		<mapper resource="mappings/inq_rep-mapping.xml"/>
 		<mapper resource="mappings/notice-mapping.xml"/> 
+		<mapper resource="mappings/order-mapping.xml"/>	
 	</mappers>
 	
 </configuration>

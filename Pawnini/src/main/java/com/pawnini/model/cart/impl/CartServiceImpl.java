@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pawnini.model.cart.CartDTO;
-import com.pawnini.model.cart.CartListDTO;
 import com.pawnini.model.cart.CartService;
+import com.pawnini.model.order.CartDTO;
+import com.pawnini.model.order.CartListDTO;
 
 @Service("cartService")
 public class CartServiceImpl implements CartService {

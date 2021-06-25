@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pawnini.model.review.ReviewDTO;
-import com.pawnini.model.review.ReviewLikeDTO;
 import com.pawnini.model.review.ReviewService;
 import com.pawnini.model.review.SearchCriteria;
 

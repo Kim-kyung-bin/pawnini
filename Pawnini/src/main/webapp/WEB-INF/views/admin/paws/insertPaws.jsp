@@ -26,11 +26,11 @@
                   <option value="CAT">고양이</option>
                </select>
             <tr>
-               <td><span>2차분류</span><input type="text" name="paws_s_code">
+               <td><span>2차분류</span><input type="text" name="paws_s_code" required>
             <tr>
-               <td><span>이름</span><input type="text" name="paws_name">
+               <td><span>이름</span><input type="text" name="paws_name" required>
             <tr>
-               <td><span>나이</span><input type="text" name="paws_age">
+               <td><span>나이</span><input type="text" name="paws_age" required>
             <tr>
                <td>
                <div class="inputArea">
@@ -42,9 +42,9 @@
                    <div class="select_img"><img src="" /></div>
                </div>
             <tr>
-               <td><span>설명</span><textarea rows="10" cols="40" name="paws_desc"></textarea>
+               <td><span>설명</span><textarea rows="10" cols="40" name="paws_desc" required></textarea>
             <tr>
-               <td><span>성별</span><input type="text" name="paws_sex">
+               <td><span>성별</span><input type="text" name="paws_sex" required>
             <tr>
                <td><span>중성화여부</span>
                <select class="option_two"  name="paws_is_neutered">
@@ -52,7 +52,7 @@
                        <option  value="N">N</option>
                     </select>
             <tr>
-               <td><span>건강상태</span><input type="text" name="paws_health">
+               <td><span>건강상태</span><input type="text" name="paws_health" required>
             <tr>
                <td><input class="button" type="submit" value="등록">
          </table>

@@ -40,7 +40,6 @@
     <h2 class="table_title">게시판 답글 - # ${ cs_id} :</h2>
 
     <div>
-        <!-- 여기 폼이 어떤건지 데모좀 보여줄수 잇음? -->
       <form id="csForm" name="csForm">
         <input
           type="hidden"
@@ -53,7 +52,7 @@
         <input type="hidden" name="cs_re_order" value="${cs.cs_re_order }" />
         <input type="hidden" name="cs_re_depth" value="${cs.cs_re_depth }" />
 
-        <table class="table" align="center">
+        <table class="table2" align="center">
           <tr>
             <td>
               <label for="cs_title"><span>제목</span></label
@@ -69,7 +68,7 @@
           <tr>
             <td>
               <label for="cs_writer"><span>작성자</span></label
-              ><input type="text" id="cs_writer" name="cs_writer" required />
+              ><input type="text" id="cs_writer" name="cs_writer" value="${member.member_nickname }" readonly="readonly" required />
             </td>
             <!--  로그인 하면 후 멤버아이디도 보여주기 -->
             <td>

@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.pawnini.model.cart.CartDTO;
-import com.pawnini.model.cart.CartListDTO;
+import com.pawnini.model.order.CartDTO;
+import com.pawnini.model.order.CartListDTO;
 
 @Repository
 public class CartDAO {

@@ -14,6 +14,9 @@
      <%@ include file="include/Header.jsp" %>
   
   <body>
+  <div class="Guide">
+        <span>마이페이지</span>
+      </div>
     <div class="wrap">
       <div class="greenContainer">
         <div>
@@ -29,42 +32,15 @@
         <div class="modify">i</div>
       </div>
     
-      <div class="shippingStatusContainer">
-        <div class="title">주문/배송조회</div>
-        <div class="status">
-          <div class="item">
-            <div>
-              <div class="green number">6</div>
-              <div class="text">장바구니</div>
-            </div>
-            <div class="icon">></div>
-          </div>
-          <div class="item">
-            <div>
-              <div class="number">0</div>
-              <div class="text">결제완료</div>
-            </div>
-            <div class="icon">></div>
-          </div>
-          <div class="item">
-            <div>
-              <div class="green number">1</div>
-              <div class="text">배송중</div>
-            </div>
-            <div class="icon">></div>
-          </div>
-          <div class="item">
-            <div>
-              <div class="green number">3</div>
-              <div class="text">구매확정</div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="listContainer">
-        <a href="#" class="item">
+        <a href="getOrderList.do" class="item">
           <div class="icon">ii</div>
           <div class="text">주문목록<span class="circle"></span></div>
+          <div class="right">></div>
+        </a>
+        <a href="getCartList.do" class="item">
+          <div class="icon">ii</div>
+          <div class="text">장바구니<span class="circle"></span></div>
           <div class="right">></div>
         </a>
         <a href="getReviewList.do" class="item">
@@ -79,20 +55,7 @@
         </a>
       </div>
       <div class="listContainer">
-        <a href="#" class="item">
-          <div class="icon">ii</div>
-          <div class="text">
-            <span>내지갑</span>
-            <span class="smallLight">
-              <span>|</span>
-              <span>보유 마일리지</span>
-            </span>
-          </div>
-          <div class="right">
-            <span class="blct">${member.member_mileage} 마일리지</span>
-            >
-          </div>
-        </a>
+       
         <a href="#" class="item">
           <div class="icon">ii</div>
           <div class="text">알림</div>

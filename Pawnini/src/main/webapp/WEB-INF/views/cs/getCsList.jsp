@@ -36,9 +36,9 @@
 	
 	<!-- 검색 기능 -->
 		<form role="getForm" method="get">
-	  	 <div class="container">
+	  	 <div class="container" id="container">
 	           <div class="col-xs-2 col-sm-3">
-					<select class="form-control" name="searchOption2">
+					<select class="form-control2" name="searchOption2">
 							<option value="nth" <core:out value="${scri.searchOption eq null ? 'selected' : '' }"/>>- - 😺 필터 🐶 - -</option>
 							<option value="t"<core:out value="${scri.searchOption eq 't' ? 'selected' : '' }"/>>제목</option>
 							<option value="w"<core:out value="${scri.searchOption eq 'w' ? 'selected' : '' }"/>>작성자</option>
@@ -48,18 +48,20 @@
 				</div>	
 				<div class="col-xs-8 col-sm-8">
 					<div class="input-group">
-							<input class="form-control" type="text" name="searchKeyword" id="keywordInput" placeholder="키워드를 입력하세요..." value="${scri.searchKeyword }"/>
-							<span class="input-group-btn"><button id="searchBtn" type="button" class="btn btn-primary">검색! <i class="fas fa-search"></i></button></span>		
+							<input class="form-controlSearch" type="text" name="searchKeyword" id="keywordInput" placeholder="키워드를 입력하세요..." value="${scri.searchKeyword }"/>
+							<span class="input-group-btn"><button id="searchBtn" type="button" class="btn btn-primary"><i class="fas fa-search"></i></button></span>		
 					</div>
 				</div>	
-				<div class="col-xs-2 col-sm-1">
-					<span class="input-group-btn"><button type="button" class="btn btn-outline-secondary" style="border-radius: 10px;"><a href="redirectInsertCs.do">새 글 추가</a></button></span> <!--  로그인 해야함 -->											
-					<!--<button type="button" class="btn btn-secondary"><a href="getCsList.do">새로고침</a></button>   -->	
-				</div>
+			 <c:if test="${member ne null }">
+            <div class="col-xs-2 col-sm-1">
+               <span class="input-group-btn"><button type="button" class="btn btn-outline-secondary" style="border-radius: 10px;"><a href="redirectInsertCs.do">새 글 추가</a></button></span> <!--  로그인 해야함 -->                                 
+               <!--<button type="button" class="btn btn-secondary"><a href="getCsList.do">새로고침</a></button>   -->   
+            </div>
+            </c:if>
 			</div>
 
 		<!-- 상단 테이블 -->
-   		<section class="container " style="margin-top:20%">		
+   		<section class="container " >		
 			<core:choose>	
 				<core:when test="${csPagination.totalCount > 0 }">
 					<span> 게시글 수  : ${csPagination.totalCount}</span>
@@ -70,7 +72,7 @@
 							<th>작성자</th>
 					<!-- 	<th>공개 여부</th>  -->
 							<th>작성일</th>
-							<th>조회수</th>
+							<th>조회</th>
 					<!--  	
 							<core:if test="${member.member_grade eq 2 }">
 					-->		

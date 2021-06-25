@@ -36,7 +36,7 @@
     	<li>${member.member_nickname}님 환영 합니다.</li>
         <li><a href="myPage.do">My Pages</a></li>
         <li><a href="logout.do">Logout</a></li>
-        <li> <a class="basket" href="basket.do">
+        <li> <a class="basket" href="getCartList.do">
         <i class="fas fa-shopping-cart fa-lg"></i>
       </a></li>
         <c:if test="${grade eq 2}">
@@ -48,6 +48,7 @@
             <span><a href="getMemberList.do">회원관리</a></span>
             <span><a href="getProductList.do">상품관리</a></span>
             <span><a href="getProduct_inqList.do">상품문의</a></span>
+            <span><a href="getAllOrders.do">배송관리</a></span>
           </span>
         </li>
         </c:if>
@@ -92,8 +93,8 @@
         <li class="Dog_dropmenu">
           <a href="adoption.do">분양</a>
           <span class="dropmenu">
-            <span><a href="getCatList.do">Cat</a></span>
-            <span><a href="getDogList.do">Dog</a></span>
+            <span><a href="getCatList.do">고양이</a></span>
+            <span><a href="getDogList.do">강아지</a></span>
           </span>
         </li>
         <li><a href="getReviewList.do">후기</a></li>

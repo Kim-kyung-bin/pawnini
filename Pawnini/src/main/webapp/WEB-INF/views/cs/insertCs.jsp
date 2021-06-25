@@ -29,21 +29,19 @@
 <body>
 
 <!-- my bit -->
-<div class="main_title">
-   <h1>CS 등록</h1>
-  </div>
+<div class="Guide">
+      <span>고객센터</span>
+    </div>
 <section class="container">
    <form  class="container" name="insertForm" action="insertCs.do" method="post" enctype="multipart/form-data">
+   <input type="hidden" name="member_id" id="member_id" value="${member.member_id }"/>
       <table  class="table" align="center">
       <!-- 일단은 member -->      
-         <tr>
-            <td class="cs"><label for="member_id"><span>멤버아이디</span></label><input type="text" name="member_id" id="member_id" value="${member.member_id }"/>
-         </tr>
          <tr>
             <td class="cs"><label for="cs_title">제목</label><input type="text" id="cs_title" name="cs_title" required autofocus></td>
          </tr>
          <tr>
-            <td class="cs"><label for="cs_writer">작성자</label><input type="text" id="cs_writer" name="cs_writer" required></td>
+            <td class="cs"><label for="cs_writer">작성자</label><input type="text" id="cs_writer" name="cs_writer" required value="${member.member_nickname }" re></td>
          </tr>
          <tr>
             <td class="cs"><label for="cs_show">공개 여부</label>

@@ -7,6 +7,70 @@
 <link rel="stylesheet" href="../style/detail.css" />
 <link rel="stylesheet" href="../style/main.css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+//장바구니 추가
+	function addToCart() {
+		var product_id = $("#product_id").val();
+		var cart_amount = $("#cart_amount").val();
+
+		var data = {
+			product_id : product_id,
+			cart_amount : cart_amount,
+		};
+
+		$.ajax({
+			url : "addToCart.do",
+			type : "post",
+			data : data,
+			success : function() {
+				swal({
+					icon : "success",
+					text : "장바구니로 이동하시겠습니까?",
+					buttons : [ "예", "아니오" ],
+				}).then(function(isConfirm) {
+					if (isConfirm) {
+						window.location.reload();
+					} else {
+						window.location.href = "getCartList.do";
+						$("#cart_amount").val("1");
+					}
+				});
+
+			},
+			error : function() {
+				swal("", "로그인 후 이용해 주시기 바랍니다.", "warning").then(function() {
+					window.location.href = "login.do";
+				});
+			},
+		})
+	}
+// 바로 구매 시
+	function goToPurchase() {
+		var product_id = $("#product_id").val();
+		var cart_amount = $("#cart_amount").val();
+
+		var data = {
+			product_id : product_id,
+			cart_amount : cart_amount,
+		};
+
+		$.ajax({
+			url : "addToCart.do",
+			type : "post",
+			data : data,
+			success : function() {
+				swal("", "주문서로 이동합니다.", "info");
+				setTimeout('window.location.href = "orderFormView.do"', 1500);
+			},
+			error : function() {
+				swal("", "로그인 후 이용해 주시기 바랍니다.", "warning").then(function() {
+				setTimeout('window.location.href = "login.do"',1000);
+				});
+			},
+		});
+	}
+</script>
 <%@ include file="../include/Header.jsp"%>
 <body>
    <div class="Guide">
@@ -15,7 +79,7 @@
 
     <div class="grid">
       <div class="product_image"><img class="img_main" src="${product.product_img }"></div>
-<div class="box">
+		<div class="box">
 			<ul class="product_dis">
 				<li>${product.product_brand}</li>
 				<li>${product.product_name}</li>
@@ -40,7 +104,7 @@
         <div class="product_stock">
           <div class="stpck_one">
             <ul>
-              <li>재고잇음</li>
+              <li>재고 : ${product.product_stock }</li>
               <li>❤</li>
             </ul>
           </div>
@@ -59,9 +123,23 @@
           </div>
         </div>
         <div class="button">
-          <button class="button_one">장바구니 담기</button>
-          <button class="button_two">바로구매</button>
-        </div>
+				<input type="hidden" id="product_id" value="${product.product_id}" />
+				<select id="cart_amount">
+					<c:forEach begin="1" end="10" var="i">
+						<option value="${i}">${i}</option>
+					</c:forEach>
+				</select>
+
+				<button type="button" class="button_two" onclick="addToCart();">장바구니
+					담기</button>
+				<c:set var="stock" value="${product.product_stock}" />
+				<c:if test="${product.product_stock != 0 }">
+					<button class="button_two" onclick="goToPurchase();">바로구매</button>
+				</c:if>
+				<c:if test="${product.product_stock == 0 }">
+					<button class="button_two">품절</button>
+				</c:if>
+			</div>
       </div>
     </div>
     
@@ -104,7 +182,7 @@
       <li>
         <h3><i class="fas fa-rss"></i>만원 이상 구매시 무료배송</h3>
       </li>
-   
+   </ul>
   </div>
 
 	<script
