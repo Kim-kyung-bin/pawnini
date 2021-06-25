@@ -5,6 +5,7 @@
 <head>
 <title>공지사항 수정</title>
 </head>
+<link rel="stylesheet" href="../style/reviewRegistration.css"/>
 	  <%@ include file="../include/Header.jsp" %>
 <body>
 <div align="center">
@@ -16,7 +17,7 @@
 	<!-- <a href="logout.do">Log-out</a>
 	<hr> -->
 	<form action="updateNotice.do" method="post">
-	<table border="1" cellpadding="0" cellspacing="0">
+	<table class="table" align="center">
 	    <tr>
 	        <td width="70">제목</td><td align="left">
 	        <input type="text" name="notice_title" value="${notice.notice_title }"></td>
@@ -32,11 +33,10 @@
 	    
 	    <tr>
 	        <td colspan="2" align="center">
-	        <input type="submit" value=" 수정 "/></td>
+	        <input class="button" type="submit" value=" 수정 "/></td>
 	    </tr>
 	</table>
 	</form>
-	<hr>
 	<!-- <a href="getNoticeList.do">글 목록 가기</a> -->
 </div>
 </body>

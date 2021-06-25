@@ -4,8 +4,9 @@
 <html>
 <head>
  <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
- <link rel="stylesheet" href="../../style/AdoptionRegistration.css" />
+ <link rel="stylesheet" href="../../style/AdopotionRegistration.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 </head>
    <%@ include file="../../include/Header.jsp" %> 

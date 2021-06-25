@@ -41,7 +41,7 @@
 </div>
 <div align="center">
 		<c:if test="${member.member_grade == 2}">
-		<a href="go_insertNotice.do">새 글 등록</a>
+		<a id="btnList" class="button" href="go_insertNotice.do">새 글 등록</a>
 		</c:if>
 </div>
 </body>

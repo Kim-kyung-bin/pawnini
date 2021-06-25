@@ -4,6 +4,8 @@
 <html>
 <head>
 <title>공지사항 등록</title>
+<link rel="stylesheet" href="../style/reviewRegistration.css"/>
+
 </head>
 	  <%@ include file="../include/Header.jsp" %>
 
@@ -14,7 +16,7 @@
     	</div>
 
 	<form action="insertNotice.do" method="post">
-	<table border="1" cellpadding="0" cellspacing="0">
+	<table class="table" align="center">
 	    <tr>
 	        <td width="70">제목</td><td align="left">
 	        <input type="text" name="notice_title"/></td>
@@ -30,12 +32,11 @@
 	    
 	    <tr>
 	        <td colspan="2" align="center">
-	        <input type="submit" value=" 새글 등록 "/></td>
+	        <input class="button" type="submit" value=" 새글 등록 "/></td>
 	    </tr>
 	</table>
 	</form>
-	<hr>
-	<a href="getNoticeList.do">글 목록 가기</a>
+			<a id="btnList" class="button" href="getNoticeList.do">글 목록</a>
 </center>
 </body>
    <%@ include file="../include/Footer.jsp" %>

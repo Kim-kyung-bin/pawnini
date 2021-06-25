@@ -26,6 +26,7 @@
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../style/reviewRegistration.css"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 $("#rev_f_img").change(function(){
@@ -49,7 +50,7 @@ $("#rev_f_img").change(function(){
 
 		<form action="/insertReview.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="member_id" value="${member.member_id}"/>
-			<table border="1">
+			<table class="table" align="center">
 				<tr>
 					<td>글쓴이
 					<input type="text" name="rev_writer" value="${member.member_nickname}" readonly>
@@ -77,7 +78,6 @@ $("#rev_f_img").change(function(){
  				<tr>
  					<td>미리보기
  					<div class="select_img"><img src="" /></div>
- 					<%=request.getRealPath("/") %>
 					</div>
 				<tr>
 					<td>공개 여부
@@ -89,10 +89,12 @@ $("#rev_f_img").change(function(){
 				<tr>
 					<td>상품코드<input type="text" name="product_id">
 				<tr>
-					<td><input type="submit" value="등록">
+					<td><input type="submit" value="등록" class="button">
 			</table>
 		</form>
-		<a href="/review/getReviewList.do">목록</a>
+		<div align="center">
+		<a id="btnList" class="button" href="/review/getReviewList.do">목록</a>
+		</div>
 	</div>
 </body>
 	<%@ include file="../include/Footer.jsp" %>

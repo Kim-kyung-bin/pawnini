@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="../style/main.css" />
     <link rel="stylesheet" href="../style/product.css" />
     <title>meal</title>
+    <style type="text/css">
+    .product_img {
+    	width: 250px;
+    	height: 250px;
+    }
+    </style>
   </head>
   <%@ include file="../include/Header.jsp" %>
   <body>

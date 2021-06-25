@@ -7,6 +7,7 @@
 <head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style/insertCs.css" />
 <title>CS insertCs - - working on css/html</title>
 	<style type="text/css">
 	 .main_title {
@@ -32,11 +33,11 @@
    <h1>CS 등록</h1>
   </div>
 <section class="container">
-   <form  name="insertForm" action="insertCs.do" method="post" enctype="multipart/form-data">
-      <table  class="table table-hover" border="1">
+   <form  class="container" name="insertForm" action="insertCs.do" method="post" enctype="multipart/form-data">
+      <table  class="table" align="center">
       <!-- 일단은 member -->      
          <tr>
-            <td class="cs"><label for="member_id">멤버아이디</label><input type="text" name="member_id" id="member_id" value="${member.member_id }"/>
+            <td class="cs"><label for="member_id"><span>멤버아이디</span></label><input type="text" name="member_id" id="member_id" value="${member.member_id }"/>
          </tr>
          <tr>
             <td class="cs"><label for="cs_title">제목</label><input type="text" id="cs_title" name="cs_title" required autofocus></td>

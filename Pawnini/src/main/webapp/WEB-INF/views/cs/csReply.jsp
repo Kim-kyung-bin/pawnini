@@ -8,6 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style/csReply.css"/>
+
 <title>게시판 답글</title>
 <%
 	int cs_id = Integer.parseInt(request.getParameter("cs_id"));
@@ -31,43 +33,84 @@
   <%@ include file="../include/HeaderBoot.jsp" %>
 <body>
 
-<h2>게시판 답글 - # ${ cs_id} :  </h2>
-<div>
-	<form id="csForm" name="csForm">
-		<input type="text" id="cs_parent_cs_id" name="cs_parent_cs_id" value="${cs.cs_id }"/>
-		<input type="hidden" name="member_id" value="${member.member_id }"/>
-		<input type="hidden" name="cs_re_group" value="${cs.cs_re_group }"/>
-		<input type="hidden" name="cs_re_order" value="${cs.cs_re_order }"/>
-		<input type="hidden" name="cs_re_depth" value="${cs.cs_re_depth }"/>	
-		<table>
-		<tr>
-            <td><label for="cs_title">제목</label><input type="text" id="cs_title" name="cs_title" required autofocus></td> 
-        </tr>
-         <tr>
-            <td><label for="cs_writer">작성자</label><input type="text" id="cs_writer" name="cs_writer" required></td>
- 				<!--  로그인 하면 후 멤버아이디도 보여주기 -->
-            <td><label for="member_id">멤버아이디</label>${member.member_id }</td>
-         </tr>
-         <tr>
-            <td><label for="cs_show">공개 여부</label>
-                  <select name="cs_show" id="cs_show">
-                           <option selected>${cs.cs_show }</option>
-                       </select>
-            </td>
-         </tr>
-         <tr>
-            <td><label for="cs_content">내용</label><br><textarea name="cs_content" id="cs_content" cols="50" rows="10" required></textarea>
-         </tr>     
-         <tr>
-            <td><label for="cs_fileName">파일</label><input type="file" name="cs_fileName" id="cs_fileName"/>
-         </tr>   
-     </table>
-     <button type="button" class="reply_btn">답글 추가</button>
-     <button type="reset" >입력 초기화</button>
-     <a href="getCsList.do">목록으로..</a>
-	</form>
-</div>
+      <div class="Guide">
+        <span>게시판 답글</span>
+      </div>
 
+    <h2 class="table_title">게시판 답글 - # ${ cs_id} :</h2>
+
+    <div>
+        <!-- 여기 폼이 어떤건지 데모좀 보여줄수 잇음? -->
+      <form id="csForm" name="csForm">
+        <input
+          type="hidden"
+          id="cs_parent_cs_id"
+          name="cs_parent_cs_id"
+          value="${cs.cs_id }"
+        />
+        <input type="hidden" name="member_id" value="${member.member_id }" />
+        <input type="hidden" name="cs_re_group" value="${cs.cs_re_group }" />
+        <input type="hidden" name="cs_re_order" value="${cs.cs_re_order }" />
+        <input type="hidden" name="cs_re_depth" value="${cs.cs_re_depth }" />
+
+        <table class="table" align="center">
+          <tr>
+            <td>
+              <label for="cs_title"><span>제목</span></label
+              ><input
+                type="text"
+                id="cs_title"
+                name="cs_title"
+                required
+                autofocus
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="cs_writer"><span>작성자</span></label
+              ><input type="text" id="cs_writer" name="cs_writer" required />
+            </td>
+            <!--  로그인 하면 후 멤버아이디도 보여주기 -->
+            <td>
+              <label for="member_id"><span>멤버아이디</span></label>${member.member_id }
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="cs_show"><span>공개 여부</span></label>
+              <select name="cs_show" id="cs_show">
+                <option selected class="option" >${cs.cs_show }</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="cs_content"><span>내용</span></label><br /><textarea
+                name="cs_content"
+                id="cs_content"
+                cols="50"
+                rows="10"
+                required
+              ></textarea>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="cs_fileName"><span>파일</span></label
+              ><input class="file" type="file" name="cs_fileName" id="cs_fileName" />
+            </td>
+          </tr>
+        </table>
+        <div class="button_div">
+            <button type="button" class="reply_btn">답글 추가</button>
+            <button type="button">입력 초기화</button>
+        </div>
+
+        <a class="button_list" href="getCsList.do">목록으로..</a>
+      </form>
+    </div>
 <script type="text/javascript">
 //게시판 목록 페이지 이동
 function getCsList() {
