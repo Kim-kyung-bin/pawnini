@@ -11,12 +11,20 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <title>Sign</title>
 <link rel="stylesheet" href="style/signup.css" />
-
+<style>
+	#email_check_input_false{
+		background-color: #ebebe4;
+	}
+	#email_check_input_true {
+		background-color: white;
+	}
+</style>
 <script type="text/javascript">
 	var checkID = false;
 	var checkPWD = false;
 	var checkNAME = false;
-
+	var code = "";		//이메일 전송 인증번호 저장위한 코드
+	
 	$(document).ready(
 			function() {
 				$("#member_pwd").keyup(function() {
@@ -99,7 +107,12 @@
 					"member_s_addr" : member_s_addr
 				},
 				success : function(data) {
-					window.location.href = "main.do";
+					swal({
+						icon:"success",
+						title: "",
+						text : "회원가입이 완료되었습니다.!"
+					});
+					setTimeout('window.location.href = "main.do"',3000);
 				}
 			});
 		}
@@ -187,7 +200,54 @@
 						document.getElementById('member_s_addr').focus();
 					}
 				}).open();
-	}
+	};
+
+	
+	/*인증번호 이메일 전송*/
+	function emailCheck(){
+		var member_email = $("#email_id").val() + "@" + $("#email_addr").val();		//입력한 이메일
+		var checkBox = $(".email_check_input");		//인증번호 입력란
+		var checkBtn = $(".email_check_btn"); 	//버튼
+		$.ajax({
+			type:"GET",
+			url:"emailCheck.do?email="+member_email,
+			data: {
+				"member_email" : member_email
+			},
+			success:function(data) {
+				swal({
+					icon:"success",
+					title: "",
+					text : "인증메일이 발송되었습니다. 이메일을 체크해 주세요!"
+				});
+			//	console.log("data : "+data);
+			checkBox.attr("disabled", false);
+			checkBox.attr("id", "email_check_input_true");
+			checkBox.attr("autofocus", true);	
+			checkBtn.attr("disabled", true);
+			checkBtn.css("color", "grey");
+			code = data;
+			
+			
+			/* 인증번호 비교*/
+			$(".email_check_input").blur(function(){
+				var inputCode = $(".email_check_input").val();			//사용자가 입력한 코드 
+				var checkResult = $("#email_check_input_warn");	//비교 결과 메세지
+				
+				if (inputCode == code) {			//일치할 경우
+				 	checkResult.text("인증번호가 일치합니다");
+				 	checkResult.css("color", "green");
+				} else if (inputCode != code) {
+					checkResult.text("인증번호를 다시 확인해주세요.");
+					checkResult.css("color", "red");
+				} else {
+					console.log('ERROR');
+				}
+			});
+			}
+		});
+	};
+	
 </script>
 
 </head>
@@ -256,6 +316,14 @@
                   </select>
                 </td>
               </tr>
+			  <tr>
+               	<td>
+               		<input type="text" size="15" id="email_check_input_false" 
+               		class="email_check_input" disabled="disabled"/>
+               		<input type="button" class="btn email_check_btn" onclick="emailCheck()" style="cursor: pointer" value="인증번호 전송"/>
+               		<div id="email_check_input_warn"></div>
+               	</td>
+             </tr>
               <tr>
                 <th>연락처</th>
               </tr>

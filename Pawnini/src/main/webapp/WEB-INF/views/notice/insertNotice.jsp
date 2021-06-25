@@ -6,6 +6,12 @@
 <title>공지사항 등록</title>
 <link rel="stylesheet" href="../style/insertNotice.css"/>
 
+<script type="text/javascript">
+	function getNoticeList() {
+		window.location.href="getNoticeList.do";
+	}
+</script>
+
 </head>
 	  <%@ include file="../include/Header.jsp" %>
 
@@ -27,12 +33,15 @@
 	    </div>
 		<div class="content">
 			<label for="notice_content"><span>내용</span></label>
-	        <textarea name="notice_content" id="notice_content" cols="70" rows="23"></textarea>
+	        <textarea name="notice_content" id="notice_content" cols="123" rows="23"></textarea>
 		</div>
-	        <input class="button" type="submit" value=" 새글 등록 "/>
+		<div class="btn">
+	        <button type="submit">새글 등록</button>
+	        <button type="button" onclick="getNoticeList()">목록으로</button>
+		</div>
 	</form>
 </div>
-			<a id="btnList" class="button" href="getNoticeList.do">글 목록</a>
+			
 </body>
    <%@ include file="../include/Footer.jsp" %>
 
