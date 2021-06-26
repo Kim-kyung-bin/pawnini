@@ -58,6 +58,7 @@ public class MemberController {
 		}
 	}
 	
+	
 	/*	//로그아웃 Intercepter용
 	@RequestMapping(value="/logout.do")
 	public String logout(@ModelAttribute("member") MemberDTO dto, 

@@ -417,19 +417,17 @@
 				<div class="inputArea" id="mileageArea">
 					<div class="inputArea" id="mileageArea">
 
-						<b>적립금 </b> : <input type="hidden" id="ord_used_mileage2" /> <input
-							type="hidden" id="ord_total2" /> <input name="ord_used_mileage"
-							id="ord_used_mileage" type="text" value="0" size="10" min="1000"
-							max="10000" onchange="chkMileage(this, '${map.curMileage}')" />원
-						&nbsp;(가용 적립금 : <span style="color: crimson; font-weight: bold">
-							<fmt:formatNumber pattern="###,###,###" value="${map.curMileage}" />
-							원
-						</span> <input type="checkbox" name="chkAll" id="chkAll"
-							onclick="useAllMileage('${map.curMileage}')">전부 사용하기) <input
-							type="button" value="사용"
-							onclick="calcFinalSum(ord_used_mileage.value, '${map.finalSum}')" />
-						<input type="button" value="취소"
-							onclick="cancelMileage('${map.finalSum}')" />
+						<b>적립금 </b> :
+					 	<input type="hidden" id="ord_used_mileage2" /> 
+						<input	type="hidden" id="ord_total2" />
+						<input name="ord_used_mileage"	id="ord_used_mileage" type="text" value="0" size="10" min="1000" max="10000" onchange="chkMileage(this, '${map.curMileage}')" />
+						  원&nbsp; (가용 적립금 :
+						<span style="color: crimson; font-weight: bold">
+							<fmt:formatNumber pattern="###,###,###" value="${map.curMileage}" />원
+						</span> 
+						<input type="checkbox" name="chkAll" id="chkAll"onclick="useAllMileage('${map.curMileage}')">전부 사용하기) 
+						<input type="button" value="사용" 	onclick="calcFinalSum(ord_used_mileage.value, '${map.finalSum}')" />
+						<input type="button" value="취소" 	onclick="cancelMileage('${map.finalSum}')" />
 						<p>적립금은 1,000원 이상일 경우 결제에 사용가능하며 주문 1건당 최대 가용 적립금은 10,000원입니다.</p>
 						<p>특가상품은 적립금 사용이 불가합니다.</p>
 					</div>

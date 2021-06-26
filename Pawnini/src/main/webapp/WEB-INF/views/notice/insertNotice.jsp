@@ -5,6 +5,7 @@
 <head>
 <title>공지사항 등록</title>
 <link rel="stylesheet" href="../style/insertNotice.css"/>
+<script src = "${path}/ckeditor/ckeditor.js"></script>
 
 <script type="text/javascript">
 	function getNoticeList() {
@@ -25,7 +26,7 @@
 	<input type="hidden" name="notice_name"  value="${member.member_nickname}">
    		<div class="title">
 	        <label for="notice_title"><span>제목</span></label>
-	        <input type="text" id="notice_title" name="notice_title"/><br>
+	        <input type="text" id="notice_title" name="notice_title" required/><br>
    		</div>
 	    <div class="writer">
 	        <label for="notice_name"><span>작성자</span></label>
@@ -33,7 +34,10 @@
 	    </div>
 		<div class="content">
 			<label for="notice_content"><span>내용</span></label>
-	        <textarea name="notice_content" id="notice_content" cols="123" rows="23"></textarea>
+	        <textarea name="notice_content" id="notice_content" cols="50" rows="50" required></textarea>
+	        <script type="text/javascript">
+	        	CKEDITOR.replace("notice_content");
+	        </script>
 		</div>
 		<div class="btn">
 	        <button type="submit">새글 등록</button>

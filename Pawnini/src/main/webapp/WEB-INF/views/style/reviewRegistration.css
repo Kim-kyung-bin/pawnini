@@ -146,5 +146,9 @@ img:hover{
     transition:800ms ease all;
   }
  
-
- 
+ div.content_box{
+  wihte-space:normal;
+  width: 500px;
+  height : 500px;
+  border: 1px solid;
+} 

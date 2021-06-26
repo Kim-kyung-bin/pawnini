@@ -26,7 +26,7 @@
 				data : formData,
 				success : function(result) {
 					swal("", "수량 변경 성공", "success");
-					location.reload();
+					setTimeout('location.reload()',1000);
 				},
 			})
 		});
