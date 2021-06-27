@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <title>공지사항 등록</title>
@@ -34,7 +34,7 @@
 	    </div>
 		<div class="content">
 			<label for="notice_content"><span>내용</span></label>
-	        <textarea name="notice_content" id="notice_content" cols="50" rows="50" required></textarea>
+	        <textarea name="notice_content" id="notice_content" cols="50" rows="50" required="required" wrap="soft" ></textarea>
 	        <script type="text/javascript">
 	        	CKEDITOR.replace("notice_content");
 	        </script>
