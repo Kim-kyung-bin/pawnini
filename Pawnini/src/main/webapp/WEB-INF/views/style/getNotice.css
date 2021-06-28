@@ -3,7 +3,8 @@
 div.content_box{
     border-top:1px solid #000000;
     border-bottom:1px solid #000000;
-    width:1000px;    
+    width:1000px;
+    height: 500px;
 }
 div.title{
     border-bottom: 1px solid #000000;
@@ -46,4 +47,8 @@ div.form_box{
 div.btnList{ 
     padding:10px 0px 10px 0px;
     margin-left:750px;
+}
+
+p{
+     word-break:break-all;
 }

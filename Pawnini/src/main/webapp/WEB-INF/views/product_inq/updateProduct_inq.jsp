@@ -11,47 +11,67 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>글 상세</title>
+<title>상품 문의 수정</title>
+<link rel="stylesheet" href="../style/getNotice.css"/>
+<script src = "${path}/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+function getProduct_inqList() {
+	window.location.href="getProduct_inqList.do";
+}
+</script>
 </head>
   <%@ include file="../include/Header.jsp" %>
 <body>
+	<div class="Guide">
+      <span>상품문의</span>
+    </div>
+    <body>
 	<div align="center">
-		<h1>글 상세</h1>
-		<a href="logout.do">Log-out</a>
-		<hr>
-		<form action="updateProduct_inq.do" method="post">
-		<input name="inq_image" type="hidden" value="${update_inq.inq_image}"/>
-		<input name="inq_id" type="hidden" value="${update_inq.inq_id}">
-			<table border="1" cellpadding="0" cellspacing="0">
-				<tr>
-					<td bgcolor="orange" width="70">제목
-					<td align="left"><input name="inq_title" type="text" value="${update_inq.inq_title}"/>
-				<tr>
-					<td bgcolor="orange">작성자
-					<td align="left"><input name="inq_name" type="hidden" value="${update_inq.inq_name}"/>${update_inq.inq_name}
-				<tr>
-					<td bgcolor="orange">내용
-					<td align="left"><textarea name="inq_content" rows="10" cols="40">${update_inq.inq_content}</textarea>
-				<tr>
-					<td bgcolor="orange">등록일
-					<td align="left"><input name="inq_date" type="text" value="${update_inq.inq_date}"/>
-				<tr>
-					<td bgcolor="orange">공개여부
-					<td align="left"><input name="inq_show" type="text" value="${update_inq.inq_show}"/>
-				<tr>
-					<td bgcolor="orange">제품번호
-					<td align="left"><input name="product_id" type="text" value="${update_inq.product_id}" readOnly/>
-				<tr>
-					<td bgcolor="orange">회원아이디
-					<td align="left"><input name="member_id" type="text" value="${update_inq.member_id}" readOnly/>				
-				<tr>
-					<td colspan="2" align="center">
-						<input type="submit" value="수정 완료"/>
-			</table>
-		</form>
-		<a href = "deleteProduct_inq.do?inq_id=${update_inq.inq_id}">글삭제</a>&nbsp;&nbsp;&nbsp;
-		<a href = "getProduct_inqList.do">글목록</a>
-	</div>
+		<div class="form_box">
+			<form action="updateProduct_inq.do" method="post">
+				<input name="inq_id" type="hidden" value="${ product_inq.inq_id }" />
+				<input name="inq_image" type="hidden" value="${update_inq.inq_image}"/>
+				<div class="title">
+					<span>제목</span> 
+					<input name="inq_title" type="text" value="${ product_inq.inq_title }">
+					 <br>
+				</div>
+				<div class="writer">
+					<span>작성자</span>
+					<input name="inq_name" type="hidden" value="${ product_inq.inq_name }">
+					${ product_inq.inq_name }
+				</div>
+				<div class="content">
+					<span>내용</span>
+				</div>
+					<div class="content_box">
+			        	<textarea name="inq_content" id="inq_content" cols="145" rows="30" >${product_inq.inq_content }</textarea>
+	    		   			<script type="text/javascript">
+	        					CKEDITOR.replace("inq_content");
+			        	   </script>
+					</div>
+				
+				<div>
+					<label for="inq_show" >공개여부</label> 
+					<select name="inq_show" >
+				          		<option value="Y">Y</option>
+				               	<option value="N">N</option>
+           		</select>
+				</div>
+				
+				<!-- 회원아이디,제품번호   -->
+      			 <input type="hidden" name="member_id" value="${member.member_id}" >
+      			 <input type="hidden" name="product_id" value="${product.product_id}" >
+      			 
+       			<div class="btnList">
+					<input class="button"  type="submit" value="수정하기">
+					<input type="button" onclick="getProduct_inqList()" value="목록으로">
+				</div>
+			</form>
+		</div>
+			
+	</div>	
+
 </body>
    <%@ include file="../include/Footer.jsp" %>
 </html>

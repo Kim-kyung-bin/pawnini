@@ -34,6 +34,11 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductDTO> getProductList(ProductSearchCriteria scri) throws Exception {
 		return productDAO.getProductList(scri);
 	}
+	
+	@Override
+	public List<ProductDTO> getProductRand(ProductDTO dto) throws Exception {
+		return productDAO.getProductRand(dto);
+	}
 
 	@Override
 	public ProductDTO getProduct(ProductDTO dto) throws Exception {

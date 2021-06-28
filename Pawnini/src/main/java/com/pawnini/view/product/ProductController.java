@@ -1,9 +1,11 @@
 package com.pawnini.view.product;
 
 import java.io.File;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +17,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.pawnini.model.member.MemberDTO;
 import com.pawnini.model.product.PageMaker;
 import com.pawnini.model.product.ProductDTO;
 import com.pawnini.model.product.ProductSearchCriteria;
 import com.pawnini.model.product.ProductService;
+import com.pawnini.model.review.ReviewDTO;
+import com.pawnini.model.review.ReviewLikeDTO;
+import com.pawnini.model.review.ReviewService;
 import com.pawnini.utils.UploadFileUtils;
 
 @Controller
@@ -27,6 +33,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductService service;
+	
+	@Autowired
+	private ReviewService revService;
 	
 	@Resource(name="uploadPath")
 	private String uploadPath;
@@ -134,6 +143,12 @@ public class ProductController {
 
 		return "admin/product/getProductList";
 	}
+	@RequestMapping("getProductRand.do")
+	public String getProductRand(ProductDTO dto, Model model)throws Exception{
+		model.addAttribute("productList", service.getProductRand(dto));
+		return "event/event";
+	}
+	
 	// 상품 페이지 이동
 	@RequestMapping(value="/goProductList.do")
 	public String goProductList(@ModelAttribute("scri") ProductSearchCriteria scri, Model model) throws Exception {
@@ -148,9 +163,42 @@ public class ProductController {
 		return "product/product";
 	}
 	
-	// 상품 상세 페이지 이동
+	
+	/*@ResponseBody
 	@RequestMapping(value="/detailProduct.do")
-	public String detailProduct(ProductDTO dto, Model model, @ModelAttribute("scri") ProductSearchCriteria scri) throws Exception{
+	public ModelAndView detailProduct(ProductDTO dto, ModelAndView mav, @ModelAttribute("scri") ProductSearchCriteria scri, ReviewDTO review, HttpSession session) throws Exception{
+		
+		
+		//후기 좋아요
+		String member_id = ((MemberDTO) session.getAttribute("member")).getMember_id();
+		int rev_id = review.getRev_id();
+		
+		ReviewLikeDTO likeDTO = new ReviewLikeDTO();
+		
+		likeDTO.setRev_id(rev_id);
+		likeDTO.setMember_id(member_id);
+		
+		int reviewLike = revService.getReviewLike(likeDTO);
+		System.out.println("getReviewLike : " + reviewLike);
+		
+		//3.저장
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		service.productHits(dto);
+		map.put("product", service.getProduct(dto));
+		map.put("scri", scri);
+		map.put("review", revService.getReviews(review));
+		map.put("like", reviewLike);
+		mav.setViewName("product/detail");
+		mav.addObject("map", map);
+		
+		
+		return mav;
+	}*/
+	@RequestMapping(value="/detailProduct.do")
+	public String detailProduct(ProductDTO dto, Model model, 
+			@ModelAttribute("scri") ProductSearchCriteria scri,
+			ReviewDTO review, HttpSession session) throws Exception{
 		// 조회수 처리
 		service.productHits(dto);
 		// 상품 상세정보 저장
@@ -158,8 +206,28 @@ public class ProductController {
 		// Pager 추가
 		model.addAttribute("scri", scri);
 		
+		model.addAttribute("review",revService.getReviews(review));
+		
+		// 후기 평점
+		
+		//후기 좋아요
+		String member_id = ((MemberDTO) session.getAttribute("member")).getMember_id();
+		int rev_id = review.getRev_id();
+		
+		ReviewLikeDTO likeDTO = new ReviewLikeDTO();
+		
+		likeDTO.setRev_id(rev_id);
+		likeDTO.setMember_id(member_id);
+		
+		int reviewLike = revService.getReviewLike(likeDTO);
+		System.out.println("getReviewLike : " + reviewLike);
+		
+		//3.저장
+		model.addAttribute("like", reviewLike);
+		
 		return "product/detail";
 	}
+	
 	
 	// 상품 업데이트 폼 이동
 	@RequestMapping(value="/getProduct.do")

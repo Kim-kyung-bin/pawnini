@@ -20,10 +20,9 @@
 	   }
 	</style>
 <link rel="stylesheet" href="../style/updateCs.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
-<%@ include file="../include/HeaderBoot.jsp"%>
+<script src = "${path}/ckeditor/ckeditor.js"></script>
+<%@ include file="../include/Header.jsp"%>
 <body> 
 
 <!-- my bit -->
@@ -59,6 +58,9 @@
 			<tr>
 				<td><label for="cs_content">내용</label><br>
 					<textarea name="cs_content" cols="50" rows="10" required>${csList.cs_content }</textarea>
+					<script type="text/javascript">
+	        		CKEDITOR.replace("cs_content");
+	        		</script>
 				</td>
 			</tr>
 			<tr>

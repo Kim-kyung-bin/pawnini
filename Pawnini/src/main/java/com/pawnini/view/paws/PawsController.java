@@ -90,6 +90,12 @@ public class PawsController {
 		model.addAttribute("paws", pawsService.getPaws(dto));
 		return "admin/paws/getPaws";
 	}
+	//분양 상세 페이지
+	@RequestMapping("/getPawsDetail.do")
+	public String getPawsDetail(PawsDTO dto, Model model) {
+		model.addAttribute("paws", pawsService.getPaws(dto));
+		return "adoption/adoptionDetail";
+	}
 	
 	//정보 수정
 	@RequestMapping("/updatePaws.do")

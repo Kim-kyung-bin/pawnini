@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,8 +11,10 @@
     <link rel="stylesheet" href="../style/event.css" />
     <title>Snack</title>
   </head>
+ 
 
  <%@ include file="../include/Header.jsp" %> 
+ <body>
 	<div class="Guide">
       <span>EVENT</span>
     </div>
@@ -20,25 +24,13 @@
         <div class="event">
 
           <ul class="event_grid">
-
-            <li class="js-clock">
-              <h1>HOT TIME</h1>
-              <h3>00:00</h3>
-            </li>
-
-            <li class="js-clock-two">
-            <h1>HOT TIME</h1>
-            <h4 class="js_clock_h4">00:00</h4>  
-            </li>
-
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
+			<c:forEach items="${productList}" var="product">
+				<li><a href="detailProduct.do?product_id=${product.product_id}"><img src="${product.product_thumb_img}">
+					<h5>${product.product_name }</h5>
+					<h5><fmt:formatNumber pattern="###,###,###" value="${product.product_price}" /> 원</h5>
+					</a>
+				</li>
+			</c:forEach>
           </ul>
       </div>
 

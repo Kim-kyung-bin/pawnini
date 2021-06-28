@@ -6,21 +6,63 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pawnini.model.review.ReviewDTO;
+import com.pawnini.model.review.ReviewLikeDTO;
 import com.pawnini.model.review.ReviewService;
-import com.pawnini.model.review.SearchCriteria;
 
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService {
 	@Autowired
-	private ReviewDAO reviewDAO;
+	private ReviewDAO dao;
 
 	@Override
 	public void insertReview(ReviewDTO dto) throws Exception {
-		System.out.println("후기 작성");
+		System.out.println("후기 등록");
+		dao.insertReview(dto);
+	}
+	
+	@Override
+	public List<ReviewDTO> getReviews(ReviewDTO dto) throws Exception {
+		System.out.println("후기 목록");
+		return dao.getReviews(dto);
+	}
+	
+	@Override
+	public double getAvgStars(ReviewDTO dto) throws Exception {
+		System.out.println("후기 평점 평균 구하기");
+		return dao.getAvgStars(dto);
+	}
+	
+	@Override
+	public void insertReviewLike(ReviewLikeDTO dto) throws Exception {
+		System.out.println("후기 좋아요 생성");
 		
-		reviewDAO.insertReview(dto);
+		dao.insertReviewLike(dto);
+		dao.updateReviewLike(dto.getRev_id());
 	}
 
+	@Override
+	public void deleteReviewLike(ReviewLikeDTO dto) throws Exception {
+		System.out.println("후기 좋아요 삭제");
+		
+		dao.deleteReviewLike(dto);
+		dao.updateReviewLike(dto.getRev_id());
+	}
+
+	@Override
+	public int getReviewLike(ReviewLikeDTO dto) throws Exception {
+		System.out.println("후기 좋아요 개수 불러오기");
+		return dao.getReviewLike(dto);
+	}
+
+	@Override
+	public int getReviewLikeTotal(ReviewLikeDTO dto) throws Exception {
+		System.out.println("후기 좋아요 총 개수 불러오기");
+		return dao.getReviewLikeTotal(dto);
+	}
+
+
+	
+/*
 	@Override
 	public void updateReview(ReviewDTO dto) throws Exception {
 		System.out.println("후기 수정");
@@ -61,6 +103,8 @@ public class ReviewServiceImpl implements ReviewService {
 		System.out.println("후기 목록 갯수 세기");
 		
 		reviewDAO.updateReplyCount(rev_id);
-	}
+	}*/
+
+	
 
 }

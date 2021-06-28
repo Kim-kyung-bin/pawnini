@@ -44,6 +44,12 @@ public class ProductDAO {
 		return mybtis.selectList("ProductDAO.getProductList",scri);
 	}
 	
+	//상품 랜덤 리스트
+	public List<ProductDTO> getProductRand(ProductDTO dto) throws Exception{
+		System.out.println("mybatis => getProductRand 실행");
+		return mybtis.selectList("ProductDAO.getProductRand",dto);
+	}
+	
 	//상품 총 갯수
 	public int getCountProduct(ProductSearchCriteria scri) throws Exception {
 		System.out.println("mybatis => 상품 카운트 불러오기");

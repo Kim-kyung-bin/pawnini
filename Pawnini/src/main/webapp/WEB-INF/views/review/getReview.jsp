@@ -19,7 +19,7 @@
       </div>
 
    <section id="container">
-      <div>
+      <div class="container_form">
       <form name="reviewForm" role="form" method="post">
       <input name="rev_id" type="hidden" value="${review.rev_id}">
       <input name="page" type="hidden" value="${scri.page}">

@@ -88,7 +88,7 @@
             <span><a href="goProductList.do?searchOption=cat&searchKeyword=meal">사료</a></span>
           </span>
         </li>
-        <li><a href="event.do">이벤트</a></li>
+        <li><a href="getProductRand.do">이벤트</a></li>
 
         <li class="Dog_dropmenu">
           <a href="adoption.do">분양</a>

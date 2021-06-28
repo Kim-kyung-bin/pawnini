@@ -7,7 +7,7 @@
 <head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="../style/insertCs.css" />
+<script src = "${path}/ckeditor/ckeditor.js"></script>
 <title>CS insertCs - - working on css/html</title>
 	<style type="text/css">
 	 .main_title {
@@ -20,12 +20,9 @@
 	      text-decoration: none;
 	   }
 	</style>    
-	<link type="text/css" rel="stylesheet" href="../style/cs.css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	
 </head>
-<%@ include file="../include/HeaderBoot.jsp"%>
+<%@ include file="../include/Header.jsp"%>
 <body>
 
 <!-- my bit -->
@@ -53,6 +50,9 @@
          </tr>
          <tr>
             <td class="cs"><label for="cs_content">내용</label><br><textarea name="cs_content" id="cs_content" cols="50" rows="10" required></textarea>
+            <script type="text/javascript">
+	        	CKEDITOR.replace("cs_content");
+	        </script>
          </tr>     
          <tr>
             <td class="cs"><label for="cs_uploadFile">추가 파일 첨부</label><input type="file" name="cs_uploadFile" id="cs_uploadFile"/>

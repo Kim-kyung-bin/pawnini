@@ -6,39 +6,38 @@
 <title>공지사항 수정</title>
 </head>
 <link rel="stylesheet" href="../style/reviewRegistration.css"/>
+<script src = "${path}/ckeditor/ckeditor.js"></script>
 	  <%@ include file="../include/Header.jsp" %>
+	  
 <body>
-<div align="center">
 		<div class="Guide">
       		<span>공지사항</span>
     	</div>
-
-	<!-- <h1>글 등록</h1> -->
-	<!-- <a href="logout.do">Log-out</a>
-	<hr> -->
+<div class="insertForm">
 	<form action="updateNotice.do" method="post">
-	<table class="table" align="center">
-	    <tr>
-	        <td width="70">제목</td><td align="left">
-	        <input type="text" name="notice_title" value="${notice.notice_title }"></td>
-	    </tr>
-	    <tr>
-	        <td>작성자</td><td align="left">
-	        <input type="text" name="notice_name" size="10" value="${notice.notice_name }" readonly="readonly"></td>
-	    </tr>
-	    <tr>
-	        <td>내용</td><td align="left">
-	        <textarea name="notice_content" cols="70" rows="23">${notice.notice_content }</textarea></td>
-	    </tr>
-	    
-	    <tr>
-	        <td colspan="2" align="center">
-	        <input class="button" type="submit" value=" 수정 "/></td>
-	    </tr>
-	</table>
+	<input type="hidden" name="notice_name"  value="${member.member_nickname}">
+   		<div class="title">
+	        <label for="notice_title"><span>제목</span></label>
+	        <input type="text" id="notice_title" name="notice_title" value="${notice.notice_title }" required/><br>
+   		</div>
+	    <div class="writer">
+	        <label for="notice_name"><span>작성자</span></label>
+	        ${member.member_nickname}<br>
+	    </div>
+		<div class="content">
+			<label for="notice_content"><span>내용</span></label>
+	        <textarea name="notice_content" id="notice_content" cols="50" rows="50" required="required" wrap="soft" >${notice.notice_content}</textarea>
+	        <script type="text/javascript">
+	        	CKEDITOR.replace("notice_content");
+	        </script>
+		</div>
+		<div class="btn">
+	        <button type="submit">수정 완료</button>
+	        <button type="button" onclick="getNoticeList()">목록으로</button>
+		</div>
 	</form>
-	<!-- <a href="getNoticeList.do">글 목록 가기</a> -->
 </div>
+		
 </body>
    <%@ include file="../include/Footer.jsp" %>
 </html>

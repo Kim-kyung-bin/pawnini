@@ -137,6 +137,19 @@
 		PRODUCT_ID = #{product_id}
 	</select>
 	
+	<!-- 상품 일부만 랜덤 불러오기 -->
+	<select id="getProductRand" resultMap="productResult" parameterType="productCriteria">
+		<![CDATA[
+		SELECT *
+		FROM (
+			SELECT *
+			FROM PRODUCT
+			ORDER BY DBMS_RANDOM.VALUE
+		)
+		WHERE ROWNUM <= '9'
+		]]>
+	</select>
+	
 	<!-- 상품 조회수 -->
 	<update id="productHits" parameterType="int">
 		UPDATE PRODUCT

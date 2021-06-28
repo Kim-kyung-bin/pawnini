@@ -24,8 +24,6 @@
 	}
 	.select_img img { margin: 20px 0;}
 </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../style/reviewRegistration.css"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -41,7 +39,7 @@ $("#rev_f_img").change(function(){
 </script>
 
 </head>
-  <%@ include file="../include/HeaderBoot.jsp" %>
+  <%@ include file="../include/Header.jsp" %>
 <body>
 	<div class="Guide">
       <span>리뷰 등록</span>

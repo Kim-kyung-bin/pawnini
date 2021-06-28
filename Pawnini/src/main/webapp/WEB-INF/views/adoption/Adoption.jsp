@@ -8,7 +8,6 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="../style/Adoption.css" />
 <title>Snack</title>
 </head>
 
@@ -25,13 +24,13 @@
 	<div class="grid">
 		<ul class="product">
 			<c:forEach items="${pawsList}" var="paws">
-				<li><img src="${paws.paws_thumb_img}" class="img"><br>
-					<a href="getPaws.do?paws_id=${paws.paws_id}"> <span
-						class="text"></span></a>
+				<li><img src="${paws.paws_thumb_img}" class="img_paws"><br>
+					<a href="getPawsDetail.do?paws_id=${paws.paws_id}"> <span
+						class="text"></span>
 					<h3>${paws.paws_name}</h3>	
 						<p>${paws.paws_age}</p>
 				<p>${paws.paws_sex}</p>
-						</li>
+						</a></li>
 			
 			</c:forEach>
 

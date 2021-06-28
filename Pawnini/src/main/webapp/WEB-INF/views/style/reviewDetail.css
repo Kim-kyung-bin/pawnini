@@ -4,7 +4,7 @@ margin-left: 50px;
 }
 
 
-/* .bacground_img 주석 */
+/* .bacground_img ì£¼ì„ */
 .bacground_img{
   background-position: center center;
   background-size: cover;
@@ -19,14 +19,12 @@ height: 150%;
 .form-group{
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  width: 92%;
+  width: 82%;
   margin-top: 50px;
-  box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.5);
-  margin-left: 50px;
+  /* box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.5); */
+  margin-left: 184px;
   padding-right: 40px;
   padding-bottom: 30px;
-
-
 }
 .img{
   display: flex;
@@ -72,7 +70,7 @@ span{
   font-size: 20px;
 }
 
-input{
+.container_form input{
   width: 10%;
   border: none;
   outline: none;
@@ -98,25 +96,23 @@ input{
 
 .btn{
   background:#fdcb6e;
-  color:white;
+  color: black;
   font-size: 20px;
   padding: 10px;
   margin-right: 10px;
   border: none;
   width: 100px;
   border-radius: 15px;
-
-
 }
 .btn:hover{
-    border: 5px solid #fdcb6e ;
-  background:#fff;
-  color:#fdcb6e;
+    border: 5px solid #fdcb6e;
+    background: #fff;
+    color: #000000;
 }
 
 .btn_reply{
   background:#fdcb6e;
-  color:white;
+  color: black;
   font-size: 15px;
   padding: 10px;
   margin-right: 10px;
@@ -124,12 +120,11 @@ input{
   width: 100px;
   height: 50px;
   border-radius: 15px;
-
 }
 .btn_reply:hover{
   border: 5px solid #fdcb6e ;
 background:#fff;
-color:#fdcb6e;
+color:#000000;
 }
 
 
@@ -137,10 +132,7 @@ color:#fdcb6e;
   margin-top: 20px;
 }
 
-.reply{
-border-top: 1px solid rgba(0, 0, 0, 0.2);
-width: 95%;
-}
+.reply{border-top: 1px solid rgba(0, 0, 0, 0.2);width: 82%;margin-left: 174px;}
 
 
 
@@ -167,9 +159,9 @@ width: 95%;
 
 }
 .footer{
-  width:80%; 
+  width:80%;
   display: flex;
-  margin-left: 40px;
+  margin-left: 200px;
 }
 .review{
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -178,7 +170,7 @@ width: 95%;
 
 .btn_review{
   background:#fdcb6e;
-  color:white;
+  color: black;
   font-size: 15px;
   padding: 10px;
   margin-right: 10px;
@@ -194,7 +186,7 @@ width: 95%;
 .btn_review:hover{
   border: 5px solid #fdcb6e ;
 background:#fff;
-color:#fdcb6e;
+color:#000000;
 }
 .btn_footer{
   display: flex;
@@ -211,5 +203,5 @@ color:#fdcb6e;
 }
 #footer_title,
 .footer_text{
-  margin-left: 40px;
+  margin-left: 200px;
 }

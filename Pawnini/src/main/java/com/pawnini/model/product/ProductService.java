@@ -16,6 +16,9 @@ public interface ProductService {
 	//상품 리스트
 	List<ProductDTO> getProductList(ProductSearchCriteria scri) throws Exception;
 	
+	//상품 랜덤 리스트
+	List<ProductDTO> getProductRand(ProductDTO dto) throws Exception;
+	
 	//상품 총 갯수
 	int getCountProduct(ProductSearchCriteria scri) throws Exception;
 
@@ -24,5 +27,7 @@ public interface ProductService {
 	
 	//조회수 처리
 	void productHits(ProductDTO dto);
+	
+	
 	
 }

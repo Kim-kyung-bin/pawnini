@@ -17,10 +17,8 @@
    }
 </style>    
 <link type="text/css" rel="stylesheet" href="../style/cs.css"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
-<%@ include file="../include/HeaderBoot.jsp"%>
+<%@ include file="../include/Header.jsp"%>
 <body> 
 
 
@@ -72,8 +70,10 @@
 				<td><label for="cs_show">공개 여부</label> ${cs.cs_show }</td>
 			</tr>
 			<tr>
-				<td><label for="cs_content">내용</label><br>
-					<textarea id="cs_content" name="cs_content" cols="50" rows="10" readonly> ${cs.cs_content }</textarea>
+				<td><span>내용</span>
+				<div class="content_box">
+					 ${cs.cs_content }
+				</div>
 				</td>
 			</tr>
 			<!-- 
@@ -126,8 +126,7 @@
 				formObj.attr("method", "post");
 				formObj.submit();
 				alert("게시물이 삭제되었습니다");
-				location.reload();
-			 	return; 
+				/* location.reload(); */
 			} else {
 				alert("삭제를 실패했습니다.");
 				return false;				

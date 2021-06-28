@@ -9,6 +9,80 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$("#rev_content").keyup(function (e){
+    var content = $("#rev_content").val();
+    
+    $("#counter").html("("+content.length+" / 최대 150자)");    //글자수 실시간 카운팅
+
+    if (content.length > 150){
+        alert("최대 150자까지 입력 가능합니다.");
+        $(this).val(content.substring(0, 150));
+        $('#counter').html("(150 / 최대 150자)");
+    }
+
+});
+	
+	
+    var likeval = ${like};
+
+    if(likeval>0){
+    	console.log("likeval:" + likeval);
+    	$("#thumbs_up").attr("class", "fas fa-thumbs-up");
+    	$(".like").prop('name', likeval)
+    }else {
+    	console.log("likeval:" + likeval);
+    	$("#thumbs_up").attr("class", "far fa-thumbs-up");
+    	$(".like").prop('name', likeval)
+    }
+    
+   $(".like").on("click", function(){
+    	var that = $(".like");
+    	var rev_id = $("#rev_id_num").val();
+    	alert(rev_id);
+    	var sendData = {'rev_id' : rev_id, 'like' : that.prop('name')};
+    	$.ajax({
+    		url: '/reviewLike.do',
+    		type: 'post',
+    		data: sendData,
+    		success: function(data){
+    			that.prop('name', data);
+    				if(data==1){
+    					$('#thumbs_up').attr("class", "fas fa-thumbs-up");
+    					likeCount(rev_id);
+    					window.location.reload();
+    				}
+    				else {
+    					$('#thumbs_up').attr("class", "far fa-thumbs-up");
+    					likeCount();
+    					window.location.reload();
+    				} 
+    			}
+    		})
+    	});
+
+    function likeCount() {
+    	var that = $(".totalLike");
+    	var rev_id = $("#rev_id").val();
+    	var sendData = {'rev_id' : rev_id, 'totalLike' : that.prop('name')};
+    	$.ajax({
+    		url: '/reviewLikeCount.do',
+    		type: 'post',
+    		data: sendData,
+    		success: function(count){
+    			$("#totalLike").html(count);
+    		},
+    		});
+    	}
+
+});
+
+
+
+
+
 //장바구니 추가
 	function addToCart() {
 		var product_id = $("#product_id").val();
@@ -70,6 +144,11 @@
 			},
 		});
 	}
+	
+	function insert() {
+		window.location.href="go_insertProduct_inq.do";
+	}
+
 </script>
 <%@ include file="../include/Header.jsp"%>
 <body>
@@ -124,9 +203,9 @@
         </div>
         <div class="button">
 				<input type="hidden" id="product_id" value="${product.product_id}" />
-				<select id="cart_amount">
+				<select class="option"  id="cart_amount">
 					<c:forEach begin="1" end="10" var="i">
-						<option value="${i}">${i}</option>
+						<option class="option" value="${i}">${i}</option>
 					</c:forEach>
 				</select>
 
@@ -134,7 +213,8 @@
 					담기</button>
 				<c:set var="stock" value="${product.product_stock}" />
 				<c:if test="${product.product_stock != 0 }">
-					<button class="button_two" onclick="goToPurchase();">바로구매</button>
+					<button class="button_one" onclick="goToPurchase();">바로구매</button>
+					<button class="button_one" onclick="insert();">상품문의</button>
 				</c:if>
 				<c:if test="${product.product_stock == 0 }">
 					<button class="button_two">품절</button>
@@ -184,6 +264,73 @@
       </li>
    </ul>
   </div>
+
+<!-- REVIEW -->
+  
+	  <div class="Guide">
+	      		<span>상품후기</span>
+	    	</div>
+	
+	<div class="insertForm">
+		<form action="insertReview.do" method="post" enctype="multipart/form-data">
+		<input type="hidden" id="member_id" name="member_id"  value="${member.member_id}">
+		<input type="hidden" name="product_id" value="${product.product_id}" />
+		<input type="hidden" id="rev_writer" name="rev_writer"  value="${member.member_nickname}">
+		    <div class="writer">
+		        <label for="notice_name"><span>작성자</span></label>
+		        ${member.member_nickname}<br>
+		    </div>
+		    <div class="rev_stars">
+		    	<label for="rev_stars"><span>평점</span></label>
+		     	<select name="rev_stars" id="rev_stars">
+						<option value="5">★★★★★</option>
+						<option value="4">★★★★</option>
+						<option value="3">★★★</option>
+						<option value="2">★★</option>
+						<option value="1">★</option>
+					</select>
+		    </div>
+			<div class="content">
+				<label for="rev_content"><span>내용</span></label>
+		        <textarea name="rev_content" id="rev_content" cols="50" rows="5" required></textarea>
+		        <span style="color:#aaa;" id="counter">(0 / 최대 200자)</span>
+			</div>
+			<div class="file">
+				<label for="rev_f_img"><span>사진 첨부</span></label>
+				<input type="file" id="rev_f_img" name="file" />
+			</div>
+			<div class="btn">
+		        <button type="submit" class="insertRevBtn">등록</button>
+			</div>
+		</form>
+	</div>
+	
+	<!-- 후기 목록 -->
+  	<div id="showReview" class="container">
+
+	<table class="table table-hover">
+			<c:forEach items="${review}" var="review" varStatus="status">
+			<input id="rev_id_num" type="hidden" value="${review.rev_id}">
+				<tr class="product">
+					<td>${status.count}
+					<td><img class="thu_img" src="${review.rev_thumb_img}" />
+					<td>${review.rev_writer}</td>
+					<td>${review.rev_stars}</td>
+					<td align="left">${review.rev_content}
+					<td><fmt:formatDate value="${review.rev_date}" pattern="yyyy-MM-dd" /></td>
+					<td>	<div class="form-group">
+					<input type="text" id="rev_id${review.rev_id}" name="rev_id" value="${review.rev_id}" data-rev_id="${review.rev_id}" />
+							<a class="like" data-rev_id="${review.rev_id}">좋아요
+							<i id="thumbs_up" class="far fa-thumbs-up"></i>
+							</a>
+							<a class="totalLike">
+							<span id="totalLike">${review.rev_like_cnt}</span>
+							</a>
+							</div>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

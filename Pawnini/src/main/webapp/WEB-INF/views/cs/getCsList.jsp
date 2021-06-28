@@ -19,13 +19,10 @@
       text-decoration: none;
    }
 	</style>    
-<link type="text/css" rel="stylesheet" href="../style/cs.css"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
  
 </head>
-<%@ include file="../include/HeaderBoot.jsp"%>
+<%@ include file="../include/Header.jsp"%>
 <body> 
 
 <!-- my bit -->
