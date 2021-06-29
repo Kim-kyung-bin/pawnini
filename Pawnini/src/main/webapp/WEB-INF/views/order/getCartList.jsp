@@ -65,6 +65,9 @@
 		}
 	}
 	
+	function main() {
+		window.location.href="main.do";
+	}
 	
 </script>
 <%@ include file="../include/Header.jsp"%>
@@ -72,7 +75,7 @@
 	<div class="Guide">
         <span>장바구니</span>
       </div>
-	<a href="main.do">메인으로 가기</a><br>
+	
 
 
 
@@ -82,7 +85,7 @@
 	</c:when>
 		<c:otherwise>
 			<form name="cartForm" id="cartForm">
-				<table border="1">
+				<table class="table" align="center">
 					<tr>
 						<th></th>
 						<th>상품명</th>
@@ -92,7 +95,7 @@
 						<th></th>
 						<c:forEach var="row" items="${map.cartList}" varStatus="i">
 						 <input type="hidden" class="checkEmpty" value="${row.product_id}" />
-							<tr>
+							<tr class="product">
 								<td><img style="width: 100px; height: 150px;"
 									src="${row.product_thumb_img}" />
 								<td>${row.product_name}
@@ -102,7 +105,7 @@
 								<td><input type="number" id="cart_amount"
 									style="width: 40px" name="cart_amount"
 									value="${row.cart_amount}" />
-									<button type="submit" id="updateCartBtn">수정</button> <input
+									<button class="formal_button" type="submit" id="updateCartBtn">수정</button> <input
 									type="hidden" id="product_id" name="product_id"
 									value="${row.product_id}" /> <input type="hidden" id="cart_id"
 									name="cart_id" value="${row.cart_id}" /> <input type="hidden"
@@ -113,20 +116,30 @@
 								<td>
 									<button type="button" id="deleteBtn" onclick="deleteCart()">삭제</button>
 						</c:forEach>
-					<tr>
-						<td colspan="6" align="right">상품 주문 금액: <fmt:formatNumber
-								pattern="###,###,###" value="${map.sumTotal}" />&nbsp;원<br>
-							배송비: <fmt:formatNumber pattern="###,###,###"
-								value="${map.shippingFee}" />&nbsp;원<br> 최종 주문 금액: <fmt:formatNumber
-								pattern="###,###,###" value="${map.finalSum}" />&nbsp;원
+				
 				</table>
+				<table align="center">
+					<tr class="cash">
+						<td class="cash_border" ><span>상품 주문 금액:</span>
+							<span> <fmt:formatNumber
+								pattern="###,###,###" value="${map.sumTotal}" />원</span>
+							<span>+</span>
+							<span>배송비:</span>
+							<span> <fmt:formatNumber pattern="###,###,###"
+								value="${map.shippingFee}" />&nbsp;원</span> 
+								<span>=</span>
+								<span>최종 주문 금액:</span>
+								<span> <fmt:formatNumber
+								pattern="###,###,###" value="${map.finalSum}" />&nbsp;원</span></table>
 				<input type="hidden" name="count" value="${map.count}" />
 			</form>
 		</c:otherwise>
 	</c:choose>
-	<hr>
-	<div>
-			<button type="submit" id="orderFormBtn">주문하러 가기</button>
+	
+	<div class="order_button">
+			<button class="order_btn" type="submit" id="orderFormBtn">주문하러 가기</button>
+			<button class="order_btn" type="submit" onclick="main()">메인으로 가기</button>
+			<!-- <a href="main.do">메인으로 가기</a> -->
 	</div>
 
 

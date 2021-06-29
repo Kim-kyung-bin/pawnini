@@ -10,8 +10,6 @@
 		<typeAlias alias="cs" type="com.pawnini.model.cs.CsDTO"/>
 		<typeAlias alias="csSearchCriteria" type="com.pawnini.model.cs.CsSearchCriteria"/>
 		<typeAlias alias="review" type="com.pawnini.model.review.ReviewDTO"/>
-		<typeAlias alias="reviewCriteria" type="com.pawnini.model.review.SearchCriteria"/>
-		<typeAlias alias="reviewReply" type="com.pawnini.model.review.ReviewReplyDTO"/>
 		<typeAlias alias="reviewLike" type="com.pawnini.model.review.ReviewLikeDTO"/>
 		<typeAlias alias="member" type="com.pawnini.model.member.MemberDTO"/>
 		<typeAlias alias="product" type="com.pawnini.model.product.ProductDTO"/>
@@ -31,7 +29,6 @@
 		<mapper resource="mappings/cs-mapping.xml"/>
 		<mapper resource="mappings/paws-mapping.xml"/>
 		<mapper resource="mappings/review-mapping.xml"/>		
-		<mapper resource="mappings/review-reply-mapping.xml"/>		
 		<mapper resource="mappings/member-mapping.xml"/>			
 		<mapper resource="mappings/product-mapping.xml"/>
 		<mapper resource="mappings/product_inq-mapping.xml"/>

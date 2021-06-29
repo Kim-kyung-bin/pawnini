@@ -72,9 +72,10 @@
           <h3><i class="fas fa-shipping-fast"></i>신속! 정확! 배송!</h3>
         </li>
         <li>
-          <h3><i class="fas fa-rss"></i>만원 이상 구매시 무료배송</h3>
+          <h3><i class="fas fa-rss"></i>5만원 이상 구매시 무료배송</h3>
         </li>
-</div>
+     </ul>
+    </div>
 
   </body>
   <%@ include file="include/Footer.jsp" %> 

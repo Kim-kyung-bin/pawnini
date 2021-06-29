@@ -22,6 +22,7 @@
 		<result property="product_hits" column="PRODUCT_HITS"/>
 		<result property="product_price" column="PRODUCT_PRICE"/>
 		<result property="product_c_price" column="PRODUCT_C_PRICE"/>
+		<result property="rev_avg_stars" column="REV_AVG_STARS"/>
 	</resultMap>
 	
 	<!-- 상품 등록 -->
@@ -110,6 +111,7 @@
 				PRODUCT_DATE,
 				PRODUCT_HITS,
 				PRODUCT_C_PRICE,
+				REV_AVG_STARS,
 				ROW_NUMBER() OVER(ORDER BY PRODUCT_ID DESC) AS RNUM
 				FROM PRODUCT
 				WHERE 1=1
@@ -147,6 +149,30 @@
 			ORDER BY DBMS_RANDOM.VALUE
 		)
 		WHERE ROWNUM <= '9'
+		]]>
+	</select>
+	<!-- 메인 추천상품 랜덤 불러오기 -->
+	<select id="getProductMain" resultMap="productResult" parameterType="productCriteria">
+		<![CDATA[
+		SELECT *
+		FROM (
+			SELECT *
+			FROM PRODUCT
+			ORDER BY DBMS_RANDOM.VALUE
+		)
+		WHERE ROWNUM <= '5'
+		]]>
+	</select>
+	<!-- 메인 할인상품 랜덤 불러오기 -->
+	<select id="getProductSale" resultMap="productResult" parameterType="productCriteria">
+		<![CDATA[
+		SELECT *
+		FROM (
+			SELECT *
+			FROM PRODUCT
+			ORDER BY DBMS_RANDOM.VALUE
+		)
+		WHERE ROWNUM <= '5'
 		]]>
 	</select>
 	

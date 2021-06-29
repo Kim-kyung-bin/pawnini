@@ -36,40 +36,42 @@
         <div class="sa sa-up_own"></div>
       </section> -->
       <div class="Store_Save">
-        <h1 class="Store_h1">추천상품!!!</h1>
+        <h1 class="Store_h1">추천상품</h1>
       </div>
-      <section>
-        <div class="sa sa-down"></div>
-        <div class="sa sa-down"></div>
-        <div class="sa sa-down"></div>
-        <div class="sa sa-down"></div>
-        <div class="sa sa-down"></div>
+      <section class="product_main">
+		<c:forEach items="${productMain }" var="productMain">
+        <div class="sa sa-down"><a href="detailProduct.do?product_id=${productMain.product_id}">
+        <img src="${productMain.product_thumb_img}"><span>${productMain.product_name.substring(0,10)}...</span></a>
+        
+        </div>        
+		</c:forEach>      
         <!-- <div class="sa sa-right">디비전 7</div>
         <div class="sa sa-left">디비전 8</div>
         <div class="sa sa-left">디비전 8</div> -->
       </section>
 
       <h1 class="Store_two_text">오늘의 할인</h1>
-      <section>
-        <div class="sa sa-_brand"></div>
-        <div class="sa sa-_brand"></div>
-        <div class="sa sa-_brand"></div>
-        <div class="sa sa-_brand"></div>
-        <div class="sa sa-_brand"></div>
+      <section class="product_main">
+      <c:forEach items="${productSale }" var="productSale">
+        <div class="sa sa-_brand">
+        <a href="detailProduct.do?product_id=${productSale.product_id}">
+        <img src="${productSale.product_thumb_img}"><span>${productSale.product_name.substring(0,10)}...</span></a>
+        </div>
+      </c:forEach>
       </section>
 
       <div>
-        <h1 class="Brand_text">인기 브랜드</h1>
+        <h1 class="Brand_text">Pawnini Dog&Cat</h1>
         <div class="brand">
           <ul class="brand_grid">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
           </ul>
         </div>
       </div>
@@ -89,9 +91,9 @@
           <h3><i class="fas fa-shipping-fast"></i>신속! 정확! 배송!</h3>
         </li>
         <li>
-          <h3><i class="fas fa-rss"></i>만원 이상 구매시 무료배송</h3>
+          <h3><i class="fas fa-rss"></i>5만원 이상 구매시 무료배송</h3>
         </li>
-     
+     </ul>
     </div>
 
     <%@ include file="include/Footer.jsp" %>

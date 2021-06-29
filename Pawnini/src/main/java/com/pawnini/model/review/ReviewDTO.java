@@ -80,7 +80,9 @@ public class ReviewDTO {
 	@Override
 	public String toString() {
 		return "ReviewDTO [rev_id=" + rev_id + ", rev_writer=" + rev_writer + ", rev_content=" + rev_content
-				+ ", rev_date=" + rev_date + ", rev_like_cnt=" + rev_like_cnt + ", rev_stars=" + rev_stars + ", rev_f_img=" + rev_f_img
-				+ ", rev_thumb_img=" + rev_thumb_img + ", member_id=" + member_id + ", product_id=" + product_id + "]";
+				+ ", rev_date=" + rev_date + ", rev_like_cnt=" + rev_like_cnt + ", rev_stars=" + rev_stars
+				+ ", rev_f_img=" + rev_f_img + ", rev_thumb_img=" + rev_thumb_img + ", member_id=" + member_id
+				+ ", product_id=" + product_id + "]";
 	}
+	
 }

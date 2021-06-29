@@ -1,7 +1,6 @@
 package com.pawnini.view.product;
 
 import java.io.File;
-import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -17,13 +16,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.pawnini.model.member.MemberDTO;
 import com.pawnini.model.product.PageMaker;
 import com.pawnini.model.product.ProductDTO;
 import com.pawnini.model.product.ProductSearchCriteria;
 import com.pawnini.model.product.ProductService;
 import com.pawnini.model.review.ReviewDTO;
-import com.pawnini.model.review.ReviewLikeDTO;
 import com.pawnini.model.review.ReviewService;
 import com.pawnini.utils.UploadFileUtils;
 
@@ -207,23 +204,6 @@ public class ProductController {
 		model.addAttribute("scri", scri);
 		
 		model.addAttribute("review",revService.getReviews(review));
-		
-		// 후기 평점
-		
-		//후기 좋아요
-		String member_id = ((MemberDTO) session.getAttribute("member")).getMember_id();
-		int rev_id = review.getRev_id();
-		
-		ReviewLikeDTO likeDTO = new ReviewLikeDTO();
-		
-		likeDTO.setRev_id(rev_id);
-		likeDTO.setMember_id(member_id);
-		
-		int reviewLike = revService.getReviewLike(likeDTO);
-		System.out.println("getReviewLike : " + reviewLike);
-		
-		//3.저장
-		model.addAttribute("like", reviewLike);
 		
 		return "product/detail";
 	}

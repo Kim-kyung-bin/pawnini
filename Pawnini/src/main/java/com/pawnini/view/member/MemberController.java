@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pawnini.model.member.MemberDTO;
 import com.pawnini.model.member.MemberService;
+import com.pawnini.model.product.ProductDTO;
+import com.pawnini.model.product.ProductService;
 
 @Controller
 public class MemberController {
@@ -24,6 +26,9 @@ public class MemberController {
 	
 	@Autowired
 	private JavaMailSender mailSender;
+	
+	@Autowired
+	private ProductService proSercvce;
 	
 	
 	/*//로그인 Interceptor용
@@ -45,9 +50,11 @@ public class MemberController {
 	
 	//로그인
 	@RequestMapping(value="/login.do")
-	public String login(MemberDTO dto, HttpSession session,RedirectAttributes rttr) throws Exception {
+	public String login(MemberDTO dto, HttpSession session,RedirectAttributes rttr, Model model, ProductDTO pdto) throws Exception {
 		
 		MemberDTO member = service.login(dto);
+		model.addAttribute("productMain",proSercvce.getProductMain(pdto));
+		model.addAttribute("productSale",proSercvce.getProductSale(pdto));
 		
 		if(member != null) {
 			session.setAttribute("member", member);
@@ -71,7 +78,9 @@ public class MemberController {
 		
 	//로그아웃
 	@RequestMapping(value="/logout.do")
-	public String logout(HttpSession session) throws Exception {
+	public String logout(HttpSession session, Model model, ProductDTO pdto) throws Exception {
+		model.addAttribute("productMain",proSercvce.getProductMain(pdto));
+		model.addAttribute("productSale",proSercvce.getProductSale(pdto));
 		session.invalidate();
 		return "main";
 	}

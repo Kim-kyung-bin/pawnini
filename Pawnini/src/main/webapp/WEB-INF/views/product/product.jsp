@@ -107,9 +107,9 @@
           <a href="detailProduct.do?product_id=${product.product_id}">
             <img class="product_img" src="${product.product_thumb_img}" />
              <ul class="product_list">
-              <li class="product_title">${product.product_name}</li>
+              <li class="product_title">${product.product_name.substring(0,10)}....</li>
               <li class="product_cash">가격 <fmt:formatNumber pattern="###,###,###" value="${product.product_price}" /> 원</li>
-              <li class="product_rank">재고 : ${product.product_stock }</li>
+              <li class="product_rank">평점 : ${product.rev_avg_stars }</li>
             </ul>
           </a>
         </li>
@@ -147,7 +147,7 @@
           <h3><i class="fas fa-shipping-fast"></i>신속! 정확! 배송!</h3>
         </li>
         <li>
-          <h3><i class="fas fa-rss"></i>만원 이상 구매시 무료배송</h3>
+          <h3><i class="fas fa-rss"></i>5만원 이상 구매시 무료배송</h3>
         </li>
      </ul>
     </div>

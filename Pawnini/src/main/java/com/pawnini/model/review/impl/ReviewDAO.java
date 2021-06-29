@@ -28,12 +28,17 @@ public class ReviewDAO {
 		return mybatis.selectList("ReviewDAO.getReviews", dto);
 	}
 	
-	//후기 평점 평균
-	public double getAvgStars(ReviewDTO dto) throws Exception {
-		System.out.println("Mybatis/getAvgStars() 기능처리 완료");
-		return mybatis.selectOne("ReviewDAO.getAvgStars", dto);
+	//후기 삭제
+	public void deleteReview(ReviewDTO dto) throws Exception {
+		System.out.println("Mybatis/deleteReview() 기능처리 완료");
+		mybatis.delete("ReviewDAO.deleteReview", dto);
 	}
 	
+	//상품별 평균 별점
+	public void getAvgStars(int product_id) throws Exception {
+		mybatis.update("ReviewDAO.getAvgStars", product_id);
+	}
+
 	//후기 좋아요 생성
 	public void insertReviewLike(ReviewLikeDTO reviewLikeDTO) throws Exception{
 		System.out.println("Mybatis/insertReviewLike() 기능처리");
@@ -63,42 +68,5 @@ public class ReviewDAO {
 		System.out.println("Mybatis/getReviewLikeTotal() 기능처리");
 		return mybatis.selectOne("ReviewDAO.getReviewLikeTotal", reviewLikeDTO);
 	}
-/*	
-	//후기 수정
-	public void updateReview(ReviewDTO dto) throws Exception {
-		System.out.println("Mybatis/updateReview() 기능처리");
-		mybatis.update("ReviewDAO.updateReview", dto);
-	}
-	
-	//후기 삭제
-	public void deleteReview(ReviewDTO dto) throws Exception {
-		System.out.println("Mybatis/deleteReview() 기능처리");
-		mybatis.update("ReviewDAO.deleteReview", dto);
-	}
-	
-	//후기 목록
-	public List<ReviewDTO> getReviewList(SearchCriteria scri) throws Exception {
-		System.out.println("Mybatis/getReviewList() 기능처리");
-		return mybatis.selectList("ReviewDAO.getReviewList", scri);
-	}
-	
-	//게시물 총 갯수
-	public int countReviewList(SearchCriteria scri) throws Exception {
-		System.out.println("Mybatis/countReviewList() 기능처리");
-		return mybatis.selectOne("ReviewDAO.countReviewList", scri);
-	}
-	
-	//후기 상세보기
-	public ReviewDTO getReview(ReviewDTO dto) throws Exception {
-		System.out.println("Mybatis/getReview() 기능처리");
-		return (ReviewDTO) mybatis.selectOne("ReviewDAO.getReview", dto);
-	}
-	
-	//후기 댓글 개수 구하기
-	public void updateReplyCount(int rev_id) throws Exception {
-		System.out.println("Mybatis/updateReplyCount() 기능처리");
-		mybatis.update("ReviewDAO.updateReplyCount", rev_id);
-	}*/
-	
 
 }

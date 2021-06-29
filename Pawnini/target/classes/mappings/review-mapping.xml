@@ -54,14 +54,20 @@
 	]]>
 	</select>
 	
-	<!-- 후기 평점 평균 -->
-	<select id="getAvgStars" resultType="double">
+	<!-- 후기 삭제 -->
+	<delete id="deleteReview">
 	<![CDATA[
-		SELECT AVG(REV_STARS) AS AVG_STARS
-		FROM REVIEW 
-		WHERE PRODUCT_ID = #{product_id}
+		DELETE REVIEW
+		WHERE REV_ID = #{rev_id}
 	]]>
-	</select>
+	</delete>
+	
+	<!-- 상품 평균 별점 -->
+	<update id="getAvgStars" parameterType="int">
+		UPDATE PRODUCT
+		SET REV_AVG_STARS = (SELECT TRUNC(AVG(REV_STARS), 1) FROM REVIEW WHERE PRODUCT_ID = #{product_id})
+		WHERE PRODUCT_ID = #{product_id}
+	</update>
 	
 	<!-- 후기 좋아요 생성 -->
 	<insert id="insertReviewLike">

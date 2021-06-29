@@ -21,9 +21,6 @@
           <div class="adoption_title">
               <img class="adoption_title_bener" src="./images/Adotion1.PNG"/>
               <img class="adoption_title_img" src="${paws.paws_img}"/>
-              <h1>${paws.paws_name}</h1>
-              <p>${paws.paws_age}</p>
-              <p>${paws.paws_sex}</p>
       </div>
 
       <div class="adoption1_bener">

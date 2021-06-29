@@ -27,9 +27,9 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	
 	@Override
-	public double getAvgStars(ReviewDTO dto) throws Exception {
-		System.out.println("후기 평점 평균 구하기");
-		return dao.getAvgStars(dto);
+	public void deleteReview(ReviewDTO dto) throws Exception {
+		System.out.println("후기 삭제");
+		dao.deleteReview(dto);
 	}
 	
 	@Override
@@ -60,51 +60,11 @@ public class ReviewServiceImpl implements ReviewService {
 		return dao.getReviewLikeTotal(dto);
 	}
 
-
-	
-/*
 	@Override
-	public void updateReview(ReviewDTO dto) throws Exception {
-		System.out.println("후기 수정");
-		
-		reviewDAO.updateReview(dto);
-	}
-	
-	@Override
-	public void deleteReview(ReviewDTO dto) throws Exception {
-		System.out.println("후기 삭제");
-		
-		reviewDAO.deleteReview(dto);
+	public void getAvgStars(int product_id) throws Exception {
+		System.out.println("후기 평점 평균 구하기");
+		dao.getAvgStars(product_id);
 	}
 
-	@Override
-	public ReviewDTO getReview(ReviewDTO dto) throws Exception {
-		System.out.println("후기 상세보기");
-		
-		return reviewDAO.getReview(dto);
-	}
-
-	@Override
-	public List<ReviewDTO> getReviewList(SearchCriteria scri) throws Exception {
-		System.out.println("후기 목록");
-		
-		return reviewDAO.getReviewList(scri);
-	}
-
-	@Override
-	public int countReviewList(SearchCriteria scri) throws Exception {
-		System.out.println("Pagination - 후기 목록 갯수 세기");
-		
-		return reviewDAO.countReviewList(scri);
-	}
-
-	@Override
-	public void updateReplyCount(int rev_id) throws Exception {
-		System.out.println("후기 목록 갯수 세기");
-		
-		reviewDAO.updateReplyCount(rev_id);
-	}*/
-
-	
 
 }

@@ -16,10 +16,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pawnini.model.product_inq.Inq_repDTO;
 import com.pawnini.model.product_inq.Inq_repService;
+import com.pawnini.model.product_inq.PageMaker;
 import com.pawnini.model.product_inq.Product_inqDTO;
 import com.pawnini.model.product_inq.Product_inqService;
-import com.pawnini.model.review.PageMaker;
-import com.pawnini.model.review.SearchCriteria;
+import com.pawnini.model.product_inq.SearchCriteria;
 import com.pawnini.utils.UploadFileUtils;
 
 

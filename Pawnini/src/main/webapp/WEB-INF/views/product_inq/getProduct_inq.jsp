@@ -22,7 +22,11 @@ function getProduct_inqList() {
 	window.location.href="getProduct_inqList.do";
 };
 function deleteProduct_inq() {
+	var confirm =window.confirm("게시물을 삭제합니다.")
+	if(confirm)
 	window.location.href="deleteProduct_inq.do?inq_id=${product_inq.inq_id}";
+	else
+	return false;	
 }
 	
 	$(document).ready(function(){
@@ -32,7 +36,12 @@ function deleteProduct_inq() {
 		});
 		
 		$(".inq_repDeleteBtn").on("click", function(){
-			location.href = "deleteInq_rep.do?inq_id=${product_inq.inq_id}&inq_rep_id="+$(this).attr("data-rno");
+			var cf = confirm("답변을 삭제하시겠습니까?")
+			
+			if(cf)
+				location.href = "deleteInq_rep.do?inq_id=${product_inq.inq_id}&inq_rep_id="+$(this).attr("data-rno");
+			else
+				return false;
 		});
 		
 		$(".product_inqUpdateBtn").on("click", function(){
@@ -65,9 +74,14 @@ function deleteProduct_inq() {
 					<span>작성자</span>
 					${ product_inq.inq_name }
 				</div>
-					<div class="content_box"> <img src="${product_inq.inq_thumb}"/> <br>
-					${product_inq.inq_content }
-					</div>
+				<div class="content">
+					<span>내용</span>
+				</div>
+					<div class="content_box">${product_inq.inq_content }</div>
+				<div><!-- 추가된 항목 이미지 -->
+ 					<label for="inq_image" >이미지</label>
+ 					<img src="${product_inq.inq_thumb}"/>
+				</div>
 				
 				<div class="btnList">
 				<c:if test="${product_inq.inq_name eq member.member_nickname}">
@@ -87,14 +101,12 @@ function deleteProduct_inq() {
 		<div id="inq_rep" align="center">
 		<ol class="inq_repList">
 			<c:forEach items="${inq_repList}" var="inq_repList">
-				<li class="rep">
+				<li>
 					
 					<div class="title">제목: ${inq_repList.inq_rep_title}</div>
 					<div class="writer"> ${inq_repList.inq_rep_name}  <fmt:formatDate value="${inq_repList.inq_rep_date}" pattern="yyyy-MM-dd"/></div>
-					<div class="rep_content">
-					${inq_repList.inq_rep_content}
-					</div>
-					<div class="btnList">
+					<p> ${inq_repList.inq_rep_content}</p>
+					<div>
 						<c:if test="${member.member_grade eq '2' }">
 						<button type="button" class="inq_repUpdateBtn btn btn-warning" data-rno="${inq_repList.inq_rep_id}">수정</button>
 						<button type="button" class="inq_repDeleteBtn btn btn-danger" data-rno="${inq_repList.inq_rep_id}">삭제</button>
@@ -107,8 +119,10 @@ function deleteProduct_inq() {
 	</div>
 	
 	<!-- 답글 입력창 -->
+
 <c:if test="${ member.member_grade eq '2'}">
-	<div class="form_box" align="center">
+
+	<div class="form_box" >
 	<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 	<div align="center">
 	<form name="inq_repForm" method="post" action="${contextPath}/insertInq_rep.do">
@@ -122,7 +136,7 @@ function deleteProduct_inq() {
 			<label for="inq_rep_content" class="col-sm-2 control-label">답글 내용</label>
 		</div>	
 			<div>
-				<textarea name="inq_rep_content" rows="3" cols="139" ></textarea>
+				<textarea name="inq_rep_content" rows="3" cols="147" ></textarea>
 			</div>
 		
 		<div class="btnList">

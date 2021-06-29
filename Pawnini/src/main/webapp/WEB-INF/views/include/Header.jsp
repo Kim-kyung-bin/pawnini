@@ -28,12 +28,14 @@
       
  	<c:if test="${member == null}">
         <li><a href="gologin.do">LOGIN</a></li>
-        <li><a href="signUp.do">SIGN UP</a></li>
+        <div class="tooltip">
+        <li><a class="signUp" href="signUp.do">SIGN UP</a></li>
+        	<span class="tooltip-text"> +2,000P</span>
+        </div>
  	</c:if>
  	
  	<c:set var="grade" value="${member.member_grade}"/>
     <c:if test="${member != null}">
-    	<li>${member.member_nickname}님 환영 합니다.</li>
         <li><a href="myPage.do">My Pages</a></li>
         <li><a href="logout.do">Logout</a></li>
         <li> <a class="basket" href="getCartList.do">
@@ -58,14 +60,17 @@
     <header class="Header_menu">
       <div class="Title">
         <a href="main.do">
-			<img src="images/Rogo.jpg">
+			<img src="images/Rogo.jpg" class="rogo_img">
         </a>
         <form class="form" method="GET" action="goProductList.do">
         	<select name="searchOption" class="select_type">
         		<option value="dog">강아지</option>	
         		<option value="cat">고양이</option>	
         	</select>
-	        <input class="Header_input" type="text" placeholder="Search..." name="searchKeyword2" />
+	        <input class="Header_input" type="text" placeholder="" name="searchKeyword2" />
+	     <div class="searchIcon">
+        <i class="fas fa-search"/></i>
+	     </div>
         </form>
       </div>
 
@@ -97,14 +102,11 @@
             <span><a href="getDogList.do">강아지</a></span>
           </span>
         </li>
-        <li><a href="getReviewList.do">후기</a></li>
         <li><a href="getNoticeList.do">공지사항</a></li>
         <li><a href="getCsList.do">고객센터</a></li>
       </ul>
     </header>
-        <script
-      src="https://kit.fontawesome.com/583cb96774.js"
-      crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/583cb96774.js" crossorigin="anonymous"></script>
   </body>
   
 </html>

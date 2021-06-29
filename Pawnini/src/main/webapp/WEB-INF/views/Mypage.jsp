@@ -43,11 +43,6 @@
           <div class="text">장바구니<span class="circle"></span></div>
           <div class="right">></div>
         </a>
-        <a href="getReviewList.do" class="item">
-          <div class="icon">ii</div>
-          <div class="text">상품후기</div>
-          <div class="right">></div>
-        </a>
         <a href="getProduct_inqList.do" class="item">
           <div class="icon">ii</div>
           <div class="text">상품문의</div>

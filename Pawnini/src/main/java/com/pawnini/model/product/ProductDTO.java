@@ -20,11 +20,20 @@ public class ProductDTO {
 	private int product_hits;
 	private int product_price;
 	private int product_c_price;
+	private double rev_avg_stars;
 
 	
 
 	
 	
+	public double getRev_avg_stars() {
+		return rev_avg_stars;
+	}
+
+	public void setRev_avg_stars(double rev_avg_stars) {
+		this.rev_avg_stars = rev_avg_stars;
+	}
+
 	public String getProduct_option() {
 		return product_option;
 	}

@@ -56,4 +56,13 @@ public class ProductServiceImpl implements ProductService {
 		productDAO.productHits(dto); 
 	}
 	
+	@Override
+	public List<ProductDTO> getProductMain(ProductDTO dto) throws Exception {
+		return productDAO.getProductMain(dto);
+	}
+	@Override
+	public List<ProductDTO> getProductSale(ProductDTO dto) throws Exception {
+		return productDAO.getProductSale(dto);
+	}
+	
 }

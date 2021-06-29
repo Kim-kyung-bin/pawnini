@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.pawnini.model.product_inq.Product_inqDTO;
 import com.pawnini.model.product_inq.Product_inqService;
-import com.pawnini.model.review.SearchCriteria;
+import com.pawnini.model.product_inq.SearchCriteria;
 
 @Service("product_inqService")
 public class Product_inqServiceImpl implements Product_inqService {

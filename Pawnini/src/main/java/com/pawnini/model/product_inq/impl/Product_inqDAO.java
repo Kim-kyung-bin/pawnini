@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pawnini.model.product_inq.Product_inqDTO;
-import com.pawnini.model.review.SearchCriteria;
+import com.pawnini.model.product_inq.SearchCriteria;
 
 
 @Repository

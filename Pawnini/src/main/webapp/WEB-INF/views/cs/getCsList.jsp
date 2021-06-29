@@ -7,20 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CS getCsList -- working on css/html</title>
-    <style type="text/css">
-    	.main_title {
-		text-align: center;
-		padding: 20px auto;
-		color: rosyBrown;
-	}
-   a, a:hover, a:focus, a:active {
-      color: black;
-      text-decoration: none;
-   }
-	</style>    
+<title>PAWNINI - 고객게시판</title>
+	<script src="${path}/ckeditor/ckeditor.js "></script>
+<link type="text/css" rel="stylesheet" href="../style/cs.css"/>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <%@ include file="../include/Header.jsp"%>
 <body> 
@@ -31,9 +22,9 @@
     </div>
 	
 	<!-- 검색 기능 -->
-		<form role="getForm" method="get">
+		<form id="getForm" name="getForm" role="getForm" method="get">
 	  	 <div class="container" id="container">
-	           <div class="col-xs-2 col-sm-3">
+	           <div>
 					<select class="form-control2" name="searchOption2">
 							<option value="nth" <c:out value="${scri.searchOption eq null ? 'selected' : '' }"/>>- - 😺 필터 🐶 - -</option>
 							<option value="t"<c:out value="${scri.searchOption eq 't' ? 'selected' : '' }"/>>제목</option>
@@ -42,26 +33,26 @@
 							<option value="twc"<c:out value="${scri.searchOption eq 'twc' ? 'selected' : '' }"/>>제목+작성자+내용</option>	
 					</select>
 				</div>	
-				<div class="col-xs-8 col-sm-8">
+				<div>
 					<div class="input-group">
 							<input class="form-controlSearch" type="text" name="searchKeyword" id="keywordInput" placeholder="키워드를 입력하세요..." value="${scri.searchKeyword }"/>
-							<span class="input-group-btn"><button id="searchBtn" type="button" class="btn btn-primary"><i class="fas fa-search"></i></button></span>		
+							<span class="input-group-btn"><button id="searchBtn" type="button" class="btn-default" style="padding:5px">검색&nbsp;<i class="fas fa-search"></i></button></span>		
 					</div>
 				</div>	
 				<c:if test="${member ne null }">
-				<div class="col-xs-2 col-sm-1">
-					<span class="input-group-btn"><button type="button" class="btn btn-outline-secondary" style="border-radius: 10px;"><a href="redirectInsertCs.do">새 글 추가</a></button></span> <!--  로그인 해야함 -->											
+				<div>
+					<span class="input-group-btn"><button type="button" class="btn-default" style="padding:5px 10px;"><a href="redirectInsertCs.do">새 글 추가</a></button></span> <!--  로그인 해야함 -->											
 					<!--<button type="button" class="btn btn-secondary"><a href="getCsList.do">새로고침</a></button>   -->	
 				</div>
 				</c:if>
 			</div>
 
 		<!-- 상단 테이블 -->
-   		<section class="container " >		
+   		<section class="table_container " >		
 			<c:choose>	
 				<c:when test="${csPagination.totalCount > 0 }">
-					<span> 게시글 수  : ${csPagination.totalCount}</span>
-					<table  class="table table-hover">
+					<span style="padding: 1.2rem; font-weight:bold; color:black;'"> 게시글 수  : ${csPagination.totalCount}</span>
+					<table  class="tablelist">
 						<tr class="cs"> <!-- from cs.css, need to fix it -->
 							<th>번호</th>
 							<th>제목</th>
@@ -76,8 +67,8 @@
 						</tr>
 						
 						<c:forEach var="cs" items="${ csList }">
-							<tr>	
-								<td width="5%">${cs.cs_id }</td>
+							<tr class="cs_td">	
+								<td width="5%" id="cs_id">${cs.cs_id }</td>
 								<td width="*" align="left">
 									<span style="padding-right:15px"></span>
 									<!-- 비공개일때 조건 -->
@@ -88,7 +79,7 @@
 													<c:choose>
 														<c:when test="${cs.cs_re_order > 0 }">
 															<c:forEach begin="1" end="${cs.cs_re_order}"  step="1">
-																<span style="padding-left:20px; font-weight:bold; color:red;">Re : ↪   </span>
+																<span style="padding-left:20px; font-weight:bold; color:red;"><i class="fab fa-replyd"></i>  : ↪   </span>
 															</c:forEach>
 															<a href="getCs.do?cs_id=${cs.cs_id }&curPage=${scri.curPage}&perPageNum=${scri.perPageNum }&searchOption=${scri.searchOption}&searchKeyword=${scri.searchKeyword}">${cs.cs_title}</a>
 														</c:when>
@@ -124,9 +115,9 @@
 								<td width="20%"><fmt:formatDate value="${cs.cs_regdate }" pattern="yyyy년 MM월 dd일 HH시"/></td>			
 								<td width="7%">${cs.cs_hit }</td>
 								<c:if test="${member.member_grade eq 2 }">
-									<td width="15%" class="admin">
-										<button type="button" class="update_btn btn btn-outline-primary"><a href="updateCs.do?cs_id=${cs.cs_id}">수정</a></button> 
-										<button type="button" class="delete_btn btn btn-outline-primary"><a href="deleteCs.do?cs_id=${cs.cs_id}">삭제</a></button> 		
+									<td width="15%" class="btns">
+										<button class="update_btn btn-default"><a class="alink" href="updateCs.do?cs_id=${cs.cs_id}">수정</a></button> 
+										<button  class="delete_btn btn-default" style="color:white"><a class="alink" href="deleteCs.do?cs_id=${cs.cs_id }">삭제</a></button> 		
 									</td>		
 								</c:if>		
 							</tr>								
@@ -168,37 +159,29 @@
 		</c:if>
 		</section>	
 	</form>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
-	<script>
+	<script type="text/javascript">
 	$(document).ready(function () {
 		var formObj = $("form[name='getForm']");
-	
+		var cs_id = $("#cs_id").val();
 		//게시물 지우기
 		$(".delete_btn").on("click", function(){
 			var yn = confirm("게시글을 삭제하시겠습니까? \n* 게시물 삭제시 답변도 함게 삭제됩니다 *");
 			if (yn) {
-				formObj.attr("action", "deleteCs.do");
-				formObj.attr("method", "post");
-				formObj.submit();
-				alert("게시물이 삭제되었습니다");
-				location.reload();
-			 	return; 
+				alert("", "게시물이 삭제되었습니다", "success");
 			} else {
-				alert("삭제를 실패했습니다.");
+				alertl("", "삭제를 실패했습니다.", "error");
 				return false;				
 			}
 		})
 	})
 	
-		function getCsList(curPage) {
-			location.href="${path}/cs/getCsList?curPage="+curPage+"&searchOption=${searchOption}"+"&searchKeyword=${searchKeyword}";
-		}
+	function getCsList(curPage) {			
+		location.href="${path}/cs/getCsList?curPage="+curPage+"&searchOption=${searchOption}"+"&searchKeyword=${searchKeyword}";
+	};
 		//검색
-		$(function(){
-			$('#searchBtn').click(function() {
-				self.location="getCsList.do"+'${csPagination.makeQuery(1)}'+"&searchOption="+$("select[name=searchOption2]").val()+"&searchKeyword="+encodeURIComponent($('#keywordInput').val());
+	$(function(){
+		$('#searchBtn').click(function() {
+			self.location="getCsList.do"+'${csPagination.makeQuery(1)}'+"&searchOption="+$("select[name=searchOption2]").val()+"&searchKeyword="+encodeURIComponent($('#keywordInput').val());
 			});
 		});
 	</script>

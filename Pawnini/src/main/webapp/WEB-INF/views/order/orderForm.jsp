@@ -7,47 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+  <link rel="stylesheet" href="../style/orderForm.css" />
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<style>
-.orderInfo {
-	border: 5px solid #eee;
-	padding: 20px;
-}
 
-.orderInfo .inputArea {
-	margin: 10px 0;
-}
-
-.orderInfo .inputArea label {
-	display: inline-block;
-	width: 120px;
-	margin-right: 10px;
-}
-
-.orderInfo .inputArea input {
-	font-size: 14px;
-	padding: 5px;
-}
-
-#userAddr2, #userAddr3 {
-	width: 250px;
-}
-
-.orderInfo .inputArea:last-child {
-	margin-top: 30px;
-}
-
-.orderInfo .inputArea button {
-	font-size: 20px;
-	border: 2px solid #ccc;
-	padding: 5px 10px;
-	background: #fff;
-	margin-right: 20px;
-}
-</style>
 <script>
 	$(document).ready(
 			function() {
@@ -298,17 +263,19 @@
 	<div class="Guide">
 		<span>주문</span>
 	</div>
-	<section id="content">
-		<br> 주문상품
-		<table border="1">
+	
+	
+	<section id="content" >
+
+		<table class="table" align="center">
 			<tr>
-				<th></th>
+				<th>주문상품</th>
 				<th>상품명</th>
 				<th>판매가</th>
 				<th>수량</th>
 				<th>합계</th>
 				<c:forEach var="row" items="${map.cartList}" varStatus="i">
-					<tr>
+					<tr class="product">
 						<td><img style="width: 100px; height: 150px;"
 							src="${row.product_thumb_img}" />
 						<td>${row.product_name}
@@ -326,7 +293,7 @@
 		</table>
 
 		<!-- 주문정보 입력 -->
-		<form role="orderForm" method="post" autocomplete="off"
+		<form class="order_form" role="orderForm" method="post" autocomplete="off"
 			action="insertOrder.do">
 			<input type="hidden" id="h_member_name" value="${member.member_name}" />
 			<input type="hidden" id="h_member_phone"

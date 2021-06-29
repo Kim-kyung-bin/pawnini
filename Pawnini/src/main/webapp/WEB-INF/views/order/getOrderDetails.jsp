@@ -7,61 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+    <link rel="stylesheet" href="../style/getOrderDetails.css" />
+
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<style>
 
-
-.orderInfo {
-	border: 5px solid #eee;
-	padding: 10px 20px;
-	margin: 20px 250px 20px 250px;
-}
-
-.orderInfo span {
-	font-size: 20px;
-	font-weight: bold;
-	display: inline-block;
-	width: 90px;
-}
-
-.orderView li {
-	margin-bottom: 20px;
-	padding-bottom: 20px;
-	border-bottom: 1px solid #999;
-	list-style: none;
-}
-
-.orderView li::after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
-.thumb {
-	float: left;
-	width: 200px;
-}
-
-.thumb img {
-	width: 200px;
-	height: 200px;
-}
-
-.gdsInfo {
-	float: right;
-	width: calc(100% - 220px);
-	line-height: 2;
-}
-
-.gdsInfo span {
-	font-size: 20px;
-	font-weight: bold;
-	display: inline-block;
-	width: 100px;
-	margin-right: 10px;
-}
-</style>
 
 </head>
 <script>
@@ -93,6 +43,8 @@
 	<div class="Guide">
         <span>주문상세보기</span>
       </div>
+      
+      
 	<form id="deleteOrderForm" method="post" action="deleteOrder.do">
 		<section id="content">
 			<div class="orderInfo">

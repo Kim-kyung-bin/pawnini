@@ -2,8 +2,6 @@ package com.pawnini.model.product_inq;
 
 import java.util.List;
 
-import com.pawnini.model.review.SearchCriteria;
-
 public interface Product_inqService {
 	
 	//  등록
