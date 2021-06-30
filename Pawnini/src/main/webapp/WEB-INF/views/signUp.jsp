@@ -9,16 +9,9 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<title>Sign</title>
+<title>Sign Up</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 <link rel="stylesheet" href="style/signup.css" />
-<style>
-	#email_check_input_false{
-		background-color: #ebebe4;
-	}
-	#email_check_input_true {
-		background-color: white;
-	}
-</style>
 <script type="text/javascript">
 	var checkID = false;
 	var checkPWD = false;
@@ -110,7 +103,7 @@
 					swal({
 						icon:"success",
 						title: "",
-						text : "회원가입이 완료되었습니다.!"
+						text : "회원가입이 완료되었습니다!"
 					});
 					setTimeout('window.location.href = "main.do"',3000);
 				}
@@ -208,44 +201,54 @@
 		var member_email = $("#email_id").val() + "@" + $("#email_addr").val();		//입력한 이메일
 		var checkBox = $(".email_check_input");		//인증번호 입력란
 		var checkBtn = $(".email_check_btn"); 	//버튼
-		$.ajax({
-			type:"GET",
-			url:"emailCheck.do?email="+member_email,
-			data: {
-				"member_email" : member_email
-			},
-			success:function(data) {
-				swal({
-					icon:"success",
-					title: "",
-					text : "인증메일이 발송되었습니다. 이메일을 체크해 주세요!"
-				});
-			//	console.log("data : "+data);
-			checkBox.attr("disabled", false);
-			checkBox.attr("id", "email_check_input_true");
-			checkBox.attr("autofocus", true);	
-			checkBtn.attr("disabled", true);
-			checkBtn.css("color", "grey");
-			code = data;
-			
-			
-			/* 인증번호 비교*/
-			$(".email_check_input").blur(function(){
-				var inputCode = $(".email_check_input").val();			//사용자가 입력한 코드 
-				var checkResult = $("#email_check_input_warn");	//비교 결과 메세지
+		if (member_email == "@" || $("#email_id").val()== "" || $("#email_addr").val() == "")  {
+			swal({
+				icon:"error",
+				title: "에러!",
+				text: "이메일을 입력해 주세요!"
+			});
+		}
+		else {
+			$.ajax({
+				type:"GET",
+				url:"emailCheck.do?email="+member_email,
+				data: {
+					"member_email" : member_email
+				},
+				success:function(data) {
+					swal({
+						icon:"success",
+						title: "",
+						text : "인증메일이 발송되었습니다. 이메일을 체크해 주세요!"
+					});
+				//	console.log("data : "+data);
+				checkBox.attr("disabled", false);
+				checkBox.attr("id", "email_check_input_true");
+				checkBox.attr("autofocus", true);	
+				checkBtn.attr("disabled", true);
+				checkBtn.css("color", "#dbdbd5");
+				code = data;
 				
-				if (inputCode == code) {			//일치할 경우
-				 	checkResult.text("인증번호가 일치합니다");
-				 	checkResult.css("color", "green");
-				} else if (inputCode != code) {
-					checkResult.text("인증번호를 다시 확인해주세요.");
-					checkResult.css("color", "red");
-				} else {
-					console.log('ERROR');
+				
+				/* 인증번호 비교*/
+				$(".email_check_input").blur(function(){
+					var inputCode = $(".email_check_input").val();			//사용자가 입력한 코드 
+					var checkResult = $("#email_check_input_warn");	//비교 결과 메세지
+					
+					if (inputCode == code) {			//일치할 경우
+					 	checkResult.text("인증번호가 일치합니다");
+					 	checkResult.css("color", "green");
+					} else if (inputCode != code) {
+						checkResult.text("인증번호를 다시 확인해주세요.");
+						checkResult.css("color", "red");
+					} else {
+						console.log('ERROR');
+					}
+				});
 				}
 			});
-			}
-		});
+			
+		}
 	};
 	
 </script>
@@ -256,124 +259,85 @@
    <div class="Guide">
       <span>회원 가입</span>
     </div>
-	<h2 class="text" align="center">회원가입</h2>
 	<section class="Form_section">
-		<form name="f1rm" id="f1rm">
-			<table align="center">
-				<tr>
-					<th>아이디</th>
-				</tr>
-				<tr>
-					<td><input type="text" id="member_id" class="input" onFocus="" />
-						<input type="button" onClick="idChk()" style="cursor: pointer"
-						value="중복확인" /><br /> <label id="idchk"></label>
-					</td>
-				</tr>
-				<tr>
-					<th>비밀번호</th>
-				</tr>
-				<tr>
-					<td><input type="password" id="member_pwd" class="input"
-						maxlength="20" /></td>
-				</tr>
-				<tr>
-					<th>비밀번호 확인</th>
-				</tr>
-				<tr>
-					<td><input type="password" id="chk_member_pwd" class="input"
-						maxlength="20" /> <label id="checkPasswd"></label>
-					</td>
-				</tr>
-				<tr>
-					<th>이름</th>
-				</tr>
-				<tr>
-					<td><input type="text" id="member_name" class="input" /><br />
-						<label id="chkname"></label> <tr>
-                <th>닉네임</th>
-              </tr>
-              <tr>
-                <td>
-                  <input type="text" id="member_nickname" class="input" /><br />
-                </td>
-              </tr>
-              <tr>
-                <th>이메일</th>
-              </tr>
-              <tr>
-                <td>
-                  <input type="text" size="15" id="email_id"
-						class="input" /> @
-                  <input type="text" size="15" id="email_addr"
-						class="input" disabled />
-                  <select id="email_select">
-                    <option value="" selected>::선택하세요::</option>
-                    <option value="naver.com">naver.com</option>
-                    <option value="gmail.com">gmail.com</option>
-                    <option value="hanmail.net">hanmail.net</option>
-                    <option value="nate.com">nate.com</option>
-                    <option value="1">직접입력</option>
-                  </select>
-                </td>
-              </tr>
-			  <tr>
-               	<td>
-               		<input type="text" size="15" id="email_check_input_false" 
-               		class="email_check_input" disabled="disabled"/>
-               		<input type="button" class="btn email_check_btn" onclick="emailCheck()" style="cursor: pointer" value="인증번호 전송"/>
-               		<div id="email_check_input_warn"></div>
-               	</td>
-             </tr>
-              <tr>
-                <th>연락처</th>
-              </tr>
-              <tr>
-                <td>
-                  <select id="NUMst">
-                    <option value="" selected>::선택::</option>
-                    <option value="010">010</option>
-                    <option value="011">011</option>
-                    <option value="016">016</option>
-                  </select>
-                  -
-                  <input type="text" id="NUMnd" class="input"
-						maxlength="4" size="4" />
-                  -
-                  <input type="text" id="NUMrd" class="input"
-						maxlength="4" size="4" />
-                </td>
-              </tr>
-              <tr>
-                <th>주소</th>
-              </tr>
-              <tr>
-                <td>
-                  <input type="text" name="member_postcode"
-						id="member_postcode" class="input" readonly size="10" />
-                  <input type="button" onclick="searchPost()"
-						style="cursor: pointer" value="우편번호 찾기" /><br /><br />
-                  <input type="text" name="member_f_addr"
-						id="member_f_addr" class="input" size="60" readonly />
-                </td>
-              </tr>
-              <tr>
-                <th>상세주소</th>
-              </tr>
-              <tr>
-                <td>
-                  <input type="text" name="member_s_addr"
-						id="member_s_addr" class="input" size="60" />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input class="button_register" type="button"
-						onclick="doSignup()" style="cursor: pointer" value="회원가입" />
-                </td>
-              </tr>
-            </td>
-          </tr>
-        </table>
+		<form class="f1rm" name="f1rm" id="f1rm">
+				<h1>개인정보 <i class="fas fa-paw"></i></h1>
+				<hr>
+				<div class="required"><span class="star">*</span>필수입력사항</div>
+				<div class="field">
+					<label class="label">아이디<span class="star">*</span></label>
+					<input type="text" id="member_id" class="input" onFocus="" />
+					<input class="btn-default" onClick="idChk()" size="5" style="text-align:center; cursor: pointer;" value="중복확인"/><br />
+					<label class="ver_info" id="idchk"></label>
+				</div>
+				<div class="field">
+					<label class="label">비밀번호<span class="star">*</span></label>
+					<input type="password" id="member_pwd" class="input" maxlength="20" />
+				</div>
+				<div class="field">
+					<label class="label">비밀번호 확인<span class="star">*</span></label>
+					<input type="password" id="chk_member_pwd" class="input" maxlength="20" /> <label id="checkPasswd"></label>				
+				</div>
+				<div class="field">
+					<label class="label">이름<span class="star">*</span></label>
+					<input type="text" id="member_name" class="input" /><label id="chkname"></label>
+				</div>	
+				<div class="field">
+					<label class="label">닉네임</label>
+       	            <input type="text" id="member_nickname" class="input" />				
+				</div>
+				<div class="field">
+		                <label class="label">이메일<span class="star">*</span></label>
+			            <input type="text" size="15" id="email_id"
+									class="input" />@
+			            <input type="text" size="15" id="email_addr"
+									class="input" disabled />
+			                  <select id="email_select">
+			                    <option value="" selected style="text-align:center">:: 선택하세요 ::</option>
+			                    <option value="naver.com">naver.com</option>
+			                    <option value="gmail.com">gmail.com</option>
+			                    <option value="hanmail.net">hanmail.net</option>
+			                    <option value="nate.com">nate.com</option>
+			                    <option value="1">직접입력</option>
+			                  </select>									
+					<div>
+						<label class="label"></label>
+		           		<input type="text" size="15" id="email_check_input_false" 	class="email_check_input" disabled="disabled"/>
+		           		<input class="btn-default email_check_btn" onclick="emailCheck()" size="8" style="text-align:center; cursor: pointer" value="인증번호 전송"/>
+            	  		<div class="ver_info" id="email_check_input_warn"></div>
+		               	</div>					
+				</div>                
+            
+        		<div  class="field">
+	                <label class="label">연락처</label>
+	                  <select id="NUMst">
+		                    <option value="" selected>:: 선택 ::</option>
+		                    <option value="010">010</option>
+		                    <option value="011">011</option>
+		                    <option value="016">016</option>
+	                  </select>        		
+	                  -
+	                  <input type="text" id="NUMnd" class="input"
+							maxlength="4" size="4" />
+	                  -
+	                  <input type="text" id="NUMrd" class="input"
+							maxlength="4" size="4" />
+        		</div>    
+              	<div  class="field">
+	                <label class="label">주소</label>
+	                  <input type="text" name="member_postcode"
+							id="member_postcode" class="input" readonly size="10" />
+	                  <input class="btn-default" onclick="searchPost()"  size="8" style="text-align:center; cursor: pointer" value="우편번호 찾기"/><br/>
+	                  <label class="label">기본주소</label>
+	                  <input type="text" name="member_f_addr"
+							id="member_f_addr" class="input" size="60" readonly /><br/>             	
+					<label class="label">상세주소</label>
+	                  <input type="text" name="member_s_addr" id="member_s_addr" class="input" size="60" />
+	            </div>
+	            
+				<div class="btns">
+	                  <input class="btn-default" onclick="doSignup()"  size="6" style="text-align:center; cursor: pointer" value="회원가입"/>			
+				</div>
       </form>
     </section>
   </body>

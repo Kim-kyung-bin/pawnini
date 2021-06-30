@@ -1,5 +1,10 @@
 
-
+	#email_check_input_false{
+		background-color: #dbdbd5;
+	}
+	#email_check_input_true {
+		background-color: white;
+	}
 .Guide{
    background-color: #F4F4F5;
    display: flex;
@@ -12,6 +17,27 @@
    opacity: 0.7;
 }
 
+.ver_info {
+	margin-left: 1rem;
+	padding-bottom: 1rem;
+}
+.field {
+	margin-top: 1rem;
+	border-bottom: 1px solid lightgray;
+}
+
+.required {
+	text-align: right;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.label {
+	width: 10rem;
+	display: inline-block;
+	padding-left: 1rem;	
+	font-weight: bold;
+}
 
 .text{
    display: flex;
@@ -19,22 +45,49 @@
    align-items: center;
    margin-top: 80px;
 }
- input{
+ .f1rm input, #email_select, #NUMst {
    border:2px solid #fdcb6e ;
    outline: #fd79a8;
-   justify-content: center;
-   align-items: center;
-   margin-bottom: 10px;
+   margin: 15px 20px;
    height: 30px;
    border-radius: 10px;
-   margin-left: 20px;
    z-index:1 ;
-
+   padding-left: 1.3rem;
+    font-size: 15px;
 }
+#email_select, #NUMst {
+	text-align: center;
+}
+
+.star { 
+	font-weight: bold;
+	color: #f03630;
+}
+
 .Form_section{
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   margin-bottom: 60px;
+   margin: 3rem auto;
+}
+
+.btns {
+margin: 3rem;
+text-align: center;
+}
+
+
+.btn-default{
+    outline: none;
+    border: 1px solid #fdcb6e ;
+    background-color:#fdcb6e;
+    cursor: pointer;
+    font-size: 20px;
+    color:white;
+    font-weight: 900;
+    padding: 5px;
+    border-radius: 15px;
+    margin: 5px;
+    margin-left: 15px;
 }

@@ -51,6 +51,7 @@
 		SELECT *
 		FROM REVIEW
 		WHERE PRODUCT_ID = #{product_id}
+		ORDER BY REV_ID DESC
 	]]>
 	</select>
 	
@@ -65,7 +66,7 @@
 	<!-- 상품 평균 별점 -->
 	<update id="getAvgStars" parameterType="int">
 		UPDATE PRODUCT
-		SET REV_AVG_STARS = (SELECT TRUNC(AVG(REV_STARS), 1) FROM REVIEW WHERE PRODUCT_ID = #{product_id})
+		SET REV_AVG_STARS =  (SELECT (TRUNC((AVG(REV_STARS)-0.1)*2)/2+0.5) FROM REVIEW WHERE PRODUCT_ID = #{product_id})
 		WHERE PRODUCT_ID = #{product_id}
 	</update>
 	

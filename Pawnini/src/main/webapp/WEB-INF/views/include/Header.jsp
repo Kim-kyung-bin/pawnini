@@ -29,14 +29,14 @@
  	<c:if test="${member == null}">
         <li><a href="gologin.do">LOGIN</a></li>
         <div class="tooltip">
-        <li><a class="signUp" href="signUp.do">SIGN UP</a></li>
+        <li><a class="header_signUp" href="signUp.do">SIGN UP</a></li>
         	<span class="tooltip-text"> +2,000P</span>
         </div>
  	</c:if>
  	
  	<c:set var="grade" value="${member.member_grade}"/>
     <c:if test="${member != null}">
-        <li><a href="myPage.do">My Pages</a></li>
+        <li><a href="myPage.do">My Page</a></li>
         <li><a href="logout.do">Logout</a></li>
         <li> <a class="basket" href="getCartList.do">
         <i class="fas fa-shopping-cart fa-lg"></i>

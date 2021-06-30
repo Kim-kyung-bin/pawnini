@@ -54,7 +54,7 @@ public class ReviewController {
 		reviewService.getAvgStars(product_id);
 
 		//productDetail.do로 변경해야 함
-		return "redirect:main.do";
+		return "redirect:detailProduct.do?product_id="+product_id;
 	}
 	
 	@ResponseBody
