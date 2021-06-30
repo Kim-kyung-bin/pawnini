@@ -311,7 +311,7 @@
 					<div>
 						<label class="label"></label>
 		           		<input type="text" size="15" id="email_check_input_false" 	class="email_check_input" disabled="disabled"/>
-		           		<input class="btn-default email_check_btn" onclick="emailCheck()" size="8" style="text-align:center; cursor: pointer" value="인증번호 전송"/>
+		           		<input class="btn-default email_check_btn" onclick="emailCheck()" size="12" style="text-align:center; cursor: pointer" value="인증번호 전송"/>
             	  		<div id="email_check_input_warn"></div>
 		               	</div>					
 				</div>                
@@ -335,7 +335,7 @@
 	                <label class="label">주소</label>
 	                  <input type="text" name="member_postcode"
 							id="member_postcode" class="input" readonly size="10" />
-	                  <input class="btn-default" onclick="searchPost()"  size="8" style="text-align:center; cursor: pointer" value="우편번호 찾기"/><br/>
+	                  <input class="btn-default" onclick="searchPost()"  size="12" style="text-align:center; cursor: pointer" value="우편번호 찾기"/><br/>
 	                  <label class="label">기본주소</label>
 	                  <input type="text" name="member_f_addr"
 							id="member_f_addr" class="input" size="60" readonly /><br/>             	

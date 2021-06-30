@@ -46,14 +46,14 @@
    margin-top: 80px;
 }
  .f1rm input, #email_select, #NUMst {
-   border:2px solid #fdcb6e ;
+   border:2px solid #fdcb6e;
    outline: #fd79a8;
    margin: 15px 20px;
    height: 30px;
    border-radius: 10px;
-   z-index:1 ;
-   padding-left: 1.3rem;
-    font-size: 15px;
+   z-index:1;
+   padding-left: 0.3rem;
+   font-size: 15px;
 }
 #email_select, #NUMst {
 	text-align: center;

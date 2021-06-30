@@ -7,8 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		<link rel="stylesheet" href="style/updateMember.css" />
+		<link rel="stylesheet" href="./style/updateMember.css" />
 		
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -190,59 +191,51 @@ function clickout(){
 	<div class="Guide">
       <span>회원 정보 수정</span>
     </div>
-	<section>
-			<div align="center">
-				<form name="f1rm" id="f1rm">
-					<h2 align="center">회원 정보 수정</h2>
-					<table class="table">
-						<tr>
-							<th>아이디</th>
-							<td>
-								<label id="member_id" class="input" onFocus="">${member.member_id}</label><br>
-								<label id="idchk"></label>
-							</td>
-						</tr>
-						<tr>
-							<th>변경할 비밀번호</th>
-							<td><input type="password" id="member_pwd" class="input" maxlength="20" /></td>
-						</tr>
-						<tr>
-							<th>비밀번호 확인</th>
-							<td>
-								<input type="password" id="chk_member_pwd" class="input" maxlength="20" />
-								<label id="checkPasswd"></label>
-							</td>
-						</tr>
-						<tr>
-							<th>이름</th>
-							<td>
-								<input type="text" id="member_name" class="input" maxlength="20" value="${member.member_name}"/>
-							</td>
-						</tr>
-						<tr>
-							<th>닉네임</th>
-							<td>
-								<input type="text" id="member_nickname" class="input" maxlength="20" value="${member.member_nickname}"/>
-							</td>
-						</tr>
-						<tr>
-							<th>주소</th>
-							<td>
-								<input type="text" name="member_postcode" id="member_postcode" class="input" readonly size="10" value="${member.member_postcode}">
-								<input type="button" onclick="searchPost()" style="cursor: pointer" value="우편번호 찾기"><br><br>
-								<input type="text" name="member_f_addr" id="member_f_addr" class="input" size="60" value="${member.member_f_addr}" readonly>
-							</td>
-						</tr>
-						<tr>
-							<th id="a">상세주소</th>
-							<td id="a"><input type="text" name="member_s_addr" id="member_s_addr" class="input" value="${member.member_s_addr}"></td>
-						</tr>
-					</table>
-					</form>
-						<input type="button" onclick="myinfoUp()" style="cursor: pointer" value="수정" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="button" onclick="clickout()" style="cursor: pointer" value="회원탈퇴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="button" onclick="cancel()" style="cursor: pointer" value="취소" />
-			</div>
+	<section class="mypage_form">			
+				<form class="mpform" name="f1rm" id="f1rm">
+				<h1 class="mypage_heading">회원 정보 수정 <i class="fas fa-paw"></i></h1>
+					<hr>
+						<div class="mypage_field">
+							<label class="mypage_label">아이디</label>
+							<input id="member_id" class="input" onFocus="" value="${member.member_id}"/>
+							<label class="mypage_label" id="idchk"></label>
+						</div>
+						<div class="mypage_field">
+							<label class="mypage_label">변경할 비밀번호</label>
+							<input type="password" id="member_pwd" class="input" maxlength="20" />
+						</div>
+						<div class="mypage_field">
+							<label class="mypage_label">비밀번호 확인</label>
+							<input type="password" id="chk_member_pwd" class="input" maxlength="20" />
+							<label class="mypage_label" id="checkPasswd"></label>						
+						</div>
+						<div class="mypage_field">
+							<label class="mypage_label">이름</label>		
+							<input type="text" id="member_name" class="input" maxlength="20" value="${member.member_name}"/>						
+						</div>
+						<div class="mypage_field">
+							<label class="mypage_label">닉네임</label>
+							<input type="text" id="member_nickname" class="input" maxlength="20" value="${member.member_nickname}"/>
+						</div>
+						<div class="mypage_field">
+							<label class="mypage_label">주소</label>
+							<input type="text" name="member_postcode" id="member_postcode" class="input" readonly size="10" value="${member.member_postcode}"/>
+							<input class="button" onclick="searchPost()" style="cursor: pointer" value="우편번호 찾기">
+						</div>
+						<div class="mypage_field_add">
+							<label class="mypage_label">기본주소</label>
+							<input type="text" name="member_f_addr" id="member_f_addr" class="input" size="60" value="${member.member_f_addr}" readonly>
+						</div>
+						<div class="mypage_field_add">							
+							<label class="mypage_label" id="a">상세주소</label>
+							<input type="text" name="member_s_addr" id="member_s_addr" class="input" size="60" value="${member.member_s_addr}"/>						
+						</div>
+					<div class="btns">
+						<input class="button" onclick="myinfoUp()" style="cursor: pointer" value="수정" />
+						<input class="button" onclick="clickout()" style="cursor: pointer" value="회원탈퇴" />
+						<input class="button"  onclick="cancel()" style="cursor: pointer" value="취소" />					
+					</div>
+				</form>
 		</section>
 
 </body>

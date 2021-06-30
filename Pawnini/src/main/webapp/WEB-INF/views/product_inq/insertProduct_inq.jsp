@@ -44,7 +44,7 @@
         <!-- 이미지 등록 -->
 		<div>		
             <label for="inq_image">이미지</label>
-			<input type="file" id="inq_image" name="file"/>
+			<input type="file" id="inq_image" name="file" required/>
         </div>
         
        <div><!-- 추가된 항목  공개 여부 -->

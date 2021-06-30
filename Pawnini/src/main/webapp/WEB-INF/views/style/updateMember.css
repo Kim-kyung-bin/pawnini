@@ -1,32 +1,60 @@
-@charset "UTF-8";
-
-.table{
-    border: none;
+.mypage_form {
+display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 2rem;
+   margin: 3rem auto;
+}
+.mpform {
     border: 5px solid #fdcb6e;
     padding: 50px;
+    width: 70%;
+    margin: 50px auto;
     font-size: 25px;
-    padding: 30px;
 }
-.table:hover{
-    transition:  box-shadow 0.5s ease-in-out ;
+.mpform:hover{
+   	transition:  box-shadow 0.5s ease-in-out ;
     box-shadow: 6px 6px 2px 2px rgba(0, 0, 0, 0.5);
 }
+.mypage_heading {
+	text-align: center;
+}
+.mypage_field {
+	margin-top: 1rem;
+	border-bottom: 1px solid lightgray;
+	display: flex;
+	font-size: 16px;
+}
+.mypage_field_add {
+	display: flex;
+	font-size: 16px;
+	margin-top: 1rem;
+}
+.mypage_label {
+	width: 11.5rem;
+	padding-left: 2rem;	
+	font-weight: bold;
+	font-size: 1.2rem;
+}
 
 
-input{
-    display: flex;
-    border:2px solid #fdcb6e ;
+.mpform input{
+    border:2px solid #fdcb6e;
     outline: #fd79a8;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 1rem;
+    padding-left: .6rem;
     margin-bottom: 10px;
     border-radius: 10px;
     margin-left: 20px;
-    z-index:1 ;
-
 }
-.table span{
+
+.mpform input:hover{
+	background-color: #f2f2da;
+}
+.mypage_border span{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,38 +65,20 @@ padding-top: 20px;
 font-size: 16px;
 
 }
-.table span:hover{
-    opacity: 1;
-}
-.file{
-    border: none;
-    outline: none;
-    border: 2px solid  #fdcb6e;
-    background-color:#fdcb6e ;
-
-}
 .button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
     outline: none;
+    border: 1px solid #fdcb6e ;
+    background-color:#fdcb6e;
     cursor: pointer;
-    
-}
-.button{
-    background:#fdcb6e;
-    color:white;
-    font-weight: 600;
-    border:none;
-    position:relative;
-    height:60px;
-    font-size:1.6em;
-    cursor:pointer;
-    transition:800ms ease all;
-    outline:none;
     font-size: 20px;
-  }
+    color:white;
+    font-weight: 900;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 5px;
+    text-align: center;
+    margin-left: 15px;
+}
   .button:hover{
       border: 5px solid #fdcb6e ;
     background:#fff;
@@ -94,10 +104,12 @@ font-size: 16px;
     width:100%;
     transition:800ms ease all;
   }
-  .form_button{
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-  }
+ 
+.btns {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+	text-align: center;
+}
  

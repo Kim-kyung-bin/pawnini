@@ -104,7 +104,7 @@
 								
 								<td><input type="number" id="cart_amount"
 									style="width: 40px" name="cart_amount"
-									value="${row.cart_amount}" min="10" />
+									value="${row.cart_amount}" max="10" />
 									<button class="formal_button" type="submit" id="updateCartBtn">수정</button> <input
 									type="hidden" id="product_id" name="product_id"
 									value="${row.product_id}" /> <input type="hidden" id="cart_id"

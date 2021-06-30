@@ -55,7 +55,8 @@
       <c:forEach items="${productSale }" var="productSale">
         <div class="sa sa-_brand">
         <a href="detailProduct.do?product_id=${productSale.product_id}">
-        <img src="${productSale.product_thumb_img}"><span>${productSale.product_name.substring(0,10)}...</span></a>
+        <img src="${productSale.product_thumb_img}"><span>
+        <img src="http://fiximage.10x10.co.kr/web2013/shopping/tag_sale.gif" alt="SALE">${productSale.product_name.substring(0,10)}...</span></a>
         </div>
       </c:forEach>
       </section>
