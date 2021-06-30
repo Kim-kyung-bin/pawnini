@@ -197,29 +197,29 @@ function clickout(){
 					<hr>
 						<div class="mypage_field">
 							<label class="mypage_label">아이디</label>
-							<input id="member_id" class="input" onFocus="" value="${member.member_id}"/>
+							<input id="member_id" class="input" onFocus="" value="${member.member_id}" readonly="readonly"/>
 							<label class="mypage_label" id="idchk"></label>
 						</div>
 						<div class="mypage_field">
 							<label class="mypage_label">변경할 비밀번호</label>
-							<input type="password" id="member_pwd" class="input" maxlength="20" />
+							<input type="password" id="member_pwd" class="input" maxlength="20" required="required" />
 						</div>
 						<div class="mypage_field">
 							<label class="mypage_label">비밀번호 확인</label>
-							<input type="password" id="chk_member_pwd" class="input" maxlength="20" />
+							<input type="password" id="chk_member_pwd" class="input" maxlength="20" required="required"/>
 							<label class="mypage_label" id="checkPasswd"></label>						
 						</div>
 						<div class="mypage_field">
 							<label class="mypage_label">이름</label>		
-							<input type="text" id="member_name" class="input" maxlength="20" value="${member.member_name}"/>						
+							<input type="text" id="member_name" class="input" maxlength="20" value="${member.member_name}" required="required"/>						
 						</div>
 						<div class="mypage_field">
 							<label class="mypage_label">닉네임</label>
-							<input type="text" id="member_nickname" class="input" maxlength="20" value="${member.member_nickname}"/>
+							<input type="text" id="member_nickname" class="input" maxlength="20" value="${member.member_nickname}" required="required"/>
 						</div>
 						<div class="mypage_field">
 							<label class="mypage_label">주소</label>
-							<input type="text" name="member_postcode" id="member_postcode" class="input" readonly size="10" value="${member.member_postcode}"/>
+							<input type="text" name="member_postcode" id="member_postcode" class="input" readonly size="10" value="${member.member_postcode}" required="required"/>
 							<input class="button" onclick="searchPost()" style="cursor: pointer" value="우편번호 찾기">
 						</div>
 						<div class="mypage_field_add">
@@ -228,7 +228,7 @@ function clickout(){
 						</div>
 						<div class="mypage_field_add">							
 							<label class="mypage_label" id="a">상세주소</label>
-							<input type="text" name="member_s_addr" id="member_s_addr" class="input" size="60" value="${member.member_s_addr}"/>						
+							<input type="text" name="member_s_addr" id="member_s_addr" class="input" size="60" value="${member.member_s_addr}" required="required"/>						
 						</div>
 					<div class="btns">
 						<input class="button" onclick="myinfoUp()" style="cursor: pointer" value="수정" />

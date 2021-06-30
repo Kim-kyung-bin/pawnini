@@ -19,6 +19,10 @@
     <div align="center">
        
        <h1> 분양 관리 리스트 </h1>
+       <div class="button">
+       <a href="goInsertPaws.do">신규 등록</a><br>
+       <a href="getPawsList.do">분양페이지</a>
+      </div>
        <table border="1">
           <tr class="head">
              <td>등록번호
@@ -48,10 +52,7 @@
              <td><a href="deletePaws.do?paws_id=${paws.paws_id}">삭제</a>
           </c:forEach>
        </table>
-       <div class="button">
-       <a href="goInsertPaws.do">신규 등록</a><br>
-       <a href="getPawsList.do">분양페이지</a>
-      </div>
+       
     </div>
  </body>
 

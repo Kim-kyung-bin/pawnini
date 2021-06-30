@@ -120,15 +120,15 @@
 				</table>
 				<table align="center">
 					<tr class="cash">
-						<td class="cash_border" ><span>상품 주문 금액:</span>
+						<td class="cash_border" ><strong><span>상품주문금액:</span></strong>
 							<span> <fmt:formatNumber
 								pattern="###,###,###" value="${map.sumTotal}" />원</span>
 							<span>+</span>
-							<span>배송비:</span>
+							<strong><span>배송비:</span></strong>
 							<span> <fmt:formatNumber pattern="###,###,###"
 								value="${map.shippingFee}" />&nbsp;원</span> 
 								<span>=</span>
-								<span>최종 주문 금액:</span>
+								<strong><span>최종주문금액:</span></strong>
 								<span> <fmt:formatNumber
 								pattern="###,###,###" value="${map.finalSum}" />&nbsp;원</span></table>
 				<input type="hidden" name="count" value="${map.count}" />

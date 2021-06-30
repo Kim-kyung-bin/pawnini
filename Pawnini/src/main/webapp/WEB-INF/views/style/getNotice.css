@@ -11,16 +11,17 @@ div.title{
     width:1000px;
 }
 
-.form_box span{
-    font-weight:bold;
-}
+
 
 .title {
     border-top: 1px solid;
     border-bottom: 1px solid;
     padding: 5px 0px 5px 0px;
     background-color:rgba(253, 203, 110,0.5 );
+    display:flex;
+    justify-content:space-between;
 }
+
 .writer{
     border-bottom:1px solid;
     padding:5px 0px 5px 0px;

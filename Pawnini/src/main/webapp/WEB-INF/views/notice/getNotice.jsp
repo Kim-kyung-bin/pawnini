@@ -28,19 +28,19 @@
 			<form action="go_updateNotice.do" method="post">
 				<input name="notice_id" type="hidden" value="${ notice.notice_id }" />
 				<div class="title">
-					<span>제목 : 
+					<span><strong>제목 :</strong> 
+					${ notice.notice_title }
 					</span> 
-					${ notice.notice_title } <br>
-					<span>등록일 : 
-					</span>
+					<span><strong>등록일 :</strong> 
 					<fmt:formatDate value="${ notice.notice_date }" pattern="yyyy-MM-dd" />
+					</span>
 				</div>
 				<div class="writer">
-					<span>작성자 : </span>
+					<strong><span>작성자 : </span></strong>
 					${ notice.notice_name }
 				</div>
 				<div class="content">
-					<span>내용</span>
+				<strong><span>내용</span></strong>
 				</div>
 					<div class="content_box">${ notice.notice_content }</div>
 				<div class="btnList">

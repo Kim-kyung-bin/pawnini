@@ -8,7 +8,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Snack</title>
+<title>adoption</title>
 </head>
 
 <%@ include file="../include/Header.jsp"%>
@@ -24,12 +24,13 @@
 	<div class="grid">
 		<ul class="product">
 			<c:forEach items="${pawsList}" var="paws">
-				<li><img src="${paws.paws_thumb_img}" class="img_paws"><br>
-					<a href="getPawsDetail.do?paws_id=${paws.paws_id}"> <span
+				<li><a href="getPawsDetail.do?paws_id=${paws.paws_id}">
+				<img src="${paws.paws_thumb_img}" class="img_paws"><br>
+					 <span
 						class="text"></span>
-					<h3>${paws.paws_name}</h3>	
-						<p>${paws.paws_age}</p>
-				<p>${paws.paws_sex}</p>
+					<h3>이름 : ${paws.paws_name}</h3>	
+						<p>나이 :  ${paws.paws_age}</p>
+				<p>성별 : ${paws.paws_sex}</p>
 						</a></li>
 			
 			</c:forEach>

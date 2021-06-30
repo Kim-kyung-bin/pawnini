@@ -15,6 +15,12 @@ html {
     background-color:#ffeaa7;
     padding: 1.5rem 0;
 }
+
+span.input-group-btn{
+        margin-bottom:7px;
+}
+   
+
 .insertForm span, .updateForm span  {
     font-weight: bold;
 

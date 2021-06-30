@@ -3,31 +3,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="../../style/productRegistration.css" />
-
-<title>Insert title here</title>
-
-
-
+<script src="http//code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="../../style/productRegistration.css" />
+<link rel="stylesheet" href="https//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+<title>상품 추가</title>
 </head>
    <%@ include file="../../include/Header.jsp" %> 
 <body>
-	<div class="insert_product" align="center">
-		<form action="insertProduct.do" method="post" enctype="multipart/form-data">
-		<table class="table">
-			<tr>
-				<td>1차 분류 : 
-					<select name="product_f_code" id="categori1"  class="option">
-						<option value="" selected="selected">--선택--</option>
-						<option value="DOG">강아지</option>
-						<option value="CAT">고양이</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>2차 분류 :
-				<div class="dog" > 
+	<div class="Guide">
+		<span>ADMIN</span>
+	</div>
+	
+	<div class="insert_product">
+		<form class="insProd_form" action="insertProduct.do" method="post" enctype="multipart/form-data">
+			<h1 class="insProd_heading">신규 상품 등록 <i class="fas fa-paw"></i></h1>
+			<hr>
+			<div class="insProd_field">
+				<label class="insProd_label">1차 분류</label> 
+				<select name="product_f_code" id="categori1"  class="option">
+					<option value="" selected="selected">--선택--</option>
+					<option value="DOG">강아지</option>
+					<option value="CAT">고양이</option>
+				</select>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">2차 분류  </label>
+				<div class="dog"> 
 					<select name="product_s_code" id="product_s_code_dog" class="option">
 						<option value="" selected="selected">--선택--</option>
 						<option value="MEAL">사료</option> 
@@ -43,10 +44,9 @@
 						<option value="SUPPLIES">고양이용품</option> 
 					</select>
 				</div>
-				</td>
-			</tr>
-			<tr>
-				<td>3-1차분류 : 
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">3-1차분류 </label> 
 				<div class="dog_meal" >
 					<select name="product_t_code" id="product_t_code_dog_meal" class="option">
 						<option value="" selected="selected">--선택--</option>
@@ -103,67 +103,51 @@
 						<option value="캣타워/집">캣타워/집</option>
 					</select>
 				</div>
-				</td>
-			</tr>
-			<tr>
-				<td>3-2차분류 : 
-					<input type="text" name="product_t_code2" id="categori3-2">
-				</td>
-			</tr>
-			<tr>
-				<td>브랜드 :
-					<input type="text" name="product_brand" required>
-				</td>
-			</tr>
-			<tr>
-				<td>상품명 :
-					<input type="text" name="product_name" required>
-				</td>
-			</tr>
-			<tr>
-				<td>상품 옵션 :
-					<input type="text" name="product_option" >
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="product_img">상품 이미지: </label>
-					<input type="file" name="file" id="product_img" required>
-				</td>
-			</tr>
-			<tr>
-				<td>미리보기
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">3-2차분류  </label>
+				<input type="text" name="product_t_code2" id="categori3-2">
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">브랜드  </label>
+				<input type="text" name="product_brand" required>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품명  </label>
+				<input type="text" name="product_name" required>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 옵션 </label>
+				<input type="text" name="product_option" >
+			</div>
+			<div  class="insProd_field_noborder">
+				<label class="insProd_label" for="product_img">상품 이미지 </label>
+				<input type="file" name="file" id="product_img" size="10" required>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">미리보기</label>
 				<div class="select_img"><img src="" /></div>
-				</td>
-			</tr>
-			<tr>
-				<td>상품 설명 :
-					<textarea rows="10" cols="40" name="product_desc" required></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>상품 재고 :
-					<input type="text" name="product_stock" required>
-				</td>
-			</tr>
-			<tr>
-				<td>상품 가격 :
-					<input type="text" name="product_price" required>
-				</td>
-			</tr>
-			<tr>
-				<td>상품 원가 :
-					<input type="text" name="product_c_price" required>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input class="button" type="submit" value="등록하기">
-				</td>
-			</tr>	
-		</table>
-		</form>
-
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 설명 </label>
+				<textarea class="product_desc" rows="20" cols="100" name="product_desc" required></textarea>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 재고 </label>
+				<input type="text" name="product_stock" required>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 가격 </label>
+				<input type="text" name="product_price" required>&nbsp;원
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 원가 </label>
+				<input type="text" name="product_c_price" required>&nbsp;원
+			</div>
+		<div class="btns">
+				<input class="button" type="submit" value="등록하기"/>		
+		</div>			
+	</form>
 	</div>
 </body>
     <%@ include file="../../include/Footer.jsp" %>
@@ -183,7 +167,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#categori1').change(function() {
-			var result=$('#categori1 option:selected').val();
+			var result=$('#categori1 optionselected').val();
 			if(result=='DOG'){
 				$('.dog').show();
 				$('.cat').hide();
@@ -191,7 +175,7 @@
 				$('#product_s_code_cat').prop("disabled", true);
 				
 				$('#product_s_code_dog').change(function() {
-					var categori2_dog=$('#product_s_code_dog option:selected').val();
+					var categori2_dog=$('#product_s_code_dog optionselected').val();
 					if(categori2_dog=='MEAL'){
 						$('.dog_meal').show();
 						$('.dog_snack').hide();
@@ -247,7 +231,7 @@
 				
 
 				$('#product_s_code_cat').change(function() {
-					var categori2_cat=$('#product_s_code_cat option:selected').val();
+					var categori2_cat=$('#product_s_code_cat optionselected').val();
 					if(categori2_cat=='MEAL'){
 						$('.dog_meal').hide();
 						$('.dog_snack').hide();
@@ -290,17 +274,9 @@
 						$('#product_t_code_cat_snack').prop("disabled", true);
 						$('#product_t_code_cat_supplies').prop("disabled", false);	
 					}
-				});
-				
-				
+				});				
 			}
-		});		
-		
-		
-		
-	
-	
-		
+		});			
 	});
 </script>
 

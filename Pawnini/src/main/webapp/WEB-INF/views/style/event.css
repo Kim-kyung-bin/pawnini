@@ -11,9 +11,9 @@
 .event_grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-template-rows:repeat(5,300px);
-    gap: 98px;
-    width: 80%;
+    grid-template-rows: repeat(4,300px);
+    gap: 136px;
+    width: 67%;
     text-decoration: none;
     list-style: none;
     text-shadow:  1px 1px 2px white;
