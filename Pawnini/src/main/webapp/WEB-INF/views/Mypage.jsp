@@ -1,83 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/main.css" />
-    <link rel="stylesheet" href="style/Mypages.css" />
-    <title>Pawnini</title>
-  </head>
-     <%@ include file="include/Header.jsp" %>
-  
-  <body>
-  <div class="Guide">
-        <span>마이페이지</span>
-      </div>
-    <div class="wrap">
-      <div class="greenContainer">
-        <div>
-        <c:set var="grade" value="${member.member_grade}"/>
-   	<c:if test="${grade eq 1}">
-          <div class="grade">일반 회원</div>
-    </c:if>
-   	<c:if test="${grade eq 2}">
-          <div class="grade">관리자</div>
-    </c:if>
-          <div class="name">${member.member_nickname}</div>
-        </div>
-        <div class="modify">i</div>
-      </div>
-    
-      <div class="listContainer">
-        <a href="getOrderList.do" class="item">
-          <div class="icon">ii</div>
-          <div class="text">주문목록<span class="circle"></span></div>
-          <div class="right">></div>
-        </a>
-        <a href="getCartList.do" class="item">
-          <div class="icon">ii</div>
-          <div class="text">장바구니<span class="circle"></span></div>
-          <div class="right">></div>
-        </a>
-        <a href="getProduct_inqList.do" class="item">
-          <div class="icon">ii</div>
-          <div class="text">상품문의</div>
-          <div class="right">></div>
-        </a>
-      </div>
-      <div class="listContainer">
-       
-        <a href="#" class="item">
-          <div class="icon">ii</div>
-          <div class="text">알림</div>
-          <div class="right">></div>
-        </a>
-        <a href="#" class="item">
-          <div class="icon">ii</div>
-          <div class="text">설정</div>
-          <div class="right">></div>
-        </a>
-      </div>
-      <div class="infoContainer">
-        <a href="#" class="item">
-          <div>icon</div>
-          <div>공지사항</div>
-        </a>
-        <a href="mypage1.do?member_id=${member.member_id}" class="item">
-          <div>icos</div>
-          <div>회원정보수정</div>
-        </a>
-        <a href="#" class="item">
-          <div>icon</div>
-          <div>고객센터</div>
-        </a>
-      </div>
-    </div>
-  </body>
-<%@ include file="include/Footer.jsp" %>
-  
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style/main.css" />
+<link rel="stylesheet" href="style/Mypages.css" />
+<title>Pawnini</title>
+</head>
+<%@ include file="include/Header.jsp"%>
+
+<body>
+	<div class="Guide">
+		<span>마이페이지</span>
+	</div>
+
+	<div class="grid">
+		<div class="shopping">
+			<a href="getCartList.do"> <i class="fas fa-shopping-cart fa-lg"></i><h3>장바구니</h3></a>
+		</div>
+		<div class="exclamation">
+			<a href="getNoticeList.do"><i class="fas fa-exclamation"></i><h3>공지사항</h3></a>
+		</div>
+		<div class="credit-card">
+			<a href="getOrderList.do" ><i class="fas fa-credit-card"></i><h3>주문내역</h3></a>
+		</div>
+		<div class="question-circle">
+			<a href="getProduct_inqList.do"><i class="far fa-question-circle"></i><h3>상품문의</h3></a>
+		</div>
+		<div class="info-circle">
+			<a href="getCsList.do"><i class="fas fa-info-circle"></i><h3>고객센터</h3></a>
+		</div>
+		<div class="user-edit">
+			<a href="mypage1.do?member_id=${member.member_id}"><i class="fas fa-user-edit"></i><h3>정보수정</h3></a>
+		</div>
+
+	</div>
+
+	</div>
+	</div>
+</body>
+<%@ include file="include/Footer.jsp"%>
+
 </html>

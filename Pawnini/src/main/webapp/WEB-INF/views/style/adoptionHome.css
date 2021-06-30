@@ -75,7 +75,7 @@ section div {
 }
 
 .bener_ul li:nth-child(2) {
-	background-image: url("../images/dog12.jpg");
+	background-image: url("../images/cat1.jpg");
 	background-position: center center;
 	background-size: cover;
 }
@@ -87,20 +87,20 @@ section div {
 }
 
 .bener_ul li:nth-child(4) {
-	background-image: url("../images/dog12.jpg");
+	background-image: url("../images/cat2.png");
 	background-position: center center;
 	background-size: cover;
 	width: 600px;
 }
 
 .bener_ul li:nth-child(5) {
-	background-image: url("../images/dog12.jpg");
+	background-image: url("../images/dog3.png");
 	background-position: center center;
 	background-size: cover;
 }
 
 .bener_ul li:nth-child(6) {
-	background-image: url("../images/dog12.jpg");
+	background-image: url("../images/cat3.jpg");
 	background-position: center center;
 	background-size: cover;
 }

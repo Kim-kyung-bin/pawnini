@@ -26,7 +26,7 @@
           <ul class="event_grid">
 			<c:forEach items="${productList}" var="product">
 				<li><a href="detailProduct.do?product_id=${product.product_id}"><img src="${product.product_thumb_img}">
-					<h5>${product.product_name }</h5>
+					<h5><img src="http://fiximage.10x10.co.kr/web2013/shopping/tag_sale.gif" alt="SALE">&nbsp;${product.product_name }</h5>
 					<h5><fmt:formatNumber pattern="###,###,###" value="${product.product_price}" /> 원</h5>
 					</a>
 				</li>

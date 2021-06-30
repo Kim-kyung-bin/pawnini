@@ -1,29 +1,84 @@
-.Coment {
+/* Footer */
+
+
+#footer{
+	width: 100%;
+	background-color: #f9bc4b;
+	font-size: 4rem;
+	font-weight: bold;
+	padding:0;
+	position: relative;
+}
+.blue-box{
+    width: 80%;
+    padding-right: 15px;
+    padding-left:  15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    background-color: #f9bc4b;
+    line-height: 1.5;
+    text-align: left;
+    color: #fff;
+    padding: 10px 15px;
+}
+.blue-container{
+	padding: 0 15px;
+	margin: auto 189.6px;
+}
+.footer-f-column{
 	display: flex;
-	border-top: 1px solid rgba(0, 0, 0, 0.5);
-	background-color: #F4F4F4;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
 	width: 100%;
 }
-
-.Coment_Ul {
-	color: black;
-	display: flex;
-	flex-direction: column;
-	margin-left: 20px;
-	margin-right: 200px;
+.footer-c{
+	flex-basis: 0;
+	flex-grow: 1;
+	position: relative;
+	padding-right: 15px;
+	padding-left:  15px;
+	width: 70%;
+	display: block;
 }
 
-.Coment_span {
-	padding: 30px 0px 20px 0px;
-	display: flex;
-	font-size: 13px;
-	color: rgba(0, 0, 0, 0.5);
+.footer-m{
+	position: relative;
+	padding-right: 15px;
+	padding-left: 15px;
+	display: block;
+	width: 10%;
+
 }
+.footer-l{
+	position: relative;
+	padding-right: 15px;
+	padding-left: 15px;
+	display: block;
+	width: 20%;
+}
+#footer p {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  margin-right: 20px;
+  margin-top: 13px;
+  color: white;
+}
+
+.social-icon:hover {
+  color: #0061a8;
+}
+
 
 .Bouns_ul {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	background-color: #ffb1b1;
+	background-color: #0e1c98;
 	padding: 20px;
 	width: 97%;
 	margin-left: 14px;
@@ -53,4 +108,9 @@
 	font-variant: normal;
 	text-rendering: auto;
 	line-height: 0.6;
+	color: #fdcb6e;
+}
+
+.footer-l i{
+	color:white;
 }

@@ -198,6 +198,10 @@
 		swal("", "파일을 첨부해 주시기 바랍니다.", "warning");
 		}
 	}
+	
+	function insert_product_inq() {
+		window.location.href="go_insertProduct_inq.do";
+	}
 </script>
 <%@ include file="../include/Header.jsp"%>
 <body>
@@ -279,6 +283,7 @@
 				<c:if test="${product.product_stock == 0 }">
 					<button class="button_two">품절</button>
 				</c:if>
+					<button class="button_two" onclick="insert_product_inq();">상품문의</button>
 			</div>
 		</div>
 	</div>
@@ -328,7 +333,7 @@
 			</li>
 			<li>
 				<h3>
-					<i class="fas fa-rss"></i>만원 이상 구매시 무료배송
+					<i class="fas fa-rss"></i>5만원 이상 구매시 무료배송
 				</h3>
 			</li>
 		</ul>

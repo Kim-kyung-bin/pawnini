@@ -69,7 +69,7 @@
         	</select>
 	        <input class="Header_input" type="text" placeholder="" name="searchKeyword2" />
 	     <div class="searchIcon">
-        <i class="fas fa-search"/></i>
+	     	<img src="./images/icon.png" class="icon_img">
 	     </div>
         </form>
       </div>

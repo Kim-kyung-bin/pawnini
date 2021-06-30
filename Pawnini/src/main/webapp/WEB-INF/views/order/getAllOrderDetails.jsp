@@ -138,10 +138,10 @@
 					</div>
 					<hr>
 					<p>
-						<span>결제수단</span>카드결제&nbsp;&nbsp;(${allDetails.ord_card_info1})
+						<strong><span>결제수단</span></strong>&nbsp;&nbsp;카드결제&nbsp;&nbsp;(${allDetails.ord_card_info1})
 					</p>
 					<p>
-						<span>최종결제금액</span>&nbsp;
+						<strong><span>최종결제금액</span></strong>&nbsp;
 						<fmt:formatNumber pattern="###,###,###"
 							value="${allDetails.ord_total}" />
 						&nbsp;원&nbsp;
@@ -151,16 +151,17 @@
     </c:if>
 					<hr>
 					<p>
-						<span>수령인명 : </span>${allDetails.recipient_name}</p>
+						<strong><span>수령인명 : </span></strong>${allDetails.recipient_name}</p>
 					<p>
-						<span>배송지 : </span>(${allDetails.ord_postcode})
+						<strong><span>배송지 : </span></strong>(${allDetails.ord_postcode})
 						${allDetails.ord_f_addr} ${allDetails.ord_s_addr}
 					</p>
 					<p>
-						<span>연락처 : </span>${allDetails.ord_phone}</p>
+						<strong><span>연락처 : </span></strong>${allDetails.ord_phone}</p>
 					<p>
-						<span>요청사항 :</span>${allDetails.ord_req_msg}</p>
+						<strong><span>요청사항 :</span></strong>${allDetails.ord_req_msg}</p>
 				</c:if>
+				<hr>
 
 
 			</c:forEach>

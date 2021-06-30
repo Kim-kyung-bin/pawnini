@@ -69,7 +69,7 @@
 							<span>결제수단</span>카드결제&nbsp;&nbsp;(${orderDetails.ord_card_info1})
 						</p>
 						<p>
-							<span>최종결제금액</span>&nbsp;
+							<span>결제금액</span>&nbsp;
 							<fmt:formatNumber pattern="###,###,###"
 								value="${orderDetails.ord_total}" />
 							&nbsp;원&nbsp;

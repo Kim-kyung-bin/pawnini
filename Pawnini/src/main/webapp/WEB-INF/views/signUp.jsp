@@ -73,6 +73,11 @@
 		var member_postcode = $("#member_postcode").val();
 		var member_f_addr = $("#member_f_addr").val();
 		var member_s_addr = $("#member_s_addr").val();
+		var email_ver = $(".email_check_input").val();
+		
+		
+		var verEmail = $("#email_check_input_warn").val();
+		
 		if (checkID == false) {
 			console.log("아이디 중복검사 안함");
 		}
@@ -84,7 +89,9 @@
 		}
 		if (checkID == false || checkPWD == false || checkNAME == false) {
 			swal("", "필수항목이 비어있습니다. 입력해주세요.", "warning");
-		} else {
+		} else if (email_ver == null || email_ver == ""){
+			swal("", "이메일 인증을 해주세요.", "warning");
+		}else {
 			$.ajax({
 				type : "POST",
 				url : "insertMember.do",
@@ -201,6 +208,7 @@
 		var member_email = $("#email_id").val() + "@" + $("#email_addr").val();		//입력한 이메일
 		var checkBox = $(".email_check_input");		//인증번호 입력란
 		var checkBtn = $(".email_check_btn"); 	//버튼
+		
 		if (member_email == "@" || $("#email_id").val()== "" || $("#email_addr").val() == "")  {
 			swal({
 				icon:"error",
@@ -246,10 +254,10 @@
 					}
 				});
 				}
-			});
-			
-		}
+			});	
+		}		
 	};
+	
 	
 </script>
 
@@ -267,7 +275,7 @@
 				<div class="field">
 					<label class="label">아이디<span class="star">*</span></label>
 					<input type="text" id="member_id" class="input" onFocus="" />
-					<input class="btn-default" onClick="idChk()" size="5" style="text-align:center; cursor: pointer;" value="중복확인"/><br />
+					<input class="btn-default" onClick="idChk()" size="10" style="text-align:center; cursor: pointer;" value="중복확인"/><br />
 					<label class="ver_info" id="idchk"></label>
 				</div>
 				<div class="field">
@@ -304,7 +312,7 @@
 						<label class="label"></label>
 		           		<input type="text" size="15" id="email_check_input_false" 	class="email_check_input" disabled="disabled"/>
 		           		<input class="btn-default email_check_btn" onclick="emailCheck()" size="8" style="text-align:center; cursor: pointer" value="인증번호 전송"/>
-            	  		<div class="ver_info" id="email_check_input_warn"></div>
+            	  		<div id="email_check_input_warn"></div>
 		               	</div>					
 				</div>                
             
@@ -336,7 +344,7 @@
 	            </div>
 	            
 				<div class="btns">
-	                  <input class="btn-default" onclick="doSignup()"  size="6" style="text-align:center; cursor: pointer" value="회원가입"/>			
+	                  <input class="btn-default" onclick="doSignup()"  size="10" style="text-align:center; cursor: pointer" value="회원가입"/>			
 				</div>
       </form>
     </section>

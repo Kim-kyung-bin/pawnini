@@ -312,7 +312,7 @@
   <class id="35" language="java" name="com.pawnini.model.product.impl.ProductServiceImpl" project="Pawnini" 
     file="/Pawnini/src/main/java/com/pawnini/model/product/impl/ProductServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2010" y="1387"/>    
+    <position height="-1" width="-1" x="2202" y="1635"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -339,7 +339,7 @@
   </class>  
   <interface id="38" language="java" name="com.pawnini.model.product.ProductService" project="Pawnini" 
     file="/Pawnini/src/main/java/com/pawnini/model/product/ProductService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1671" y="2489"/>    
+    <position height="-1" width="-1" x="2567" y="1229"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

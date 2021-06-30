@@ -29,7 +29,7 @@
 			</tr>
 			<c:forEach items="${noticeList}" var="notice">
 				<tr>
-					<td>${ notice.notice_id }</td>
+					<td>공지</td>
 					<td align="left"><a	href="getNotice.do?notice_id=${ notice.notice_id }">
 					 ${ notice.notice_title }</a></td>
 					<td>${ notice.notice_name }</td>

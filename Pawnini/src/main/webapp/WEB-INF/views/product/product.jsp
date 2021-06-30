@@ -107,9 +107,46 @@
           <a href="detailProduct.do?product_id=${product.product_id}">
             <img class="product_img" src="${product.product_thumb_img}" />
              <ul class="product_list">
+             
               <li class="product_title">${product.product_name.substring(0,10)}....</li>
               <li class="product_cash">가격 <fmt:formatNumber pattern="###,###,###" value="${product.product_price}" /> 원</li>
-              <li class="product_rank">평점 : ${product.rev_avg_stars }</li>
+              <li class="product_rank"><div class="score__stars">
+			<c:if test="${product.rev_avg_stars == 0}">
+			<i class="far fa-star"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 0.5}">
+			<i class="fas fa-star-half-alt"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 1}">
+			<i class="fas fa-star"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 1.5}">
+			<i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 2}">
+			<i class="fas fa-star"></i><i class="fas fa-star"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 2.5}">
+			<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 3}">
+			<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 3.5}">
+			<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 4}">
+			<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 4.5}">
+			<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+			</c:if>
+			<c:if test="${product.rev_avg_stars == 5}">
+			<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+			</c:if>
+			<span class="score__tstars">${product.rev_avg_stars}</span>
+		</div></li>
+              
             </ul>
           </a>
         </li>

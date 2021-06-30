@@ -4,7 +4,7 @@ div.content_box{
     border-top:1px solid #000000;
     border-bottom:1px solid #000000;
     width:1000px;
-    height: 500px;
+    height: auto;
 }
 div.title{
     border-bottom: 1px solid #000000;
