@@ -12,7 +12,7 @@
 
 ![image](https://user-images.githubusercontent.com/55141334/124081108-1653de00-da86-11eb-9c37-a44b37642b18.png)
 
+## 개발 인원
 
-
-
+![image](https://user-images.githubusercontent.com/55141334/124081334-603cc400-da86-11eb-8f3d-5a3877c45dc3.png)
 
