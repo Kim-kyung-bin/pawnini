@@ -5,6 +5,14 @@ public class OrderDetailsDTO {
 	private String ord_id;
 	private int product_id;
 	private int cart_amount;
+	private String member_id;
+	
+	public String getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
 	public int getOrd_d_id() {
 		return ord_d_id;
 	}

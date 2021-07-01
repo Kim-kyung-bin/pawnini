@@ -167,9 +167,9 @@
 		$(".delete_btn").on("click", function(){
 			var yn = confirm("게시글을 삭제하시겠습니까? \n* 게시물 삭제시 답변도 함게 삭제됩니다 *");
 			if (yn) {
-				alert("", "게시물이 삭제되었습니다", "success");
+				alert("게시물이 삭제되었습니다");
 			} else {
-				alertl("", "삭제를 실패했습니다.", "error");
+				alert("삭제를 실패했습니다.");
 				return false;				
 			}
 		})
