@@ -41,9 +41,15 @@
 </div>
 <div align="center">
 		<c:if test="${member.member_grade == 2}">
-		<a id="btnList" class="button" href="go_insertNotice.do">새 글 등록</a>
+		<button class="btnList" type="button" onclick="insertNotice()">새글등록</button>
 		</c:if>
 </div>
 </body>
    <%@ include file="../include/Footer.jsp" %>
+   
+   <script type="text/javascript">
+   function insertNotice() {
+	window.location.href="go_insertNotice.do";
+}
+   </script>
 </html>

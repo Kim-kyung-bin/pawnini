@@ -16,55 +16,75 @@
 	
 	<div align="center">
 
-		<form class="table_form" action="updatePaws.do" method="post">
-			<input name="paws_id" type="hidden" value="${paws.paws_id}" />
-			<table class="table">
-				<div class="table_in">
-					<tr>
-						<td class=""><span>1차분류</span> <select name="paws_f_code">
-								<option value="DOG">강아지</option>
-								<option value="CAT">고양이</option>
-						</select>
-					<tr>
-						<td><span>2차분류</span><input type="text" name="paws_s_code"
-							value="${paws.paws_s_code}" />
-					<tr>
-						<td><span>이름</span><input type="text" name="paws_name"
-							value="${paws.paws_name}" />
-					<tr>
-						<td><span>나이</span><input type="text" name="paws_age"
-							value="${paws.paws_age}" />
-					<tr>
-						<td><span>설명</span><textarea class="textarea" rows="10" cols="40"
-								name="paws_desc">
- 						 ${paws.paws_desc}</textarea>
-					<tr>
-						<td><span>성별</span><input type="text" name="paws_sex"
-							value="${paws.paws_sex}" />
-					<tr>
-						<td><span>중성화여부</span> <select name="paws_is_neutered">
-								<option value="Y">Y</option>
-								<option value="N">N</option>
-						</select>
-					<tr>
-						<td><span>건강상테</span><input type="text" name="paws_health"
-							value="${paws.paws_health}" />
-					<tr>
-						<td><input class="button" type="submit" value="수정" />
-						</td>
-				</div>
-			</table>
+		<form class="insPaws_form" action="updatePaws.do" method="post" enctype="multipart/form-data">
+			<h1 class="insPaws_heading">정보 수정<i class="fas fa-paw"></i></h1>
+			<hr>
+			<div class="insPaws_field">
+				<label class="insPaws_label">1차분류</label> <select class="option"
+					name="paws_f_code">
+					<option value="DOG">강아지</option>
+					<option value="CAT">고양이</option>
+				</select>
+			</div>
+			
+			<div class="insPaws_field">
+				<label class="insPaws_label">2차분류</label>
+				<input type="text" name="paws_s_code" value="${paws.paws_s_code}" required>
+			</div>
+			
+			<div class="insPaws_field">
+				<label class="insPaws_label">이름</label>
+				<input type="text" name="paws_name" value="${paws.paws_name }" required>
+			</div>
+			
+			<div class="insPaws_field">
+				<label class="insPaws_label">나이</label>
+				<input type="text" name="paws_age" value="${paws.paws_age }" required>
+			</div>
+			
+			<div class="insPaws_field_noborder">
+				<label class="insPaws_label" for="paws_img">이미지</label>
+				<input class="file" type="file" id="paws_img" name="file" size="10" />
+			</div>
+			
+			<div class="insPaws_field">
+				<label class="insPaws_label">미리보기</label>
+				<div class="select_img"><img src="" /></div>
+			</div>
+			
+			<div class="insPaws_field">
+				<label class="insPaws_label">설명</label>
+				<textarea rows="20" cols="100" name="paws_desc" required>${paws.paws_desc }</textarea>
+			</div>
+			
+			<div class="insPaws_field">
+				<label class="insPaws_label">성별</label>
+				<input type="text" name="paws_sex" value="${paws.paws_sex }" required>
+			</div>
+			
+			<div class="insPaws_field">
+				<label class="insPaws_label">중성화</label>
+				<select class="option" name="paws_is_neutered">
+					<option value="Y">Y</option>
+					<option value="N">N</option>
+				</select>
+			</div>
+			
+			<div class="insPaws_field">
+				<label class="insPaws_label">건강상태</label>
+				<input type="text" name="paws_health" value="${paws.paws_health }" required>
+			</div>
+			<div class="btns">
+				<input class="button" type="submit" value="수정">
+				<input class="button" type="button" onclick="List()" value="목록">
+			</div>			
 		</form>
-	<div class="btnDiv">
-		<div class="button">
-			<a href="deletePaws.do?paws_id=${paws.paws_id}">삭제</a>
-		</div>
-		<div class="button">
-			<a href="AdminGetPawsList.do">목록</a>
-		</div>
-	</div>
 </div>
-
+	<script type="text/javascript">
+		function List() {
+			window.location.href="AdminGetPawsList.do";
+		}
+	</script>
 </body>
 <%@ include file="../../include/Footer.jsp"%>
 </html>

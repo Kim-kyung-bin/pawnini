@@ -17,6 +17,8 @@
 <title>글 상세</title>
 <link rel="stylesheet" href="../style/product_inq.css"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<script src="${path}/ckeditor/ckeditor.js "></script>
 <script type="text/javascript">
 function getProduct_inqList() {
 	window.location.href="getProduct_inqList.do";
@@ -56,60 +58,72 @@ function deleteProduct_inq() {
 
 <body>
 	<div class="Guide">
-      <span>상품문의</span>
+      <label class="prod_inq_label"class="">상품문의</label>
     </div>
     
-	<div align="center">
+
 		<div class="form_box">
-			<form action="go_updateProduct_inq.do" method="post">
+			<form class="prod_inq_form" action="go_updateProduct_inq.do" method="post">
 				<input name="inq_id" type="hidden" value="${ product_inq.inq_id }" />
-				<div class="title">
-					<span>제목</span> 
-					${ product_inq.inq_title } <br>
-					<span>등록일 
-					</span>
-					<fmt:formatDate value="${ product_inq.inq_date }" pattern="yyyy-MM-dd" />
+				
+				<div class="use_flex">
+					<div class="getTitle">
+						<label class="prod_inq_label">제목</label>
+						<span>${ product_inq.inq_title }</span> 
+					</div>
+					<div class="getRegdate">	
+						<label class="prod_inq_label">등록일</label>
+						<span><fmt:formatDate value="${ product_inq.inq_date }" pattern="yyyy-MM-dd" /></span>
+					</div>
 				</div>
+
 				<div class="writer">
-					<span>작성자</span>
-					${ product_inq.inq_name }
+					<label class="prod_inq_label"class="">작성자</label>
+					<span>${ product_inq.inq_name }</span>
 				</div>
 				<div class="content">
-					<span>내용</span>
-				</div>
+					<label class="prod_inq_label"class="">내용</label>
 					<div class="content_box">${product_inq.inq_content }</div>
-				<div><!-- 추가된 항목 이미지 -->
- 					<label for="inq_image" >이미지</label>
- 					<img src="${product_inq.inq_thumb}"/>
+				</div>
+				<div class="image"><!-- 추가된 항목 이미지 -->
+ 					<label class="prod_inq_label"for="inq_image" >이미지</label><br/>
+ 					<div class="prod_image" style="padding-top:1rem;"><img src="${product_inq.inq_thumb}"/></div>
 				</div>
 				
 				<div class="btnList">
 				<c:if test="${product_inq.inq_name eq member.member_nickname}">
-					<input class="button"  type="submit" value="수정하기">
-					<input type="button" onclick="deleteProduct_inq()" value="삭제하기">
+					<input class="btn-default"  type="submit" value="수정하기">
+					<input type="button" class="btn-default" onclick="deleteProduct_inq()" value="삭제하기">
 				</c:if>
-					<input type="button" onclick="getProduct_inqList()" value="목록으로">
+					<input type="button" class="btn-default" onclick="getProduct_inqList()" value="목록으로">
 				</div>
 			</form>
 		</div>
 			
-	</div>
 			
 		<!-- 답글 -->
 	
 		<div class="form_box">
-		<div id="inq_rep" align="center">
-		<ol class="inq_repList">
+		<div class="prod_reply_form" id="inq_rep" align="center">
+		<ol>
 			<c:forEach items="${inq_repList}" var="inq_repList">
-				<li>
+				<li  class="inq_repList">
+					<div class="use_flex_reply">
+						<div class="title">
+							<label class="prod_inq_label_reply"><i class="fas fa-exclamation"></i> 제목</label>
+							<span>${inq_repList.inq_rep_title}</span>
+						</div>
+						<div class="getInfo">
+							<span class="prod_inq_reply_writer">${inq_repList.inq_rep_name}</span>  
+							<fmt:formatDate value="${inq_repList.inq_rep_date}" pattern="yyyy-MM-dd"/>
+						</div>
+					</div>
+					<div>${inq_repList.inq_rep_content}</div>
 					
-					<div class="title">제목: ${inq_repList.inq_rep_title}</div>
-					<div class="writer"> ${inq_repList.inq_rep_name}  <fmt:formatDate value="${inq_repList.inq_rep_date}" pattern="yyyy-MM-dd"/></div>
-					<p> ${inq_repList.inq_rep_content}</p>
-					<div>
+					<div class="btns">
 						<c:if test="${member.member_grade eq '2' }">
-						<button type="button" class="inq_repUpdateBtn btn btn-warning" data-rno="${inq_repList.inq_rep_id}">수정</button>
-						<button type="button" class="inq_repDeleteBtn btn btn-danger" data-rno="${inq_repList.inq_rep_id}">삭제</button>
+						<button type="button" class="inq_repUpdateBtn btn-default" data-rno="${inq_repList.inq_rep_id}">수정</button>
+						<button type="button" class="inq_repDeleteBtn btn-default" data-rno="${inq_repList.inq_rep_id}">삭제</button>
 						</c:if>
 					</div>
 				</li>
@@ -119,35 +133,33 @@ function deleteProduct_inq() {
 	</div>
 	
 	<!-- 답글 입력창 -->
-
 <c:if test="${ member.member_grade eq '2'}">
-
 	<div class="form_box" >
-	<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-	<div align="center">
-	<form name="inq_repForm" method="post" action="${contextPath}/insertInq_rep.do">
-		<div class="writer">
-			<input type="hidden" id="inq_id" name="inq_id" value="${product_inq.inq_id}">
-			<input type="hidden" id="inq_rep_title" name="inq_rep_title" value="상품 문의 답변입니다.">
-			<label for="inq_rep_name"></label>
-			<input type="hidden" id="inq_rep_name" name="inq_rep_name" value="관리자" >관리자
-		</div>
-		<div class="content">
-			<label for="inq_rep_content" class="col-sm-2 control-label">답글 내용</label>
-		</div>	
-			<div>
-				<textarea name="inq_rep_content" rows="3" cols="147" ></textarea>
-			</div>
-		
-		<div class="btnList">
-			<button type="submit" class="insertInq_repBtn btn btn-success" id="updateInq_ans" >입력</button>
-		</div>
-	</form>
-	</div>
+		<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+			<form name="inq_repForm" method="post" action="${contextPath}/insertInq_rep.do">
+				<div class="writer">
+					<input type="hidden" id="inq_id" name="inq_id" value="${product_inq.inq_id}">
+					<input type="hidden" id="inq_rep_title" name="inq_rep_title" value="상품 문의 답변입니다.">
+					<label class="prod_inq_label" for="inq_rep_name"></label><i class="far fa-edit"></i>
+					<input type="hidden" id="inq_rep_name" name="inq_rep_name" value="관리자" >
+					<span class="admin_reply">관리자 답글</span>
+				</div>
+				<div class="content_reply">
+					<div style="padding-bottom:1rem;">답글 내용</div>
+					<div>
+						<textarea class="textarea_reply" name="inq_rep_content"></textarea>
+						<script type="text/javascript">
+			            	CKEDITOR.replace("inq_rep_content");
+			            </script>
+					</div>
+				</div>	
+				
+				<div class="btnList">
+					<button type="submit" class="btn-default" id="updateInq_ans" >입력</button>
+				</div>
+			</form>
 	</div>
 </c:if>
-
-	<hr>
 
 </body>
    <%@ include file="../include/Footer.jsp" %>

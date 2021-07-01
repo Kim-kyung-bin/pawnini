@@ -77,6 +77,7 @@
 	<select id="getAllOrders" resultType="order">
 		SELECT DISTINCT O.ORD_ID, O.ORD_DATE, O.ORD_TOTAL, O.ORD_STATUS
 		FROM ORD O INNER JOIN ORD_DETAILS D ON O.ORD_ID = D.ORD_ID
+		ORDER BY O.ORD_DATE DESC
 	</select>
 	
 	<!-- 관리자:상세 주문 불러오기 -->
@@ -203,5 +204,19 @@
       FROM MEMBER
       WHERE MEMBER_ID = #{member_id}
    </select>
-	
+   
+   <select id="getMyPageInfo" resultType="order">
+   	SELECT COUNT(*) AS ORD_NUM, 
+   			SUM(ORD_USED_MILEAGE) AS ORD_USED_MILEAGE2, 
+   			SUM(ORD_TOTAL) AS ORD_TOTAL2 
+   	FROM ORD 
+   	WHERE MEMBER_ID = #{member_id}
+   </select>
+   
+   <select id="getTotalSales" resultType="order">
+   	SELECT SUM(ORD_TOTAL) AS ORD_SALES, COUNT(ORD_ID) AS ORD_CNT 
+   	FROM ORD
+   </select>
+   
+   
 </mapper>

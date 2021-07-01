@@ -45,9 +45,6 @@
         
         </div>        
 		</c:forEach>      
-        <!-- <div class="sa sa-right">디비전 7</div>
-        <div class="sa sa-left">디비전 8</div>
-        <div class="sa sa-left">디비전 8</div> -->
       </section>
 
       <h1 class="Store_two_text">오늘의 할인</h1>

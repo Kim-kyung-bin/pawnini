@@ -68,7 +68,7 @@
 						
 						<c:forEach var="cs" items="${ csList }">
 							<tr class="cs_td">	
-								<td width="5%" id="cs_id">${cs.cs_id }</td>
+								<td width="5%" id="cs_id" style="font-weight:600">${cs.cs_id }</td>
 								<td width="*" align="left">
 									<span style="padding-right:15px"></span>
 									<!-- 비공개일때 조건 -->
@@ -79,7 +79,7 @@
 													<c:choose>
 														<c:when test="${cs.cs_re_order > 0 }">
 															<c:forEach begin="1" end="${cs.cs_re_order}"  step="1">
-																<span style="padding-left:20px; font-weight:bold; color:red;"><i class="fab fa-replyd"></i>  : ↪   </span>
+																<span class="cs_reply"><i class="fab fa-replyd"></i>  : ↪   </span>
 															</c:forEach>
 															<a href="getCs.do?cs_id=${cs.cs_id }&curPage=${scri.curPage}&perPageNum=${scri.perPageNum }&searchOption=${scri.searchOption}&searchKeyword=${scri.searchKeyword}">${cs.cs_title}</a>
 														</c:when>
@@ -112,7 +112,7 @@
             					</td>
 		            					<td width="15%">${cs.cs_writer}</td>
     					<!--  		<td width="5%">${cs.cs_show }</td>   -->
-								<td width="20%"><fmt:formatDate value="${cs.cs_regdate }" pattern="yyyy년 MM월 dd일 HH시"/></td>			
+								<td width="20%"><fmt:formatDate value="${cs.cs_regdate }" pattern="yyyy년 MM월 dd일"/></td>			
 								<td width="7%">${cs.cs_hit }</td>
 								<c:if test="${member.member_grade eq 2 }">
 									<td width="15%" class="btns">

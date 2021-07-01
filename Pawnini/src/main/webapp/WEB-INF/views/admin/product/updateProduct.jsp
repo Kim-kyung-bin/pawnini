@@ -13,22 +13,21 @@
 	<div class="Guide">
       <span>상품 정보 수정</span>
     </div>
-	<div class="update_product" align="center">
-		<form action="updateProduct.do" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="product_id" value="${product.product_id}">
-		<table class="table">
-			<tr>
-				<td>1차 분류 : 
-					<select name="product_f_code" id="categori1"  class="option">
-						<option value="" selected="selected">--선택--</option>
-						<option value="DOG">강아지</option>
-						<option value="CAT">고양이</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>2차 분류 :
-				<div class="dog" > 
+	<div class="insert_product">
+		<form class="insProd_form" action="updateProduct.do" method="post" enctype="multipart/form-data">
+			<h1 class="insProd_heading">상품 수정 <i class="fas fa-paw"></i></h1>
+			<hr>
+			<div class="insProd_field">
+				<label class="insProd_label">1차 분류</label> 
+				<select name="product_f_code" id="categori1"  class="option">
+					<option value="" selected="selected">--선택--</option>
+					<option value="DOG">강아지</option>
+					<option value="CAT">고양이</option>
+				</select>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">2차 분류  </label>
+				<div class="dog"> 
 					<select name="product_s_code" id="product_s_code_dog" class="option">
 						<option value="" selected="selected">--선택--</option>
 						<option value="MEAL">사료</option> 
@@ -44,10 +43,9 @@
 						<option value="SUPPLIES">고양이용품</option> 
 					</select>
 				</div>
-				</td>
-			</tr>
-			<tr>
-				<td>3-1차분류 : 
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">3-1차분류 </label> 
 				<div class="dog_meal" >
 					<select name="product_t_code" id="product_t_code_dog_meal" class="option">
 						<option value="" selected="selected">--선택--</option>
@@ -104,72 +102,51 @@
 						<option value="캣타워/집">캣타워/집</option>
 					</select>
 				</div>
-				</td>
-			</tr>
-			<tr>
-				<td>3-2차분류 : 
-					<input type="text" name="product_t_code2" value="${product.product_t_code2}">
-				</td>
-			</tr>
-			<tr>
-				<td>브랜드 :
-					<input type="text" name="product_brand" value="${product.product_brand}">
-				</td>
-			</tr>
-			<tr>
-				<td>상품명 :
-					<input type="text" name="product_name" value="${product.product_name}">
-				</td>
-			</tr>
-			<tr>
-				<td>상품 옵션 :
-					<input type="text" name="product_option" value="${product.product_option }">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="product_img">상품 이미지: </label>
-					<input type="file" name="file" id="product_img">
-				</td>
-			</tr>
-			<tr>
-				<td>미리보기
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">3-2차분류  </label>
+				<input type="text" name="product_t_code2" value="${product.product_t_code2 }" id="categori3-2">
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">브랜드  </label>
+				<input type="text" name="product_brand" value="${product.product_brand }" required>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품명  </label>
+				<input type="text" name="product_name" value="${product.product_name }" required>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 옵션 </label>
+				<input type="text" name="product_option" value="${product.product_option }" >
+			</div>
+			<div  class="insProd_field_noborder">
+				<label class="insProd_label" for="product_img">상품 이미지 </label>
+				<input type="file" name="file" id="product_img" size="10" required>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">미리보기</label>
 				<div class="select_img"><img src="" /></div>
-				<input type="hidden" name="product_img" value="${product.product_img}">
-				<input type="hidden" name="product_thumb_img" value="${product.product_thumb_img}">
-				</td>
-			</tr>
-			<tr>
-				<td>상품 설명 :
-					<textarea rows="10" cols="40" name="product_desc">${product.product_desc}</textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>상품 재고 :
-					<input type="text" name="product_stock" value="${product.product_stock}">
-				</td>
-			</tr>
-			<tr>
-				<td>상품 가격 :
-					<input type="text" name="product_price" value="${product.product_price}">
-				</td>
-			</tr>
-			<tr>
-				<td>상품 원가 :
-					<input type="text" name="product_c_price" value="${product.product_c_price}">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input class="button" type="submit" value="수정하기">
-				</td>
-			</tr>	
-		</table>
-		</form>
-
-		
-		
-
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 설명 </label>
+				<textarea class="product_desc" rows="20" cols="100" name="product_desc" required>${product.product_desc }</textarea>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 재고 </label>
+				<input type="text" name="product_stock" value="${product.product_stock }" required>
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 가격 </label>
+				<input type="text" name="product_price" value="${product.product_price }" required>&nbsp;원
+			</div>
+			<div  class="insProd_field">
+				<label class="insProd_label">상품 원가 </label>
+				<input type="text" name="product_c_price" value="${product.product_c_price }" required>&nbsp;원
+			</div>
+		<div class="btns">
+				<input class="button" type="submit" value="등록하기"/>		
+		</div>			
+	</form>
 	</div>
 </body>
 	<%@ include file="../../include/Footer.jsp" %>

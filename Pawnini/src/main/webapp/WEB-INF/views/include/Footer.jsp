@@ -34,6 +34,7 @@
           <a href="#facebook"><i class="social-icon fab fa-facebook-f"></i></a>
           <a href="#instagram"><i class="social-icon fab fa-instagram"></i></a>
           <a href="mailto:grushenka.k18@gmail.com"><i class="social-icon fas fa-envelope"></i></a>
+          <a href="#whatsapp"><i class="social-icon fab fa-whatsapp"></i></a>
         </div>
       </div>
     </div>

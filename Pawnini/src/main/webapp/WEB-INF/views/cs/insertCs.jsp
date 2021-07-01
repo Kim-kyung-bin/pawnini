@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet" href="../style/cs.css"/>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<title>CS insertCs - - working on css/html</title>
+<title>PAWNINI - 고객서비스 게시물 추가</title>
 	<style type="text/css">
 	 .main_title {
 		text-align: center;
@@ -40,11 +40,11 @@
       <span>고객센터 문의사항 추가</span>
     </div>
 
-<div class="insertForm container">
+<div class="insertForm">
    <form name="insertForm" action="insertCs.do" method="post" enctype="multipart/form-data">
    <input type="hidden" name="member_id" id="member_id" value="${member.member_id }"/>
          <div class="title">
-			<label for="cs_title"><span>제목</span></label>
+			<label for="cs_title"><span>제목<span class="star">&nbsp;*</span></span></label>
 			<input class="input2" type="text" id="cs_title" name="cs_title" required autofocus>
          </div>
          <div class="writer">
@@ -61,7 +61,7 @@
          </div>
                   
          <div class="content">
-            <label for="cs_content"><span>내용</span></label>
+            <label for="cs_content" class="content_adjust"><span>내용</span><span class="star">&nbsp;*</span></label>
             <textarea name="cs_content" id="cs_content" cols="50" rows="50" required></textarea>
             <script type="text/javascript">
             	CKEDITOR.replace("cs_content");
@@ -69,7 +69,7 @@
          </div>
               
          <div class="attach">
-           	<label for="cs_uploadFile"><span>추가 파일 첨부 (옵션)</span></label>
+           	<label for="cs_uploadFile"><span>첨부파일</span></label>
            	<input class="input2" type="file" name="cs_uploadFile" id="cs_uploadFile"/>
          </div>               
          

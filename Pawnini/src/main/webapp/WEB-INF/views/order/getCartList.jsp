@@ -98,7 +98,7 @@
 							<tr class="product">
 								<td><img style="width: 100px; height: 150px;"
 									src="${row.product_thumb_img}" />
-								<td>${row.product_name}
+								<td><a href="detailProduct.do?product_id=${row.product_id}">${row.product_name}</a>
 								<td style="width: 80px" align="right"><fmt:formatNumber
 										pattern="###,###,###" value="${row.product_price}" />&nbsp;원
 								

@@ -102,6 +102,17 @@
 								},
 							});
 						}
+						
+						//파일 첨부 시 이름, 크기 출력
+						$("input[name=file]").on("change",function() {
+									var file = this.files[0],
+									fileName = file.name,
+									fileSize = file.size;
+									var fsize = Math.floor(fileSize/1000);
+								
+									$("#uploadImgInfo").text(fileName+" ("+fsize+"kb)");
+								});
+
 
 					});
 
@@ -490,6 +501,8 @@
 			<div class="revForm__file__icon">
 				<label class="input-file" for="rev_f_img"><i id="file__icon" class="fas fa-images"></i></label>
 				<input type="file" id="rev_f_img" name="file" style="display: none;" required />
+				<span id="uploadImgInfo"></span>
+				
 			</div>
 			<div class="revForm__btn">
 				<c:choose>

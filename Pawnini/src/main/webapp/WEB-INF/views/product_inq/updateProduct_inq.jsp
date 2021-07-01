@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품 문의 수정</title>
-<link rel="stylesheet" href="../style/getNotice.css"/>
+<link rel="stylesheet" href="../style/updateProd_inq.css"/>
 <script src = "${path}/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
 function getProduct_inqList() {

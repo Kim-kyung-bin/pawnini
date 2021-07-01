@@ -22,9 +22,6 @@
 		<div class="shopping">
 			<a href="getCartList.do"> <i class="fas fa-shopping-cart fa-lg"></i><h3>장바구니</h3></a>
 		</div>
-		<div class="exclamation">
-			<a href="getNoticeList.do"><i class="fas fa-exclamation"></i><h3>공지사항</h3></a>
-		</div>
 		<div class="credit-card">
 			<a href="getOrderList.do" ><i class="fas fa-credit-card"></i><h3>주문내역</h3></a>
 		</div>
@@ -33,6 +30,9 @@
 		</div>
 		<div class="info-circle">
 			<a href="getCsList.do"><i class="fas fa-info-circle"></i><h3>고객센터</h3></a>
+		</div>
+		<div class="exclamation">
+			<a href="getNoticeList.do"><i class="fas fa-exclamation"></i><h3>공지사항</h3></a>
 		</div>
 		<div class="user-edit">
 			<a href="mypage1.do?member_id=${member.member_id}"><i class="fas fa-user-edit"></i><h3>정보수정</h3></a>

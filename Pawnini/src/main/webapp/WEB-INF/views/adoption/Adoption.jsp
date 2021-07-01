@@ -14,7 +14,8 @@
 <%@ include file="../include/Header.jsp"%>
 
 <body>
-	<div class="Guide">
+	
+<div class="Guide">
 		<span>분양</span>
 	</div>
 
@@ -61,15 +62,14 @@
 			</li>
 			<li>
 				<h3>
-					<i class="fas fa-rss"></i>만원 이상 구매시 무료배송
+					<i class="fas fa-rss"></i>5만원 이상 구매시 무료배송
 				</h3>
 			</li>
 	</div>
 
 
-	<%@ include file="../include/Footer.jsp"%>
-
 
 </body>
+<%@ include file="../include/Footer.jsp"%>
 
 </html>

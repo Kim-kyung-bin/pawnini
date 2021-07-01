@@ -9,23 +9,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Pawnini - [${cs.cs_title } ]</title>
-    <style type="text/css">
+<title>PAWNINI - [${cs.cs_title } ]</title>
+<style type="text/css">
    a, a:hover, a:focus, a:active {
       color: black;
       text-decoration: none;
    }
-   
-   .content_box {
-   	 width: 80%;
-   	 background-color: white;
-   	 height: 12rem;
-   	 border: 1px solid black;
-   	 border-radius: 1em;
-	margin: auto;
-	padding: 1.1rem;
-	word-break:break-all;
-   }
+
 </style>    
 <script src="${path}/ckeditor/ckeditor.js "></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -58,25 +48,31 @@
 
 		<div class="csForm">
 			<div>
-				<i class="fas fa-info-circle"></i><span>&nbsp;ID : <span style="font-weight:bold;"> ${cs.member_id }</span></span>
+				<i class="fas fa-info-circle"></i><span>&nbsp;ID : <span style="font-weight:bold;">${cs.member_id }</span></span>
+				<span>&nbsp;&nbsp;&nbsp;공개 여부 : &nbsp;
+				<c:if test="${cs.cs_show eq 'Y' }">		
+					<span style="color:green"><i class="fas fa-check"></i></span>	
+				</c:if>
+				<c:if test="${cs.cs_show eq 'N' }">		
+					<span style="color:#4988b3"><i class="fas fa-lock"></i></span>	
+				</c:if>
+				</span>
 			</div>
-			<div class="title">
-				<label for="cs_title">제목</label> ${cs.cs_title }
+			<div class="use_flex">
+				<div class="getTitle">
+					<label for="cs_title">제목</label>${cs.cs_title }
+				</div>
+				<div class="getRegdate">
+					<label for="cs_regdate">작성일</label>
+					<fmt:formatDate value="${cs.cs_regdate }" pattern="yyyy년 MM월 dd일 HH시"/>
+				</div>			
 			</div>
 			<div class="writer">
-				<label for="cs_writer">작성자</label> ${cs.cs_writer }
+				<label for="cs_writer">작성자</label>${cs.cs_writer }
 			</div>
-			<div class="regdate">
-				<label for="cs_regdate">작성일</label>
-				<fmt:formatDate value="${cs.cs_regdate }" pattern="yyyy년 MM월 dd일 HH시mm분"/>
-			</div>
-			<div class="show">
-				<label for="cs_show">공개 여부</label> ${cs.cs_show }			
-			</div>
-
 			<div class="content">
-				<label for="cs_content">내용</label><br>
-				<div class="content_box">${cs.cs_content }</div>
+				<label for="cs_content">내용</label>
+				<div class="content_box_get">${cs.cs_content }</div>
 			</div>
 
 			<c:if test="${cs.cs_fileName ne null }">

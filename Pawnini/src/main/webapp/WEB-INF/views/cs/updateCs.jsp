@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<%@ page import="java.util.Date" %>
 
 
 <!DOCTYPE html>
@@ -38,16 +38,19 @@
 	<input type="hidden" id="cs_id" name="cs_id" value="${csList.cs_id }"/>
  <!--  앞에 csList는 controller에서 sessionAttributes and model.addAttribute() -->
  			<div style="padding-bottom:1rem;">
-				<label for="cs_id"><i class="fas fa-edit"></i><span>&nbsp;글번호</span><span style="font-weight:bold;"> ${csList.cs_id }</span></label>
+				<span style="padding-left:.6rem;"><i class="fas fa-edit"></i><span>&nbsp;글번호</span><span style="font-weight:bold;"> ${csList.cs_id }</span></span>
 <!--			<label for="member_id"><span>멤버아이디</span></label><span id="member_id" style="font-weight:bold;">${member.member_id }</span>  -->
 			</div>	
-			
-			<div class="title">
-				<label for="cs_title"><span class="title_label">제목</span></label>
-				<input class="input2" type="text" class="input2" id="cs_title" name="cs_title" value="${csList.cs_title }"  autofocus  required>
+			<div class="use_flex">
+				<div class="getTitle">
+					<label for="cs_title"><span class="title_label">제목</span></label>
+					<input class="input2" type="text" class="input2" id="cs_title" name="cs_title" value="${csList.cs_title }"  autofocus  required>
+				</div>
+				<div class="getRegdate2">
+					<label for="cs_regdate"><span class="title_label">작성일</span></label>
+					<fmt:formatDate value="${cs.cs_regdate }" pattern="yyyy년 MM월 dd일"/>
+				</div>
 			</div>
-			
-			
 			<div class="writer">
 				<label for="cs_writer"><span class="writer_label">작성자</span></label>
 				<input class="input2" type="text" name="cs_writer" class="input2" id="cs_writer" value="${member.member_nickname }" style="background-color:#f5eceb" disabled>

@@ -14,7 +14,7 @@
       <span>ADOPTION</span>
     </div>
     <h1 class="bener_text">They are waiting for their owners.</h1>
-    <div id="player"></div>
+    <div class="player" id="player"></div>
 
     <section>
       <div class="sa sa-scaleDown">
@@ -84,7 +84,7 @@
       function onYouTubeIframeAPIReady() {
         player = new YT.Player("player", {
           height: "700",
-          width: "100%",
+          width: "80%",
           videoId: "LwfU0oy2ako",
           events: {
             onReady: onPlayerReady,

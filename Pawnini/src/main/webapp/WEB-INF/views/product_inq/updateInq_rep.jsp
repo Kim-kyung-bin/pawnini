@@ -8,7 +8,9 @@
 </head>
 
   <%@ include file="../include/Header.jsp" %>
-  <link rel="stylesheet" href="../style/getNotice.css"/>
+  <link rel="stylesheet" href="../style/product_inq.css"/>
+  <script src = "${path}/ckeditor/ckeditor.js"></script>
+  
 <body>
 	<div class="Guide">
       <span>상품문의</span>
@@ -29,14 +31,18 @@
 				<input type="hidden" id="inq_rep_name" name="inq_rep_name" value="${inq_rep.inq_rep_name }" readonly="readonly">
 			</div>
 			
-			
-				<textArea id="inq_rep_content" name="inq_rep_content" cols="145" rows="3">${inq_rep.inq_rep_content }	
+			<div class="content">
+				<textArea id="inq_rep_content" name="inq_rep_content" >${inq_rep.inq_rep_content }	
 				</textArea>
+				<script type="text/javascript">
+	        	CKEDITOR.replace("inq_rep_content");
+	       		 </script>
+			</div>
 			
 			<div class="btnList">
-				<input class="button"  type="submit" value="수정하기">
+				<input class="button btn-default"  type="submit" value="수정하기">
 				
-				<button type="button" class="update_cancel_btn btn btn-danger">취소</button>
+				<button type="button" class="update_cancel_btn btn-default">취소</button>
 			</div>
 			</form>
 		</div>

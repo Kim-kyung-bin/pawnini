@@ -19,6 +19,26 @@ public class OrderDTO {
 	private int ord_used_mileage;
 	private int mileage_status;
 	private String ord_status;
+	private int ord_total2;
+	private int ord_used_mileage2;
+	private int ord_num;
+	private String ord_sales;
+	private String ord_cnt;
+
+	
+	
+	public String getOrd_sales() {
+		return ord_sales;
+	}
+	public void setOrd_sales(String ord_sales) {
+		this.ord_sales = ord_sales;
+	}
+	public String getOrd_cnt() {
+		return ord_cnt;
+	}
+	public void setOrd_cnt(String ord_cnt) {
+		this.ord_cnt = ord_cnt;
+	}
 	public String getOrd_id() {
 		return ord_id;
 	}
@@ -115,6 +135,24 @@ public class OrderDTO {
 	public void setOrd_status(String ord_status) {
 		this.ord_status = ord_status;
 	}
+	public int getOrd_total2() {
+		return ord_total2;
+	}
+	public void setOrd_total2(int ord_total2) {
+		this.ord_total2 = ord_total2;
+	}
+	public int getOrd_used_mileage2() {
+		return ord_used_mileage2;
+	}
+	public void setOrd_used_mileage2(int ord_used_mileage2) {
+		this.ord_used_mileage2 = ord_used_mileage2;
+	}
+	public int getOrd_num() {
+		return ord_num;
+	}
+	public void setOrd_num(int ord_num) {
+		this.ord_num = ord_num;
+	}
 	@Override
 	public String toString() {
 		return "OrderDTO [ord_id=" + ord_id + ", recipient_name=" + recipient_name + ", ord_date=" + ord_date
@@ -122,7 +160,7 @@ public class OrderDTO {
 				+ ", ord_phone=" + ord_phone + ", ord_email=" + ord_email + ", member_id=" + member_id + ", ord_total="
 				+ ord_total + ", ord_req_msg=" + ord_req_msg + ", ord_card_info1=" + ord_card_info1
 				+ ", ord_card_info2=" + ord_card_info2 + ", ord_used_mileage=" + ord_used_mileage + ", mileage_status="
-				+ mileage_status + ", ord_status=" + ord_status + "]";
+				+ mileage_status + ", ord_status=" + ord_status + ", ord_total2=" + ord_total2 + ", ord_used_mileage2="
+				+ ord_used_mileage2 + ", ord_num=" + ord_num + "]";
 	}
-	
 }

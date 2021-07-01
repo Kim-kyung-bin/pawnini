@@ -13,7 +13,7 @@ import com.pawnini.model.order.OrderService;
 import com.pawnini.model.product.ProductDTO;
 
 @Service("orderService")
-public class OrderServicempl implements OrderService {
+public class OrderServiceImpl implements OrderService {
 	@Autowired
 	OrderDAO dao;
 
@@ -141,6 +141,18 @@ public class OrderServicempl implements OrderService {
 	public int getCurrentMileage(String member_id) throws Exception {
 		System.out.println("현 적립금 불러오기");
 		return dao.getCurrentMileage(member_id);
+	}
+
+	@Override
+	public List<OrderDTO> getMyPageInfo(String member_id) throws Exception {
+		System.out.println("Mypage 적립금, 주문액, 주문건수 불러오기");
+		return dao.getMyPageInfo(member_id);
+	}
+
+	@Override
+	public List<OrderDTO> getTotalSales() throws Exception {
+		System.out.println("총매출 불러오기");
+		return dao.getTotalSales();
 	}
 
 }

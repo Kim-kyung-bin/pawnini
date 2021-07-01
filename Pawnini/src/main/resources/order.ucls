@@ -91,8 +91,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="11" language="java" name="com.pawnini.model.order.impl.OrderServicempl" project="Pawnini" 
-    file="/Pawnini/src/main/java/com/pawnini/model/order/impl/OrderServicempl.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="11" language="java" name="com.pawnini.model.order.impl.OrderServiceImpl" project="Pawnini" 
+    file="/Pawnini/src/main/java/com/pawnini/model/order/impl/OrderServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="297" y="850"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -110,33 +111,45 @@
     </display>  
   </class>  
   <association id="13">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="14" name="cartDAO"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="16">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <association id="17">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="18" name="orderService"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
+      <attribute id="14" name="orderService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="15" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="20">    
+  <association id="16">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="21" name="dao"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
+      <attribute id="17" name="dao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="18" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="19">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="20" name="cartDAO">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="22">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
   <realization id="23">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  

@@ -19,6 +19,9 @@
     background-color: #fdcb6e;
 } */
 
+.btnList{
+  margin-bottom:10px;
+}
 
 .product{
     background-color: #fdcb6e;
@@ -101,6 +104,7 @@ td:nth-child(1) {
     width: 10px;
     text-align:center;
     border-bottom: 1px solid rgb(156 126 126 / 50%);
+    height:50px;
 }
 
 td:nth-child(2) { 

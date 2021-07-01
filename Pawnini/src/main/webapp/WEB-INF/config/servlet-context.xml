@@ -19,19 +19,8 @@
 	<resources mapping="/imgUpload/**" location="/resources/imgUpload/" />
 	<resources mapping="/images/**" location="/WEB-INF/views/images/"/>
 	<resources mapping="/style/**" location="/WEB-INF/views/style/"/>
-	<resources mapping="/js/**" location="/WEB-INF/views/js/"/>
 	<!-- ckeditor 설정 -->
 	<resources location="/WEB-INF/views/ckeditor/" mapping="/ckeditor/**"></resources>
-	
-	<!-- 회원 정보 유지용 로그인 인터셉터 설정 -->
-	<beans:bean id="LoginInterceptor" class="com.pawnini.interceptors.LoginInterceptor"></beans:bean>
-	
-	<interceptors>
-		<interceptor>
-			<mapping path="/pawnini/*.do" />
-			<beans:ref bean="LoginInterceptor" />
-		</interceptor>
-	</interceptors>
 	
 	<annotation-driven />
 	

@@ -16,7 +16,7 @@
 <div class="insertForm">
 	<form action="updateNotice.do" method="post">
 	<input type="hidden" name="notice_name"  value="${member.member_nickname}">
-   		<div class="title">
+   		<div class="title_udt">
 	        <label for="notice_title"><span>제목</span></label>
 	        <input type="text" id="notice_title" name="notice_title" value="${notice.notice_title }" required/><br>
    		</div>

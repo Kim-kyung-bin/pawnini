@@ -33,6 +33,13 @@
 	        <label for="inq_name"><span>작성자</span></label>
 	        ${member.member_nickname}<br>
 	    </div>
+	    <div class="writer"><!-- 추가된 항목  공개 여부 -->
+        <label for="inq_show" ><strong>공개여부</strong></label> 
+        <select name="inq_show" >
+                      <option value="Y">Y</option>
+                      <option value="N">N</option>
+       </select>
+       </div>
 		<div class="content">
 			<label for="inq_content"><span>내용</span></label>
 	        <textarea name="inq_content" id="inq_content" cols="50" rows="50" required="required" wrap="soft" ></textarea>
@@ -42,25 +49,19 @@
 		</div>
 		
         <!-- 이미지 등록 -->
-		<div>		
-            <label for="inq_image">이미지</label>
+		<div class="writer">		
+            <label for="inq_image"><strong>이미지</strong></label>
 			<input type="file" id="inq_image" name="file" required/>
         </div>
         
-       <div><!-- 추가된 항목  공개 여부 -->
-        <label for="inq_show" >공개여부</label> 
-        <select name="inq_show" >
-                      <option value="Y">Y</option>
-                       <option value="N">N</option>
-       </select>
-       </div>
+       
        <!-- 회원아이디,제품번호   -->
        <input type="hidden" name="member_id" value="${member.member_id}" >
        <input type="hidden" name="product_id" value="${product.product_id}" >
        
 		<div class="btnList">
-	        <button type="submit">새글 등록</button>
-	        <button type="button" onclick="getProduct_inqList()">목록으로</button>
+	        <button type="submit" class="btn-default">새글 등록</button>
+	        <button type="button" class="btn-default" onclick="getProduct_inqList()">목록으로</button>
 		</div>
 	</form>
 </div>

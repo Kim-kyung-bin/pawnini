@@ -7,27 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../style/getOrderList.css" />
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
-section#content ul li {
-	border: 5px solid #eee;
-	padding: 10px 20px;
-	margin-bottom: 20px;
-	list-style: none;
-}
-
-section#content .orderList span {
-	font-size: 20px;
-	font-weight: bold;
-	display: inline-block;
-	width: 90px;
-	margin-right: 10px;
-}
-
-section#content .orderList {
-	margin-left: 300px; 
-	margin-right: 300px; 
-}	
 </style>
 
 </head>
@@ -36,8 +18,32 @@ section#content .orderList {
 	<div class="Guide">
         <span>주문리스트</span>
       </div>
-	<section id="content">
 	<hr>
+		<ul class="moneyList">
+				<li class="money__list">
+					<div>
+						<p>
+							<span class="money__title">가용적립금 </span>
+							<span class="money__content" style="color: #008bcc;"><fmt:formatNumber pattern="###,###,###"
+								value="${curMileage}" />원 </span>
+						</p>
+						<c:forEach items="${myinfoList}" var="money">
+						<p>
+							<span class="money__title">사용적립금 </span>
+							<span class="money__content"><fmt:formatNumber pattern="###,###,###"
+								value="${money.ord_used_mileage2}" />원</span>
+						</p>
+						<p>
+							<span class="money__title">총주문금액 </span>
+							<span class="money__content"><fmt:formatNumber pattern="###,###,###"
+								value="${money.ord_total2}" />원 (${money.ord_num}건)</span>
+						</p>
+					</c:forEach>
+					</div>
+				</li>
+		</ul>
+		
+	<section id="orderList">
 		<ul class="orderList">
 			<c:forEach items="${orderList}" var="orderList">
 				<li>
@@ -60,7 +66,6 @@ section#content .orderList {
 				</li>
 			</c:forEach>
 		</ul>
-
 	</section>
 
 

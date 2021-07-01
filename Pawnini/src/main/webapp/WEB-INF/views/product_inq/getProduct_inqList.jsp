@@ -13,87 +13,87 @@
 
 </head>
   <%@ include file="../include/Header.jsp" %>
-
 <body>
-	<center>
 	<div class="Guide">
     	  <span>상품 문의</span>
    	 </div>
 		
 		
-		<form role="searchForm" method="get">
+	<form class="searchForm" method="get">
 		<div class="search_row">
 				<div class="input-group">
-			<div class="col-xs-2 col-sm-2">
-				<select name="searchType" class="form-control">
-					<option value="n"<c:out value="${scri.searchType == null ? 'selected' : '' }"/>>-----</option>
-					<option value="t"<c:out value="${scri.searchType eq 't' ? 'selected' : '' }"/>>제목</option>
-					<option value="c"<c:out value="${scri.searchType eq 'c' ? 'selected' : '' }"/>>내용</option>
-					<option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' : '' }"/>>제목+내용</option>
-				</select>
-			</div>
-			
-					<input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" class="form-control">
-					<span class="input-group-btn">
-						<button id="searchBtn" type="button" class="btn btn-default">검색</button>
-					</span>
+					<select name="searchType" class="form-control">
+						<option value="n"<c:out value="${scri.searchType eq null ? 'selected' : '' }"/>>&nbsp; - - - - -</option>
+						<option value="t"<c:out value="${scri.searchType eq 't' ? 'selected' : '' }"/>>제목</option>
+						<option value="c"<c:out value="${scri.searchType eq 'c' ? 'selected' : '' }"/>>내용</option>
+						<option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' : '' }"/>>제목+내용</option>
+					</select>
 				</div>
-				<script>
-					$(function(){
-						$("#searchBtn").click(function(){
-							self.location = "getProduct_inqList.do"+'${pageMaker.makeQuery(1)}' 
-							+ "&searchType=" + $("select[name=searchType]").val() + "&keyword=" 
-							+ encodeURIComponent($('#keywordInput').val()); 
-						});
-					});
-				</script>
+			
+				<input type="text" name="keyword" id="keywordInput" size="25" value="${scri.keyword}" class="searchEngine form-control">
+				<button id="searchBtn" type="button" class="btn-default">검색</button>
+		</div>
 		
-		<table class="table table-hover">
+		<script>
+			$(function(){
+				$("#searchBtn").click(function(){
+					self.location = "getProduct_inqList.do"+'${pageMaker.makeQuery(1)}' 
+					+ "&searchType=" + $("select[name=searchType]").val() + "&keyword=" 
+					+ encodeURIComponent($('#keywordInput').val()); 
+				});
+			});
+		</script>
+		<table>
 			<tr class="product">
-				<th>글번호</td>
-				<th>제목</td>
-				<th>작성자</td>
-				<th>등록일</td>
-				<th>답변 상태</td> 
-				
-		<c:forEach items="${product_inqList}" var="product_inq">
-			<tr>
-				<td>${product_inq.inq_id}
+				<th>글번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>등록일</th>
+				<th>답변 상태</th> 		
+			</tr>
+			<c:forEach items="${product_inqList}" var="product_inq">
+			<tr class="prod_inq_post">
+				<td>${product_inq.inq_id}</td>
 				<%-- 비밀글  --%>
-				<td><c:if test="${product_inq.inq_show == 'N'}" >
-					<img src="${pageContext.request.contextPath}/images/lock.png" alt="비밀글" style="width:16px;margin: 3px;"/>
-					<c:choose>
-					<c:when test="${product_inq.inq_name eq member.member_id || member.member_grade eq '2'}"> 
-					<a href="getProduct_inq.do?inq_id=${product_inq.inq_id}"><c:out value="${product_inq.inq_title}"/></a>
-					</c:when>
-					<c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
-					</c:choose>
+				<td>
+					<c:if test="${product_inq.inq_show eq 'N'}" >
+						<img src="${pageContext.request.contextPath}/images/lock.png" alt="비밀글" style="width:16px;margin: 3px;"/>
+						<c:choose>
+							<c:when test="${product_inq.inq_name eq member.member_id || member.member_grade eq '2'}"> 
+							<a href="getProduct_inq.do?inq_id=${product_inq.inq_id}"><c:out value="${product_inq.inq_title}"/></a>
+							</c:when>
+							<c:otherwise>&nbsp;<i class="fas fa-lock"></i> 비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
+						</c:choose>
 					</c:if>
-					<c:if test="${product_inq.inq_show == 'Y'}" >
-					<a href="getProduct_inq.do?inq_id=${product_inq.inq_id}"><c:out value="${product_inq.inq_title}"/></a>
+					<c:if test="${product_inq.inq_show eq 'Y'}" >
+						<a href="getProduct_inq.do?inq_id=${product_inq.inq_id}"><c:out value="${product_inq.inq_title}"/></a>
 					</c:if>
 				</td>
-					
-				<td>${product_inq.inq_name}
-				<td><fmt:formatDate value="${product_inq.inq_date}" pattern="yyyy-MM-dd"/>	
-				<td><c:if test="${product_inq.inq_ans=='Y'}">
-					답변 완료
+				<td>${product_inq.inq_name}</td>
+				<td><fmt:formatDate value="${product_inq.inq_date}" pattern="yyyy-MM-dd"/></td>
+				<td>
+					<c:if test="${product_inq.inq_ans eq 'Y'}">
+						<div class="replied"><i class="prodIcon far fa-check-square"></i></div>
 					</c:if>
-					<c:if test="${product_inq.inq_ans=='N'}">
-					답변 대기
+					<c:if test="${product_inq.inq_ans eq 'N'}">
+						<div class="reply_pending"><i class="prodIcon far fa-clock"></i></div>
 					</c:if>
+				</td>
+			</tr>
 		</c:forEach>
-		
 		</table>
+		
 		<br>
+		
 		<div class="col-md-offset-3">
 			<ul class="pagination">
+				
 				<c:if test="${pageMaker.prev}">
 					<li><a href="getProduct_inqList${pageMaker.makeSearch(pageMaker.startPage -1)}">이전</a></li>
 				</c:if>
 				
 				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-					<li <c:out value="${pageMaker.cri.page == idx ? 'class=info ' : '' }"/>>
+					<li <c:out value="${pageMaker.cri.page eq idx ? 'class=info ' : '' }"/>>
 					<a href="getProduct_inqList.do${pageMaker.makeSearch(idx)}">${idx}</a></li>
 				</c:forEach>
 				
@@ -102,12 +102,7 @@
 				</c:if>
 			</ul>
 		</div>
-		
-		</div>
 	</form>
-	</center>
-	
 </body>
    <%@ include file="../include/Footer.jsp" %>
-
 </html>
