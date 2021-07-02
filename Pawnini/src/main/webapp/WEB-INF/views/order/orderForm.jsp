@@ -21,6 +21,8 @@
 				var finalSum = $("#finalSum").val();
 				$("#ord_total").text(Number(finalSum).toLocaleString('en'));
 				$("#ord_total2").val(finalSum);
+				
+				$("#ord_used_mileage2").val(0);
 
 				/* 배송지 정보 */
 				$("input[type=radio][name=del_info]").change(

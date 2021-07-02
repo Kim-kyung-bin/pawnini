@@ -60,6 +60,7 @@
 		SELECT *
 		FROM ORD
 		WHERE MEMBER_ID = #{member_id}
+		ORDER BY ORD_DATE DESC
 	</select>
 	
 	<!-- 상세 주문 보기 -->

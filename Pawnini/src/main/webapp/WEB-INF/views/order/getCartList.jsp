@@ -45,18 +45,17 @@
 	});
 
 	//장바구니 개별 아이템 삭제
-	function deleteCart() {
+	function deleteCart(id) {
 		var confirmVal = confirm("해당 상품을 삭제하시겠습니까?");
-
 		if (confirmVal) {
-
-			var cart_id = $("#cart_id").val();
+	
+			var cart_id = id;
 
 			$.ajax({
 				url : "deleteCart.do",
 				type : "post",
 				data : {
-					cart_id : cart_id
+					"cart_id" : cart_id
 				},
 				success : function() {
 					location.reload();
@@ -114,7 +113,7 @@
 									<!-- 아이템당 수량 *가격  = cart_total--> <fmt:formatNumber
 										pattern="###,###,###" value="${row.cart_total}" />&nbsp;원
 								<td>
-									<button type="button" id="deleteBtn" onclick="deleteCart()">삭제</button>
+									<button type="button" id="deleteBtn" onclick="deleteCart(${row.cart_id})">삭제</button>
 						</c:forEach>
 				
 				</table>
