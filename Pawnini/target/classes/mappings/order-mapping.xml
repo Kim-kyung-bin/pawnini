@@ -51,7 +51,7 @@
 		 INSERT INTO ORD_DETAILS (ORD_D_ID, ORD_ID, PRODUCT_ID, CART_AMOUNT)
                 SELECT ORD_D_SEQ.NEXTVAL, #{ord_id}, PRODUCT_ID, CART_AMOUNT
                 FROM CART
-                WHERE_MEMBER_ID = #{member_id}
+                WHERE MEMBER_ID = #{member_id}
 	]]>
 	</insert>
 	
